@@ -8,7 +8,7 @@ import 'package:FDS_ASYA_PHILIPPINES/values/values.dart';
 import 'buttons/nimbus_button.dart';
 
 class NimbusInfoSection1 extends StatelessWidget {
-  final String title1;
+  final String? title1;
   final String? title2;
   final bool hasTitle2;
   final String body;
@@ -23,7 +23,7 @@ class NimbusInfoSection1 extends StatelessWidget {
   final Widget? child;
 
   NimbusInfoSection1({
-    required this.title1,
+    this.title1 = "",
     required this.body,
     this.title2 = "",
     this.sectionTitleStyle,
@@ -55,7 +55,7 @@ class NimbusInfoSection1 extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    title1,
+                    title1!,
                     style: title1Style ?? titleStyle,
                   ),
                   hasTitle2
@@ -107,7 +107,7 @@ class NimbusInfoSection2 extends StatelessWidget {
   final Widget? child;
 
   NimbusInfoSection2({
-    required this.title1,
+    this.title1 = "",
     this.body = "",
     this.title2 = "",
     this.sectionTitleStyle,

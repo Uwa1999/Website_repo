@@ -1,6 +1,6 @@
 library values;
 
-import 'package:FDS_ASYA_PHILIPPINES/presentation/pages/home/sections/projects_section.dart';
+import 'package:FDS_ASYA_PHILIPPINES/presentation/pages/home/sections/productservices_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/presentation/pages/home/sections/statistics_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/presentation/widgets/blog_card.dart';
 import 'package:FDS_ASYA_PHILIPPINES/presentation/widgets/buttons/social_button.dart';

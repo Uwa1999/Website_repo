@@ -12,13 +12,13 @@ import 'package:responsive_builder/responsive_builder.dart';
 const double kSpacing = 28.0;
 const double kRunSpacing = 16.0;
 
-class BlogSection extends StatefulWidget {
-  BlogSection({Key? key});
+class InsightSection extends StatefulWidget {
+  InsightSection({Key? key});
   @override
-  _BlogSectionState createState() => _BlogSectionState();
+  _InsightSectionState createState() => _InsightSectionState();
 }
 
-class _BlogSectionState extends State<BlogSection> {
+class _InsightSectionState extends State<InsightSection> {
   final int blogLength = Data.blogData.length;
   double currentPageIndex = 1;
   CarouselController _carouselController = CarouselController();

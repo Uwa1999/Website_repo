@@ -10,8 +10,8 @@ class StringConst {
   static const String ABOUT = "About";
   static const String SERVICES = "Product & Services";
   // static const String AWARDS = "Awards";
-  static const String BLOG = "Insights";
-  static const String SKILLS = "Partners";
+  static const String INSIGHTS = "Insights";
+  static const String PARTNERS = "Partners";
   static const String CONTACT = "Contacts";
 
   static const String CONTACT_ME = "Contact Me";
@@ -74,8 +74,8 @@ class StringConst {
 
   //Skills Section
   static const String MY_SKILLS = "my skills";
-  static const String SKILLS_TITLE_1 = "What My Design";
-  static const String SKILLS_TITLE_2 = "Skills Include";
+  static const String SKILLS_TITLE_1 = "Our Partners";
+  // static const String SKILLS_TITLE_2 = "Skills Include";
   static const String SKILLS_DESC =
       "These are the words we live by in everything we do. Every story we tell, every brand we build, and every interaction we create must not only look beautiful.";
   static const String TOOLS_1_NAME = "Photoshop";
@@ -129,12 +129,12 @@ class StringConst {
   static const String PACKAGING = "Web";
   static const String PHOTOGRAPHY = "ATM";
   static const String WEB_DESIGN = "DCM";
-  static const String PORTFOLIO_1_TITLE = "Urban Experience";
-  static const String PORTFOLIO_2_TITLE = "Graphic Design";
-  static const String PORTFOLIO_3_TITLE = "Launch Product";
-  static const String PORTFOLIO_4_TITLE = "3D Animation";
-  static const String PORTFOLIO_5_TITLE = "Collect Idea";
-  static const String PORTFOLIO_6_TITLE = "Company Branding";
+  static const String PORTFOLIO_1_TITLE = "";
+  static const String PORTFOLIO_2_TITLE = "";
+  static const String PORTFOLIO_3_TITLE = "";
+  static const String PORTFOLIO_4_TITLE = "";
+  static const String PORTFOLIO_5_TITLE = "";
+  static const String PORTFOLIO_6_TITLE = "";
 
   //Awards & Section
   static const String MY = "My";

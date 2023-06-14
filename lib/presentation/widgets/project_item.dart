@@ -208,7 +208,7 @@ class ProjectCover extends StatelessWidget {
               Text(
                 title,
                 style: titleStyle ??
-                    textTheme.headline6?.copyWith(
+                    textTheme.headlineMedium?.copyWith(
                       color: AppColors.white,
                     ),
               ),
@@ -216,7 +216,7 @@ class ProjectCover extends StatelessWidget {
               Text(
                 subtitle,
                 style: subtitleStyle ??
-                    textTheme.subtitle2?.copyWith(
+                    textTheme.titleMedium?.copyWith(
                       color: AppColors.white,
                       fontSize: Sizes.TEXT_SIZE_16,
                     ),

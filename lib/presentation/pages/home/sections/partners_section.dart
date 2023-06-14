@@ -14,13 +14,13 @@ const double kRunSpacing = 20.0;
 const double kMainAxisSpacing = 16.0;
 const double kCrossAxisSpacing = 16.0;
 
-class SkillsSection extends StatefulWidget {
-  SkillsSection({Key? key});
+class PartnerSection extends StatefulWidget {
+  PartnerSection({Key? key});
   @override
-  _SkillsSectionState createState() => _SkillsSectionState();
+  _PartnerSectionState createState() => _PartnerSectionState();
 }
 
-class _SkillsSectionState extends State<SkillsSection>
+class _PartnerSectionState extends State<PartnerSection>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   @override
@@ -75,7 +75,7 @@ class _SkillsSectionState extends State<SkillsSection>
                       width: contentAreaWidthSm,
                       child: _buildNimbusSm(width: contentAreaWidthSm),
                     ),
-                    SpaceH40(),
+                    SpaceH20(),
                     ContentArea(
                       width: contentAreaWidthSm,
                       child: Center(
@@ -135,14 +135,14 @@ class _SkillsSectionState extends State<SkillsSection>
                     ContentArea(
                       width: contentAreaWidthLg,
                       height: contentAreaHeight,
-                      padding:
-                          EdgeInsets.symmetric(horizontal: Sizes.HEIGHT_48),
-                      child: Center(
-                        child: _buildSkillBoxes(
-                          boxHeight: 250,
-                          crossAxisCount: 2,
-                        ),
-                      ),
+                      // padding:
+                      //     EdgeInsets.symmetric(horizontal: Sizes.HEIGHT_48),
+                      // child: Center(
+                      //   child: _buildSkillBoxes(
+                      //     boxHeight: 250,
+                      //     crossAxisCount: 2,
+                      //   ),
+                      // ),
                     ),
                   ],
                 ),
@@ -154,23 +154,23 @@ class _SkillsSectionState extends State<SkillsSection>
     );
   }
 
-  List<Widget> _buildSkillSection(
-    List<SkillLevelData> skillLevels,
-    double width,
-  ) {
-    List<Widget> items = [];
-    for (int index = 0; index < skillLevels.length; index++) {
-      items.add(
-        SkillLevel(
-          skillLevelWidth: width,
-          controller: _controller,
-          skill: skillLevels[index].skill,
-          level: skillLevels[index].level,
-        ),
-      );
-    }
-    return items;
-  }
+  // List<Widget> _buildSkillSection(
+  //   List<SkillLevelData> skillLevels,
+  //   double width,
+  // ) {
+  //   List<Widget> items = [];
+  //   for (int index = 0; index < skillLevels.length; index++) {
+  //     items.add(
+  //       SkillLevel(
+  //         skillLevelWidth: width,
+  //         controller: _controller,
+  //         skill: skillLevels[index].skill,
+  //         level: skillLevels[index].level,
+  //       ),
+  //     );
+  //   }
+  //   return items;
+  // }
 
   Widget _buildSkillBoxes({
     required double boxHeight,
@@ -238,16 +238,16 @@ class _SkillsSectionState extends State<SkillsSection>
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 NimbusInfoSection1(
-                  title1: StringConst.SKILLS_TITLE_1,
-                  title2: StringConst.SKILLS_TITLE_2,
+                  // title1: StringConst.SKILLS_TITLE_1,
+                  title2: StringConst.SKILLS_TITLE_1,
                   body: StringConst.SKILLS_DESC,
-                  child: Wrap(
-                    runSpacing: kRunSpacing,
-                    children: _buildSkillSection(
-                      Data.skillLevelData,
-                      width,
-                    ),
-                  ),
+                  // child: Wrap(
+                  //   runSpacing: kRunSpacing,
+                  //   // children: _buildSkillSection(
+                  //   //   Data.skillLevelData,
+                  //   //   width,
+                  //   // ),
+                  // ),
                 ),
               ],
             ),
@@ -259,16 +259,16 @@ class _SkillsSectionState extends State<SkillsSection>
 
   Widget _buildNimbusSm({required double width}) {
     return NimbusInfoSection2(
-      title1: StringConst.SKILLS_TITLE_1,
-      title2: StringConst.SKILLS_TITLE_2,
+      // title1: StringConst.SKILLS_TITLE_1,
+      title2: StringConst.SKILLS_TITLE_1,
       body: StringConst.SKILLS_DESC,
-      child: Wrap(
-        runSpacing: kRunSpacing,
-        children: _buildSkillSection(
-          Data.skillLevelData,
-          width,
-        ),
-      ),
+      // child: Wrap(
+      //   runSpacing: kRunSpacing,
+      //   // children: _buildSkillSection(
+      //   //   Data.skillLevelData,
+      //   //   width,
+      //   // ),
+      // ),
     );
   }
 }

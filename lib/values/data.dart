@@ -235,66 +235,66 @@ class Data {
     ProjectData(
       title: StringConst.PORTFOLIO_5_TITLE,
       category: StringConst.PACKAGING,
-      projectCoverUrl: ImagePath.PORTFOLIO_5,
+      projectCoverUrl: ImagePath.PORTFOLIO_7,
       width: 0.225,
     ),
     ProjectData(
       title: StringConst.PORTFOLIO_6_TITLE,
       category: StringConst.PHOTOGRAPHY,
-      projectCoverUrl: ImagePath.PORTFOLIO_6,
+      projectCoverUrl: ImagePath.PORTFOLIO_8,
       width: 0.225,
     ),
   ];
-  static List<ProjectData> branding = [
+  static List<ProjectData> mobileApp = [
     ProjectData(
       title: StringConst.PORTFOLIO_3_TITLE,
       category: StringConst.BRANDING,
-      projectCoverUrl: ImagePath.PORTFOLIO_3,
-      width: 0.225,
+      projectCoverUrl: ImagePath.PORTFOLIO_2,
+      width: 0.220,
     ),
   ];
-  static List<ProjectData> packaging = [
+  static List<ProjectData> webApp = [
     ProjectData(
       title: StringConst.PORTFOLIO_5_TITLE,
       category: StringConst.PACKAGING,
       projectCoverUrl: ImagePath.PORTFOLIO_5,
-      width: 0.2375,
+      width: 0.220,
     ),
   ];
-  static List<ProjectData> photograhy = [
+  static List<ProjectData> atm = [
     ProjectData(
       title: StringConst.PORTFOLIO_1_TITLE,
       category: StringConst.PHOTOGRAPHY,
       projectCoverUrl: ImagePath.PORTFOLIO_1,
-      width: 0.5,
+      width: 0.220,
       mobileHeight: 0.3,
     ),
     ProjectData(
       title: StringConst.PORTFOLIO_6_TITLE,
       category: StringConst.PHOTOGRAPHY,
       projectCoverUrl: ImagePath.PORTFOLIO_6,
-      width: 0.475,
+      width: 0.220,
       mobileHeight: 0.3,
     ),
   ];
-  static List<ProjectData> webDesign = [
+  static List<ProjectData> dcm = [
     ProjectData(
       title: StringConst.PORTFOLIO_2_TITLE,
       category: StringConst.WEB_DESIGN,
       projectCoverUrl: ImagePath.PORTFOLIO_2,
-      width: 0.225,
+      width: 0.220,
     ),
     ProjectData(
       title: StringConst.PORTFOLIO_4_TITLE,
       category: StringConst.WEB_DESIGN,
       projectCoverUrl: ImagePath.PORTFOLIO_4,
-      width: 0.2375,
+      width: 0.220,
     ),
     ProjectData(
       title: StringConst.PORTFOLIO_5_TITLE,
       category: StringConst.PACKAGING,
       projectCoverUrl: ImagePath.PORTFOLIO_5,
-      width: 0.2375,
+      width: 0.220,
     ),
   ];
 }

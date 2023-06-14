@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:FDS_ASYA_PHILIPPINES/presentation/layout/adaptive.dart';
-import 'package:FDS_ASYA_PHILIPPINES/presentation/pages/home/sections/about_me_section.dart';
-import 'package:FDS_ASYA_PHILIPPINES/presentation/pages/home/sections/blog_section.dart';
+import 'package:FDS_ASYA_PHILIPPINES/presentation/pages/home/sections/about_section.dart';
+import 'package:FDS_ASYA_PHILIPPINES/presentation/pages/home/sections/insights_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/presentation/pages/home/sections/footer_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/presentation/pages/home/sections/header_section/header_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/presentation/pages/home/sections/nav_section/nav_section_mobile.dart';
 import 'package:FDS_ASYA_PHILIPPINES/presentation/pages/home/sections/nav_section/nav_section_web.dart';
-import 'package:FDS_ASYA_PHILIPPINES/presentation/pages/home/sections/projects_section.dart';
-import 'package:FDS_ASYA_PHILIPPINES/presentation/pages/home/sections/skills_section.dart';
+import 'package:FDS_ASYA_PHILIPPINES/presentation/pages/home/sections/productservices_section.dart';
+import 'package:FDS_ASYA_PHILIPPINES/presentation/pages/home/sections/partners_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/presentation/pages/home/sections/statistics_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/presentation/widgets/app_drawer.dart';
 import 'package:FDS_ASYA_PHILIPPINES/presentation/widgets/nav_item.dart';
@@ -41,8 +41,8 @@ class _HomePageState extends State<HomePage>
     NavItemData(name: StringConst.HOME, key: GlobalKey(), isSelected: true),
     NavItemData(name: StringConst.ABOUT, key: GlobalKey()),
     NavItemData(name: StringConst.SERVICES, key: GlobalKey()),
-    NavItemData(name: StringConst.SKILLS, key: GlobalKey()),
-    NavItemData(name: StringConst.BLOG, key: GlobalKey()),
+    // NavItemData(name: StringConst.PARTNERS, key: GlobalKey()),
+    NavItemData(name: StringConst.INSIGHTS, key: GlobalKey()),
   ];
 
   @override
@@ -118,12 +118,6 @@ class _HomePageState extends State<HomePage>
                 children: [
                   Stack(
                     children: [
-                      // Positioned.fill(
-                      //   child: Align(
-                      //     alignment: Alignment.center,
-                      //     child: Image.asset(ImagePath.BLOB_BEAN_ASH),
-                      //   ),
-                      // ),
                       Column(
                         children: [
                           HeaderSection(
@@ -141,7 +135,7 @@ class _HomePageState extends State<HomePage>
                             },
                             child: Container(
                               key: navItems[1].key,
-                              child: AboutMeSection(),
+                              child: AboutSection(),
                             ),
                           ),
                         ],
@@ -151,28 +145,19 @@ class _HomePageState extends State<HomePage>
                   SizedBox(height: spacerHeight),
                   Stack(
                     children: [
-                      // Positioned(
-                      //   top: assignWidth(context, 0.1),
-                      //   left: -assignWidth(context, 0.05),
-                      //   child: Image.asset(ImagePath.BLOB_FEMUR_ASH),
-                      // ),
-                      // Positioned(
-                      //   right: -assignWidth(context, 0.5),
-                      //   child: Image.asset(ImagePath.BLOB_SMALL_BEAN_ASH),
-                      // ),
                       Column(
                         children: [
                           Container(
                             key: navItems[2].key,
-                            child: ProjectsSection(),
+                            child: ProductServicesSection(),
                           ),
                           SizedBox(height: spacerHeight),
                           StatisticsSection(),
-                          SizedBox(height: spacerHeight),
-                          Container(
-                            key: navItems[3].key,
-                            child: SkillsSection(),
-                          ),
+                          // SizedBox(height: spacerHeight),
+                          // Container(
+                          //   key: navItems[3].key,
+                          //   child: PartnerSection(),
+                          // ),
                         ],
                       ),
                     ],
@@ -180,20 +165,11 @@ class _HomePageState extends State<HomePage>
                   SizedBox(height: spacerHeight),
                   Stack(
                     children: [
-                      // Positioned(
-                      //   left: -assignWidth(context, 0.6),
-                      //   child: Image.asset(ImagePath.BLOB_ASH),
-                      // ),
                       Column(
                         children: [
-                          // Container(
-                          //   key: navItems[4].key,
-                          //   child: AwardsSection(),
-                          // ),
-                          // SpaceH40(),
                           Container(
-                            key: navItems[4].key,
-                            child: BlogSection(),
+                            key: navItems[3].key,
+                            child: InsightSection(),
                           ),
                           FooterSection(),
                         ],

@@ -23,23 +23,23 @@ class ProjectCategoryData {
   });
 }
 
-class ProjectsSection extends StatefulWidget {
-  ProjectsSection({Key? key});
+class ProductServicesSection extends StatefulWidget {
+  ProductServicesSection({Key? key});
 
   @override
-  _ProjectsSectionState createState() => _ProjectsSectionState();
+  _ProductServicesSectionState createState() => _ProductServicesSectionState();
 }
 
-class _ProjectsSectionState extends State<ProjectsSection>
+class _ProductServicesSectionState extends State<ProductServicesSection>
     with SingleTickerProviderStateMixin {
   late AnimationController _projectController;
   late Animation<double> _projectScaleAnimation;
   List<List<ProjectData>> projects = [
     Data.allProjects,
-    Data.branding,
-    Data.packaging,
-    Data.photograhy,
-    Data.webDesign,
+    Data.mobileApp,
+    Data.webApp,
+    Data.atm,
+    Data.dcm,
   ];
   late List<ProjectData> selectedProject;
   late List<ProjectCategoryData> projectCategories;

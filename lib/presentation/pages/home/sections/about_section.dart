@@ -14,13 +14,13 @@ const double kRunSpacingSm = 24.0;
 const double kSpacingLg = 24.0;
 const double kRunSpacingLg = 16.0;
 
-class AboutMeSection extends StatefulWidget {
-  AboutMeSection({Key? key});
+class AboutSection extends StatefulWidget {
+  AboutSection({Key? key});
   @override
-  _AboutMeSectionState createState() => _AboutMeSectionState();
+  _AboutSectionState createState() => _AboutSectionState();
 }
 
-class _AboutMeSectionState extends State<AboutMeSection>
+class _AboutSectionState extends State<AboutSection>
     with TickerProviderStateMixin {
   late AnimationController _scaleController;
   late Animation<double> _scaleAnimation;
