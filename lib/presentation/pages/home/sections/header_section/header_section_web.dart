@@ -5,11 +5,8 @@ import 'package:FDS_ASYA_PHILIPPINES/presentation/layout/adaptive.dart';
 import 'package:FDS_ASYA_PHILIPPINES/presentation/pages/home/sections/header_section/widgets.dart';
 import 'package:FDS_ASYA_PHILIPPINES/presentation/widgets/buttons/nimbus_button.dart';
 import 'package:FDS_ASYA_PHILIPPINES/presentation/widgets/content_area.dart';
-import 'package:FDS_ASYA_PHILIPPINES/presentation/widgets/buttons/nimbus_button_link.dart';
 import 'package:FDS_ASYA_PHILIPPINES/presentation/widgets/spaces.dart';
-import 'package:FDS_ASYA_PHILIPPINES/utils/functions.dart';
 import 'package:FDS_ASYA_PHILIPPINES/values/values.dart';
-import 'package:responsive_builder/responsive_builder.dart';
 
 const double bodyTextSizeLg = 16.0;
 const double bodyTextSizeSm = 14.0;
@@ -101,10 +98,12 @@ class _HeaderSectionWebState extends State<HeaderSectionWeb>
             children: [
               Stack(
                 children: [
-                  // Image.asset(
-                  //   ImagePath.HOME_BACKGROUND,
-                  //   color: AppColors.accentColor100.withOpacity(0.9),
-                  //   colorBlendMode: BlendMode.modulate,
+                  // Container(
+                  //   child: Image.asset(
+                  //     ImagePath.HOME_BACKGROUND,
+                  //     // color: AppColors.accentColor100.withOpacity(0.9),
+                  //     // colorBlendMode: BlendMode.modulate,
+                  //   ),
                   // ),
                   Container(
                     margin: EdgeInsets.only(
@@ -195,7 +194,7 @@ class _HeaderSectionWebState extends State<HeaderSectionWeb>
                   ),
                 ],
               ),
-              SizedBox(height: 120),
+              SizedBox(height: 100),
               Container(
                 // margin: EdgeInsets.only(left: (sizeOfBlobSm * 0.35)),
                 child: Row(

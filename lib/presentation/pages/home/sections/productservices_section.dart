@@ -158,7 +158,7 @@ class _ProductServicesSectionState extends State<ProductServicesSection>
                     alignment: Alignment.center,
                     width: widthOfScreen(context),
                     child: Wrap(
-                      spacing: assignWidth(context, 0.025),
+                      spacing: assignWidth(context, 0.020),
                       runSpacing: assignWidth(context, 0.025),
                       children: _buildProjects(selectedProject),
                     ),
@@ -196,7 +196,6 @@ class _ProductServicesSectionState extends State<ProductServicesSection>
 
   List<Widget> _buildProjectCategories(List<ProjectCategoryData> categories) {
     List<Widget> items = [];
-
     for (int index = 0; index < categories.length; index++) {
       items.add(
         ProjectCategory(
@@ -233,7 +232,6 @@ class _ProductServicesSectionState extends State<ProductServicesSection>
         ),
       );
     }
-
     return items;
   }
 

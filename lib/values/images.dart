@@ -7,7 +7,7 @@ class ImagePath {
 
   // Background
 
-  static const String HOME_BACKGROUND = "$imageDir/sample_bg.jpg";
+  static const String HOME_BACKGROUND = "$imageDir/background_num1.jpg";
 
   // Logo
   static const String LOGO_FDSAP = "$imageDir/logo_fdsap.png";
