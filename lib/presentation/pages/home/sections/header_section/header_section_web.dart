@@ -98,13 +98,13 @@ class _HeaderSectionWebState extends State<HeaderSectionWeb>
             children: [
               Stack(
                 children: [
-                  // Container(
-                  //   child: Image.asset(
-                  //     ImagePath.HOME_BACKGROUND,
-                  //     // color: AppColors.accentColor100.withOpacity(0.9),
-                  //     // colorBlendMode: BlendMode.modulate,
-                  //   ),
-                  // ),
+                  Container(
+                    child: Image.asset(
+                      ImagePath.HOME_BACKGROUND,
+                      // color: AppColors.accentColor100.withOpacity(0.9),
+                      // colorBlendMode: BlendMode.modulate,
+                    ),
+                  ),
                   Container(
                     margin: EdgeInsets.only(
                         top: heightOfStack * 0.15, left: (sizeOfBlobSm * 0.35)),
