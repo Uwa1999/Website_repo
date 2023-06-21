@@ -1,9 +1,8 @@
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/routes/router.gr.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/app_theme.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/strings.dart';
 import 'package:flutter/material.dart';
 import 'package:layout/layout.dart';
-import 'package:FDS_ASYA_PHILIPPINES/presentation/routes/router.gr.dart';
-import 'package:FDS_ASYA_PHILIPPINES/values/values.dart';
-
-import 'app_theme.dart';
 
 void main() {
   runApp(Fdsap());
