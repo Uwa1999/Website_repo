@@ -1,6 +1,5 @@
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/responsive.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/images.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/sizes.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/buttons/social_button.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/circular_container.dart';
@@ -41,23 +40,23 @@ class _HeaderImageState extends State<HeaderImage> {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Positioned(
-          left: 0,
-          child: RotationTransition(
-            turns: widget.controller,
-            child: Image.asset(
-              ImagePath.DOTS_GLOBE_GREY,
-              height: widget.globeSize,
-              width: widget.globeSize,
-            ),
-          ),
-        ),
-        Image.asset(
-          ImagePath.DEV_HEADER,
-          width: widget.imageWidth,
-          height: widget.imageHeight,
-          fit: widget.fit,
-        ),
+        // Positioned(
+        //   left: 0,
+        //   // child: RotationTransition(
+        //   //   turns: widget.controller,
+        //   //   child: Image.asset(
+        //   //   //  ImagePath.DOTS_GLOBE_GREY,
+        //   //    // height: widget.globeSize,
+        //   // //    width: widget.globeSize,
+        //   //   ),
+        //   // ),
+        // ),
+        // Image.asset(
+        //   ImagePath.DEV_HEADER,
+        //   width: widget.imageWidth,
+        //   height: widget.imageHeight,
+        //   fit: widget.fit,
+        // ),
       ],
     );
   }
@@ -97,7 +96,6 @@ List<Widget> buildCardRow({
   bool isWrap = false,
   bool hasAnimation = true,
 }) {
-  TextTheme textTheme = Theme.of(context).textTheme;
   List<Widget> items = [];
 
   double cardWidth = responsiveSize(
@@ -108,8 +106,8 @@ List<Widget> buildCardRow({
   );
   double iconSize = responsiveSize(
     context,
-    Sizes.ICON_SIZE_18,
-    Sizes.ICON_SIZE_24,
+    Sizes.ICON_SIZE_14,
+    Sizes.ICON_SIZE_20,
   );
   double trailingIconSize = responsiveSize(
     context,
@@ -123,8 +121,8 @@ List<Widget> buildCardRow({
         width: width,
         height: responsiveSize(
           context,
-          125,
-          140,
+          110,
+          110,
         ),
         hasAnimation: hasAnimation,
         leading: CircularContainer(
@@ -144,6 +142,7 @@ List<Widget> buildCardRow({
                 Sizes.TEXT_SIZE_20,
                 Sizes.TEXT_SIZE_30,
               ),
+              color: AppColors.black,
             ),
           ),
         ),

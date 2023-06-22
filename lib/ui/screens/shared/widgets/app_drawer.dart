@@ -3,7 +3,6 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/responsive.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/images.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/sizes.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/strings.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
@@ -141,38 +140,38 @@ class _AppDrawerState extends State<AppDrawer> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Center(
-          child: SelectableText.rich(
-            TextSpan(
-              text: StringConst.RIGHTS_RESERVED + " ",
-              style: footerTextStyle,
-              children: [
-                TextSpan(text: StringConst.DESIGNED_BY + " "),
-                TextSpan(
-                  text: StringConst.WEB_GENIUS_LAB,
-                  style: footerTextStyle?.copyWith(
-                    decoration: TextDecoration.underline,
-                    fontWeight: FontWeight.w900,
-                    color: AppColors.white,
-                  ),
-                ),
-              ],
-            ),
-            textAlign: TextAlign.center,
-          ),
-        ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            RichText(
-              text: TextSpan(
-                text: StringConst.BUILT_BY + " ",
-                style: footerTextStyle,
-                children: [],
-              ),
-            ),
-          ],
-        ),
+        // Center(
+        //   child: SelectableText.rich(
+        //     TextSpan(
+        //       text: StringConst.RIGHTS_RESERVED + " ",
+        //       style: footerTextStyle,
+        //       children: [
+        //         TextSpan(text: StringConst.DESIGNED_BY + " "),
+        //         TextSpan(
+        //           text: StringConst.WEB_GENIUS_LAB,
+        //           style: footerTextStyle?.copyWith(
+        //             decoration: TextDecoration.underline,
+        //             fontWeight: FontWeight.w900,
+        //             color: AppColors.white,
+        //           ),
+        //         ),
+        //       ],
+        //     ),
+        //     textAlign: TextAlign.center,
+        //   ),
+        // ),
+        // Row(
+        //   mainAxisAlignment: MainAxisAlignment.center,
+        //   children: [
+        //     RichText(
+        //       text: TextSpan(
+        //         text: StringConst.BUILT_BY + " ",
+        //         style: footerTextStyle,
+        //         children: [],
+        //       ),
+        //     ),
+        //   ],
+        // ),
       ],
     );
   }

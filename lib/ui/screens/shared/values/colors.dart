@@ -52,7 +52,22 @@ class AppColors {
   static const Color grey250 = Color(0xFFBBBBBB);
   static const Color grey300 = Color(0xFFBABABA);
   static const Color grey350 = Color(0xFFADADAD);
+
   //Red
   static const Color red = Color(0xFFF1291A);
+
+  //Maroon
+  static const Color maroon01 = Color(0xFF250902);
+  static const Color maroon02 = Color(0xFF300000);
+  static const Color maroon03 = Color(0xFF4F0000);
+  static const Color maroon04 = Color(0xFF800000);
+  static const Color maroon05 = Color(0xFF800000);
   static const Color maroon450 = Color(0xFF94201f);
+
+  //Primary Colors
+
+  static const kPrimaryColor = Color(0XFF88C54D);
+  static const kSecondaryColor = Color(0XFFFFC906);
+  static const kTextColor = Color(0XFF282828);
+  static const wTextColor = Color(0XFFFFFFF);
 }

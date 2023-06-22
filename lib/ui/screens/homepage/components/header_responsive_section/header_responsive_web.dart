@@ -186,20 +186,20 @@ class _HeaderResponsiveWebState extends State<HeaderResponsiveWeb> with SingleTi
                   ),
                 ],
               ),
-              SizedBox(height: 100),
-              Container(
-                // margin: EdgeInsets.only(left: (sizeOfBlobSm * 0.35)),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    ...buildCardRow(
-                      context: context,
-                      data: Data.nimbusCardData,
-                      width: contentAreaWidth / 3.8,
-                    ),
-                  ],
-                ),
-              ),
+              // SizedBoxH10(),
+              // Container(
+              //   // margin: EdgeInsets.only(left: (sizeOfBlobSm * 0.35)),
+              //   child: Row(
+              //     mainAxisAlignment: MainAxisAlignment.center,
+              //     children: [
+              //       ...buildCardRow(
+              //         context: context,
+              //         data: Data.nimbusCardData,
+              //         width: contentAreaWidth / 3.8,
+              //       ),
+              //     ],
+              //   ),
+              // ),
             ],
           ),
         ],

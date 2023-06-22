@@ -14,12 +14,11 @@ class StringConst {
   static const String PARTNERS = "Partners";
   static const String CONTACT = "Contacts";
 
-  static const String CONTACT_ME = "Contact Us";
-  static const String DEV_EMAIL = "davidcobbina47@gmail.com";
+  static const String CONTACT_US = "Contact Us";
+  static const String DEV_EMAIL = "fdsap@fortress-asya.com";
   static const String EMAIL_URL = "mailto:<$DEV_EMAIL>?subject=&body=";
 
   //Header Section
-  static const String FIRST_NAME = "Ameli";
   static const String INTRO = "Leading Technology-based";
   static const String INTRO2 = "Service Provider in the";
   static const String INTRO3 = "ASEAN Region";
@@ -29,17 +28,16 @@ class StringConst {
   static const String DOWNLOAD_CV = "Download Company Profile";
   static const String LEARN_MORE = "LEARN MORE";
   static const String EMAIL = "Email";
-  static const String DEV_EMAIL_2 = "nimbus2000@mail.com";
   static const String BEHANCE = "Behance";
-  static const String BEHANCE_ID = "behance.net/nimbus200";
-  static const String HIRE_ME_NOW = "Hire Me Now";
-  static const String UI_UX = "WE LISTEN";
-  static const String UI_UX_DESC = "creative websites for you";
-  static const String PHOTOGRAPHER = "WE ANTICIPATE";
-  static const String PHOTOGRAPHER_DESC = "Awesome photo & video";
-  static const String FREELANCER = "WE DELIVER";
-  static const String FREELANCER_DESC = "You can hire me now";
 
+  static const String WE_LISTEN = "WE LISTEN";
+  static const String WE_LISTEN_DESC = " ";
+  static const String WE_ANTICIPATE = "WE ANTICIPATE";
+  static const String WE_ANTICIPATE_DESC = " ";
+  static const String WE_DELIVER = "WE DELIVER";
+  static const String WE_DELIVER_DESC = " ";
+
+//Programming Language
   static const String PYTHON = "Python";
   static const String JAVA = "Java";
   static const String C_PLUS_PLUS = "C++";
@@ -48,10 +46,7 @@ class StringConst {
   static const String CSS = "CSS";
 
   //AboutMe Section
-  static const String HI = "Hi";
-  static const String THERE = "There!";
-  // static const String ABOUT_ME = "about me";
-  static const String ABOUT_ME_DESC = "The FDS ASYA PHILIPPINES INC. (FDSAP) is wholly owned company of FDS Asya Pte. Ltd., a joint venture of CARD MRI and Fortress Data Services Indonesia (FDSI). FDSAP was established and registered on August 16, 2016. These two institutions who shares the same vision were working collaboratively with each other since 2014.";
+  static const String ABOUT_ME_DESC = '''The FDS ASYA PHILIPPINES INC. (FDSAP) is wholly owned company of FDS Asya Pte. Ltd., a joint venture of CARD MRI and Fortress Data Services Indonesia (FDSI). FDSAP was established and registered on August 16, 2016. These two institutions who shares the same vision were working collaboratively with each other since 2014.''';
   static const String ABOUT_ME_DESC_1 = "Product Designer and Digital Creative Director working in design ";
   static const String ABOUT_ME_DESC_2 = "field for 13 years so far, specialized in UI/UX, Branding and digital";
   static const String ABOUT_ME_DESC_3 = "designs. These are the words we live by in everything we do. Every";
@@ -66,7 +61,6 @@ class StringConst {
   //Skills Section
   static const String MY_SKILLS = "my skills";
   static const String SKILLS_TITLE_1 = "Our Partners";
-  // static const String SKILLS_TITLE_2 = "Skills Include";
   static const String SKILLS_DESC = "These are the words we live by in everything we do. Every story we tell, every brand we build, and every interaction we create must not only look beautiful.";
   static const String TOOLS_1_NAME = "Photoshop";
   static const String TOOLS_1_PROFICIENCY = "80%";
@@ -97,18 +91,13 @@ class StringConst {
   static const String API_CALLS_PER_DAY_NUM = "1000";
   static const String COUNTRIES = "Countries";
   static const String COUNTRIES_NUM = "65";
-  // static const String INCREDIBLE_PROJECTS = "Incredible Projects";
-  // static const String INCREDIBLE_PROJECTS_NUM = "230";
-  // static const String AWARD_WINNING = "Award Winning";
-  // static const String AWARD_WINNING_NUM = "18";
 
   static const String TITLE_STATS = "Leading Banking Partner";
 
-  //Projects Section
-  static const String MEET_MY_PROJECTS = "Our Products & Services";
+  //Products & Services Section
+  static const String PRODUCT_AND_SERVICES = "Products & Services";
   static const String MY_WORKS = "my works";
-  static const String PROJECTS_DESC = "FDSAP has the following systems and applications where clients can choose from:";
-  static const String ALL_PRODUCTS = "All Projects";
+  static const String PRODUCT_AND_SERVICES_DESC = "FDSAP has the following systems and applications where clients can choose from:";
   static const String ALL = "All";
   static const String MOBILE_APP = "Mobile App";
   static const String WEB = "Web";
@@ -140,86 +129,83 @@ class StringConst {
   static const String AWARDS_9 = "For Print Only-Under consideration";
   static const String AWARDS_10 = "CI Magazine 2017";
 
-  //Brands Section
-  static const String BRANDS_SECTION_TITLE = "Brands I've worked with";
-  static const String HIRE_ME = "Hire me";
+  //Insights Section
+  static const String INSIGHTS_TITLE_1 = "Insights";
+  static const String INSIGHTS_TITLE_2 = "Articles & Events";
+  static const String INSIGHTS_DESC = "We met years ago at an advertising agency where we learned a ton of dos and some don'ts. There were project deadlines, happy hours, client proposals and a few sparks flying.";
+  static const String INSIGHTS_VIEW_ALL = "View All";
+  static const String INSIGHTS_CATEGORY_1 = "Article";
+  static const String INSIGHTS_CATEGORY_2 = "Event";
+  static const String INSIGHTS_CATEGORY_3 = "Webinars";
+  static const String INSIGHTS_CATEGORY_4 = " ";
+  static const String INSIGHTS_CATEGORY_5 = " ";
+  static const String INSIGHTS_CATEGORY_6 = " ";
 
-  //Testimonials Section
-  static const String MY_TESTIMONIALS = "my testimonials";
-  static const String TESTIMONIALS_SECTION_TITLE = "Client Testimonials";
-  static const String TESTIMONIALS_1_NAME = "Arnold Wilson";
-  static const String TESTIMONIALS_1_POSITION = "PHP Developer";
-  static const String TESTIMONIALS_1 = "Ameli has quickly become an indispensable partner in capturing the innovation in our products in a way that best represents our brand voice. She bring fresh ideas and challenges to the way our industry typically markets products. An integrated marketing campaign supporting a major 2015 product launch exceeded goals by as much as 300%.";
-  static const String TESTIMONIALS_2_NAME = "Ronald Green";
-  static const String TESTIMONIALS_2_POSITION = "UI Designer";
-  static const String TESTIMONIALS_2 = "What a fantastic day it's been at Max Nimbus! Huge shutout to the team for connecting us all and making this amazing event possible. She bring fresh ideas and challenges to the way our industry typically markets products. This year I brought friends. Come say hi! Development is one of our values & a theme of Max Nimbus talks.";
+  //Article Description
+  static const String ARTICLE_DATE = "February 4, 2023";
+  static const String ARTICLE_TITLE_1 = "konek2CARD PLUS";
+  static const String ARTICLE_TITLE_2 = " ";
+  static const String ARTICLE_TITLE_3 = " ";
+  static const String ARTICLE_SUBTITLE_1 = "CARD MRI launched the konek2CARD PLUS, a mobile application that allows the clients of CARD MRI to enjoy a hassle-free banking transaction anytime, anywhere using their smartphones.";
+  static const String ARTICLE_SUBTITLE_2 = "CARD MRI launched the konek2CARD PLUS, a mobile application that allows the clients of CARD MRI to enjoy a hassle-free banking transaction anytime, anywhere using their smartphones.";
+  static const String ARTICLE_SUBTITLE_3 = "CARD MRI launched the konek2CARD PLUS, a mobile application that allows the clients of CARD MRI to enjoy a hassle-free banking transaction anytime, anywhere using their smartphones.";
+  static const String ARTICLE_READ_MORE = "Read More";
+  static const String ARTICLES = "Blogging";
 
-  //Blog Section
-  // static const String MY_BLOG = "my blog";
-  static const String BLOG_SECTION_TITLE_1 = "Read My Own";
-  static const String BLOG_SECTION_TITLE_2 = "Articles & Events";
-  static const String BLOG_DESC = "We met years ago at an advertising agency where we learned a ton of dos and some don'ts. There were project deadlines, happy hours, client proposals and a few sparks flying.";
-  static const String BLOG_VIEW_ALL = "View All";
-  static const String BLOG_CATEGORY_1 = "Article";
-  static const String BLOG_CATEGORY_2 = "Event";
-  static const String BLOG_CATEGORY_3 = "Article";
-  static const String BLOG_CATEGORY_4 = "Events";
-  static const String BLOG_CATEGORY_5 = "Events";
-  static const String BLOG_CATEGORY_6 = "Events";
-  static const String BLOG_DATE = "February 4, 2023";
-  static const String BLOG_TITLE_1 = "konek2CARD PLUS";
-  static const String BLOG_TITLE_2 = "konek2CARD PLUS";
-  static const String BLOG_TITLE_3 = "konek2CARD PLUS";
-  static const String BLOG_SUBTITLE_1 = "CARD MRI launched the konek2CARD PLUS, a mobile application that allows the clients of CARD MRI to enjoy a hassle-free banking transaction anytime, anywhere using their smartphones.";
-  static const String BLOG_SUBTITLE_2 = "CARD MRI launched the konek2CARD PLUS, a mobile application that allows the clients of CARD MRI to enjoy a hassle-free banking transaction anytime, anywhere using their smartphones.";
-  static const String BLOG_SUBTITLE_3 = "CARD MRI launched the konek2CARD PLUS, a mobile application that allows the clients of CARD MRI to enjoy a hassle-free banking transaction anytime, anywhere using their smartphones.";
-  static const String READ_MORE = "Read More";
-  static const String BLOGGING = "Blogging";
+  //Events Description
+  static const String EVENTS_DATE = "February 14, 2023";
+  static const String EVENTS_TITLE_1 = "konek2CARD PLUS";
+  static const String EVENTS_TITLE_2 = " ";
+  static const String EVENTS_TITLE_3 = " ";
+  static const String EVENTS_SUBTITLE_1 = "CARD MRI launched the konek2CARD PLUS, a mobile application that allows the clients of CARD MRI to enjoy a hassle-free banking transaction anytime, anywhere using their smartphones.";
+  static const String EVENTS_SUBTITLE_2 = "CARD MRI launched the konek2CARD PLUS, a mobile application that allows the clients of CARD MRI to enjoy a hassle-free banking transaction anytime, anywhere using their smartphones.";
+  static const String EVENTS_SUBTITLE_3 = "CARD MRI launched the konek2CARD PLUS, a mobile application that allows the clients of CARD MRI to enjoy a hassle-free banking transaction anytime, anywhere using their smartphones.";
+  static const String EVENTS_READ_MORE = "Read More";
+  static const String EVENTS = "Blogging";
+
+  //Webinars Description
+  static const String WEBINARS_DATE = "February 25, 2023";
+  static const String WEBINARS_TITLE_1 = "konek2CARD PLUS";
+  static const String WEBINARS_TITLE_2 = " ";
+  static const String WEBINARS_TITLE_3 = " ";
+  static const String WEBINARS_SUBTITLE_1 = "CARD MRI launched the konek2CARD PLUS, a mobile application that allows the clients of CARD MRI to enjoy a hassle-free banking transaction anytime, anywhere using their smartphones.";
+  static const String WEBINARS_SUBTITLE_2 = "CARD MRI launched the konek2CARD PLUS, a mobile application that allows the clients of CARD MRI to enjoy a hassle-free banking transaction anytime, anywhere using their smartphones.";
+  static const String WEBINARS_SUBTITLE_3 = "CARD MRI launched the konek2CARD PLUS, a mobile application that allows the clients of CARD MRI to enjoy a hassle-free banking transaction anytime, anywhere using their smartphones.";
+  static const String WEBINARS_READ_MORE = "Read More";
+  static const String WEBINARS = "Blogging";
 
   //Footer Section
-  static const String LETS_TALK = "Let's Talk!";
-  static const String PHONE_ME = "Phone Me";
-  static const String PHONE_NUMBER = "+1 800 123 456 789";
-  static const String MAIL_ME = "Mail Me";
-  static const String FOLLOW_ME_2 = "Follow Me";
-  static const String FOLLOW_ME_2_URL = "behance.net/nimbus2000";
-  static const String RIGHTS_RESERVED = "© 2023 All rights reserved";
-  static const String BUILT_BY = "Built with Flutter";
-  static const String DAVID_COBBINA = "";
-  static const String DESIGNED_BY = "Designed by";
-  static const String WEB_GENIUS_LAB = "FDSAP";
-  static const String MADE_IN_GHANA = "";
-  static const String WITH_LOVE = "";
-  static const String FIND_ME = "";
+  static const String ABOUT_FDS_ASYA_FOOTER0 = "FDS ASYA PHILIPPINES INC.";
+  static const String ABOUT_FDS_ASYA_FOOTER1 = '''FDSAP is a trustworthy and reliable
+shared services provider of
+world-class banking applications
+for banks and financial services''';
 
-  // Footer End
-  static const String FDS_ASYA_PH = "FDS ASYA PHILIPPINES INC.";
-  static const String ABOUT_FDS_ASYA_PH1 = "FDSAP is a trustworthy and reliable";
-  static const String ABOUT_FDS_ASYA_PH2 = "shared services provider of world -";
-  static const String ABOUT_FDS_ASYA_PH3 = "class banking applications for banks";
-  static const String ABOUT_FDS_ASYA_PH4 = "and financial services";
-  static const String ABOUT_FDS_ASYA_PH5 = "Core Banking Solutions";
-  static const String ABOUT_FDS_ASYA_PH6 = "Cyber Security & Fraud";
-  static const String ABOUT_FDS_ASYA_PH7 = "Digipay";
-  static const String ABOUT_FDS_ASYA_PH8 = "Business Analytics & AI";
-  static const String ABOUT_FDS_ASYA_PH9 = "About";
-  static const String ABOUT_FDS_ASYA_PH10 = "Contact";
-  static const String ABOUT_FDS_ASYA_PH11 = "Our Approach";
-  static const String ABOUT_FDS_ASYA_PH12 = "Latest Article & News";
+  static const String ABOUT_FDS_ASYA_FOOTER2 = '''Core Banking Solutions
+Cyber Security & Fraud
+Digipay
+Business Analytics & AI''';
+  static const String ABOUT_FDS_ASYA_FOOTER3 = '''About
+Contact
+Our Approach
+Latest Article & News''';
+  static const String ABOUT_FDS_ASYA_FOOTER4 = " ";
+  static const String ABOUT_FDS_ASYA_FOOTER5 = " ";
+  static const String ABOUT_FDS_ASYA_FOOTER6 = " ";
+  static const String ABOUT_FDS_ASYA_FOOTER7 = " ";
+  static const String ABOUT_FDS_ASYA_FOOTER8 = " ";
+  static const String ABOUT_FDS_ASYA_FOOTER9 = " ";
+  static const String ABOUT_FDS_ASYA_FOOTER10 = " ";
+  static const String ABOUT_FDS_ASYA_FOOTER11 = " ";
+  static const String ABOUT_FDS_ASYA_FOOTER12 = " ";
 
   // Locations
-
   static const String OUR_LOCATION = "Our Location";
 
   //URL Links
-  static const String WEB_GENIUS_LAB_URL = "https://webgeniuslab.net/";
-  static const String BEHANCE_URL = "https://www.behance.net/";
-  static const String DRIBBLE_URL = "https://dribbble.com/";
-  static const String LINKED_IN_URL = "https:linkedin.com/in/";
-  static const String INSTAGRAM_URL = "https://www.instagram.com/";
+  static const String LINKED_IN_URL = "https:linkedin.com/";
   static const String GITHUB_URL = "https://github.com/";
   static const String FACEBOOK_URL = "https://facebook.com/";
+  static const String INSTAGRAM_URL = "https://www.instagram.com/";
   static const String TWITTER_URL = "http://twitter.com/";
-  static const String DAVID_LEGEND_URL = "https://davidcobbina.com/#/";
-  static const String DESIGN_URL = "https://www.behance.net/gallery/95351691/Resume-Design-03";
 }

@@ -4,7 +4,7 @@
 //
 // import 'package:FDS_ASYA_PHILIPPINES/presentation/pages/homepage/components/productservices_section.dart';
 // import 'package:FDS_ASYA_PHILIPPINES/presentation/pages/homepage/components/statistics_section.dart';
-// import 'package:FDS_ASYA_PHILIPPINES/presentation/widgets/blog_card.dart';
+// import 'package:FDS_ASYA_PHILIPPINES/presentation/widgets/insights_card.dart';
 // import 'package:FDS_ASYA_PHILIPPINES/presentation/widgets/buttons/social_button.dart';
 // import 'package:FDS_ASYA_PHILIPPINES/presentation/widgets/buttons/social_button_2.dart';
 // import 'package:FDS_ASYA_PHILIPPINES/presentation/widgets/nimbus_card.dart';

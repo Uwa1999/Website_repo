@@ -11,11 +11,11 @@ class NimbusButton extends StatelessWidget {
     this.height = Sizes.HEIGHT_60,
     this.titleStyle,
     this.titleColor = AppColors.white,
-    this.buttonColor = AppColors.black400,
+    this.buttonColor = AppColors.maroon03,
     this.onPressed,
     this.padding = const EdgeInsets.all(Sizes.PADDING_8),
     this.borderRadius = const BorderRadius.all(
-      Radius.circular(Sizes.RADIUS_4),
+      Radius.circular(Sizes.RADIUS_10),
     ),
     this.opensUrl = false,
     this.url = "",
@@ -29,6 +29,7 @@ class NimbusButton extends StatelessWidget {
   final TextStyle? titleStyle;
   final Color titleColor;
   final Color buttonColor;
+
   final BorderRadius? borderRadius;
   final EdgeInsetsGeometry padding;
   final String url;

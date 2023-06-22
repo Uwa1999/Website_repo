@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'animated_line_through.dart';
 import 'buttons/animated_nimbus_button.dart';
 
-class BlogCardData {
+class InsightsData {
   final String category;
   final String date;
   final String title;
@@ -15,7 +15,7 @@ class BlogCardData {
   final String buttonText;
   final String imageUrl;
 
-  BlogCardData({
+  InsightsData({
     required this.category,
     required this.title,
     required this.subtitle,
@@ -25,8 +25,8 @@ class BlogCardData {
   });
 }
 
-class BlogCard extends StatefulWidget {
-  BlogCard({
+class InsightsCard extends StatefulWidget {
+  InsightsCard({
     required this.category,
     required this.title,
     required this.subtitle,
@@ -40,7 +40,7 @@ class BlogCard extends StatefulWidget {
     this.width,
     this.imageWidth,
     this.imageHeight,
-    this.buttonColor = AppColors.maroon450,
+    this.buttonColor = AppColors.maroon03,
     this.buttonIcon = Icons.chevron_right,
     this.dateIcon = Icons.date_range,
     this.onPressed,
@@ -65,10 +65,10 @@ class BlogCard extends StatefulWidget {
   final VoidCallback? onPressed;
 
   @override
-  _BlogCardState createState() => _BlogCardState();
+  _InsightsCardState createState() => _InsightsCardState();
 }
 
-class _BlogCardState extends State<BlogCard> {
+class _InsightsCardState extends State<InsightsCard> {
   bool _isHoveringOnImage = false;
 
   Color startValue = Colors.black.withOpacity(0.5);
@@ -156,7 +156,7 @@ class _BlogCardState extends State<BlogCard> {
                   children: [
                     Icon(
                       widget.dateIcon,
-                      color: AppColors.maroon450,
+                      color: AppColors.maroon04,
                     ),
                     SizedBoxW8(),
                     Text(

@@ -1,6 +1,5 @@
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/functions.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/responsive.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/data.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/images.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/shadows.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/sizes.dart';
@@ -97,7 +96,7 @@ class _NavSectionWebState extends State<NavSectionWeb> {
                 } else {
                   return Row(
                     children: [
-                      ..._buildSocialIcons(Data.socialData),
+                      //   ..._buildSocialIcons(Data.socialData),
                       SizedBoxW20(),
                     ],
                   );
@@ -107,7 +106,7 @@ class _NavSectionWebState extends State<NavSectionWeb> {
             NimbusVerticalDivider(),
             SizedBox(width: contactBtnSpaceLeft),
             NimbusButton(
-              buttonTitle: StringConst.CONTACT_ME,
+              buttonTitle: StringConst.CONTACT_US,
               width: contactBtnWidth,
               opensUrl: true,
               url: StringConst.EMAIL_URL,

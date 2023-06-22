@@ -1,25 +1,21 @@
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/sizes.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/sizedbox.dart';
 import 'package:flutter/material.dart';
-
-import 'animated_indicator.dart';
 
 class ProjectData {
   final String projectCoverUrl;
-  final String title;
-  final String category;
+  final String? title;
+  final String? category;
   final double width;
   final double height;
   final double mobileWidth;
   final double mobileHeight;
-  final GestureTapCallback? onTap;
+  final VoidCallback? onPressed;
 
   ProjectData({
-    this.onTap,
+    this.onPressed,
     required this.projectCoverUrl,
-    required this.title,
-    required this.category,
+    this.title,
+    this.category,
     required this.width,
     this.mobileHeight = 0.5,
     this.mobileWidth = 1.0,
@@ -30,8 +26,8 @@ class ProjectData {
 class ProjectItem extends StatefulWidget {
   const ProjectItem({
     Key? key,
-    required this.title,
-    required this.subtitle,
+    this.title,
+    this.subtitle,
     required this.imageUrl,
     required this.width,
     required this.height,
@@ -43,8 +39,8 @@ class ProjectItem extends StatefulWidget {
     this.bannerColor,
   }) : super(key: key);
 
-  final String title;
-  final String subtitle;
+  final String? title;
+  final String? subtitle;
   final TextStyle? titleStyle;
   final TextStyle? subtitleStyle;
   final String imageUrl;
@@ -113,39 +109,39 @@ class _ProjectItemState extends State<ProjectItem> with TickerProviderStateMixin
     return MouseRegion(
       onEnter: (e) => _mouseEnter(true),
       onExit: (e) => _mouseEnter(false),
-      child: Container(
-        child: Stack(
-          children: [
-            GestureDetector(
-              onTap: widget.onTap,
-              child: Image.asset(
+      child: GestureDetector(
+        onTap: widget.onTap,
+        child: Container(
+          child: Stack(
+            children: [
+              Image.asset(
                 widget.imageUrl,
                 width: widget.width,
                 height: widget.height,
                 fit: BoxFit.fill,
               ),
-            ),
-            Positioned(
-              bottom: 0,
-              child: FadeTransition(
-                opacity: _fadeInAnimation,
-                child: SlideTransition(
-                  position: _slideAnimation,
-                  child: ProjectCover(
-                    animation: _indicatorAnimation,
-                    color: widget.bannerColor ?? Colors.black.withOpacity(0.8),
-                    width: widget.width,
-                    height: widget.bannerHeight ?? widget.height / 3,
-                    title: widget.title,
-                    subtitle: widget.subtitle,
-                    titleStyle: widget.titleStyle,
-                    subtitleStyle: widget.subtitleStyle,
-                    isHover: _hovering,
-                  ),
-                ),
-              ),
-            ),
-          ],
+              // Positioned(
+              //   bottom: 0,
+              //   child: FadeTransition(
+              //     opacity: _fadeInAnimation,
+              //     child: SlideTransition(
+              //       position: _slideAnimation,
+              //       child: ProjectCover(
+              //         animation: _indicatorAnimation,
+              //         color: widget.bannerColor ?? Colors.black.withOpacity(0.8),
+              //         width: widget.width,
+              //         height: widget.bannerHeight ?? widget.height / 3,
+              //         title: widget.title,
+              //         //   subtitle: widget.subtitle,
+              //         titleStyle: widget.titleStyle,
+              //         subtitleStyle: widget.subtitleStyle,
+              //         isHover: _hovering,
+              //       ),
+              //     ),
+              //   ),
+              // ),
+            ],
+          ),
         ),
       ),
     );
@@ -164,79 +160,79 @@ class _ProjectItemState extends State<ProjectItem> with TickerProviderStateMixin
     }
   }
 }
-
-class ProjectCover extends StatelessWidget {
-  const ProjectCover({
-    Key? key,
-    required this.width,
-    required this.height,
-    required this.title,
-    required this.subtitle,
-    required this.animation,
-    this.indicatorColor = AppColors.white,
-    this.color,
-    this.subtitleStyle,
-    this.titleStyle,
-    this.isHover = false,
-    this.clickCallback,
-  }) : super(key: key);
-
-  final String title;
-  final String subtitle;
-  final double width;
-  final double height;
-  final Color? color;
-  final Color indicatorColor;
-  final TextStyle? titleStyle;
-  final TextStyle? subtitleStyle;
-  final VoidCallback? clickCallback;
-
-  final Animation<double> animation;
-
-  final bool isHover;
-
-  @override
-  Widget build(BuildContext context) {
-    TextTheme textTheme = Theme.of(context).textTheme;
-    return GestureDetector(
-      onTap: clickCallback,
-      child: Container(
-        width: width,
-        height: height,
-        color: color ?? Colors.black.withOpacity(0.8),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            AnimatedHoverIndicator2(
-              animation: animation,
-              indicatorColor: indicatorColor,
-            ),
-            SizedBoxW16(),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  title,
-                  style: titleStyle ??
-                      textTheme.headlineMedium?.copyWith(
-                        color: AppColors.white,
-                      ),
-                ),
-                SizedBoxH8(),
-                Text(
-                  subtitle,
-                  style: subtitleStyle ??
-                      textTheme.titleMedium?.copyWith(
-                        color: AppColors.white,
-                        fontSize: Sizes.TEXT_SIZE_16,
-                      ),
-                ),
-              ],
-            )
-          ],
-        ),
-      ),
-    );
-  }
-}
+//
+// class ProjectCover extends StatelessWidget {
+//   const ProjectCover({
+//     Key? key,
+//     required this.width,
+//     required this.height,
+//     required this.title,
+//     this.subtitle,
+//     required this.animation,
+//     this.indicatorColor = AppColors.white,
+//     this.color,
+//     this.subtitleStyle,
+//     this.titleStyle,
+//     this.isHover = false,
+//     this.clickCallback,
+//   }) : super(key: key);
+//
+//   final String title;
+//   final String? subtitle;
+//   final double width;
+//   final double height;
+//   final Color? color;
+//   final Color indicatorColor;
+//   final TextStyle? titleStyle;
+//   final TextStyle? subtitleStyle;
+//   final VoidCallback? clickCallback;
+//
+//   final Animation<double> animation;
+//
+//   final bool isHover;
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     TextTheme textTheme = Theme.of(context).textTheme;
+//     return GestureDetector(
+//       onTap: clickCallback,
+//       child: Container(
+//         width: width,
+//         height: height,
+//         color: color ?? Colors.black.withOpacity(0.8),
+//         child: Row(
+//           crossAxisAlignment: CrossAxisAlignment.center,
+//           children: [
+//             AnimatedHoverIndicator2(
+//               animation: animation,
+//               indicatorColor: indicatorColor,
+//             ),
+//             SizedBoxW16(),
+//             Column(
+//               mainAxisAlignment: MainAxisAlignment.center,
+//               crossAxisAlignment: CrossAxisAlignment.start,
+//               children: [
+//                 Text(
+//                   title,
+//                   style: titleStyle ??
+//                       textTheme.headlineMedium?.copyWith(
+//                         color: AppColors.white,
+//                       ),
+//                 ),
+//                 SizedBoxH8(),
+//                 // Text(
+//                 //   subtitle,
+//                 //   style: subtitleStyle ??
+//                 //       textTheme.titleMedium?.copyWith(
+//                 //         color: AppColors.white,
+//                 //         fontSize: Sizes.TEXT_SIZE_16,
+//                 //       ),
+//                 // ),
+//               ],
+//             )
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }

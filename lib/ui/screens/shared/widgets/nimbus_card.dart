@@ -11,6 +11,7 @@ class NimBusCardData {
   Color leadingIconColor;
   Color circleBgColor;
   String title;
+  Color titleColor;
 
   NimBusCardData({
     required this.leadingIcon,
@@ -18,6 +19,7 @@ class NimBusCardData {
     this.circleBgColor = AppColors.black,
     this.leadingIconColor = AppColors.white,
     this.trailingIconColor = AppColors.grey300,
+    this.titleColor = AppColors.black,
     required this.title,
   });
 }
@@ -46,6 +48,7 @@ class NimBusCard extends StatefulWidget {
 
   final Widget? leading;
   final Widget? title;
+
   final Widget? subtitle;
   final Widget? trailing;
   final double? width;

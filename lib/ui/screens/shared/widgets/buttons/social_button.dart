@@ -63,3 +63,57 @@ class SocialButton extends StatelessWidget {
     );
   }
 }
+
+class FooterSocialButtonData {
+  final String tag;
+  final String url;
+  final IconData iconData;
+  final Color? iconColor;
+  final Color? borderColor;
+
+  FooterSocialButtonData({
+    required this.tag,
+    required this.iconData,
+    required this.url,
+    this.iconColor,
+    this.borderColor,
+  });
+}
+
+class FooterSocialButton extends StatelessWidget {
+  const FooterSocialButton({
+    required this.tag,
+    required this.iconData,
+    this.onPressed,
+    this.width = Sizes.WIDTH_28,
+    this.height = Sizes.HEIGHT_28,
+    this.elevation = Sizes.ELEVATION_1,
+    this.buttonColor = AppColors.white,
+    this.iconColor = AppColors.white,
+    this.iconSize = Sizes.ICON_SIZE_20,
+    this.decoration,
+  });
+
+  final String tag;
+  final double width;
+  final double elevation;
+  final double height;
+  final IconData iconData;
+  final double iconSize;
+  final Color iconColor;
+  final Color buttonColor;
+  final BoxDecoration? decoration;
+  final VoidCallback? onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      onPressed: onPressed,
+      icon: Icon(
+        iconData,
+        size: iconSize,
+        color: iconColor,
+      ),
+    );
+  }
+}

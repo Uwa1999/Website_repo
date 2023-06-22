@@ -3,8 +3,8 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/data.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/sizes.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/strings.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/blog_card.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/content_area.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/insights_card.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/nimbus_info_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/sizedbox.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -22,7 +22,7 @@ class InsightSection extends StatefulWidget {
 }
 
 class _InsightSectionState extends State<InsightSection> {
-  final int blogLength = Data.blogData.length;
+  final int blogLength = Data.insightsData.length;
   double currentPageIndex = 1;
   CarouselController _carouselController = CarouselController();
 
@@ -55,9 +55,9 @@ class _InsightSectionState extends State<InsightSection> {
                       ContentArea(
                         width: contentAreaWidth,
                         child: NimbusInfoSection2(
-                          title1: StringConst.BLOG_SECTION_TITLE_1,
-                          title2: StringConst.BLOG_SECTION_TITLE_2,
-                          body: StringConst.BLOG_DESC,
+                          title1: StringConst.INSIGHTS_TITLE_1,
+                          //title2: StringConst.INSIGHTS_TITLE_2,
+                          body: StringConst.INSIGHTS_DESC,
                         ),
                       ),
                       SizedBoxH50(),
@@ -73,9 +73,9 @@ class _InsightSectionState extends State<InsightSection> {
                       ContentArea(
                         width: screenWidth * 0.7,
                         child: NimbusInfoSection1(
-                          title1: StringConst.BLOG_SECTION_TITLE_1,
-                          title2: StringConst.BLOG_SECTION_TITLE_2,
-                          body: StringConst.BLOG_DESC,
+                          title1: StringConst.INSIGHTS_TITLE_1,
+                          //title2: StringConst.INSIGHTS_TITLE_2,
+                          body: StringConst.INSIGHTS_DESC,
                         ),
                       ),
                       Spacer(),
@@ -97,16 +97,16 @@ class _InsightSectionState extends State<InsightSection> {
                       child: CarouselSlider.builder(
                         itemCount: blogLength,
                         itemBuilder: (BuildContext context, int index, int pageViewIndex) {
-                          return BlogCard(
+                          return InsightsCard(
                             width: screenWidth,
                             imageWidth: screenWidth,
                             imageHeight: screenWidth,
-                            category: Data.blogData[index].category,
-                            title: Data.blogData[index].title,
-                            subtitle: Data.blogData[index].subtitle,
-                            date: Data.blogData[index].date,
-                            buttonText: Data.blogData[index].buttonText,
-                            imageUrl: Data.blogData[index].imageUrl,
+                            category: Data.insightsData[index].category,
+                            title: Data.insightsData[index].title,
+                            subtitle: Data.insightsData[index].subtitle,
+                            date: Data.insightsData[index].date,
+                            buttonText: Data.insightsData[index].buttonText,
+                            imageUrl: Data.insightsData[index].imageUrl,
                             onPressed: () {},
                           );
                         },
@@ -123,16 +123,16 @@ class _InsightSectionState extends State<InsightSection> {
                             itemCount: blogLength,
                             carouselController: _carouselController,
                             itemBuilder: (BuildContext context, int index, int pageViewIndex) {
-                              return BlogCard(
+                              return InsightsCard(
                                 width: screenWidth * 0.45,
                                 imageWidth: screenWidth * 0.45,
                                 imageHeight: screenWidth * 0.45,
-                                category: Data.blogData[index].category,
-                                title: Data.blogData[index].title,
-                                subtitle: Data.blogData[index].subtitle,
-                                date: Data.blogData[index].date,
-                                buttonText: Data.blogData[index].buttonText,
-                                imageUrl: Data.blogData[index].imageUrl,
+                                category: Data.insightsData[index].category,
+                                title: Data.insightsData[index].title,
+                                subtitle: Data.insightsData[index].subtitle,
+                                date: Data.insightsData[index].date,
+                                buttonText: Data.insightsData[index].buttonText,
+                                imageUrl: Data.insightsData[index].imageUrl,
                                 onPressed: () {},
                               );
                             },
@@ -161,12 +161,12 @@ class _InsightSectionState extends State<InsightSection> {
                           Wrap(
                             spacing: kSpacing,
                             runSpacing: kRunSpacing,
-                            children: _buildBlogCards(
-                              blogData: Data.blogData,
+                            children: _buildInsightCards(
+                              blogData: Data.insightsData,
                               width: screenWidth,
                             ),
                           ),
-                          SizedBoxH100(),
+                          SizedBoxH40(),
                         ],
                       ),
                     );
@@ -204,8 +204,8 @@ class _InsightSectionState extends State<InsightSection> {
         });
   }
 
-  List<Widget> _buildBlogCards({
-    required List<BlogCardData> blogData,
+  List<Widget> _buildInsightCards({
+    required List<InsightsData> blogData,
     required double width,
   }) {
     double cardWidth = ((width - (kSpacing * 2)) / 3);
@@ -213,12 +213,12 @@ class _InsightSectionState extends State<InsightSection> {
 
     for (int index = 0; index < blogData.length; index++) {
       items.add(
-        BlogCard(
+        InsightsCard(
           width: cardWidth,
           imageWidth: cardWidth,
           imageHeight: cardWidth,
           category: blogData[index].category,
-          title: Data.blogData[index].title,
+          title: Data.insightsData[index].title,
           subtitle: blogData[index].subtitle,
           date: blogData[index].date,
           buttonText: blogData[index].buttonText,

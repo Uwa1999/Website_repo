@@ -62,7 +62,7 @@ class _StatisticsSectionState extends State<StatisticsSection> with SingleTicker
               Radius.circular(Sizes.RADIUS_10),
             ),
           ),
-          color: AppColors.black400,
+          color: AppColors.maroon02,
           child: ResponsiveBuilder(
             refinedBreakpoints: RefinedBreakpoints(),
             builder: (context, sizingInformation) {
@@ -93,7 +93,7 @@ class _StatisticsSectionState extends State<StatisticsSection> with SingleTicker
                         top: -75,
                         left: -50,
                         child: Image.asset(
-                          ImagePath.BOX_COVER_GOLD,
+                          ImagePath.BLOB_FEMUR_ASH,
                           height: 200,
                         ),
                       ),
@@ -101,7 +101,7 @@ class _StatisticsSectionState extends State<StatisticsSection> with SingleTicker
                         right: -25,
                         bottom: -25,
                         child: Image.asset(
-                          ImagePath.BOX_COVER_BLACK,
+                          ImagePath.BLOB_BLACK,
                           height: 200,
                         ),
                       ),

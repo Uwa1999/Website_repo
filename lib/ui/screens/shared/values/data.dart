@@ -3,9 +3,8 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/statistics_s
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/images.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/strings.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/blog_card.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/buttons/social_button.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/buttons/social_button_2.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/insights_card.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/nimbus_card.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/project_item.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/skill_card.dart';
@@ -15,6 +14,11 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Data {
   static List<SocialButtonData> socialData = [
+    SocialButtonData(
+      tag: StringConst.LINKED_IN_URL,
+      iconData: FontAwesomeIcons.linkedin,
+      url: StringConst.LINKED_IN_URL,
+    ),
     SocialButtonData(
       tag: StringConst.GITHUB_URL,
       iconData: FontAwesomeIcons.github,
@@ -26,35 +30,44 @@ class Data {
       url: StringConst.FACEBOOK_URL,
     ),
     SocialButtonData(
-      tag: StringConst.LINKED_IN_URL,
-      iconData: FontAwesomeIcons.linkedin,
-      url: StringConst.LINKED_IN_URL,
-    ),
-  ];
-  static List<SocialButton2Data> socialData2 = [
-    SocialButton2Data(
-      title: StringConst.BEHANCE,
-      iconData: FontAwesomeIcons.behance,
-      url: StringConst.BEHANCE_URL,
-      titleColor: AppColors.blue300,
-      buttonColor: AppColors.blue300,
-      iconColor: AppColors.white,
-    ),
-    SocialButton2Data(
-      title: StringConst.DRIBBLE,
-      iconData: FontAwesomeIcons.dribbble,
-      url: StringConst.DRIBBLE_URL,
-      titleColor: AppColors.pink300,
-      buttonColor: AppColors.pink300,
-      iconColor: AppColors.white,
-    ),
-    SocialButton2Data(
-      title: StringConst.INSTA,
+      tag: StringConst.INSTA,
       iconData: FontAwesomeIcons.instagram,
       url: StringConst.INSTAGRAM_URL,
-      titleColor: AppColors.maroon450,
-      buttonColor: AppColors.maroon450,
+    ),
+    SocialButtonData(
+      tag: StringConst.TWITTER_URL,
+      iconData: FontAwesomeIcons.twitter,
+      url: StringConst.TWITTER_URL,
+    ),
+  ];
+  static List<FooterSocialButtonData> socialfooterData = [
+    FooterSocialButtonData(
+      tag: StringConst.LINKED_IN_URL,
+      iconData: FontAwesomeIcons.linkedin,
       iconColor: AppColors.white,
+      url: StringConst.LINKED_IN_URL,
+    ),
+    FooterSocialButtonData(
+      tag: StringConst.GITHUB_URL,
+      iconData: FontAwesomeIcons.github,
+      iconColor: AppColors.white,
+      url: StringConst.GITHUB_URL,
+    ),
+    FooterSocialButtonData(
+      tag: StringConst.FACEBOOK_URL,
+      iconData: FontAwesomeIcons.facebook,
+      iconColor: AppColors.white,
+      url: StringConst.FACEBOOK_URL,
+    ),
+    FooterSocialButtonData(
+      tag: StringConst.INSTA,
+      iconData: FontAwesomeIcons.instagram,
+      url: StringConst.INSTAGRAM_URL,
+    ),
+    FooterSocialButtonData(
+      tag: StringConst.TWITTER_URL,
+      iconData: FontAwesomeIcons.twitter,
+      url: StringConst.TWITTER_URL,
     ),
   ];
 
@@ -79,7 +92,11 @@ class Data {
       description: StringConst.SKILLS_1_DESC,
       iconData: FontAwesomeIcons.compress,
     ),
-    SkillCardData(title: "", description: "", iconData: Icons.pages_outlined), //not being used
+    SkillCardData(
+      title: "",
+      description: "",
+      iconData: Icons.pages_outlined,
+    ), //not being used
     SkillCardData(
       title: StringConst.SKILLS_2,
       description: StringConst.SKILLS_2_DESC,
@@ -133,70 +150,73 @@ class Data {
     StringConst.AWARDS_9,
     StringConst.AWARDS_10,
   ];
-  static List<BlogCardData> blogData = [
-    BlogCardData(
-      category: StringConst.BLOG_CATEGORY_1,
-      title: StringConst.BLOG_TITLE_1,
-      subtitle: StringConst.BLOG_SUBTITLE_1,
-      date: StringConst.BLOG_DATE,
-      buttonText: StringConst.READ_MORE,
-      imageUrl: ImagePath.BLOG_01,
+  static List<InsightsData> insightsData = [
+    InsightsData(
+      category: StringConst.INSIGHTS_CATEGORY_1,
+      title: StringConst.ARTICLE_TITLE_1,
+      subtitle: StringConst.ARTICLE_SUBTITLE_1,
+      date: StringConst.ARTICLE_DATE,
+      buttonText: StringConst.ARTICLE_READ_MORE,
+      imageUrl: ImagePath.ARTICLE_01,
     ),
-    BlogCardData(
-      category: StringConst.BLOG_CATEGORY_2,
-      title: StringConst.BLOG_TITLE_2,
-      subtitle: StringConst.BLOG_SUBTITLE_2,
-      date: StringConst.BLOG_DATE,
-      buttonText: StringConst.READ_MORE,
-      imageUrl: ImagePath.BLOG_02,
+    InsightsData(
+      category: StringConst.INSIGHTS_CATEGORY_2,
+      title: StringConst.EVENTS_TITLE_1,
+      subtitle: StringConst.EVENTS_SUBTITLE_2,
+      date: StringConst.EVENTS_DATE,
+      buttonText: StringConst.EVENTS_READ_MORE,
+      imageUrl: ImagePath.EVENTS_02,
     ),
-    BlogCardData(
-      category: StringConst.BLOG_CATEGORY_3,
-      title: StringConst.BLOG_TITLE_3,
-      subtitle: StringConst.BLOG_SUBTITLE_3,
-      date: StringConst.BLOG_DATE,
-      buttonText: StringConst.READ_MORE,
-      imageUrl: ImagePath.BLOG_03,
+    InsightsData(
+      category: StringConst.INSIGHTS_CATEGORY_3,
+      title: StringConst.WEBINARS_TITLE_1,
+      subtitle: StringConst.WEBINARS_SUBTITLE_3,
+      date: StringConst.WEBINARS_DATE,
+      buttonText: StringConst.WEBINARS_READ_MORE,
+      imageUrl: ImagePath.WEBINARS_01,
     ),
-    // BlogCardData(
-    //   category: StringConst.BLOG_CATEGORY_4,
-    //   title: StringConst.BLOG_TITLE_1,
-    //   date: StringConst.BLOG_DATE,
-    //   buttonText: StringConst.READ_MORE,
-    //   imageUrl: ImagePath.BLOG_01,
+    // InsightsData(
+    //   category: StringConst.INSIGHTS_CATEGORY_1,
+    //   title: StringConst.ARTICLE_TITLE_1,
+    //   subtitle: StringConst.ARTICLE_SUBTITLE_1,
+    //   date: StringConst.ARTICLE_DATE,
+    //   buttonText: StringConst.ARTICLE_READ_MORE,
+    //   imageUrl: ImagePath.ARTICLE_01,
     // ),
-    // BlogCardData(
-    //   category: StringConst.BLOG_CATEGORY_5,
-    //   title: StringConst.BLOG_TITLE_2,
-    //   date: StringConst.BLOG_DATE,
-    //   buttonText: StringConst.READ_MORE,
-    //   imageUrl: ImagePath.BLOG_02,
+    // InsightsData(
+    //   category: StringConst.INSIGHTS_CATEGORY_2,
+    //   title: StringConst.EVENTS_TITLE_1,
+    //   subtitle: StringConst.EVENTS_SUBTITLE_2,
+    //   date: StringConst.EVENTS_DATE,
+    //   buttonText: StringConst.EVENTS_READ_MORE,
+    //   imageUrl: ImagePath.EVENTS_02,
     // ),
-    // BlogCardData(
-    //   category: StringConst.BLOG_CATEGORY_6,
-    //   title: StringConst.BLOG_TITLE_3,
-    //   date: StringConst.BLOG_DATE,
-    //   buttonText: StringConst.READ_MORE,
-    //   imageUrl: ImagePath.BLOG_03,
+    // InsightsData(
+    //   category: StringConst.INSIGHTS_CATEGORY_3,
+    //   title: StringConst.WEBINARS_TITLE_1,
+    //   subtitle: StringConst.WEBINARS_SUBTITLE_3,
+    //   date: StringConst.WEBINARS_DATE,
+    //   buttonText: StringConst.WEBINARS_READ_MORE,
+    //   imageUrl: ImagePath.WEBINARS_01,
     // ),
   ];
 
   static List<NimBusCardData> nimbusCardData = [
     NimBusCardData(
-      title: StringConst.UI_UX,
-      // subtitle: StringConst.UI_UX_DESC,
+      title: StringConst.WE_LISTEN,
+      titleColor: AppColors.maroon03,
       leadingIcon: Icons.done,
       trailingIcon: Icons.chevron_right,
     ),
     NimBusCardData(
-      title: StringConst.PHOTOGRAPHER,
-      // subtitle: StringConst.PHOTOGRAPHER_DESC,
+      title: StringConst.WE_ANTICIPATE,
+      titleColor: AppColors.maroon03,
       leadingIcon: Icons.done,
       trailingIcon: Icons.chevron_right,
     ),
     NimBusCardData(
-      title: StringConst.FREELANCER,
-      // subtitle: StringConst.FREELANCER_DESC,
+      title: StringConst.WE_DELIVER,
+      titleColor: AppColors.maroon03,
       leadingIcon: Icons.done,
       trailingIcon: Icons.chevron_right,
     ),
@@ -204,126 +224,114 @@ class Data {
 
   static List<ProjectData> allProjects = [
     ProjectData(
-      onTap: () {},
-      title: StringConst.PORTFOLIO_1_TITLE,
+      onPressed: () {
+        print('------------------------------evdfv');
+      },
       category: StringConst.ATM,
-      projectCoverUrl: ImagePath.PORTFOLIO_1,
+      projectCoverUrl: ImagePath.KPLUS,
       width: 0.225,
     ),
     ProjectData(
-      onTap: () {},
-      title: StringConst.PORTFOLIO_2_TITLE,
+      onPressed: () {
+        print('----------------------dfdfgd');
+      },
       category: StringConst.WEB_DESIGN,
-      projectCoverUrl: ImagePath.PORTFOLIO_2,
+      projectCoverUrl: ImagePath.CHATBOT,
       width: 0.225,
     ),
     ProjectData(
-      onTap: () {},
-      title: StringConst.PORTFOLIO_3_TITLE,
+      onPressed: () {},
       category: StringConst.MOBILE_APP,
-      projectCoverUrl: ImagePath.PORTFOLIO_3,
+      projectCoverUrl: ImagePath.TEMENOS,
       width: 0.225,
     ),
     ProjectData(
-      onTap: () {},
-      title: StringConst.PORTFOLIO_4_TITLE,
+      onPressed: () {},
       category: StringConst.WEB_DESIGN,
-      projectCoverUrl: ImagePath.PORTFOLIO_4,
+      projectCoverUrl: ImagePath.OPENBANKING,
       width: 0.225,
     ),
     ProjectData(
-      onTap: () {},
-      title: StringConst.PORTFOLIO_5_TITLE,
+      onPressed: () {},
       category: StringConst.WEB,
-      projectCoverUrl: ImagePath.PORTFOLIO_5,
+      projectCoverUrl: ImagePath.DCM,
       width: 0.225,
     ),
     ProjectData(
-      onTap: () {},
-      title: StringConst.PORTFOLIO_6_TITLE,
+      onPressed: () {},
       category: StringConst.ATM,
-      projectCoverUrl: ImagePath.PORTFOLIO_6,
+      projectCoverUrl: ImagePath.WEB_COLLECTION,
       width: 0.225,
     ),
     ProjectData(
-      onTap: () {},
-      title: StringConst.PORTFOLIO_5_TITLE,
+      onPressed: () {},
       category: StringConst.WEB,
-      projectCoverUrl: ImagePath.PORTFOLIO_7,
+      projectCoverUrl: ImagePath.CLOUD,
       width: 0.225,
     ),
     ProjectData(
-      onTap: () {},
-      title: StringConst.PORTFOLIO_6_TITLE,
+      onPressed: () {},
       category: StringConst.ATM,
-      projectCoverUrl: ImagePath.PORTFOLIO_8,
+      projectCoverUrl: ImagePath.SBS,
       width: 0.225,
     ),
   ];
   static List<ProjectData> mobileApp = [
     ProjectData(
-      onTap: () {},
-      title: StringConst.PORTFOLIO_1_TITLE,
-      category: StringConst.MOBILE_APP,
-      projectCoverUrl: ImagePath.PORTFOLIO_1,
+      onPressed: () {},
+      projectCoverUrl: ImagePath.KPLUS,
       width: 0.220,
       mobileHeight: 0.3,
     ),
     ProjectData(
-      onTap: () {},
+      onPressed: () {},
       title: StringConst.PORTFOLIO_3_TITLE,
       category: StringConst.MOBILE_APP,
-      projectCoverUrl: ImagePath.PORTFOLIO_2,
+      projectCoverUrl: ImagePath.CHATBOT,
       width: 0.220,
     ),
   ];
   static List<ProjectData> webApp = [
     ProjectData(
-      onTap: () {},
-      title: StringConst.PORTFOLIO_5_TITLE,
+      onPressed: () {},
       category: StringConst.WEB,
-      projectCoverUrl: ImagePath.PORTFOLIO_5,
+      projectCoverUrl: ImagePath.DCM,
       width: 0.220,
     ),
   ];
   static List<ProjectData> atm = [
     ProjectData(
-      onTap: () {},
-      title: StringConst.PORTFOLIO_1_TITLE,
+      onPressed: () {},
       category: StringConst.ATM,
-      projectCoverUrl: ImagePath.PORTFOLIO_1,
+      projectCoverUrl: ImagePath.KPLUS,
       width: 0.220,
       mobileHeight: 0.3,
     ),
     ProjectData(
-      onTap: () {},
-      title: StringConst.PORTFOLIO_6_TITLE,
+      onPressed: () {},
       category: StringConst.ATM,
-      projectCoverUrl: ImagePath.PORTFOLIO_6,
+      projectCoverUrl: ImagePath.WEB_COLLECTION,
       width: 0.220,
       mobileHeight: 0.3,
     ),
   ];
   static List<ProjectData> dcm = [
     ProjectData(
-      onTap: () {},
-      title: StringConst.PORTFOLIO_2_TITLE,
+      onPressed: () {},
       category: StringConst.WEB_DESIGN,
-      projectCoverUrl: ImagePath.PORTFOLIO_2,
+      projectCoverUrl: ImagePath.CHATBOT,
       width: 0.220,
     ),
     ProjectData(
-      onTap: () {},
-      title: StringConst.PORTFOLIO_4_TITLE,
+      onPressed: () {},
       category: StringConst.WEB_DESIGN,
-      projectCoverUrl: ImagePath.PORTFOLIO_4,
+      projectCoverUrl: ImagePath.OPENBANKING,
       width: 0.220,
     ),
     ProjectData(
-      onTap: () {},
-      title: StringConst.PORTFOLIO_5_TITLE,
+      onPressed: () {},
       category: StringConst.WEB,
-      projectCoverUrl: ImagePath.PORTFOLIO_5,
+      projectCoverUrl: ImagePath.DCM,
       width: 0.220,
     ),
   ];

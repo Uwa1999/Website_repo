@@ -56,22 +56,22 @@ class NimbusInfoSection1 extends StatelessWidget {
                     title1!,
                     style: title1Style ?? titleStyle,
                   ),
-                  hasTitle2
-                      ? SizedBox(
-                          height: responsiveSize(
-                            context,
-                            Sizes.HEIGHT_4,
-                            Sizes.HEIGHT_16,
-                            md: Sizes.HEIGHT_8,
-                          ),
-                        )
-                      : EmptyContainer(),
-                  hasTitle2
-                      ? Text(
-                          title2!,
-                          style: title2Style ?? titleStyle,
-                        )
-                      : EmptyContainer(),
+                  // hasTitle2
+                  //      ? SizedBox(
+                  //          height: responsiveSize(
+                  //            context,
+                  //            Sizes.HEIGHT_4,
+                  //            Sizes.HEIGHT_16,
+                  //            md: Sizes.HEIGHT_8,
+                  //          ),
+                  //        )
+                  //      : EmptyContainer(),
+                  //  hasTitle2
+                  //      ? Text(
+                  //  title2!,
+                  //     style: title2Style ?? titleStyle,
+                  //   )
+                  // : EmptyContainer(),
                   SizedBoxH10(),
                   Text(
                     body,
@@ -135,10 +135,10 @@ class NimbusInfoSection2 extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
-                  title1,
-                  style: title1Style ?? titleStyle,
-                ),
+                // Text(
+                //   title1,
+                //   style: title1Style ?? titleStyle,
+                // ),
                 // AnimatedIcon(
                 //   icon: AnimatedIcons.menu_arrow,
                 //   progress: animation,
@@ -147,29 +147,29 @@ class NimbusInfoSection2 extends StatelessWidget {
                 // ),
               ],
             ),
-            hasTitle2
-                ? SizedBox(
-                    height: responsiveSize(
-                      context,
-                      Sizes.HEIGHT_4,
-                      Sizes.HEIGHT_16,
-                      md: Sizes.HEIGHT_8,
-                    ),
-                  )
-                : EmptyContainer(),
-            hasTitle2
-                ? Text(
-                    title2,
-                    style: title2Style ?? titleStyle,
-                  )
-                : EmptyContainer(),
-            SizedBoxH10(),
-            Text(
-              body,
-              style: textTheme.bodyMedium?.copyWith(fontSize: fontSize, height: 1.8),
-            ),
-            child != null ? SizedBoxH30() : EmptyContainer(),
-            child ?? EmptyContainer(),
+            // hasTitle2
+            //     ? SizedBox(
+            //         height: responsiveSize(
+            //           context,
+            //           Sizes.HEIGHT_4,
+            //           Sizes.HEIGHT_16,
+            //           md: Sizes.HEIGHT_8,
+            //         ),
+            //       )
+            //     : EmptyContainer(),
+            // hasTitle2
+            //     ? Text(
+            //         title2,
+            //         style: title2Style ?? titleStyle,
+            //       )
+            //     : EmptyContainer(),
+            // SizedBoxH10(),
+            // Text(
+            //   body,
+            //   style: textTheme.bodyMedium?.copyWith(fontSize: fontSize, height: 1.8),
+            // ),
+            // child != null ? SizedBoxH30() : EmptyContainer(),
+            // child ?? EmptyContainer(),
           ],
         ),
       ],

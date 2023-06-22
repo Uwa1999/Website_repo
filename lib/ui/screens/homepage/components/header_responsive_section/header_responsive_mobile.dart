@@ -1,6 +1,5 @@
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/header_responsive_section/widgets.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/responsive.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/data.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/sizes.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/strings.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/buttons/nimbus_button.dart';
@@ -50,12 +49,8 @@ class _HeaderResponsiveMobileState extends State<HeaderResponsiveMobile> with Si
 
   @override
   Widget build(BuildContext context) {
-    TextTheme textTheme = Theme.of(context).textTheme;
     double headerIntroTextSize = Sizes.TEXT_SIZE_24;
     double screenWidth = widthOfScreen(context) - (sidePadding * 2);
-    double contentAreaWidth = screenWidth;
-    TextStyle? bodyTextStyle = textTheme.bodySmall?.copyWith(fontSize: bodyTextSizeSm);
-    TextStyle? socialTitleStyle = textTheme.bodySmall?.copyWith(fontSize: socialTextSizeSm);
 
     double buttonWidth = 80;
     double buttonHeight = 48;
@@ -65,7 +60,6 @@ class _HeaderResponsiveMobileState extends State<HeaderResponsiveMobile> with Si
     double dottedGoldenGlobeOffset = sizeOfBlobSm * 0.4;
     double heightOfBlobAndGlobe = computeHeight(dottedGoldenGlobeOffset, sizeOfGoldenGlobe, sizeOfBlobSm);
     double heightOfStack = heightOfBlobAndGlobe * 2;
-    double blobOffset = heightOfStack * 0.3;
     return ContentArea(
       child: Stack(
         children: [
@@ -73,14 +67,14 @@ class _HeaderResponsiveMobileState extends State<HeaderResponsiveMobile> with Si
           //   height: heightOfStack,
           //   child: Stack(
           //     children: [
-          //       // Positioned(
-          //       //   right: -(sizeOfBlobSm),
-          //       //   child: HeaderImage(
-          //       //     controller: _controller,
-          //       //     globeSize: sizeOfGoldenGlobe,
-          //       //     imageHeight: heightOfStack,
-          //       //   ),
-          //       // ),
+          //        Positioned(
+          //         right: -(sizeOfBlobSm),
+          //          child: HeaderImage(
+          //          controller: _controller,
+          //           globeSize: sizeOfGoldenGlobe,
+          //            imageHeight: heightOfStack,
+          //          ),
+          //       ),
           //     ],
           //   ),
           // ),
@@ -182,21 +176,21 @@ class _HeaderResponsiveMobileState extends State<HeaderResponsiveMobile> with Si
                   ),
                 ],
               ),
-              SizedBox(height: 150),
-              Padding(
-                padding: EdgeInsets.symmetric(
-                  horizontal: sidePadding,
-                ),
-                child: Column(
-                  children: buildCardRow(
-                    context: context,
-                    data: Data.nimbusCardData,
-                    width: contentAreaWidth,
-                    isHorizontal: false,
-                    hasAnimation: false,
-                  ),
-                ),
-              ),
+              //  SizedBoxH100(),
+              // Padding(
+              //   padding: EdgeInsets.symmetric(
+              //     horizontal: sidePadding,
+              //   ),
+              //   child: Column(
+              //     children: buildCardRow(
+              //       context: context,
+              //       data: Data.nimbusCardData,
+              //       width: contentAreaWidth,
+              //       isHorizontal: false,
+              //       hasAnimation: false,
+              //     ),
+              //   ),
+              // ),
             ],
           ),
         ],

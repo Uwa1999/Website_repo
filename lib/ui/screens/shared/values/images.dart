@@ -25,29 +25,31 @@ class ImagePath {
   static const String ICON_BOX = "$imageDir/icon_box.jpg";
   static const String BOX_COVER_MAP = "$imageDir/map.jpg";
 
-  // Dots Images
-  static const String DOTS_GLOBE_GREY = "$imageDir/dots_globe_grey.png";
-  static const String DOTS_GLOBE_YELLOW = "$imageDir/dots_globe_yellow.png";
-  static const String DOTS_GLOBE_YELLOW_2 = "$imageDir/dots_globe_yellow2.png";
+  // Article Images
+  static const String ARTICLE_01 = "$imageDir/kplus_01.jpg";
+  static const String ARTICLE_02 = "$imageDir/kplus_01.jpg";
+  static const String ARTICLE_03 = "$imageDir/kplus_01.jpg";
 
-  // Dev
-  static const String DEV_ABOUT_ME = "$imageDir/dev_aboutme.png";
-  static const String DEV_HEADER = "$imageDir/dev_header.png";
-  static const String DEV_AWARD = "$imageDir/dev_award.png";
-  static const String GHANA_FLAG = "$imageDir/ghana_flag.png";
+  // Event Images
+  static const String EVENTS_01 = "$imageDir/kplus_01.jpg";
+  static const String EVENTS_02 = "$imageDir/kplus_01.jpg";
+  static const String EVENTS_03 = "$imageDir/kplus_01.jpg";
 
-  // Blog Images
-  static const String BLOG_01 = "$imageDir/kplus_01.jpg";
-  static const String BLOG_02 = "$imageDir/kplus_01.jpg";
-  static const String BLOG_03 = "$imageDir/kplus_01.jpg";
+  // Event Images
+  static const String WEBINARS_01 = "$imageDir/kplus_01.jpg";
+  static const String WEBINARS_02 = "$imageDir/kplus_01.jpg";
+  static const String WEBINARS_03 = "$imageDir/kplus_01.jpg";
 
-  // Portfolio Images
-  static const String PORTFOLIO_1 = "$imageDir/kplus.png";
-  static const String PORTFOLIO_2 = "$imageDir/chatbot.png";
-  static const String PORTFOLIO_3 = "$imageDir/temenos.png";
-  static const String PORTFOLIO_4 = "$imageDir/open_banking.png";
-  static const String PORTFOLIO_5 = "$imageDir/dcm.png";
-  static const String PORTFOLIO_6 = "$imageDir/web_collection.png";
-  static const String PORTFOLIO_7 = "$imageDir/cloud.png";
-  static const String PORTFOLIO_8 = "$imageDir/sbs.png";
+  //Footer
+  static const String FDSAP_WHITE_LOGO = "$imageDir/logo_fdsap1.png";
+
+  // Product & Services Images
+  static const String KPLUS = "$imageDir/kplus.png";
+  static const String CHATBOT = "$imageDir/chatbot.png";
+  static const String TEMENOS = "$imageDir/temenos.png";
+  static const String OPENBANKING = "$imageDir/open_banking.png";
+  static const String DCM = "$imageDir/dcm.png";
+  static const String WEB_COLLECTION = "$imageDir/web_collection.png";
+  static const String CLOUD = "$imageDir/cloud.png";
+  static const String SBS = "$imageDir/sbs.png";
 }

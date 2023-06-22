@@ -16,10 +16,7 @@ DisplayType displayTypeOf(BuildContext context) {
   final orientation = MediaQuery.of(context).orientation;
   final width = MediaQuery.of(context).size.width;
 
-  if ((orientation == Orientation.landscape &&
-          width > _desktopLandscapeBreakpoint) ||
-      (orientation == Orientation.portrait &&
-          width > _desktopPortraitBreakpoint)) {
+  if ((orientation == Orientation.landscape && width > _desktopLandscapeBreakpoint) || (orientation == Orientation.portrait && width > _desktopPortraitBreakpoint)) {
     return DisplayType.desktop;
   } else {
     return DisplayType.mobile;
@@ -35,14 +32,11 @@ bool isDisplayDesktop(BuildContext context) {
 /// Returns a boolean if we are in a display of [DisplayType.desktop] but less
 /// than [_desktopLandscapeBreakpoint] width. Used to build adaptive and responsive layouts.
 bool isDisplaySmallDesktop(BuildContext context) {
-  return isDisplayDesktop(context) &&
-      MediaQuery.of(context).size.width < _desktopLandscapeBreakpoint;
+  return isDisplayDesktop(context) && MediaQuery.of(context).size.width < _desktopLandscapeBreakpoint;
 }
 
 bool isDisplaySmallDesktopOrIpadPro(BuildContext context) {
-  return isDisplaySmallDesktop(context) ||
-      (MediaQuery.of(context).size.width > _ipadProBreakpoint &&
-          MediaQuery.of(context).size.width < 1170);
+  return isDisplaySmallDesktop(context) || (MediaQuery.of(context).size.width > _ipadProBreakpoint && MediaQuery.of(context).size.width < 1170);
 }
 
 double widthOfScreen(BuildContext context) {
@@ -126,3 +120,7 @@ double getSidePadding(BuildContext context) {
   double sidePadding = assignWidth(context, 0.05);
   return responsiveSize(context, 30, sidePadding, md: sidePadding);
 }
+
+bool isMobile(BuildContext context) => MediaQuery.of(context).size.width < 650;
+bool isTab(BuildContext context) => MediaQuery.of(context).size.width < 1300 && MediaQuery.of(context).size.width >= 650;
+bool isDesktop(BuildContext context) => MediaQuery.of(context).size.width >= 1300;

@@ -171,18 +171,17 @@ class _ProductServicesSectionState extends State<ProductServicesSection> with Si
 
   Widget _buildNimbusInfoSectionSm() {
     return NimbusInfoSection2(
-      title1: StringConst.MEET_MY_PROJECTS,
+      title1: StringConst.PRODUCT_AND_SERVICES,
       hasTitle2: false,
-      body: StringConst.PROJECTS_DESC,
-//      child: ,
+      body: StringConst.PRODUCT_AND_SERVICES_DESC,
     );
   }
 
   Widget _buildNimbusInfoSectionLg() {
     return NimbusInfoSection1(
-      title1: StringConst.MEET_MY_PROJECTS,
+      title1: StringConst.PRODUCT_AND_SERVICES,
       hasTitle2: false,
-      body: StringConst.PROJECTS_DESC,
+      body: StringConst.PRODUCT_AND_SERVICES_DESC,
       child: Wrap(
         spacing: kSpacing,
         runSpacing: kRunSpacing,
@@ -216,10 +215,10 @@ class _ProductServicesSectionState extends State<ProductServicesSection> with Si
             width: isMobile ? assignWidth(context, data[index].mobileWidth) : assignWidth(context, data[index].width),
             height: isMobile ? assignHeight(context, data[index].mobileHeight) : assignHeight(context, data[index].height),
             bannerHeight: isMobile ? assignHeight(context, data[index].mobileHeight) / 2 : assignHeight(context, data[index].height) / 3,
-            title: data[index].title,
-            subtitle: data[index].category,
             imageUrl: data[index].projectCoverUrl,
-            onTap: data[index].onTap,
+            onTap: data[index].onPressed,
+            // title: data[index].title,
+            //  subtitle: data[index].category,
           ),
         ),
       );
@@ -326,7 +325,7 @@ class _ProjectCategoryState extends State<ProjectCategory> with SingleTickerProv
                         opacity: _controller.view,
                         child: numberOfProjectItems(),
                       ),
-              )
+              ),
             ],
           ),
         ),

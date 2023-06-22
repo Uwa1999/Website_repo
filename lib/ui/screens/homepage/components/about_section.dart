@@ -1,5 +1,7 @@
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/header_responsive_section/widgets.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/functions.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/responsive.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/data.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/images.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/strings.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/styles.dart';
@@ -73,6 +75,7 @@ class _AboutSectionState extends State<AboutSection> with TickerProviderStateMix
     double contentAreaWidthSm = screenWidth * 1.0;
     double contentAreaHeightSm = screenHeight * 0.6;
     double contentAreaWidthLg = screenWidth * 0.5;
+    double contentAreaWidth = screenWidth;
     return VisibilityDetector(
       key: Key('about-section'),
       onVisibilityChanged: (visibilityInfo) {
@@ -92,7 +95,7 @@ class _AboutSectionState extends State<AboutSection> with TickerProviderStateMix
                 children: [
                   ContentArea(
                     width: contentAreaWidthSm,
-                    child: _buildImage(
+                    child: _buildFdsapLogo(
                       width: contentAreaWidthSm,
                       height: contentAreaHeightSm,
                     ),
@@ -108,20 +111,36 @@ class _AboutSectionState extends State<AboutSection> with TickerProviderStateMix
                 ],
               );
             } else {
-              return Row(
+              return Column(
                 children: [
-                  ContentArea(
-                    width: contentAreaWidthLg,
-                    child: _buildImage(
-                      width: contentAreaWidthLg,
-                      height: screenHeight,
-                    ),
+                  Row(
+                    children: [
+                      ContentArea(
+                        width: contentAreaWidthLg,
+                        child: _buildFdsapLogo(
+                          width: contentAreaWidthLg,
+                          height: screenHeight,
+                        ),
+                      ),
+                      ContentArea(
+                        width: contentAreaWidthLg,
+                        child: _buildAboutMe(
+                          width: contentAreaWidthLg,
+                          height: screenHeight,
+                        ),
+                      ),
+                    ],
                   ),
-                  ContentArea(
-                    width: contentAreaWidthLg,
-                    child: _buildAboutMe(
-                      width: contentAreaWidthLg,
-                      height: screenHeight,
+                  Container(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        ...buildCardRow(
+                          context: context,
+                          data: Data.nimbusCardData,
+                          width: contentAreaWidth / 3.8,
+                        ),
+                      ],
                     ),
                   ),
                 ],
@@ -155,7 +174,7 @@ class _AboutSectionState extends State<AboutSection> with TickerProviderStateMix
     return items;
   }
 
-  Widget _buildImage({required double width, required double height}) {
+  Widget _buildFdsapLogo({required double width, required double height}) {
     TextTheme textTheme = Theme.of(context).textTheme;
     double fontSize = responsiveSize(context, 60, 72, md: 64);
     TextStyle? titleStyle = textTheme.bodySmall?.merge(
@@ -210,10 +229,26 @@ class _AboutSectionState extends State<AboutSection> with TickerProviderStateMix
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               NimbusInfoSection1(
-                title1: '',
+                title1: 'About Us',
                 title2: StringConst.OUR_HISTORY,
                 body: StringConst.ABOUT_ME_DESC,
               ),
+
+              // Expanded(
+              //   child: Container(
+              //     // margin: EdgeInsets.only(left: (sizeOfBlobSm * 0.35)),
+              //     child: Row(
+              //       mainAxisAlignment: MainAxisAlignment.center,
+              //       children: [
+              //         ...buildCardRow(
+              //           context: context,
+              //           data: Data.nimbusCardData,
+              //           width: double.infinity,
+              //         ),
+              //       ],
+              //     ),
+              //   ),
+              // ),
             ],
           ),
         ),
