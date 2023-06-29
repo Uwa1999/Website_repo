@@ -133,7 +133,7 @@ class _ProductServicesSectionState extends State<ProductServicesSection> with Si
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SizedBoxH50(),
+                  SizedBoxH80(),
                   Container(
                     padding: EdgeInsets.symmetric(
                       horizontal: getSidePadding(context),
@@ -145,7 +145,7 @@ class _ProductServicesSectionState extends State<ProductServicesSection> with Si
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           ContentArea(
-                            width: contentAreaWidth * 0.9,
+                            width: contentAreaWidth * 0.7,
                             child: _buildProductServicesInfoLg(),
                           ),
                           Spacer(),

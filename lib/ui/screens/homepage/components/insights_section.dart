@@ -42,6 +42,7 @@ class _InsightSectionState extends State<InsightSection> {
         Column(
           mainAxisSize: MainAxisSize.min,
           children: [
+            SizedBoxH80(),
             ResponsiveBuilder(
               builder: (context, sizingInformation) {
                 double screenWidth = sizingInformation.screenSize.width;

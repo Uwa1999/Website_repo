@@ -63,7 +63,7 @@ class _HomepageScreenState extends State<HomepageScreen> with SingleTickerProvid
   @override
   Widget build(BuildContext context) {
     double screenHeight = heightOfScreen(context);
-    double spacerHeight = screenHeight * 0.17;
+    double spacerHeight = screenHeight * 0.19;
 
     return Scaffold(
       key: _scaffoldKey,
