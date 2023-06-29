@@ -74,7 +74,7 @@ class _AppDrawerState extends State<AppDrawer> {
                 menuList: widget.menuList,
               ),
               Spacer(flex: 6),
-              _buildFooterText(),
+              // _buildFooterText(),
             ],
           ),
         ),
@@ -98,7 +98,7 @@ class _AppDrawerState extends State<AppDrawer> {
           title: menuList[i].name,
           isMobile: true,
           isSelected: menuList[i].isSelected,
-          titleStyle: textTheme.bodyText1?.copyWith(
+          titleStyle: textTheme.bodyLarge?.copyWith(
             color: menuList[i].isSelected ? AppColors.maroon450 : AppColors.white,
             fontSize: Sizes.TEXT_SIZE_16,
             fontWeight: menuList[i].isSelected ? FontWeight.bold : FontWeight.normal,
@@ -131,48 +131,43 @@ class _AppDrawerState extends State<AppDrawer> {
     context.router.pop();
   }
 
-  Widget _buildFooterText() {
-    TextTheme textTheme = Theme.of(context).textTheme;
-    TextStyle? footerTextStyle = textTheme.caption?.copyWith(
-      color: AppColors.primaryText2,
-      fontWeight: FontWeight.bold,
-    );
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        // Center(
-        //   child: SelectableText.rich(
-        //     TextSpan(
-        //       text: StringConst.RIGHTS_RESERVED + " ",
-        //       style: footerTextStyle,
-        //       children: [
-        //         TextSpan(text: StringConst.DESIGNED_BY + " "),
-        //         TextSpan(
-        //           text: StringConst.WEB_GENIUS_LAB,
-        //           style: footerTextStyle?.copyWith(
-        //             decoration: TextDecoration.underline,
-        //             fontWeight: FontWeight.w900,
-        //             color: AppColors.white,
-        //           ),
-        //         ),
-        //       ],
-        //     ),
-        //     textAlign: TextAlign.center,
-        //   ),
-        // ),
-        // Row(
-        //   mainAxisAlignment: MainAxisAlignment.center,
-        //   children: [
-        //     RichText(
-        //       text: TextSpan(
-        //         text: StringConst.BUILT_BY + " ",
-        //         style: footerTextStyle,
-        //         children: [],
-        //       ),
-        //     ),
-        //   ],
-        // ),
-      ],
-    );
-  }
+  // Widget _buildFooterText() {
+  //   return Column(
+  //     crossAxisAlignment: CrossAxisAlignment.start,
+  //     children: [
+  //       // Center(
+  //       //   child: SelectableText.rich(
+  //       //     TextSpan(
+  //       //       text: StringConst.RIGHTS_RESERVED + " ",
+  //       //       style: footerTextStyle,
+  //       //       children: [
+  //       //         TextSpan(text: StringConst.DESIGNED_BY + " "),
+  //       //         TextSpan(
+  //       //           text: StringConst.WEB_GENIUS_LAB,
+  //       //           style: footerTextStyle?.copyWith(
+  //       //             decoration: TextDecoration.underline,
+  //       //             fontWeight: FontWeight.w900,
+  //       //             color: AppColors.white,
+  //       //           ),
+  //       //         ),
+  //       //       ],
+  //       //     ),
+  //       //     textAlign: TextAlign.center,
+  //       //   ),
+  //       // ),
+  //       // Row(
+  //       //   mainAxisAlignment: MainAxisAlignment.center,
+  //       //   children: [
+  //       //     RichText(
+  //       //       text: TextSpan(
+  //       //         text: StringConst.BUILT_BY + " ",
+  //       //         style: footerTextStyle,
+  //       //         children: [],
+  //       //       ),
+  //       //     ),
+  //       //   ],
+  //       // ),
+  //     ],
+  //   );
+  // }
 }

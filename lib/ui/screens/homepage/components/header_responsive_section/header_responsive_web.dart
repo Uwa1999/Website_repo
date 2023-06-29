@@ -4,7 +4,7 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/data.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/images.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/sizes.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/strings.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/buttons/nimbus_button.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/buttons/contact_us_button.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/content_area.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/sizedbox.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
@@ -65,7 +65,7 @@ class _HeaderResponsiveWebState extends State<HeaderResponsiveWeb> with SingleTi
 
     List<Widget> cardsForTabletView = buildCardRow(
       context: context,
-      data: Data.nimbusCardData,
+      data: Data.fdsTagLineCardData,
       width: contentAreaWidth * 0.4,
       isWrap: true,
     );
@@ -166,7 +166,7 @@ class _HeaderResponsiveWebState extends State<HeaderResponsiveWeb> with SingleTi
                             SizedBoxH70(),
                             Row(
                               children: [
-                                NimbusButton(
+                                ContactUsButton(
                                   width: buttonWidth,
                                   height: buttonHeight,
                                   buttonTitle: StringConst.DOWNLOAD_CV,

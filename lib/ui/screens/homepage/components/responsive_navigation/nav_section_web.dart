@@ -4,7 +4,7 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/images.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/shadows.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/sizes.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/strings.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/buttons/nimbus_button.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/buttons/contact_us_button.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/buttons/social_button.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/empty.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/nav_item.dart';
@@ -105,7 +105,7 @@ class _NavSectionWebState extends State<NavSectionWeb> {
             ),
             NimbusVerticalDivider(),
             SizedBox(width: contactBtnSpaceLeft),
-            NimbusButton(
+            ContactUsButton(
               buttonTitle: StringConst.CONTACT_US,
               width: contactBtnWidth,
               opensUrl: true,

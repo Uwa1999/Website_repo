@@ -90,7 +90,7 @@ List<Widget> buildSocialIcons(List<SocialButtonData> socialItems) {
 
 List<Widget> buildCardRow({
   required BuildContext context,
-  required List<NimBusCardData> data,
+  required List<FdsTagLineCardData> data,
   required double width,
   bool isHorizontal = true,
   bool isWrap = false,
@@ -117,7 +117,7 @@ List<Widget> buildCardRow({
   );
   for (int index = 0; index < data.length; index++) {
     items.add(
-      NimBusCard(
+      FdsTagLineCard(
         width: width,
         height: responsiveSize(
           context,

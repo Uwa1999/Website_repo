@@ -14,12 +14,12 @@ import 'package:visibility_detector/visibility_detector.dart';
 const double kSpacing = 20.0;
 const double kRunSpacing = 16.0;
 
-class ProjectCategoryData {
+class ProductServicesCategoryData {
   final String title;
   final int number;
   bool isSelected;
 
-  ProjectCategoryData({required this.title, required this.number, this.isSelected = false});
+  ProductServicesCategoryData({required this.title, required this.number, this.isSelected = false});
 }
 
 class ProductServicesSection extends StatefulWidget {
@@ -30,24 +30,24 @@ class ProductServicesSection extends StatefulWidget {
 }
 
 class _ProductServicesSectionState extends State<ProductServicesSection> with SingleTickerProviderStateMixin {
-  late AnimationController _projectController;
+  late AnimationController _productController;
   late Animation<double> _projectScaleAnimation;
-  List<List<ProjectData>> projects = [
-    Data.allProjects,
-    Data.mobileApp,
-    Data.webApp,
-    Data.atm,
-    Data.dcm,
+  List<List<ProductServicesData>> productServices = [
+    Data.allProductServices,
+    Data.mobileProductServices,
+    Data.webProductServices,
+    Data.atmProductServices,
+    Data.dcmProductServices,
   ];
-  late List<ProjectData> selectedProject;
-  late List<ProjectCategoryData> projectCategories;
+  late List<ProductServicesData> selectedProductServices;
+  late List<ProductServicesCategoryData> productServicesCategories;
 
   @override
   void initState() {
     super.initState();
-    selectedProject = projects[0];
-    projectCategories = Data.projectCategories;
-    _projectController = AnimationController(
+    selectedProductServices = productServices[0];
+    productServicesCategories = Data.productServicesCategories;
+    _productController = AnimationController(
       duration: const Duration(milliseconds: 500),
       vsync: this,
     );
@@ -56,7 +56,7 @@ class _ProductServicesSectionState extends State<ProductServicesSection> with Si
       end: 1,
     ).animate(
       CurvedAnimation(
-        parent: _projectController,
+        parent: _productController,
         curve: Curves.fastOutSlowIn,
       ),
     );
@@ -64,13 +64,13 @@ class _ProductServicesSectionState extends State<ProductServicesSection> with Si
 
   @override
   void dispose() {
-    _projectController.dispose();
+    _productController.dispose();
     super.dispose();
   }
 
   Future<void> _playProjectAnimation() async {
     try {
-      await _projectController.forward().orCancel;
+      await _productController.forward().orCancel;
     } on TickerCanceled {
       // the animation got canceled, probably because it was disposed of
     }
@@ -97,22 +97,22 @@ class _ProductServicesSectionState extends State<ProductServicesSection> with Si
               padding: EdgeInsets.symmetric(horizontal: getSidePadding(context)),
               child: ContentArea(
                 width: contentAreaWidth,
-                child: Column(
+                child: Row(
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    _buildNimbusInfoSectionSm(),
+                    _buildProductServicesInfoSm(),
                     SizedBoxH40(),
                     Wrap(
                       spacing: kSpacing,
                       runSpacing: kRunSpacing,
-                      children: _buildProjectCategories(projectCategories),
+                      children: _buildProductServicesCategories(productServicesCategories),
                     ),
                     SizedBoxH40(),
                     Wrap(
                       runSpacing: assignHeight(context, 0.05),
-                      children: _buildProjects(
-                        selectedProject,
+                      children: _buildProductServices(
+                        selectedProductServices,
                         isMobile: true,
                       ),
                     ),
@@ -130,7 +130,10 @@ class _ProductServicesSectionState extends State<ProductServicesSection> with Si
                 }
               },
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  SizedBoxH50(),
                   Container(
                     padding: EdgeInsets.symmetric(
                       horizontal: getSidePadding(context),
@@ -142,22 +145,44 @@ class _ProductServicesSectionState extends State<ProductServicesSection> with Si
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           ContentArea(
-                            width: contentAreaWidth * 0.6,
-                            child: _buildNimbusInfoSectionLg(),
+                            width: contentAreaWidth * 0.9,
+                            child: _buildProductServicesInfoLg(),
                           ),
                           Spacer(),
                         ],
                       ),
                     ),
                   ),
-                  SizedBoxH10(),
-                  Container(
-                    alignment: Alignment.center,
-                    width: widthOfScreen(context),
-                    child: Wrap(
-                      spacing: assignWidth(context, 0.020),
-                      runSpacing: assignWidth(context, 0.025),
-                      children: _buildProjects(selectedProject),
+                  SizedBoxH40(),
+                  Padding(
+                    padding: EdgeInsets.only(left: 35, right: 35),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Expanded(
+                          child: SizedBox(
+                            height: MediaQuery.of(context).size.height * 0.4,
+                            child: new ListView.builder(
+                              shrinkWrap: true,
+                              scrollDirection: Axis.horizontal,
+                              physics: NeverScrollableScrollPhysics(),
+                              itemCount: productServicesCategories.length,
+                              itemBuilder: (context, index) {
+                                return new Container(
+                                  alignment: Alignment.center,
+                                  width: widthOfScreen(context),
+                                  child: ListView(
+                                    scrollDirection: Axis.horizontal,
+                                    children: _buildProductServices(selectedProductServices),
+                                  ),
+                                );
+                              },
+                            ),
+                          ),
+                        ),
+                        SizedBoxH40(),
+                      ],
                     ),
                   ),
                 ],
@@ -169,7 +194,7 @@ class _ProductServicesSectionState extends State<ProductServicesSection> with Si
     );
   }
 
-  Widget _buildNimbusInfoSectionSm() {
+  Widget _buildProductServicesInfoSm() {
     return NimbusInfoSection2(
       title1: StringConst.PRODUCT_AND_SERVICES,
       hasTitle2: false,
@@ -177,7 +202,7 @@ class _ProductServicesSectionState extends State<ProductServicesSection> with Si
     );
   }
 
-  Widget _buildNimbusInfoSectionLg() {
+  Widget _buildProductServicesInfoLg() {
     return NimbusInfoSection1(
       title1: StringConst.PRODUCT_AND_SERVICES,
       hasTitle2: false,
@@ -185,37 +210,37 @@ class _ProductServicesSectionState extends State<ProductServicesSection> with Si
       child: Wrap(
         spacing: kSpacing,
         runSpacing: kRunSpacing,
-        children: _buildProjectCategories(projectCategories),
+        children: _buildProductServicesCategories(productServicesCategories),
       ),
     );
   }
 
-  List<Widget> _buildProjectCategories(List<ProjectCategoryData> categories) {
+  List<Widget> _buildProductServicesCategories(List<ProductServicesCategoryData> categories) {
     List<Widget> items = [];
     for (int index = 0; index < categories.length; index++) {
       items.add(
-        ProjectCategory(
+        ProductServicesCategory(
           title: categories[index].title,
           number: categories[index].number,
           isSelected: categories[index].isSelected,
-          onTap: () => onProjectCategoryTap(index),
+          onTap: () => onProductServicesCategoryTap(index),
         ),
       );
     }
     return items;
   }
 
-  List<Widget> _buildProjects(List<ProjectData> data, {bool isMobile = false}) {
+  List<Widget> _buildProductServices(List<ProductServicesData> data, {bool isMobile = false}) {
     List<Widget> items = [];
     for (int index = 0; index < data.length; index++) {
       items.add(
         ScaleTransition(
           scale: _projectScaleAnimation,
-          child: ProjectItem(
+          child: ProductServicesItem(
             width: isMobile ? assignWidth(context, data[index].mobileWidth) : assignWidth(context, data[index].width),
             height: isMobile ? assignHeight(context, data[index].mobileHeight) : assignHeight(context, data[index].height),
             bannerHeight: isMobile ? assignHeight(context, data[index].mobileHeight) / 2 : assignHeight(context, data[index].height) / 3,
-            imageUrl: data[index].projectCoverUrl,
+            imageUrl: data[index].productServicesCoverUrl,
             onTap: data[index].onPressed,
             // title: data[index].title,
             //  subtitle: data[index].category,
@@ -226,30 +251,30 @@ class _ProductServicesSectionState extends State<ProductServicesSection> with Si
     return items;
   }
 
-  void onProjectCategoryTap(index) {
-    _projectController.reset();
+  void onProductServicesCategoryTap(index) {
+    _productController.reset();
     changeCategorySelected(index);
     setState(() {
-      selectedProject = projects[index];
+      selectedProductServices = productServices[index];
       _playProjectAnimation();
     });
   }
 
   changeCategorySelected(int selectedIndex) {
-    for (int index = 0; index < projectCategories.length; index++) {
+    for (int index = 0; index < productServicesCategories.length; index++) {
       if (index == selectedIndex) {
         setState(() {
-          projectCategories[selectedIndex].isSelected = true;
+          productServicesCategories[selectedIndex].isSelected = true;
         });
       } else {
-        projectCategories[index].isSelected = false;
+        productServicesCategories[index].isSelected = false;
       }
     }
   }
 }
 
-class ProjectCategory extends StatefulWidget {
-  ProjectCategory({
+class ProductServicesCategory extends StatefulWidget {
+  ProductServicesCategory({
     required this.title,
     required this.number,
     this.titleColor = AppColors.black,
@@ -272,10 +297,10 @@ class ProjectCategory extends StatefulWidget {
   final bool isSelected;
 
   @override
-  _ProjectCategoryState createState() => _ProjectCategoryState();
+  _ProductServicesCategoryState createState() => _ProductServicesCategoryState();
 }
 
-class _ProjectCategoryState extends State<ProjectCategory> with SingleTickerProviderStateMixin {
+class _ProductServicesCategoryState extends State<ProductServicesCategory> with SingleTickerProviderStateMixin {
   bool _isHovering = false;
   late AnimationController _controller;
   late Color color;
@@ -320,10 +345,10 @@ class _ProjectCategoryState extends State<ProjectCategory> with SingleTickerProv
               ),
               WidgetSpan(
                 child: widget.isSelected
-                    ? numberOfProjectItems()
+                    ? numberOfProductServicesItems()
                     : FadeTransition(
                         opacity: _controller.view,
-                        child: numberOfProjectItems(),
+                        child: numberOfProductServicesItems(),
                       ),
               ),
             ],
@@ -333,7 +358,7 @@ class _ProjectCategoryState extends State<ProjectCategory> with SingleTickerProv
     );
   }
 
-  Widget numberOfProjectItems() {
+  Widget numberOfProductServicesItems() {
     TextTheme textTheme = Theme.of(context).textTheme;
     return Transform.translate(
       offset: const Offset(2, -8),

@@ -135,10 +135,10 @@ class NimbusInfoSection2 extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                // Text(
-                //   title1,
-                //   style: title1Style ?? titleStyle,
-                // ),
+                Text(
+                  title1,
+                  style: title1Style ?? titleStyle,
+                ),
                 // AnimatedIcon(
                 //   icon: AnimatedIcons.menu_arrow,
                 //   progress: animation,

@@ -1,8 +1,8 @@
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
 import 'package:flutter/material.dart';
 
-class ProjectData {
-  final String projectCoverUrl;
+class ProductServicesData {
+  final String productServicesCoverUrl;
   final String? title;
   final String? category;
   final double width;
@@ -11,9 +11,9 @@ class ProjectData {
   final double mobileHeight;
   final VoidCallback? onPressed;
 
-  ProjectData({
+  ProductServicesData({
     this.onPressed,
-    required this.projectCoverUrl,
+    required this.productServicesCoverUrl,
     this.title,
     this.category,
     required this.width,
@@ -23,8 +23,8 @@ class ProjectData {
   });
 }
 
-class ProjectItem extends StatefulWidget {
-  const ProjectItem({
+class ProductServicesItem extends StatefulWidget {
+  const ProductServicesItem({
     Key? key,
     this.title,
     this.subtitle,
@@ -52,10 +52,10 @@ class ProjectItem extends StatefulWidget {
   final GestureTapCallback? onTap;
 
   @override
-  _ProjectItemState createState() => _ProjectItemState();
+  _ProductServicesItemState createState() => _ProductServicesItemState();
 }
 
-class _ProjectItemState extends State<ProjectItem> with TickerProviderStateMixin {
+class _ProductServicesItemState extends State<ProductServicesItem> with TickerProviderStateMixin {
   late AnimationController _slideFadeController;
   late AnimationController _indicatorController;
   late Animation<double> _indicatorAnimation;

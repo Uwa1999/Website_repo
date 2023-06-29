@@ -1,8 +1,5 @@
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/about_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/footer_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/header_responsive_section/header_responsive.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/insights_section.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/productservices_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/responsive_navigation/nav_section_mobile.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/responsive_navigation/nav_section_web.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/functions.dart';
@@ -15,14 +12,15 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/nav_item.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:responsive_builder/responsive_builder.dart';
-import 'package:visibility_detector/visibility_detector.dart';
 
-class HomepageScreen extends StatefulWidget {
+class kPlusDescriptionScreen extends StatefulWidget {
+  const kPlusDescriptionScreen({Key? key}) : super(key: key);
+
   @override
-  _HomepageScreenState createState() => _HomepageScreenState();
+  State<kPlusDescriptionScreen> createState() => _kPlusDescriptionScreenState();
 }
 
-class _HomepageScreenState extends State<HomepageScreen> with SingleTickerProviderStateMixin {
+class _kPlusDescriptionScreenState extends State<kPlusDescriptionScreen> with SingleTickerProviderStateMixin {
   late final AnimationController _controller = AnimationController(
     duration: const Duration(milliseconds: 300),
     vsync: this,
@@ -40,6 +38,7 @@ class _HomepageScreenState extends State<HomepageScreen> with SingleTickerProvid
     NavItemData(name: StringConst.HOME, key: GlobalKey(), isSelected: true),
     NavItemData(name: StringConst.ABOUT, key: GlobalKey()),
     NavItemData(name: StringConst.SERVICES, key: GlobalKey()),
+    // NavItemData(name: StringConst.PARTNERS, key: GlobalKey()),
     NavItemData(name: StringConst.INSIGHTS, key: GlobalKey()),
   ];
 
@@ -63,7 +62,7 @@ class _HomepageScreenState extends State<HomepageScreen> with SingleTickerProvid
   @override
   Widget build(BuildContext context) {
     double screenHeight = heightOfScreen(context);
-    double spacerHeight = screenHeight * 0.17;
+    double spacerHeight = screenHeight * 0.10;
 
     return Scaffold(
       key: _scaffoldKey,
@@ -122,19 +121,39 @@ class _HomepageScreenState extends State<HomepageScreen> with SingleTickerProvid
                             key: navItems[0].key,
                           ),
                           SizedBox(height: spacerHeight),
-                          VisibilityDetector(
-                            key: Key("about"),
-                            onVisibilityChanged: (visibilityInfo) {
-                              double visiblePercentage = visibilityInfo.visibleFraction * 100;
-                              if (visiblePercentage > 10) {
-                                _controller.forward();
-                              }
-                            },
-                            child: Container(
-                              key: navItems[1].key,
-                              child: AboutSection(),
-                            ),
-                          ),
+                          // VisibilityDetector(
+                          //   key: Key("about"),
+                          //   onVisibilityChanged: (visibilityInfo) {
+                          //     double visiblePercentage = visibilityInfo.visibleFraction * 100;
+                          //     if (visiblePercentage > 10) {
+                          //       _controller.forward();
+                          //     }
+                          //   },
+                          //   child: Container(
+                          //     key: navItems[1].key,
+                          //     child: AboutSection(),
+                          //   ),
+                          // ),
+                        ],
+                      )
+                    ],
+                  ),
+                  SizedBox(height: spacerHeight),
+                  Stack(
+                    children: [
+                      Column(
+                        children: [
+                          // Container(
+                          //   key: navItems[2].key,
+                          //   child: ProductServicesSection(),
+                          // ),
+                          // SizedBox(height: spacerHeight),
+                          // StatisticsSection(),
+                          // SizedBox(height: spacerHeight),
+                          // Container(
+                          //   key: navItems[3].key,
+                          //   child: PartnerSection(),
+                          // ),
                         ],
                       ),
                     ],
@@ -144,26 +163,13 @@ class _HomepageScreenState extends State<HomepageScreen> with SingleTickerProvid
                     children: [
                       Column(
                         children: [
-                          Container(
-                            key: navItems[2].key,
-                            child: ProductServicesSection(),
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: spacerHeight),
-                  Stack(
-                    children: [
-                      Column(
-                        children: [
-                          Container(
-                            key: navItems[3].key,
-                            child: InsightSection(),
-                          ),
+                          // Container(
+                          //   key: navItems[3].key,
+                          //   child: InsightSection(),
+                          // ),
                           FooterSection(),
                         ],
-                      ),
+                      )
                     ],
                   ),
                 ],

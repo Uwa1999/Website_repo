@@ -1,5 +1,5 @@
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/productservices_section.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/statistics_section.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/kplus_desc.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/images.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/strings.dart';
@@ -112,28 +112,52 @@ class Data {
       description: StringConst.SKILLS_4_DESC,
       iconData: FontAwesomeIcons.recordVinyl,
     ),
-    SkillCardData(title: "", description: "", iconData: Icons.pages_outlined), //not being used
+    SkillCardData(
+      title: "",
+      description: "",
+      iconData: Icons.pages_outlined,
+    ), //not being used
   ];
-  static List<StatItemData> statItemsData = [
-    StatItemData(value: 120, subtitle: StringConst.HAPPY_CLIENTS),
-    StatItemData(value: 10, subtitle: StringConst.YEARS_OF_EXPERIENCE),
-    StatItemData(value: 230, subtitle: StringConst.INCREDIBLE_PROJECTS),
-    StatItemData(value: 18, subtitle: StringConst.AWARD_WINNING),
-  ];
+  // static List<StatItemData> statItemsData = [
+  //   StatItemData(value: 120, subtitle: StringConst.HAPPY_CLIENTS),
+  //   StatItemData(value: 10, subtitle: StringConst.YEARS_OF_EXPERIENCE),
+  //   StatItemData(value: 230, subtitle: StringConst.INCREDIBLE_PROJECTS),
+  //   StatItemData(value: 18, subtitle: StringConst.AWARD_WINNING),
+  // ];
+  //
+  // static List<StatItemData> statItemsData2 = [
+  //   StatItemData(value: 1000, subtitle: StringConst.API_CALLS_PER_DAY),
+  //   StatItemData(value: 65, subtitle: StringConst.COUNTRIES),
+  //   StatItemData(value: 230, subtitle: StringConst.INCREDIBLE_PROJECTS),
+  //   StatItemData(value: 18, subtitle: StringConst.AWARD_WINNING),
+  // ];
 
-  static List<StatItemData> statItemsData2 = [
-    StatItemData(value: 1000, subtitle: StringConst.API_CALLS_PER_DAY),
-    StatItemData(value: 65, subtitle: StringConst.COUNTRIES),
-    StatItemData(value: 230, subtitle: StringConst.INCREDIBLE_PROJECTS),
-    StatItemData(value: 18, subtitle: StringConst.AWARD_WINNING),
-  ];
-
-  static List<ProjectCategoryData> projectCategories = [
-    ProjectCategoryData(title: StringConst.ALL, number: 6, isSelected: true),
-    ProjectCategoryData(title: StringConst.MOBILE_APP, number: 1, isSelected: true),
-    ProjectCategoryData(title: StringConst.WEB, number: 1),
-    ProjectCategoryData(title: StringConst.ATM, number: 2),
-    ProjectCategoryData(title: StringConst.WEB_DESIGN, number: 3),
+  static List<ProductServicesCategoryData> productServicesCategories = [
+    ProductServicesCategoryData(
+      title: StringConst.ALL,
+      number: 6,
+      isSelected: true,
+    ),
+    ProductServicesCategoryData(
+      title: StringConst.MOBILE_APP,
+      number: 2,
+      isSelected: true,
+    ),
+    ProductServicesCategoryData(
+      title: StringConst.WEB,
+      number: 1,
+      isSelected: true,
+    ),
+    ProductServicesCategoryData(
+      title: StringConst.ATM,
+      number: 2,
+      isSelected: true,
+    ),
+    ProductServicesCategoryData(
+      title: StringConst.WEB_DESIGN,
+      number: 3,
+      isSelected: true,
+    ),
   ];
 
   static List<String> awards1 = [
@@ -175,163 +199,206 @@ class Data {
       buttonText: StringConst.WEBINARS_READ_MORE,
       imageUrl: ImagePath.WEBINARS_01,
     ),
-    // InsightsData(
-    //   category: StringConst.INSIGHTS_CATEGORY_1,
-    //   title: StringConst.ARTICLE_TITLE_1,
-    //   subtitle: StringConst.ARTICLE_SUBTITLE_1,
-    //   date: StringConst.ARTICLE_DATE,
-    //   buttonText: StringConst.ARTICLE_READ_MORE,
-    //   imageUrl: ImagePath.ARTICLE_01,
-    // ),
-    // InsightsData(
-    //   category: StringConst.INSIGHTS_CATEGORY_2,
-    //   title: StringConst.EVENTS_TITLE_1,
-    //   subtitle: StringConst.EVENTS_SUBTITLE_2,
-    //   date: StringConst.EVENTS_DATE,
-    //   buttonText: StringConst.EVENTS_READ_MORE,
-    //   imageUrl: ImagePath.EVENTS_02,
-    // ),
-    // InsightsData(
-    //   category: StringConst.INSIGHTS_CATEGORY_3,
-    //   title: StringConst.WEBINARS_TITLE_1,
-    //   subtitle: StringConst.WEBINARS_SUBTITLE_3,
-    //   date: StringConst.WEBINARS_DATE,
-    //   buttonText: StringConst.WEBINARS_READ_MORE,
-    //   imageUrl: ImagePath.WEBINARS_01,
-    // ),
+    InsightsData(
+      category: StringConst.INSIGHTS_CATEGORY_1,
+      title: StringConst.ARTICLE_TITLE_1,
+      subtitle: StringConst.ARTICLE_SUBTITLE_1,
+      date: StringConst.ARTICLE_DATE,
+      buttonText: StringConst.ARTICLE_READ_MORE,
+      imageUrl: ImagePath.ARTICLE_01,
+    ),
+    InsightsData(
+      category: StringConst.INSIGHTS_CATEGORY_2,
+      title: StringConst.EVENTS_TITLE_1,
+      subtitle: StringConst.EVENTS_SUBTITLE_2,
+      date: StringConst.EVENTS_DATE,
+      buttonText: StringConst.EVENTS_READ_MORE,
+      imageUrl: ImagePath.EVENTS_02,
+    ),
+    InsightsData(
+      category: StringConst.INSIGHTS_CATEGORY_3,
+      title: StringConst.WEBINARS_TITLE_1,
+      subtitle: StringConst.WEBINARS_SUBTITLE_3,
+      date: StringConst.WEBINARS_DATE,
+      buttonText: StringConst.WEBINARS_READ_MORE,
+      imageUrl: ImagePath.WEBINARS_01,
+    ),
   ];
 
-  static List<NimBusCardData> nimbusCardData = [
-    NimBusCardData(
+  static List<FdsTagLineCardData> fdsTagLineCardData = [
+    FdsTagLineCardData(
       title: StringConst.WE_LISTEN,
       titleColor: AppColors.maroon03,
-      leadingIcon: Icons.done,
-      trailingIcon: Icons.chevron_right,
+      // leadingIcon: Icons.done,
+      // trailingIcon: Icons.chevron_right,
     ),
-    NimBusCardData(
+    FdsTagLineCardData(
       title: StringConst.WE_ANTICIPATE,
       titleColor: AppColors.maroon03,
-      leadingIcon: Icons.done,
-      trailingIcon: Icons.chevron_right,
+      // leadingIcon: Icons.done,
+      // trailingIcon: Icons.chevron_right,
     ),
-    NimBusCardData(
+    FdsTagLineCardData(
       title: StringConst.WE_DELIVER,
       titleColor: AppColors.maroon03,
-      leadingIcon: Icons.done,
-      trailingIcon: Icons.chevron_right,
+      // leadingIcon: Icons.done,
+      // trailingIcon: Icons.chevron_right,
     ),
   ];
 
-  static List<ProjectData> allProjects = [
-    ProjectData(
+  static List<ProductServicesData> allProductServices = [
+    ProductServicesData(
+      onPressed: () {},
+      category: StringConst.ATM,
+      productServicesCoverUrl: ImagePath.AML,
+      width: 0.225,
+    ),
+    ProductServicesData(
+      onPressed: () {},
+      category: StringConst.ATM,
+      productServicesCoverUrl: ImagePath.ATM_SWITCH_MAROON,
+      width: 0.225,
+    ),
+    ProductServicesData(
+      onPressed: () {},
+      category: StringConst.WEB_DESIGN,
+      productServicesCoverUrl: ImagePath.CHATBOT_MAROON,
+      width: 0.225,
+    ),
+    ProductServicesData(
+      onPressed: () {},
+      category: StringConst.WEB,
+      productServicesCoverUrl: ImagePath.CLOUD_TEST_ENVIRONMENT_MAROON,
+      width: 0.225,
+    ),
+    ProductServicesData(
+      onPressed: () {},
+      category: StringConst.WEB,
+      productServicesCoverUrl: ImagePath.CORE_BANKING_MAROON,
+      width: 0.225,
+    ),
+    ProductServicesData(
+      onPressed: () {},
+      category: StringConst.WEB,
+      productServicesCoverUrl: ImagePath.DCM_MAROON,
+      width: 0.225,
+    ),
+    ProductServicesData(
       onPressed: () {
-        print('------------------------------evdfv');
+        kPlusDescriptionScreen();
+        print('---------------------');
       },
       category: StringConst.ATM,
-      projectCoverUrl: ImagePath.KPLUS,
+      productServicesCoverUrl: ImagePath.KPLUS_GREEN_WHITEBG,
       width: 0.225,
     ),
-    ProjectData(
+    ProductServicesData(
       onPressed: () {
-        print('----------------------dfdfgd');
+        kPlusDescriptionScreen();
+        print('---------------------');
       },
-      category: StringConst.WEB_DESIGN,
-      projectCoverUrl: ImagePath.CHATBOT,
+      category: StringConst.ATM,
+      productServicesCoverUrl: ImagePath.KONEK2CARD_GREEN,
       width: 0.225,
     ),
-    ProjectData(
+    ProductServicesData(
       onPressed: () {},
       category: StringConst.MOBILE_APP,
-      projectCoverUrl: ImagePath.TEMENOS,
+      productServicesCoverUrl: ImagePath.MOBILE_COLLECTION_MAROON,
       width: 0.225,
     ),
-    ProjectData(
+    ProductServicesData(
       onPressed: () {},
       category: StringConst.WEB_DESIGN,
-      projectCoverUrl: ImagePath.OPENBANKING,
+      productServicesCoverUrl: ImagePath.OPEN_API_MAROON,
       width: 0.225,
     ),
-    ProjectData(
-      onPressed: () {},
-      category: StringConst.WEB,
-      projectCoverUrl: ImagePath.DCM,
-      width: 0.225,
-    ),
-    ProjectData(
+    ProductServicesData(
       onPressed: () {},
       category: StringConst.ATM,
-      projectCoverUrl: ImagePath.WEB_COLLECTION,
+      productServicesCoverUrl: ImagePath.SMART_BRANCH_SYSTEM_MAROON,
       width: 0.225,
     ),
-    ProjectData(
+    ProductServicesData(
       onPressed: () {},
-      category: StringConst.WEB,
-      projectCoverUrl: ImagePath.CLOUD,
-      width: 0.225,
-    ),
-    ProjectData(
-      onPressed: () {},
-      category: StringConst.ATM,
-      projectCoverUrl: ImagePath.SBS,
-      width: 0.225,
-    ),
-  ];
-  static List<ProjectData> mobileApp = [
-    ProjectData(
-      onPressed: () {},
-      projectCoverUrl: ImagePath.KPLUS,
-      width: 0.220,
-      mobileHeight: 0.3,
-    ),
-    ProjectData(
-      onPressed: () {},
-      title: StringConst.PORTFOLIO_3_TITLE,
       category: StringConst.MOBILE_APP,
-      projectCoverUrl: ImagePath.CHATBOT,
-      width: 0.220,
+      productServicesCoverUrl: ImagePath.TEMENOS_MAROON,
+      width: 0.225,
     ),
-  ];
-  static List<ProjectData> webApp = [
-    ProjectData(
-      onPressed: () {},
-      category: StringConst.WEB,
-      projectCoverUrl: ImagePath.DCM,
-      width: 0.220,
-    ),
-  ];
-  static List<ProjectData> atm = [
-    ProjectData(
+    ProductServicesData(
       onPressed: () {},
       category: StringConst.ATM,
-      projectCoverUrl: ImagePath.KPLUS,
+      productServicesCoverUrl: ImagePath.WEB_COLLECTION_MAROON,
+      width: 0.225,
+    ),
+  ];
+  static List<ProductServicesData> mobileProductServices = [
+    ProductServicesData(
+      onPressed: () {},
+      productServicesCoverUrl: ImagePath.KPLUS_MAROON_WHITEBG,
       width: 0.220,
       mobileHeight: 0.3,
     ),
-    ProjectData(
+    ProductServicesData(
+      onPressed: () {},
+      category: StringConst.MOBILE_APP,
+      productServicesCoverUrl: ImagePath.CHATBOT_MAROON,
+      width: 0.220,
+    ),
+    ProductServicesData(
+      onPressed: () {},
+      category: StringConst.MOBILE_APP,
+      productServicesCoverUrl: ImagePath.MOBILE_COLLECTION_MAROON,
+      width: 0.225,
+    ),
+  ];
+  static List<ProductServicesData> webProductServices = [
+    ProductServicesData(
+      onPressed: () {},
+      category: StringConst.WEB,
+      productServicesCoverUrl: ImagePath.DCM_MAROON,
+      width: 0.220,
+    ),
+  ];
+  static List<ProductServicesData> atmProductServices = [
+    ProductServicesData(
       onPressed: () {},
       category: StringConst.ATM,
-      projectCoverUrl: ImagePath.WEB_COLLECTION,
+      productServicesCoverUrl: ImagePath.KPLUS_GREEN_WHITEBG,
       width: 0.220,
       mobileHeight: 0.3,
     ),
+    ProductServicesData(
+      onPressed: () {},
+      category: StringConst.ATM,
+      productServicesCoverUrl: ImagePath.WEB_COLLECTION_MAROON,
+      width: 0.220,
+      mobileHeight: 0.3,
+    ),
+    ProductServicesData(
+      onPressed: () {},
+      category: StringConst.ATM,
+      productServicesCoverUrl: ImagePath.ATM_SWITCH_MAROON,
+      width: 0.225,
+    ),
   ];
-  static List<ProjectData> dcm = [
-    ProjectData(
+  static List<ProductServicesData> dcmProductServices = [
+    ProductServicesData(
       onPressed: () {},
       category: StringConst.WEB_DESIGN,
-      projectCoverUrl: ImagePath.CHATBOT,
+      productServicesCoverUrl: ImagePath.CHATBOT_GREEN,
       width: 0.220,
     ),
-    ProjectData(
+    ProductServicesData(
       onPressed: () {},
       category: StringConst.WEB_DESIGN,
-      projectCoverUrl: ImagePath.OPENBANKING,
+      productServicesCoverUrl: ImagePath.OPEN_API_MAROON,
       width: 0.220,
     ),
-    ProjectData(
+    ProductServicesData(
       onPressed: () {},
       category: StringConst.WEB,
-      projectCoverUrl: ImagePath.DCM,
+      productServicesCoverUrl: ImagePath.DCM_MAROON,
       width: 0.220,
     ),
   ];

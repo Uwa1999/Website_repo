@@ -1,15 +1,14 @@
 // ignore_for_file: constant_identifier_names
 
 class StringConst {
-  //strings
-  static const String APP_NAME = "FDSAP";
+  //App Name
+  static const String APP_NAME = "FDS Asya Philippines Inc.";
 
   //Nav Section
   static const String NAME_ABBREV = "CA";
   static const String HOME = "Home";
   static const String ABOUT = "About";
   static const String SERVICES = "Product & Services";
-  // static const String AWARDS = "Awards";
   static const String INSIGHTS = "Insights";
   static const String PARTNERS = "Partners";
   static const String CONTACT = "Contacts";
@@ -30,6 +29,7 @@ class StringConst {
   static const String EMAIL = "Email";
   static const String BEHANCE = "Behance";
 
+  //FDS Tag Line
   static const String WE_LISTEN = "WE LISTEN";
   static const String WE_LISTEN_DESC = " ";
   static const String WE_ANTICIPATE = "WE ANTICIPATE";
@@ -97,7 +97,7 @@ class StringConst {
   //Products & Services Section
   static const String PRODUCT_AND_SERVICES = "Products & Services";
   static const String MY_WORKS = "my works";
-  static const String PRODUCT_AND_SERVICES_DESC = "FDSAP has the following systems and applications where clients can choose from:";
+  static const String PRODUCT_AND_SERVICES_DESC = '''It has the license, expertise, and ability to provide IT Operations Software as a Service. FDSAP provides business solution to the CARD MRI such as kPlus, chatbot, openAPI, ATM Switch k2c, CBS, mobcol, dcm, amla and other program offerings.''';
   static const String ALL = "All";
   static const String MOBILE_APP = "Mobile App";
   static const String WEB = "Web";
@@ -157,9 +157,9 @@ class StringConst {
   static const String EVENTS_TITLE_1 = "konek2CARD PLUS";
   static const String EVENTS_TITLE_2 = " ";
   static const String EVENTS_TITLE_3 = " ";
-  static const String EVENTS_SUBTITLE_1 = "CARD MRI launched the konek2CARD PLUS, a mobile application that allows the clients of CARD MRI to enjoy a hassle-free banking transaction anytime, anywhere using their smartphones.";
-  static const String EVENTS_SUBTITLE_2 = "CARD MRI launched the konek2CARD PLUS, a mobile application that allows the clients of CARD MRI to enjoy a hassle-free banking transaction anytime, anywhere using their smartphones.";
-  static const String EVENTS_SUBTITLE_3 = "CARD MRI launched the konek2CARD PLUS, a mobile application that allows the clients of CARD MRI to enjoy a hassle-free banking transaction anytime, anywhere using their smartphones.";
+  static const String EVENTS_SUBTITLE_1 = '''CARD MRI launched the konek2CARD PLUS, a mobile application that allows the clients of CARD MRI to enjoy a hassle-free banking transaction anytime, anywhere using their smartphones.''';
+  static const String EVENTS_SUBTITLE_2 = '''CARD MRI launched the konek2CARD PLUS, a mobile application that allows the clients of CARD MRI to enjoy a hassle-free banking transaction anytime, anywhere using their smartphones.''';
+  static const String EVENTS_SUBTITLE_3 = '''CARD MRI launched the konek2CARD PLUS, a mobile application that allows the clients of CARD MRI to enjoy a hassle-free banking transaction anytime, anywhere using their smartphones.''';
   static const String EVENTS_READ_MORE = "Read More";
   static const String EVENTS = "Blogging";
 
@@ -168,9 +168,9 @@ class StringConst {
   static const String WEBINARS_TITLE_1 = "konek2CARD PLUS";
   static const String WEBINARS_TITLE_2 = " ";
   static const String WEBINARS_TITLE_3 = " ";
-  static const String WEBINARS_SUBTITLE_1 = "CARD MRI launched the konek2CARD PLUS, a mobile application that allows the clients of CARD MRI to enjoy a hassle-free banking transaction anytime, anywhere using their smartphones.";
-  static const String WEBINARS_SUBTITLE_2 = "CARD MRI launched the konek2CARD PLUS, a mobile application that allows the clients of CARD MRI to enjoy a hassle-free banking transaction anytime, anywhere using their smartphones.";
-  static const String WEBINARS_SUBTITLE_3 = "CARD MRI launched the konek2CARD PLUS, a mobile application that allows the clients of CARD MRI to enjoy a hassle-free banking transaction anytime, anywhere using their smartphones.";
+  static const String WEBINARS_SUBTITLE_1 = '''CARD MRI launched the konek2CARD PLUS, a mobile application that allows the clients of CARD MRI to enjoy a hassle-free banking transaction anytime, anywhere using their smartphones.''';
+  static const String WEBINARS_SUBTITLE_2 = '''CARD MRI launched the konek2CARD PLUS, a mobile application that allows the clients of CARD MRI to enjoy a hassle-free banking transaction anytime, anywhere using their smartphones.''';
+  static const String WEBINARS_SUBTITLE_3 = '''CARD MRI launched the konek2CARD PLUS, a mobile application that allows the clients of CARD MRI to enjoy a hassle-free banking transaction anytime, anywhere using their smartphones.''';
   static const String WEBINARS_READ_MORE = "Read More";
   static const String WEBINARS = "Blogging";
 

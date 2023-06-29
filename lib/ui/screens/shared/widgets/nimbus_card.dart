@@ -4,35 +4,35 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/empty.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/sizedbox.dart';
 import 'package:flutter/material.dart';
 
-class NimBusCardData {
-  IconData leadingIcon;
-  IconData trailingIcon;
+class FdsTagLineCardData {
+  IconData? leadingIcon;
+  IconData? trailingIcon;
   Color trailingIconColor;
   Color leadingIconColor;
   Color circleBgColor;
   String title;
   Color titleColor;
 
-  NimBusCardData({
-    required this.leadingIcon,
-    required this.trailingIcon,
-    this.circleBgColor = AppColors.black,
-    this.leadingIconColor = AppColors.white,
-    this.trailingIconColor = AppColors.grey300,
+  FdsTagLineCardData({
+    this.leadingIcon,
+    this.trailingIcon,
+    this.circleBgColor = AppColors.white,
+    this.leadingIconColor = AppColors.black,
+    this.trailingIconColor = AppColors.white,
     this.titleColor = AppColors.black,
     required this.title,
   });
 }
 
-class NimBusCard extends StatefulWidget {
-  NimBusCard({
+class FdsTagLineCard extends StatefulWidget {
+  FdsTagLineCard({
     this.leading,
     this.title,
     this.subtitle,
     this.trailing,
-    this.columnMainAxisAlignment = MainAxisAlignment.start,
-    this.columnCrossAxisAlignment = CrossAxisAlignment.start,
-    this.rowMainAxisAlignment = MainAxisAlignment.start,
+    this.columnMainAxisAlignment = MainAxisAlignment.center,
+    this.columnCrossAxisAlignment = CrossAxisAlignment.center,
+    this.rowMainAxisAlignment = MainAxisAlignment.center,
     this.rowCrossAxisAlignment = CrossAxisAlignment.center,
     this.width,
     this.height,
@@ -64,10 +64,10 @@ class NimBusCard extends StatefulWidget {
   final bool hasAnimation;
 
   @override
-  _NimBusCardState createState() => _NimBusCardState();
+  _FdsTagLineCardState createState() => _FdsTagLineCardState();
 }
 
-class _NimBusCardState extends State<NimBusCard> with SingleTickerProviderStateMixin {
+class _FdsTagLineCardState extends State<FdsTagLineCard> with SingleTickerProviderStateMixin {
   bool _hovering = false;
   late AnimationController _controller;
   late Animation<double> animation;
@@ -110,18 +110,18 @@ class _NimBusCardState extends State<NimBusCard> with SingleTickerProviderStateM
               builder: (context, child) {
                 return Transform.translate(
                   offset: Offset(0, animation.value),
-                  child: _buildCard(),
+                  child: _buildFdsTagLineCard(),
                 );
               },
             ),
           )
-        : _buildCard();
+        : _buildFdsTagLineCard();
   }
 
-  Widget _buildCard() {
+  Widget _buildFdsTagLineCard() {
     return Container(
-      width: widget.width,
-      height: widget.height,
+      width: MediaQuery.of(context).size.width * 0.2,
+      height: MediaQuery.of(context).size.height * 0.1,
       child: ClipRRect(
         borderRadius: widget.borderRadius,
         child: Card(
@@ -132,9 +132,9 @@ class _NimBusCardState extends State<NimBusCard> with SingleTickerProviderStateM
               mainAxisAlignment: widget.rowMainAxisAlignment,
               crossAxisAlignment: widget.rowCrossAxisAlignment,
               children: [
-                widget.leading != null ? Spacer() : EmptyContainer(),
-                widget.leading ?? EmptyContainer(),
-                widget.leading != null ? Spacer() : EmptyContainer(),
+                // widget.leading != null ? Spacer() : EmptyContainer(),
+                // widget.leading ?? EmptyContainer(),
+                // widget.leading != null ? Spacer() : EmptyContainer(),
                 Column(
                   mainAxisAlignment: widget.columnMainAxisAlignment,
                   crossAxisAlignment: widget.columnCrossAxisAlignment,
@@ -146,9 +146,9 @@ class _NimBusCardState extends State<NimBusCard> with SingleTickerProviderStateM
                     Spacer(),
                   ],
                 ),
-                widget.trailing != null ? Spacer() : EmptyContainer(),
-                widget.trailing ?? EmptyContainer(),
-                widget.trailing != null ? Spacer() : EmptyContainer(),
+                // widget.trailing != null ? Spacer() : EmptyContainer(),
+                // widget.trailing ?? EmptyContainer(),
+                // widget.trailing != null ? Spacer() : EmptyContainer(),
               ],
             ),
           ),

@@ -4,9 +4,6 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/sizes.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/sizedbox.dart';
 import 'package:flutter/material.dart';
 
-import 'animated_line_through.dart';
-import 'buttons/animated_nimbus_button.dart';
-
 class InsightsData {
   final String category;
   final String date;
@@ -86,50 +83,111 @@ class _InsightsCardState extends State<InsightsCard> {
     return Container(
       width: widget.width,
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Stack(
             children: [
-              Container(
-                margin: const EdgeInsets.only(left: Sizes.MARGIN_18),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(Sizes.RADIUS_16),
-                  ),
+              Card(
+                shadowColor: AppColors.black,
+                //   margin: const EdgeInsets.only(left: Sizes.MARGIN_18),
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+                child: InkWell(
+                  onTap: () {},
+                  splashColor: Colors.grey,
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     mainAxisSize: MainAxisSize.min,
-                    children: [
-                      MouseRegion(
-                        onEnter: (e) => _onImageHover(true),
-                        onExit: (e) => _onImageHover(false),
-                        child: AnimatedOpacity(
-                          opacity: _isHoveringOnImage ? 1.0 : 0.85,
-                          duration: Duration(milliseconds: 300),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.all(
-                              Radius.circular(Sizes.RADIUS_16),
+                    children: <Widget>[
+                      Image.asset(
+                        widget.imageUrl,
+                        height: MediaQuery.of(context).size.height * 0.4,
+                        width: double.infinity,
+                        fit: BoxFit.fitHeight,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 10.0, top: 10.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Icon(
+                              widget.dateIcon,
+                              color: AppColors.maroon04,
                             ),
-                            child: Image.asset(
-                              widget.imageUrl,
-                              height: heightOfImage(),
-                              width: widthOfImage(),
-                              fit: BoxFit.fitHeight,
-                            ),
+                            SizedBoxW8(),
+                            Text(
+                              widget.date,
+                              style: widget.dateStyle ?? textTheme.titleLarge,
+                            )
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 10.0),
+                        child: Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            widget.title,
+                            style: widget.dateStyle ?? textTheme.headlineSmall,
                           ),
                         ),
                       ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 10.0, right: 10.0),
+                        child: Align(
+                          alignment: Alignment.centerLeft,
+                          child: Text(
+                            widget.subtitle,
+                            style: widget.titleStyle ?? textTheme.bodyMedium,
+                          ),
+                        ),
+                      ),
+                      SizedBoxH10(),
                     ],
                   ),
                 ),
               ),
+
+              // Container(
+              //   margin: const EdgeInsets.only(left: Sizes.MARGIN_18),
+              //   child: ClipRRect(
+              //     borderRadius: BorderRadius.all(
+              //       Radius.circular(Sizes.RADIUS_16),
+              //     ),
+              //     child: Column(
+              //       crossAxisAlignment: CrossAxisAlignment.start,
+              //       mainAxisSize: MainAxisSize.min,
+              //       children: [
+              //         MouseRegion(
+              //           onEnter: (e) => _onImageHover(true),
+              //           onExit: (e) => _onImageHover(false),
+              //           child: AnimatedOpacity(
+              //             opacity: _isHoveringOnImage ? 1.0 : 0.85,
+              //             duration: Duration(milliseconds: 300),
+              //             child: ClipRRect(
+              //               borderRadius: BorderRadius.all(
+              //                 Radius.circular(Sizes.RADIUS_16),
+              //               ),
+              //               child: Image.asset(
+              //                 widget.imageUrl,
+              //                 height: heightOfImage(),
+              //                 width: widthOfImage(),
+              //                 fit: BoxFit.fitHeight,
+              //               ),
+              //             ),
+              //           ),
+              //         ),
+              //       ],
+              //     ),
+              //   ),
+              // ),
               Container(
-                margin: const EdgeInsets.only(top: Sizes.MARGIN_30),
+                margin: const EdgeInsets.only(top: Sizes.MARGIN_20),
                 padding: const EdgeInsets.symmetric(
                   horizontal: Sizes.PADDING_8,
                   vertical: Sizes.PADDING_8,
                 ),
                 decoration: BoxDecoration(
-                  color: AppColors.maroon450,
+                  color: AppColors.maroon03,
                   borderRadius: BorderRadius.all(
                     Radius.circular(6),
                   ),
@@ -145,45 +203,45 @@ class _InsightsCardState extends State<InsightsCard> {
               ),
             ],
           ),
-          Container(
-            margin: const EdgeInsets.only(left: Sizes.MARGIN_16),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBoxH8(),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Icon(
-                      widget.dateIcon,
-                      color: AppColors.maroon04,
-                    ),
-                    SizedBoxW8(),
-                    Text(
-                      widget.date,
-                      style: widget.dateStyle ?? textTheme.titleLarge,
-                    )
-                  ],
-                ),
-                SizedBoxH8(),
-                Text(
-                  widget.title,
-                  style: widget.dateStyle ?? textTheme.headlineSmall,
-                ),
-                AnimatedLineThrough(
-                  text: widget.subtitle,
-                  textStyle: widget.titleStyle ?? textTheme.bodyMedium,
-                ),
-                SizedBoxH16(),
-                AnimatedNimbusButton(
-                  title: widget.buttonText,
-                  iconData: Icons.arrow_forward_ios,
-                  leadingButtonColor: widget.buttonColor,
-                  onTap: widget.onPressed,
-                ),
-              ],
-            ),
-          ),
+          // Container(
+          //   margin: const EdgeInsets.only(left: Sizes.MARGIN_16),
+          //   child: Column(
+          //     crossAxisAlignment: CrossAxisAlignment.start,
+          //     children: [
+          //       SizedBoxH8(),
+          //       Row(
+          //         mainAxisAlignment: MainAxisAlignment.start,
+          //         children: [
+          //           Icon(
+          //             widget.dateIcon,
+          //             color: AppColors.maroon04,
+          //           ),
+          //           SizedBoxW8(),
+          //           Text(
+          //             widget.date,
+          //             style: widget.dateStyle ?? textTheme.titleLarge,
+          //           )
+          //         ],
+          //       ),
+          //       SizedBoxH8(),
+          //       Text(
+          //         widget.title,
+          //         style: widget.dateStyle ?? textTheme.headlineSmall,
+          //       ),
+          //       AnimatedLineThrough(
+          //         text: widget.subtitle,
+          //         textStyle: widget.titleStyle ?? textTheme.bodyMedium,
+          //       ),
+          //       SizedBoxH16(),
+          //       AnimatedNimbusButton(
+          //         title: widget.buttonText,
+          //         iconData: Icons.arrow_forward_ios,
+          //         leadingButtonColor: widget.buttonColor,
+          //         onTap: widget.onPressed,
+          //       ),
+          //     ],
+          //   ),
+          // ),
         ],
       ),
     );
@@ -196,7 +254,7 @@ class _InsightsCardState extends State<InsightsCard> {
   }
 
   double heightOfImage() {
-    return widget.imageHeight ?? assignHeight(context, 0.5);
+    return widget.imageHeight ?? assignHeight(context, 0.3);
   }
 
   double widthOfImage() {

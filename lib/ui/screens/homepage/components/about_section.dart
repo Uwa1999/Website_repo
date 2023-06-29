@@ -1,11 +1,9 @@
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/header_responsive_section/widgets.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/functions.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/responsive.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/data.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/images.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/strings.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/styles.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/buttons/social_button_2.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/content_area.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/nimbus_info_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/sizedbox.dart';
@@ -103,7 +101,7 @@ class _AboutSectionState extends State<AboutSection> with TickerProviderStateMix
                   SizedBoxH10(),
                   ContentArea(
                     width: contentAreaWidthSm,
-                    child: _buildAboutMe(
+                    child: _buildAboutUs(
                       width: contentAreaWidthSm,
                       height: screenHeight,
                     ),
@@ -124,7 +122,7 @@ class _AboutSectionState extends State<AboutSection> with TickerProviderStateMix
                       ),
                       ContentArea(
                         width: contentAreaWidthLg,
-                        child: _buildAboutMe(
+                        child: _buildAboutUs(
                           width: contentAreaWidthLg,
                           height: screenHeight,
                         ),
@@ -137,7 +135,7 @@ class _AboutSectionState extends State<AboutSection> with TickerProviderStateMix
                       children: [
                         ...buildCardRow(
                           context: context,
-                          data: Data.nimbusCardData,
+                          data: Data.fdsTagLineCardData,
                           width: contentAreaWidth / 3.8,
                         ),
                       ],
@@ -151,28 +149,28 @@ class _AboutSectionState extends State<AboutSection> with TickerProviderStateMix
       ),
     );
   }
-
-  List<Widget> _buildSocialButtons(
-    List<SocialButton2Data> data, {
-    double? width,
-  }) {
-    List<Widget> items = [];
-
-    for (int index = 0; index < data.length; index++) {
-      items.add(
-        SocialButton2(
-          width: width,
-          title: data[index].title.toUpperCase(),
-          iconData: data[index].iconData,
-          onPressed: () => openUrlLink(data[index].url),
-          titleColor: data[index].titleColor,
-          buttonColor: data[index].buttonColor,
-          iconColor: data[index].iconColor,
-        ),
-      );
-    }
-    return items;
-  }
+  //
+  // List<Widget> _buildSocialButtons(
+  //   List<SocialButton2Data> data, {
+  //   double? width,
+  // }) {
+  //   List<Widget> items = [];
+  //
+  //   for (int index = 0; index < data.length; index++) {
+  //     items.add(
+  //       SocialButton2(
+  //         width: width,
+  //         title: data[index].title.toUpperCase(),
+  //         iconData: data[index].iconData,
+  //         onPressed: () => openUrlLink(data[index].url),
+  //         titleColor: data[index].titleColor,
+  //         buttonColor: data[index].buttonColor,
+  //         iconColor: data[index].iconColor,
+  //       ),
+  //     );
+  //   }
+  //   return items;
+  // }
 
   Widget _buildFdsapLogo({required double width, required double height}) {
     TextTheme textTheme = Theme.of(context).textTheme;
@@ -187,14 +185,14 @@ class _AboutSectionState extends State<AboutSection> with TickerProviderStateMix
           scale: _scaleAnimation,
           child: Image.asset(
             ImagePath.LOGO_FDSAP,
-            width: width * 0.95,
+            width: width * 0.80,
           ),
         ),
       ],
     );
   }
 
-  Widget _buildAboutMe({
+  Widget _buildAboutUs({
     required double width,
     required double height,
   }) {
@@ -210,7 +208,7 @@ class _AboutSectionState extends State<AboutSection> with TickerProviderStateMix
               return nimbusInfoSectionSm(width: width);
             } else {
               return Container(
-                width: width * 0.85,
+                width: width * 0.80,
                 child: nimbusInfoSectionLg(),
               );
             }
@@ -233,7 +231,6 @@ class _AboutSectionState extends State<AboutSection> with TickerProviderStateMix
                 title2: StringConst.OUR_HISTORY,
                 body: StringConst.ABOUT_ME_DESC,
               ),
-
               // Expanded(
               //   child: Container(
               //     // margin: EdgeInsets.only(left: (sizeOfBlobSm * 0.35)),

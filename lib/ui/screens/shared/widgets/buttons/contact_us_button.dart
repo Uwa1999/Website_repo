@@ -4,8 +4,8 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/link.dart';
 
-class NimbusButton extends StatelessWidget {
-  NimbusButton({
+class ContactUsButton extends StatelessWidget {
+  ContactUsButton({
     required this.buttonTitle,
     this.width = Sizes.WIDTH_150,
     this.height = Sizes.HEIGHT_60,
