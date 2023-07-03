@@ -72,11 +72,6 @@ class ContactUsButton extends StatelessWidget {
               onTap: followLink,
               child: Row(
                 children: [
-                  // Icon(
-                  //   Icons.arrow_downward_outlined,
-                  //   color: Colors.white,
-                  // ),
-                  // SpaceW5(),
                   Text(
                     buttonTitle,
                     style: titleStyle ??

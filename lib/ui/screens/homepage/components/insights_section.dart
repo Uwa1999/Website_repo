@@ -1,3 +1,4 @@
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/kplus_desc.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/responsive.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/data.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/sizes.dart';
@@ -42,7 +43,7 @@ class _InsightSectionState extends State<InsightSection> {
         Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            SizedBoxH80(),
+            SizedBoxH20(),
             ResponsiveBuilder(
               builder: (context, sizingInformation) {
                 double screenWidth = sizingInformation.screenSize.width;
@@ -97,7 +98,6 @@ class _InsightSectionState extends State<InsightSection> {
                       child: new ListView.builder(
                         shrinkWrap: true,
                         scrollDirection: Axis.horizontal,
-                        // physics: NeverScrollableScrollPhysics(),
                         itemCount: 1,
                         itemBuilder: (context, index) {
                           return new Container(
@@ -114,6 +114,7 @@ class _InsightSectionState extends State<InsightSection> {
                                         spacing: kSpacing,
                                         runSpacing: kRunSpacing,
                                         children: _buildInsightCards(
+                                          context: context,
                                           insightsData: Data.insightsData,
                                           width: screenWidth,
                                         ),
@@ -133,96 +134,6 @@ class _InsightSectionState extends State<InsightSection> {
                 ],
               ),
             ),
-
-            // Padding(
-            //   padding: padding,
-            //   child: ResponsiveBuilder(
-            //     builder: (context, sizingInformation) {
-            //       double widthOfScreen = sizingInformation.screenSize.width;
-            //       if (widthOfScreen < (RefinedBreakpoints().tabletLarge)) {
-            //         return Container(
-            //           width: widthOfScreen,
-            //           height: screenWidth + 250,
-            //           child: CarouselSlider.builder(
-            //             itemCount: blogLength,
-            //             itemBuilder: (BuildContext context, int index, int pageViewIndex) {
-            //               return InsightsCard(
-            //                 width: screenWidth,
-            //                 imageWidth: screenWidth,
-            //                 imageHeight: screenWidth,
-            //                 category: Data.insightsData[index].category,
-            //                 title: Data.insightsData[index].title,
-            //                 subtitle: Data.insightsData[index].subtitle,
-            //                 date: Data.insightsData[index].date,
-            //                 buttonText: Data.insightsData[index].buttonText,
-            //                 imageUrl: Data.insightsData[index].imageUrl,
-            //                 onPressed: () {},
-            //               );
-            //             },
-            //             options: carouselOptions(),
-            //           ),
-            //         );
-            //       } else if (widthOfScreen >= RefinedBreakpoints().tabletLarge && widthOfScreen <= 1024) {
-            //         return Column(
-            //           mainAxisSize: MainAxisSize.min,
-            //           children: [
-            //             Container(
-            //               width: screenWidth,
-            //               child: CarouselSlider.builder(
-            //                 itemCount: blogLength,
-            //                 carouselController: _carouselController,
-            //                 itemBuilder: (BuildContext context, int index, int pageViewIndex) {
-            //                   return InsightsCard(
-            //                     width: screenWidth * 0.45,
-            //                     imageWidth: screenWidth * 0.45,
-            //                     imageHeight: screenWidth * 0.45,
-            //                     category: Data.insightsData[index].category,
-            //                     title: Data.insightsData[index].title,
-            //                     subtitle: Data.insightsData[index].subtitle,
-            //                     date: Data.insightsData[index].date,
-            //                     buttonText: Data.insightsData[index].buttonText,
-            //                     imageUrl: Data.insightsData[index].imageUrl,
-            //                     onPressed: () {},
-            //                   );
-            //                 },
-            //                 options: carouselOptions(
-            //                   viewportFraction: 0.50,
-            //                   autoPlay: false,
-            //                   initialPage: currentPageIndex.toInt(),
-            //                   aspectRatio: 2 / 1.4,
-            //                   enableInfiniteScroll: true,
-            //                   enlargeCenterPage: false,
-            //                 ),
-            //               ),
-            //             ),
-            //             _buildDotsIndicator(
-            //               pageLength: blogLength,
-            //               currentIndex: currentPageIndex,
-            //             ),
-            //             SizedBoxH100(),
-            //           ],
-            //         );
-            //       } else {
-            //         return Align(
-            //           alignment: Alignment.centerLeft,
-            //           child: Column(
-            //             children: [
-            //               Wrap(
-            //                 spacing: kSpacing,
-            //                 runSpacing: kRunSpacing,
-            //                 children: _buildInsightCards(
-            //                   blogData: Data.insightsData,
-            //                   width: screenWidth,
-            //                 ),
-            //               ),
-            //               SizedBoxH40(),
-            //             ],
-            //           ),
-            //         );
-            //       }
-            //     },
-            //   ),
-            // ),
           ],
         ),
       ],
@@ -253,13 +164,30 @@ class _InsightSectionState extends State<InsightSection> {
   //       });
   // }
 
-  List<Widget> _buildInsightCards({
-    required List<InsightsData> insightsData,
-    required double width,
-  }) {
+  List<Widget> _buildInsightCards({required List<InsightsData> insightsData, required double width, required context}) {
     double cardWidth = ((width - (kSpacing * 2)) / 4);
     List<Widget> items = [];
-
+    List<VoidCallback> function = [
+      () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) => kPlusDescriptionScreen()));
+        print('-----SCREEN1-----');
+      },
+      () {
+        print('-----SCREEN2-----');
+      },
+      () {
+        print('-----SCREEN3-----');
+      },
+      () {
+        print('-----SCREEN4-----');
+      },
+      () {
+        print('-----SCREEN5-----');
+      },
+      () {
+        print('-----SCREEN6-----');
+      },
+    ];
     for (int index = 0; index < insightsData.length; index++) {
       items.add(
         InsightsCard(
@@ -270,51 +198,12 @@ class _InsightSectionState extends State<InsightSection> {
           title: Data.insightsData[index].title,
           subtitle: insightsData[index].subtitle,
           date: insightsData[index].date,
-          buttonText: insightsData[index].buttonText,
+          //  buttonText: insightsData[index].buttonText,
           imageUrl: insightsData[index].imageUrl,
-          onPressed: () {},
+          onPressed: function[index],
         ),
       );
     }
     return items;
   }
-
-  // Widget _buildDotsIndicator({
-  //   required int pageLength,
-  //   required double currentIndex,
-  // }) {
-  //   return Container(
-  //     child: DotsIndicator(
-  //       dotsCount: pageLength,
-  //       position: currentIndex,
-  //       onTap: (index) {
-  //         _moveToNextCarousel(index.toInt());
-  //       },
-  //       decorator: DotsDecorator(
-  //         color: AppColors.maroon450,
-  //         activeColor: AppColors.maroon450,
-  //         size: Size(Sizes.SIZE_6, Sizes.SIZE_6),
-  //         activeSize: Size(Sizes.SIZE_24, Sizes.SIZE_6),
-  //         shape: RoundedRectangleBorder(
-  //           borderRadius: BorderRadius.all(
-  //             const Radius.circular(Sizes.RADIUS_8),
-  //           ),
-  //         ),
-  //         activeShape: RoundedRectangleBorder(
-  //           borderRadius: BorderRadius.all(
-  //             const Radius.circular(Sizes.RADIUS_8),
-  //           ),
-  //         ),
-  //         spacing: EdgeInsets.symmetric(horizontal: Sizes.SIZE_4),
-  //       ),
-  //     ),
-  //   );
-  // }
-  //
-  // _moveToNextCarousel(int index) {
-  //   setState(() {
-  //     currentPageIndex = index.toDouble();
-  //     _carouselController.animateToPage(index);
-  //   });
-  // }
 }

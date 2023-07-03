@@ -6,7 +6,6 @@ class ImagePath {
   static const String screenshotsDir = "assets/screenshots";
 
   // Background
-
   static const String HOME_BACKGROUND = "$imageDir/background_num1.jpg";
 
   // Logo
@@ -41,7 +40,7 @@ class ImagePath {
   static const String WEBINARS_03 = "$imageDir/kplus_01.jpg";
 
   //Footer
-  static const String FDSAP_WHITE_LOGO = "$imageDir/logo_fdsap1.png";
+  static const String FDSAP_WHITE_LOGO = "$imageDir/fds_logo_white.png";
 
   // Product & Services Images
   static const String KPLUS = "$imageDir/kplus_logo.png";

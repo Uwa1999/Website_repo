@@ -1,5 +1,5 @@
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/productservices_section.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/kplus_desc.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/statistics_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/images.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/strings.dart';
@@ -118,19 +118,43 @@ class Data {
       iconData: Icons.pages_outlined,
     ), //not being used
   ];
-  // static List<StatItemData> statItemsData = [
-  //   StatItemData(value: 120, subtitle: StringConst.HAPPY_CLIENTS),
-  //   StatItemData(value: 10, subtitle: StringConst.YEARS_OF_EXPERIENCE),
-  //   StatItemData(value: 230, subtitle: StringConst.INCREDIBLE_PROJECTS),
-  //   StatItemData(value: 18, subtitle: StringConst.AWARD_WINNING),
-  // ];
-  //
-  // static List<StatItemData> statItemsData2 = [
-  //   StatItemData(value: 1000, subtitle: StringConst.API_CALLS_PER_DAY),
-  //   StatItemData(value: 65, subtitle: StringConst.COUNTRIES),
-  //   StatItemData(value: 230, subtitle: StringConst.INCREDIBLE_PROJECTS),
-  //   StatItemData(value: 18, subtitle: StringConst.AWARD_WINNING),
-  // ];
+  static List<StatItemData> statItemsData = [
+    StatItemData(
+      value: 120,
+      subtitle: StringConst.HAPPY_CLIENTS,
+    ),
+    StatItemData(
+      value: 10,
+      subtitle: StringConst.YEARS_OF_EXPERIENCE,
+    ),
+    StatItemData(
+      value: 230,
+      subtitle: StringConst.INCREDIBLE_PROJECTS,
+    ),
+    StatItemData(
+      value: 18,
+      subtitle: StringConst.AWARD_WINNING,
+    ),
+  ];
+
+  static List<StatItemData> statItemsData2 = [
+    StatItemData(
+      value: 1000,
+      subtitle: StringConst.API_CALLS_PER_DAY,
+    ),
+    StatItemData(
+      value: 65,
+      subtitle: StringConst.COUNTRIES,
+    ),
+    StatItemData(
+      value: 230,
+      subtitle: StringConst.INCREDIBLE_PROJECTS,
+    ),
+    StatItemData(
+      value: 18,
+      subtitle: StringConst.AWARD_WINNING,
+    ),
+  ];
 
   static List<ProductServicesCategoryData> productServicesCategories = [
     ProductServicesCategoryData(
@@ -180,7 +204,7 @@ class Data {
       title: StringConst.ARTICLE_TITLE_1,
       subtitle: StringConst.ARTICLE_SUBTITLE_1,
       date: StringConst.ARTICLE_DATE,
-      buttonText: StringConst.ARTICLE_READ_MORE,
+      // buttonText: StringConst.ARTICLE_READ_MORE,
       imageUrl: ImagePath.ARTICLE_01,
     ),
     InsightsData(
@@ -188,7 +212,7 @@ class Data {
       title: StringConst.EVENTS_TITLE_1,
       subtitle: StringConst.EVENTS_SUBTITLE_2,
       date: StringConst.EVENTS_DATE,
-      buttonText: StringConst.EVENTS_READ_MORE,
+      //  buttonText: StringConst.EVENTS_READ_MORE,
       imageUrl: ImagePath.EVENTS_02,
     ),
     InsightsData(
@@ -196,7 +220,7 @@ class Data {
       title: StringConst.WEBINARS_TITLE_1,
       subtitle: StringConst.WEBINARS_SUBTITLE_3,
       date: StringConst.WEBINARS_DATE,
-      buttonText: StringConst.WEBINARS_READ_MORE,
+      // buttonText: StringConst.WEBINARS_READ_MORE,
       imageUrl: ImagePath.WEBINARS_01,
     ),
     InsightsData(
@@ -204,7 +228,7 @@ class Data {
       title: StringConst.ARTICLE_TITLE_1,
       subtitle: StringConst.ARTICLE_SUBTITLE_1,
       date: StringConst.ARTICLE_DATE,
-      buttonText: StringConst.ARTICLE_READ_MORE,
+      // buttonText: StringConst.ARTICLE_READ_MORE,
       imageUrl: ImagePath.ARTICLE_01,
     ),
     InsightsData(
@@ -212,7 +236,7 @@ class Data {
       title: StringConst.EVENTS_TITLE_1,
       subtitle: StringConst.EVENTS_SUBTITLE_2,
       date: StringConst.EVENTS_DATE,
-      buttonText: StringConst.EVENTS_READ_MORE,
+      // buttonText: StringConst.EVENTS_READ_MORE,
       imageUrl: ImagePath.EVENTS_02,
     ),
     InsightsData(
@@ -220,7 +244,7 @@ class Data {
       title: StringConst.WEBINARS_TITLE_1,
       subtitle: StringConst.WEBINARS_SUBTITLE_3,
       date: StringConst.WEBINARS_DATE,
-      buttonText: StringConst.WEBINARS_READ_MORE,
+      // buttonText: StringConst.WEBINARS_READ_MORE,
       imageUrl: ImagePath.WEBINARS_01,
     ),
   ];
@@ -248,85 +272,66 @@ class Data {
 
   static List<ProductServicesData> allProductServices = [
     ProductServicesData(
-      onPressed: () {},
       category: StringConst.ATM,
       productServicesCoverUrl: ImagePath.AML,
       width: 0.225,
     ),
     ProductServicesData(
-      onPressed: () {},
       category: StringConst.ATM,
       productServicesCoverUrl: ImagePath.ATM_SWITCH_MAROON,
       width: 0.225,
     ),
     ProductServicesData(
-      onPressed: () {},
       category: StringConst.WEB_DESIGN,
       productServicesCoverUrl: ImagePath.CHATBOT_MAROON,
       width: 0.225,
     ),
     ProductServicesData(
-      onPressed: () {},
       category: StringConst.WEB,
       productServicesCoverUrl: ImagePath.CLOUD_TEST_ENVIRONMENT_MAROON,
       width: 0.225,
     ),
     ProductServicesData(
-      onPressed: () {},
       category: StringConst.WEB,
       productServicesCoverUrl: ImagePath.CORE_BANKING_MAROON,
       width: 0.225,
     ),
     ProductServicesData(
-      onPressed: () {},
       category: StringConst.WEB,
       productServicesCoverUrl: ImagePath.DCM_MAROON,
       width: 0.225,
     ),
     ProductServicesData(
-      onPressed: () {
-        kPlusDescriptionScreen();
-        print('---------------------');
-      },
       category: StringConst.ATM,
       productServicesCoverUrl: ImagePath.KPLUS_GREEN_WHITEBG,
       width: 0.225,
     ),
     ProductServicesData(
-      onPressed: () {
-        kPlusDescriptionScreen();
-        print('---------------------');
-      },
       category: StringConst.ATM,
       productServicesCoverUrl: ImagePath.KONEK2CARD_GREEN,
       width: 0.225,
     ),
     ProductServicesData(
-      onPressed: () {},
       category: StringConst.MOBILE_APP,
       productServicesCoverUrl: ImagePath.MOBILE_COLLECTION_MAROON,
       width: 0.225,
     ),
     ProductServicesData(
-      onPressed: () {},
       category: StringConst.WEB_DESIGN,
       productServicesCoverUrl: ImagePath.OPEN_API_MAROON,
       width: 0.225,
     ),
     ProductServicesData(
-      onPressed: () {},
       category: StringConst.ATM,
       productServicesCoverUrl: ImagePath.SMART_BRANCH_SYSTEM_MAROON,
       width: 0.225,
     ),
     ProductServicesData(
-      onPressed: () {},
       category: StringConst.MOBILE_APP,
       productServicesCoverUrl: ImagePath.TEMENOS_MAROON,
       width: 0.225,
     ),
     ProductServicesData(
-      onPressed: () {},
       category: StringConst.ATM,
       productServicesCoverUrl: ImagePath.WEB_COLLECTION_MAROON,
       width: 0.225,
@@ -334,19 +339,25 @@ class Data {
   ];
   static List<ProductServicesData> mobileProductServices = [
     ProductServicesData(
-      onPressed: () {},
+      onPressed: () {
+        print('-----KPLUS SCREEN-----');
+      },
       productServicesCoverUrl: ImagePath.KPLUS_MAROON_WHITEBG,
       width: 0.220,
       mobileHeight: 0.3,
     ),
     ProductServicesData(
-      onPressed: () {},
+      onPressed: () {
+        print('-----CHATBOT SCREEN-----');
+      },
       category: StringConst.MOBILE_APP,
       productServicesCoverUrl: ImagePath.CHATBOT_MAROON,
       width: 0.220,
     ),
     ProductServicesData(
-      onPressed: () {},
+      onPressed: () {
+        print('-----MOBILE COLLECTION SCREEN-----');
+      },
       category: StringConst.MOBILE_APP,
       productServicesCoverUrl: ImagePath.MOBILE_COLLECTION_MAROON,
       width: 0.225,
@@ -354,7 +365,9 @@ class Data {
   ];
   static List<ProductServicesData> webProductServices = [
     ProductServicesData(
-      onPressed: () {},
+      onPressed: () {
+        print('-----DCM SCREEN-----');
+      },
       category: StringConst.WEB,
       productServicesCoverUrl: ImagePath.DCM_MAROON,
       width: 0.220,
@@ -362,21 +375,27 @@ class Data {
   ];
   static List<ProductServicesData> atmProductServices = [
     ProductServicesData(
-      onPressed: () {},
+      onPressed: () {
+        print('-----KPLUS SCREEN-----');
+      },
       category: StringConst.ATM,
       productServicesCoverUrl: ImagePath.KPLUS_GREEN_WHITEBG,
       width: 0.220,
       mobileHeight: 0.3,
     ),
     ProductServicesData(
-      onPressed: () {},
+      onPressed: () {
+        print('-----WEB COLLECTION SCREEN-----');
+      },
       category: StringConst.ATM,
       productServicesCoverUrl: ImagePath.WEB_COLLECTION_MAROON,
       width: 0.220,
       mobileHeight: 0.3,
     ),
     ProductServicesData(
-      onPressed: () {},
+      onPressed: () {
+        print('-----ATM SWITCH SCREEN-----');
+      },
       category: StringConst.ATM,
       productServicesCoverUrl: ImagePath.ATM_SWITCH_MAROON,
       width: 0.225,
@@ -384,19 +403,25 @@ class Data {
   ];
   static List<ProductServicesData> dcmProductServices = [
     ProductServicesData(
-      onPressed: () {},
+      onPressed: () {
+        print('-----CHATBOT SCREEN-----');
+      },
       category: StringConst.WEB_DESIGN,
       productServicesCoverUrl: ImagePath.CHATBOT_GREEN,
       width: 0.220,
     ),
     ProductServicesData(
-      onPressed: () {},
+      onPressed: () {
+        print('-----OPEN API SCREEN-----');
+      },
       category: StringConst.WEB_DESIGN,
       productServicesCoverUrl: ImagePath.OPEN_API_MAROON,
       width: 0.220,
     ),
     ProductServicesData(
-      onPressed: () {},
+      onPressed: () {
+        print('-----DCM SCREEN-----');
+      },
       category: StringConst.WEB,
       productServicesCoverUrl: ImagePath.DCM_MAROON,
       width: 0.220,

@@ -77,22 +77,22 @@ class StringConst {
   static const String SKILLS_4 = "Photo Retouch";
   static const String SKILLS_4_DESC = "We believe direct collaboration with our clients is essential to bringing unique";
 
-  //Stats Section
-  static const String HAPPY_CLIENTS = "Happy Clients";
-  static const String HAPPY_CLIENTS_NUM = "120";
-  static const String YEARS_OF_EXPERIENCE = "Years of Experience";
-  static const String YEARS_OF_EXPERIENCE_NUM = "10";
-  static const String INCREDIBLE_PROJECTS = "Incredible Projects";
-  static const String INCREDIBLE_PROJECTS_NUM = "230";
-  static const String AWARD_WINNING = "Award Winning";
-  static const String AWARD_WINNING_NUM = "18";
-
-  static const String API_CALLS_PER_DAY = "API calls per day";
-  static const String API_CALLS_PER_DAY_NUM = "1000";
-  static const String COUNTRIES = "Countries";
-  static const String COUNTRIES_NUM = "65";
-
+  //Leading Banking Partner Section
   static const String TITLE_STATS = "Leading Banking Partner";
+  static const String HAPPY_CLIENTS = "Happy Clients";
+  static const String YEARS_OF_EXPERIENCE = "Years of Experience";
+  static const String INCREDIBLE_PROJECTS = "Incredible Projects";
+  static const String AWARD_WINNING = "Award Winning";
+  static const String API_CALLS_PER_DAY = "API calls per day";
+  static const String COUNTRIES = "Countries";
+
+  //Leading Banking Partner Section Numbers
+  static const String HAPPY_CLIENTS_NUM = "120";
+  static const String YEARS_OF_EXPERIENCE_NUM = "10";
+  static const String INCREDIBLE_PROJECTS_NUM = "230";
+  static const String AWARD_WINNING_NUM = "18";
+  static const String API_CALLS_PER_DAY_NUM = "1000";
+  static const String COUNTRIES_NUM = "65";
 
   //Products & Services Section
   static const String PRODUCT_AND_SERVICES = "Products & Services";

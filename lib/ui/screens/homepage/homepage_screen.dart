@@ -2,6 +2,7 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/about_sectio
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/footer_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/header_responsive_section/header_responsive.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/insights_section.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/our_location_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/productservices_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/responsive_navigation/nav_section_mobile.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/responsive_navigation/nav_section_web.dart';
@@ -16,6 +17,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:visibility_detector/visibility_detector.dart';
+
+import 'components/statistics_section.dart';
 
 class HomepageScreen extends StatefulWidget {
   @override
@@ -157,10 +160,12 @@ class _HomepageScreenState extends State<HomepageScreen> with SingleTickerProvid
                     children: [
                       Column(
                         children: [
+                          LeadingBankingPartnerSection(),
                           Container(
                             key: navItems[3].key,
                             child: InsightSection(),
                           ),
+                          OurLocationSection(),
                           FooterSection(),
                         ],
                       ),

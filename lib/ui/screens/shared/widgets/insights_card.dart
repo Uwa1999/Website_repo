@@ -9,15 +9,17 @@ class InsightsData {
   final String date;
   final String title;
   final String subtitle;
-  final String buttonText;
+  final String? buttonText;
   final String imageUrl;
+  final VoidCallback? onPressed;
 
   InsightsData({
+    this.onPressed,
     required this.category,
     required this.title,
     required this.subtitle,
     required this.date,
-    required this.buttonText,
+    this.buttonText,
     required this.imageUrl,
   });
 }
@@ -28,7 +30,7 @@ class InsightsCard extends StatefulWidget {
     required this.title,
     required this.subtitle,
     required this.date,
-    required this.buttonText,
+    this.buttonText,
     required this.imageUrl,
     this.dateStyle,
     this.titleStyle,
@@ -47,7 +49,7 @@ class InsightsCard extends StatefulWidget {
   final String date;
   final String title;
   final String subtitle;
-  final String buttonText;
+  final String? buttonText;
   final String imageUrl;
   final double? width;
   final double? imageWidth;
@@ -70,6 +72,9 @@ class _InsightsCardState extends State<InsightsCard> {
 
   Color startValue = Colors.black.withOpacity(0.5);
   Color targetValue = Colors.black.withOpacity(0);
+  late AnimationController _slideFadeController;
+  late AnimationController _indicatorController;
+  bool _hovering = false;
 
   @override
   void initState() {
@@ -80,20 +85,19 @@ class _InsightsCardState extends State<InsightsCard> {
   Widget build(BuildContext context) {
     TextTheme textTheme = Theme.of(context).textTheme;
 
-    return Container(
-      width: widget.width,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Stack(
-            children: [
-              Card(
-                shadowColor: AppColors.black,
-                //   margin: const EdgeInsets.only(left: Sizes.MARGIN_18),
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-                child: InkWell(
-                  onTap: () {},
-                  splashColor: Colors.grey,
+    return GestureDetector(
+      onTap: widget.onPressed,
+      child: Container(
+        width: widget.width,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Stack(
+              children: [
+                Card(
+                  shadowColor: AppColors.black,
+                  //   margin: const EdgeInsets.only(left: Sizes.MARGIN_18),
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     mainAxisSize: MainAxisSize.min,
@@ -145,104 +149,33 @@ class _InsightsCardState extends State<InsightsCard> {
                     ],
                   ),
                 ),
-              ),
 
-              // Container(
-              //   margin: const EdgeInsets.only(left: Sizes.MARGIN_18),
-              //   child: ClipRRect(
-              //     borderRadius: BorderRadius.all(
-              //       Radius.circular(Sizes.RADIUS_16),
-              //     ),
-              //     child: Column(
-              //       crossAxisAlignment: CrossAxisAlignment.start,
-              //       mainAxisSize: MainAxisSize.min,
-              //       children: [
-              //         MouseRegion(
-              //           onEnter: (e) => _onImageHover(true),
-              //           onExit: (e) => _onImageHover(false),
-              //           child: AnimatedOpacity(
-              //             opacity: _isHoveringOnImage ? 1.0 : 0.85,
-              //             duration: Duration(milliseconds: 300),
-              //             child: ClipRRect(
-              //               borderRadius: BorderRadius.all(
-              //                 Radius.circular(Sizes.RADIUS_16),
-              //               ),
-              //               child: Image.asset(
-              //                 widget.imageUrl,
-              //                 height: heightOfImage(),
-              //                 width: widthOfImage(),
-              //                 fit: BoxFit.fitHeight,
-              //               ),
-              //             ),
-              //           ),
-              //         ),
-              //       ],
-              //     ),
-              //   ),
-              // ),
-              Container(
-                margin: const EdgeInsets.only(top: Sizes.MARGIN_20),
-                padding: const EdgeInsets.symmetric(
-                  horizontal: Sizes.PADDING_8,
-                  vertical: Sizes.PADDING_8,
-                ),
-                decoration: BoxDecoration(
-                  color: AppColors.maroon03,
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(6),
+                //Insights Label
+                Container(
+                  margin: const EdgeInsets.only(top: Sizes.MARGIN_20),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: Sizes.PADDING_8,
+                    vertical: Sizes.PADDING_8,
+                  ),
+                  decoration: BoxDecoration(
+                    color: AppColors.maroon03,
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(6),
+                    ),
+                  ),
+                  child: Text(
+                    widget.category,
+                    style: widget.categoryStyle ??
+                        textTheme.headlineSmall?.copyWith(
+                          fontSize: Sizes.TEXT_SIZE_15,
+                          color: AppColors.white,
+                        ),
                   ),
                 ),
-                child: Text(
-                  widget.category,
-                  style: widget.categoryStyle ??
-                      textTheme.headlineSmall?.copyWith(
-                        fontSize: Sizes.TEXT_SIZE_15,
-                        color: AppColors.white,
-                      ),
-                ),
-              ),
-            ],
-          ),
-          // Container(
-          //   margin: const EdgeInsets.only(left: Sizes.MARGIN_16),
-          //   child: Column(
-          //     crossAxisAlignment: CrossAxisAlignment.start,
-          //     children: [
-          //       SizedBoxH8(),
-          //       Row(
-          //         mainAxisAlignment: MainAxisAlignment.start,
-          //         children: [
-          //           Icon(
-          //             widget.dateIcon,
-          //             color: AppColors.maroon04,
-          //           ),
-          //           SizedBoxW8(),
-          //           Text(
-          //             widget.date,
-          //             style: widget.dateStyle ?? textTheme.titleLarge,
-          //           )
-          //         ],
-          //       ),
-          //       SizedBoxH8(),
-          //       Text(
-          //         widget.title,
-          //         style: widget.dateStyle ?? textTheme.headlineSmall,
-          //       ),
-          //       AnimatedLineThrough(
-          //         text: widget.subtitle,
-          //         textStyle: widget.titleStyle ?? textTheme.bodyMedium,
-          //       ),
-          //       SizedBoxH16(),
-          //       AnimatedNimbusButton(
-          //         title: widget.buttonText,
-          //         iconData: Icons.arrow_forward_ios,
-          //         leadingButtonColor: widget.buttonColor,
-          //         onTap: widget.onPressed,
-          //       ),
-          //     ],
-          //   ),
-          // ),
-        ],
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

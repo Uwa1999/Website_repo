@@ -1,3 +1,5 @@
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/awards_section.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/kplus_desc.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/responsive.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/data.dart';
@@ -232,6 +234,49 @@ class _ProductServicesSectionState extends State<ProductServicesSection> with Si
 
   List<Widget> _buildProductServices(List<ProductServicesData> data, {bool isMobile = false}) {
     List<Widget> items = [];
+    List<VoidCallback> functions = [
+      () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) => kPlusDescriptionScreen()));
+        print('-----AML SCREEN-----');
+      },
+      () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) => AwardsSection()));
+        print('-----ATM SWITCH SCREEN-----');
+      },
+      () {
+        print('-----CHATBOT SCREEN-----');
+      },
+      () {
+        print('-----CLOUD TEST ENVIRONMENT SCREEN-----');
+      },
+      () {
+        print('-----CORE BANKING SCREEN-----');
+      },
+      () {
+        print('-----DCM SCREEN-----');
+      },
+      () {
+        print('-----KPLUS SCREEN-----');
+      },
+      () {
+        print('-----KONEK2CARD SCREEN-----');
+      },
+      () {
+        print('-----MOBILE COLLECTION SCREEN-----');
+      },
+      () {
+        print('-----OPEN API SCREEN-----');
+      },
+      () {
+        print('-----SMART BRANCH SYSTEM SCREEN-----');
+      },
+      () {
+        print('-----TEMENOS SCREEN-----');
+      },
+      () {
+        print('-----WEB COLLECTION SCREEN-----');
+      },
+    ];
     for (int index = 0; index < data.length; index++) {
       items.add(
         ScaleTransition(
@@ -241,7 +286,7 @@ class _ProductServicesSectionState extends State<ProductServicesSection> with Si
             height: isMobile ? assignHeight(context, data[index].mobileHeight) : assignHeight(context, data[index].height),
             bannerHeight: isMobile ? assignHeight(context, data[index].mobileHeight) / 2 : assignHeight(context, data[index].height) / 3,
             imageUrl: data[index].productServicesCoverUrl,
-            onTap: data[index].onPressed,
+            onTap: functions[index],
             // title: data[index].title,
             //  subtitle: data[index].category,
           ),

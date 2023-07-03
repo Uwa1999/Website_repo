@@ -241,10 +241,10 @@ class _PartnerSectionState extends State<PartnerSection> with SingleTickerProvid
                   body: StringConst.SKILLS_DESC,
                   // child: Wrap(
                   //   runSpacing: kRunSpacing,
-                  //   // children: _buildSkillSection(
-                  //   //   Data.skillLevelData,
-                  //   //   width,
-                  //   // ),
+                  //   children: _buildSkillSection(
+                  //     Data.skillLevelData,
+                  //     width,
+                  //   ),
                   // ),
                 ),
               ],

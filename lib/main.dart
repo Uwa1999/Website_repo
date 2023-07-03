@@ -1,4 +1,4 @@
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/routes/router.gr.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/router.gr.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/app_theme.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/strings.dart';
 import 'package:flutter/material.dart';
