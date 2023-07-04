@@ -303,12 +303,12 @@ class Data {
     ),
     ProductServicesData(
       category: StringConst.ATM,
-      productServicesCoverUrl: ImagePath.KPLUS_GREEN_WHITEBG,
+      productServicesCoverUrl: ImagePath.KPLUS_MAROON_WHITEBG,
       width: 0.225,
     ),
     ProductServicesData(
       category: StringConst.ATM,
-      productServicesCoverUrl: ImagePath.KONEK2CARD_GREEN,
+      productServicesCoverUrl: ImagePath.KONEK2CARD_MAROON,
       width: 0.225,
     ),
     ProductServicesData(
@@ -383,7 +383,7 @@ class Data {
   static List<ProductServicesData> dcmProductServices = [
     ProductServicesData(
       category: StringConst.WEB_DESIGN,
-      productServicesCoverUrl: ImagePath.CHATBOT_GREEN,
+      productServicesCoverUrl: ImagePath.CHATBOT_MAROON,
       width: 0.220,
     ),
     ProductServicesData(

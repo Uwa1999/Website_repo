@@ -72,6 +72,7 @@ class ImagePath {
   // Product & Services Images (MAROON)
   static const String KPLUS_MAROON = "$imageDir/kplus_maroon.png";
   static const String KPLUS_MAROON_WHITEBG = "$imageDir/kplus_maroon_whitebg.png";
+  static const String KONEK2CARD_MAROON = "$imageDir/k2c_maroon.png";
   static const String CHATBOT_MAROON = "$imageDir/chatbot_maroon.png";
   static const String DCM_MAROON = "$imageDir/dcm_maroon.png";
   static const String TEMENOS_MAROON = "$imageDir/temenos_maroon.png";
