@@ -339,25 +339,16 @@ class Data {
   ];
   static List<ProductServicesData> mobileProductServices = [
     ProductServicesData(
-      onPressed: () {
-        print('-----KPLUS SCREEN-----');
-      },
       productServicesCoverUrl: ImagePath.KPLUS_MAROON_WHITEBG,
       width: 0.220,
       mobileHeight: 0.3,
     ),
     ProductServicesData(
-      onPressed: () {
-        print('-----CHATBOT SCREEN-----');
-      },
       category: StringConst.MOBILE_APP,
       productServicesCoverUrl: ImagePath.CHATBOT_MAROON,
       width: 0.220,
     ),
     ProductServicesData(
-      onPressed: () {
-        print('-----MOBILE COLLECTION SCREEN-----');
-      },
       category: StringConst.MOBILE_APP,
       productServicesCoverUrl: ImagePath.MOBILE_COLLECTION_MAROON,
       width: 0.225,
@@ -365,9 +356,6 @@ class Data {
   ];
   static List<ProductServicesData> webProductServices = [
     ProductServicesData(
-      onPressed: () {
-        print('-----DCM SCREEN-----');
-      },
       category: StringConst.WEB,
       productServicesCoverUrl: ImagePath.DCM_MAROON,
       width: 0.220,
@@ -375,27 +363,18 @@ class Data {
   ];
   static List<ProductServicesData> atmProductServices = [
     ProductServicesData(
-      onPressed: () {
-        print('-----KPLUS SCREEN-----');
-      },
       category: StringConst.ATM,
       productServicesCoverUrl: ImagePath.KPLUS_GREEN_WHITEBG,
       width: 0.220,
       mobileHeight: 0.3,
     ),
     ProductServicesData(
-      onPressed: () {
-        print('-----WEB COLLECTION SCREEN-----');
-      },
       category: StringConst.ATM,
       productServicesCoverUrl: ImagePath.WEB_COLLECTION_MAROON,
       width: 0.220,
       mobileHeight: 0.3,
     ),
     ProductServicesData(
-      onPressed: () {
-        print('-----ATM SWITCH SCREEN-----');
-      },
       category: StringConst.ATM,
       productServicesCoverUrl: ImagePath.ATM_SWITCH_MAROON,
       width: 0.225,
@@ -403,25 +382,16 @@ class Data {
   ];
   static List<ProductServicesData> dcmProductServices = [
     ProductServicesData(
-      onPressed: () {
-        print('-----CHATBOT SCREEN-----');
-      },
       category: StringConst.WEB_DESIGN,
       productServicesCoverUrl: ImagePath.CHATBOT_GREEN,
       width: 0.220,
     ),
     ProductServicesData(
-      onPressed: () {
-        print('-----OPEN API SCREEN-----');
-      },
       category: StringConst.WEB_DESIGN,
       productServicesCoverUrl: ImagePath.OPEN_API_MAROON,
       width: 0.220,
     ),
     ProductServicesData(
-      onPressed: () {
-        print('-----DCM SCREEN-----');
-      },
       category: StringConst.WEB,
       productServicesCoverUrl: ImagePath.DCM_MAROON,
       width: 0.220,

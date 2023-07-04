@@ -1,4 +1,4 @@
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/kplus_desc.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/kplus_desc_main.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/responsive.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/data.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/sizes.dart';
@@ -169,7 +169,7 @@ class _InsightSectionState extends State<InsightSection> {
     List<Widget> items = [];
     List<VoidCallback> function = [
       () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => kPlusDescriptionScreen()));
+        Navigator.push(context, MaterialPageRoute(builder: (context) => kPlusDescMain()));
         print('-----SCREEN1-----');
       },
       () {

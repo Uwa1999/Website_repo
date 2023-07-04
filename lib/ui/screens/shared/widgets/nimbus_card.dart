@@ -137,11 +137,11 @@ class _FdsTagLineCardState extends State<FdsTagLineCard> with SingleTickerProvid
                 // widget.leading != null ? Spacer() : EmptyContainer(),
                 Column(
                   mainAxisAlignment: widget.columnMainAxisAlignment,
-                  crossAxisAlignment: widget.columnCrossAxisAlignment,
+                  // crossAxisAlignment: widget.columnCrossAxisAlignment,
                   children: [
                     Spacer(),
                     widget.title ?? EmptyContainer(),
-                    widget.title != null ? SizedBoxH8() : EmptyContainer(),
+                    widget.title != null ? SizedBoxH5() : EmptyContainer(),
                     widget.subtitle ?? EmptyContainer(),
                     Spacer(),
                   ],

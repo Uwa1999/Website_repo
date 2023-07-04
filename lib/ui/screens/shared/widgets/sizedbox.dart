@@ -51,6 +51,13 @@ class SizedBoxH12 extends StatelessWidget {
   }
 }
 
+class SizedBoxH13 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return const SizedBox(height: 13.0);
+  }
+}
+
 class SizedBoxH16 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -199,6 +206,13 @@ class SizedBoxW12 extends StatelessWidget {
   }
 }
 
+class SizedBoxW13 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return const SizedBox(width: 13.0);
+  }
+}
+
 class SizedBoxW16 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -255,6 +269,34 @@ class SizedBoxW60 extends StatelessWidget {
   }
 }
 
+class SizedBoxW65 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return const SizedBox(width: 65.0);
+  }
+}
+
+class SizedBoxW66 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return const SizedBox(width: 66.0);
+  }
+}
+
+class SizedBoxW67 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return const SizedBox(width: 67.0);
+  }
+}
+
+class SizedBoxW68 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return const SizedBox(width: 68.0);
+  }
+}
+
 class SizedBoxW70 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -266,6 +308,27 @@ class SizedBoxW80 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const SizedBox(width: 80.0);
+  }
+}
+
+class SizedBoxW85 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return const SizedBox(width: 85.0);
+  }
+}
+
+class SizedBoxW86 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return const SizedBox(width: 86.0);
+  }
+}
+
+class SizedBoxW87 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return const SizedBox(width: 87.0);
   }
 }
 

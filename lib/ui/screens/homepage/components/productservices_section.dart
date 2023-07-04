@@ -1,5 +1,5 @@
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/awards_section.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/kplus_desc.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/kplus_desc_main.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/responsive.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/data.dart';
@@ -236,7 +236,7 @@ class _ProductServicesSectionState extends State<ProductServicesSection> with Si
     List<Widget> items = [];
     List<VoidCallback> functions = [
       () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => kPlusDescriptionScreen()));
+        Navigator.push(context, MaterialPageRoute(builder: (context) => kPlusDescMain()));
         print('-----AML SCREEN-----');
       },
       () {

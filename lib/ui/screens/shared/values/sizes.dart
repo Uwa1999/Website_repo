@@ -6,6 +6,7 @@ class Sizes {
   static const double SAFE_AREA_MARGIN = 24.0;
   static const double SIZE_120 = 120.0;
   static const double SIZE_96 = 96.0;
+  static const double SIZE_85 = 85.0;
   static const double SIZE_80 = 80.0;
   static const double SIZE_60 = 60.0;
   static const double SIZE_48 = 48.0;
@@ -123,6 +124,7 @@ class Sizes {
   static const double WIDTH_150 = 150.0;
   static const double WIDTH_120 = 120.0;
   static const double WIDTH_100 = 100.0;
+  static const double WIDTH_85 = 85.0;
   static const double WIDTH_80 = 80.0;
   static const double WIDTH_74 = 74.0;
   static const double WIDTH_64 = 64.0;
@@ -187,7 +189,9 @@ class Sizes {
   static const double PADDING_22 = 22.0;
   static const double PADDING_20 = 20.0;
   static const double PADDING_18 = 18.0;
+  static const double PADDING_17 = 17.0;
   static const double PADDING_16 = 16.0;
+  static const double PADDING_15 = 15.0;
   static const double PADDING_14 = 14.0;
   static const double PADDING_12 = 12.0;
   static const double PADDING_10 = 10.0;

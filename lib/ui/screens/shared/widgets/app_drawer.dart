@@ -1,3 +1,4 @@
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/homepage_screen.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/functions.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/responsive.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
@@ -51,7 +52,9 @@ class _AppDrawerState extends State<AppDrawer> {
               Row(
                 children: [
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => HomepageScreen()));
+                    },
                     child: Image.asset(
                       ImagePath.LOGO_LIGHT,
                       height: Sizes.HEIGHT_52,
