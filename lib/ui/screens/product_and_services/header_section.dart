@@ -249,7 +249,7 @@ class _HeaderSectionState extends State<HeaderSection> with SingleTickerProvider
         Divider(
           color: Colors.grey,
         ),
-        SizedBoxH30(),
+        // SizedBoxH30(),
       ],
     );
   }

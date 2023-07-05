@@ -63,11 +63,6 @@ class AppColors {
   static const Color maroon04 = Color(0xFF800000);
   static const Color maroon05 = Color(0xFF800000);
   static const Color maroon450 = Color(0xFF94201f);
-
-  //Primary Colors
-
-  static const kPrimaryColor = Color(0XFF88C54D);
-  static const kSecondaryColor = Color(0XFFFFC906);
-  static const kTextColor = Color(0XFF282828);
-  static const wTextColor = Color(0XFFFFFFF);
+  static const Color maroon07 = Color(0xFF9c191b);
+  static const Color maroon06 = Color(0xFFf1a7a9);
 }

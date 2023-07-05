@@ -53,4 +53,22 @@ class Styles {
       height: height,
     );
   }
+
+  static TextStyle customTextStyle4({
+    Color color = AppColors.white,
+    FontWeight fontWeight = FontWeight.w500,
+    double fontSize = 70,
+    double? height,
+    FontStyle fontStyle = FontStyle.normal,
+    TextDecoration decoration = TextDecoration.none,
+  }) {
+    return GoogleFonts.poppins(
+      fontSize: fontSize,
+      color: color,
+      fontWeight: fontWeight,
+      fontStyle: fontStyle,
+      decoration: decoration,
+      height: height,
+    );
+  }
 }

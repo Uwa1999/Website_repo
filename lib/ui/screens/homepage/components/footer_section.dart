@@ -202,7 +202,7 @@ class NavItem extends StatelessWidget {
         child: Text(
           title,
           style: TextStyle(
-            color: AppColors.kPrimaryColor,
+            color: AppColors.white,
             fontSize: 12,
           ),
         ),

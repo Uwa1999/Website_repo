@@ -2,7 +2,6 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/header_respo
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/responsive.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/sizes.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/strings.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/buttons/contact_us_button.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/content_area.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/sizedbox.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
@@ -154,21 +153,21 @@ class _HeaderResponsiveMobileState extends State<HeaderResponsiveMobile> with Si
                               ),
                             ),
                             SizedBoxH70(),
-                            Row(
-                              children: [
-                                ContactUsButton(
-                                  width: buttonWidth,
-                                  height: buttonHeight,
-                                  buttonTitle: StringConst.DOWNLOAD_CV,
-                                  opensUrl: true,
-                                  url: StringConst.EMAIL_URL,
-                                  titleStyle: GoogleFonts.poppins(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                              ],
-                            ),
+                            // Row(
+                            //   children: [
+                            //     ContactUsButton(
+                            //       width: buttonWidth,
+                            //       height: buttonHeight,
+                            //       buttonTitle: StringConst.DOWNLOAD_CV,
+                            //       opensUrl: true,
+                            //       url: StringConst.EMAIL_URL,
+                            //       titleStyle: GoogleFonts.poppins(
+                            //         color: Colors.white,
+                            //         fontWeight: FontWeight.w600,
+                            //       ),
+                            //     ),
+                            //   ],
+                            // ),
                           ],
                         ),
                       ],

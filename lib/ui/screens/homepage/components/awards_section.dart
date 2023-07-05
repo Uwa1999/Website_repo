@@ -147,7 +147,7 @@ class _AwardsSectionState extends State<AwardsSection> with SingleTickerProvider
 
   Widget _buildNimbusInfoSectionSm() {
     return NimbusInfoSection2(
-      title1: StringConst.AWARDS_TITLE,
+      title1: StringConst.AWARDS_TYPE_TITLE_1,
       hasTitle2: false,
       body: StringConst.AWARDS_DESC,
       child: Column(
@@ -163,7 +163,7 @@ class _AwardsSectionState extends State<AwardsSection> with SingleTickerProvider
 
   Widget _buildNimbusInfoSectionLg() {
     return NimbusInfoSection1(
-      title1: StringConst.AWARDS_TITLE,
+      title1: StringConst.AWARDS_TYPE_TITLE_1,
       hasTitle2: false,
       body: StringConst.AWARDS_DESC,
       child: Container(
@@ -210,7 +210,7 @@ class _AwardsSectionState extends State<AwardsSection> with SingleTickerProvider
                       return RotationTransition(
                         turns: _controller,
                         child: Image.asset(
-                          ImagePath.BLOB_BLACK,
+                          ImagePath.BOX_COVER_GOLD,
                           width: Sizes.WIDTH_150,
                           height: Sizes.HEIGHT_150,
                         ),
@@ -225,9 +225,6 @@ class _AwardsSectionState extends State<AwardsSection> with SingleTickerProvider
                     }
                   },
                 ),
-              ),
-              Image.asset(
-                ImagePath.BLOB_BLACK,
               ),
               AnimatedPositioned(
                 left: text1InView ? textPosition : -150,
@@ -245,6 +242,10 @@ class _AwardsSectionState extends State<AwardsSection> with SingleTickerProvider
                 child: Text(StringConst.CV, style: titleStyle),
                 curve: Curves.fastOutSlowIn,
                 duration: Duration(milliseconds: 750),
+              ),
+              SizedBoxH50(),
+              Image.asset(
+                ImagePath.BLOB_BLACK,
               ),
             ],
           ),

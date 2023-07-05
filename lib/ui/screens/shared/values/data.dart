@@ -272,6 +272,16 @@ class Data {
 
   static List<ProductServicesData> allProductServices = [
     ProductServicesData(
+      category: StringConst.WEB,
+      productServicesCoverUrl: ImagePath.CORE_BANKING_MAROON,
+      width: 0.225,
+    ),
+    ProductServicesData(
+      category: StringConst.WEB,
+      productServicesCoverUrl: ImagePath.DCM_MAROON,
+      width: 0.225,
+    ),
+    ProductServicesData(
       category: StringConst.ATM,
       productServicesCoverUrl: ImagePath.AML,
       width: 0.225,
@@ -292,24 +302,14 @@ class Data {
       width: 0.225,
     ),
     ProductServicesData(
-      category: StringConst.WEB,
-      productServicesCoverUrl: ImagePath.CORE_BANKING_MAROON,
-      width: 0.225,
-    ),
-    ProductServicesData(
-      category: StringConst.WEB,
-      productServicesCoverUrl: ImagePath.DCM_MAROON,
-      width: 0.225,
-    ),
-    ProductServicesData(
-      category: StringConst.ATM,
       productServicesCoverUrl: ImagePath.KPLUS_MAROON_WHITEBG,
-      width: 0.225,
+      width: 0.220,
+      mobileHeight: 0.3,
     ),
     ProductServicesData(
-      category: StringConst.ATM,
       productServicesCoverUrl: ImagePath.KONEK2CARD_MAROON,
-      width: 0.225,
+      width: 0.220,
+      mobileHeight: 0.3,
     ),
     ProductServicesData(
       category: StringConst.MOBILE_APP,

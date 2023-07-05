@@ -1,5 +1,12 @@
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/awards_section.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/kplus_desc_main.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/amla/amla_main.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/api/api_main.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/atm_switch/atm_main.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/chatbot/chatbot_main.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/cloud/cloud_main.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/core_banking/core_banking_main.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/dcm/dcm_main.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/k2c/k2c_main.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/kplus/kplus_main.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/responsive.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/data.dart';
@@ -150,7 +157,8 @@ class _ProductServicesSectionState extends State<ProductServicesSection> with Si
                             width: contentAreaWidth * 0.7,
                             child: _buildProductServicesInfoLg(),
                           ),
-                          Spacer(),
+                          SizedBoxW100(),
+                          SizedBoxW100(),
                         ],
                       ),
                     ),
@@ -236,35 +244,42 @@ class _ProductServicesSectionState extends State<ProductServicesSection> with Si
     List<Widget> items = [];
     List<VoidCallback> functions = [
       () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => kPlusDescMain()));
-        print('-----AML SCREEN-----');
-      },
-      () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => AwardsSection()));
-        print('-----ATM SWITCH SCREEN-----');
-      },
-      () {
-        print('-----CHATBOT SCREEN-----');
-      },
-      () {
-        print('-----CLOUD TEST ENVIRONMENT SCREEN-----');
-      },
-      () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) => CoreBankingDescMain()));
         print('-----CORE BANKING SCREEN-----');
       },
       () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) => DcmDescMain()));
         print('-----DCM SCREEN-----');
       },
       () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) => AmlaDescMain()));
+        print('-----AMLA SCREEN-----');
+      },
+      () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) => AtmDescMain()));
+        print('-----ATM SWITCH SCREEN-----');
+      },
+      () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) => ChatbotDescMain()));
+        print('-----CHATBOT SCREEN-----');
+      },
+      () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) => CloudDescMain()));
+        print('-----CLOUD TEST ENVIRONMENT SCREEN-----');
+      },
+      () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) => kPlusDescMain()));
         print('-----KPLUS SCREEN-----');
       },
       () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) => K2cDescMain()));
         print('-----KONEK2CARD SCREEN-----');
       },
       () {
         print('-----MOBILE COLLECTION SCREEN-----');
       },
       () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) => ApiDescMain()));
         print('-----OPEN API SCREEN-----');
       },
       () {

@@ -4,6 +4,7 @@ class ImagePath {
   //images route
   static const String imageDir = "assets/images";
   static const String screenshotsDir = "assets/screenshots";
+  static const String gifDir = "assets/gif";
 
   // Background
   static const String HOME_BACKGROUND = "$imageDir/background_num1.jpg";
@@ -61,13 +62,13 @@ class ImagePath {
   static const String CHATBOT_GREEN = "$imageDir/chatbot_green.png";
   static const String TEMENOS_GREEN = "$imageDir/temenos_green.png";
   static const String DCM_GREEN = "$imageDir/dcm_green.png";
-  static const String ATM_SWITCH_GREEN = "$imageDir/atm_switch_green.png";
-  static const String WEB_COLLECTION_GREEN = "$imageDir/web_collection_green.png";
-  static const String CLOUD_TEST_ENVIRONMENT_GREEN = "$imageDir/cloud_test_environment_green.png";
-  static const String MOBILE_COLLECTION_GREEN = "$imageDir/mobile_collection_green.png";
-  static const String SMART_BRANCH_SYSTEM_GREEN = "$imageDir/smart_branch_system_green.png";
+  static const String ATM_SWITCH_GREEN = "$imageDir/atm_green.png";
+  static const String WEB_COLLECTION_GREEN = "$imageDir/web_green.png";
+  static const String CLOUD_TEST_ENVIRONMENT_GREEN = "$imageDir/cloud_green.png";
+  static const String MOBILE_COLLECTION_GREEN = "$imageDir/mobcol_green.png";
+  static const String SMART_BRANCH_SYSTEM_GREEN = "$imageDir/sbs_green.png";
   static const String CORE_BANKING_GREEN = "$imageDir/core_banking_green.png";
-  static const String OPEN_API_GREEN = "$imageDir/open_api_green.png";
+  static const String OPEN_API_GREEN = "$imageDir/api_green.png";
 
   // Product & Services Images (MAROON)
   static const String KPLUS_MAROON = "$imageDir/kplus_maroon.png";
@@ -76,13 +77,14 @@ class ImagePath {
   static const String CHATBOT_MAROON = "$imageDir/chatbot_maroon.png";
   static const String DCM_MAROON = "$imageDir/dcm_maroon.png";
   static const String TEMENOS_MAROON = "$imageDir/temenos_maroon.png";
-  static const String WEB_COLLECTION_MAROON = "$imageDir/web_collection_maroon.png";
-  static const String ATM_SWITCH_MAROON = "$imageDir/atm_switch_maroon.png";
-  static const String CLOUD_TEST_ENVIRONMENT_MAROON = "$imageDir/cloud_test_environment_maroon.png";
-  static const String MOBILE_COLLECTION_MAROON = "$imageDir/mobile_collection_maroon.png";
-  static const String SMART_BRANCH_SYSTEM_MAROON = "$imageDir/smart_branch_system_maroon.png";
+  static const String WEB_COLLECTION_MAROON = "$imageDir/web_maroon.png";
+  static const String ATM_SWITCH_MAROON = "$imageDir/atm_maroon.png";
+  static const String CLOUD_TEST_ENVIRONMENT_MAROON = "$imageDir/cloud_maroon.png";
+  static const String MOBILE_COLLECTION_MAROON = "$imageDir/mobcol_maroon.png";
+  static const String SMART_BRANCH_SYSTEM_MAROON = "$imageDir/sbs_maroon.png";
   static const String CORE_BANKING_MAROON = "$imageDir/core_banking_maroon.png";
-  static const String OPEN_API_MAROON = "$imageDir/open_api_maroon.png";
+  static const String OPEN_API_MAROON = "$imageDir/api_maroon.png";
 
-  //Tagline Icons
+// Product & Services GIF
+  static const String AML_GIF = "$gifDir/aml.gif";
 }
