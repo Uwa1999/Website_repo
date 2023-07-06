@@ -53,7 +53,7 @@ class _ChatbotDescScreenState extends State<ChatbotDescScreen> {
           ),
         ),
         Container(
-          height: MediaQuery.of(context).size.height * 0.4,
+          height: MediaQuery.of(context).size.height * 0.8,
           width: double.infinity,
           decoration: BoxDecoration(),
           child: Column(

@@ -98,7 +98,7 @@ class StringConst {
   static const String PRODUCT_AND_SERVICES = "Products & Services";
   static const String MY_WORKS = "my works";
   static const String PRODUCT_AND_SERVICES_DESC = '''It has the license, expertise, and ability to provide IT Operations Software as a Service. FDSAP provides business solution as kPlus, chatbot, openAPI, ATM Switch k2c, CBS, mobcol, dcm, amla and other program offerings.''';
-  static const String ALL = "All";
+  static const String ALL = "All Products & Services";
   static const String MOBILE_APP = "Mobile App";
   static const String WEB = "Web";
   static const String ATM = "ATM";
@@ -112,7 +112,7 @@ class StringConst {
 
   //Products & Services (Core Banking Section)
   static const String CORE_BANKING_TITLE = "Core Banking System";
-  static const String CORE_BANKING_DESC = ''' ''';
+  static const String CORE_BANKING_DESC = '''Core Banking System of FDSAP, it was developed to let banks scale quickly using traditional infrastructure and cloud platforms.''';
 
   //Products & Services (DCM Section)
   static const String DCM_TITLE = "Digital Cash Machine";
@@ -128,11 +128,18 @@ class StringConst {
 
   //Products & Services (Chatbot Section)
   static const String CHATBOT_TITLE = "Chatbot";
-  static const String CHATBOT_DESC = '''''';
+  static const String CHATBOT_DESC = '''• The chatbot application responding to the call of CARD MRI as a group to move towards the journey of digital transformation for the clients.
+
+• The FDSAP Chatbot on Facebook Messenger will respond to the queries of CARD MRI banking institution's clients.
+
+• The Chatbot application will continue providing service by immediately responding to the member's or client's questions of an institution, in a safe manner.
+
+• For users who have specific inquiries, customer service representatives are always available to answer their inquiries. Users can also give their feedbacks after using the Chatbot.''';
 
   //Products & Services (CLOUD Section)
   static const String CLOUD_TEST_ENVIRONMENT_TITLE = "Cloud Test Environment";
-  static const String CLOUD_TEST_ENVIRONMENT_DESC = ''' ''';
+
+  static const String CLOUD_TEST_ENVIRONMENT_DESC = '''Cloud test environment server is testing environment that provide businesses with an easy, on-demand means of testing an application’s reliability, scalability, and performance. This testing phase, in which all application and system servers are tested prior to implementation in production.''';
 
   //Products & Services (KPLUS Section)
   static const String KPLUS_TITLE = "Kplus";
@@ -146,15 +153,21 @@ class StringConst {
 
   //Products & Services (MOBILE COLLECTION Section)
   static const String MOBILE_COLLECTION_TITLE = "Mobile Collection";
-  static const String MOBILE_COLLECTION_DESC = ''' ''';
+  static const String MOBILE_COLLECTION_DESC = '''• The Mobile Collection System efficiently controls and monitors Account Officers activities, including location, validation and cash received management.
+
+• This approach increases data collection speed, accuracy, service delivery effectiveness and program staff performance.''';
 
   //Products & Services (OPEN API Section)
   static const String OPEN_API_TITLE = "Open API";
-  static const String OPEN_API_DESC = ''' ''';
+  static const String OPEN_API_DESC = '''• Open banking refers to the use of API's to share financial data and services with third parties.
+  
+• The shared financial comprises e.g the statements and transaction records belonging to the banks customers.
+
+• Data cannot be openly available, only shared upon explicit customers request. Open banking enables consent-driven sharing through technology and legal frameworks.''';
 
   //Products & Services (SMART BRANCH SYSTEM Section)
   static const String SMART_BRANCH_SYSTEM_TITLE = "Smart Branch System";
-  static const String SMART_BRANCH_SYSTEM_DESC = ''' ''';
+  static const String SMART_BRANCH_SYSTEM_DESC = '''The used of smart branch system is to improve branch and teller efficiency to deliver a positive consumer experience through engaging self-service.''';
 
   //Products & Services (TEMENOS Section)
   static const String TEMENOS_TITLE = "Temenos";
@@ -162,7 +175,7 @@ class StringConst {
 
   //Products & Services (Web Collection Section)
   static const String WEB_COLLECTION_TITLE = "Web Collection";
-  static const String WEB_COLLECTION_DESC = ''' ''';
+  static const String WEB_COLLECTION_DESC = '''This web collection system is a method of compiling qualitative and quantitative information with the help of a mobile collection system. It will help to control the collection activity effectively and manage and monitor the account officer activity in real-time.''';
 
   //Awards & Section
   static const String MY = "My";

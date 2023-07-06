@@ -9,14 +9,14 @@ import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
-class MobColSection extends StatefulWidget {
-  const MobColSection({Key? key}) : super(key: key);
+class SbsSection extends StatefulWidget {
+  const SbsSection({Key? key}) : super(key: key);
 
   @override
-  State<MobColSection> createState() => _MobColSectionState();
+  State<SbsSection> createState() => _SbsSectionState();
 }
 
-class _MobColSectionState extends State<MobColSection> with SingleTickerProviderStateMixin {
+class _SbsSectionState extends State<SbsSection> with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   bool text1InView = false;
   bool text2InView = false;
@@ -57,7 +57,7 @@ class _MobColSectionState extends State<MobColSection> with SingleTickerProvider
     );
     double contentAreaHeight = screenHeight * 0.9;
     return VisibilityDetector(
-      key: Key('Mobile-Collection-section'),
+      key: Key('Smart-Branch-System-section'),
       onVisibilityChanged: (visibilityInfo) {
         double visiblePercentage = visibilityInfo.visibleFraction * 100;
         if (visiblePercentage > 50) {
@@ -150,9 +150,9 @@ class _MobColSectionState extends State<MobColSection> with SingleTickerProvider
 
   Widget _buildNimbusInfoSectionSm() {
     return NimbusInfoSection2(
-      title1: StringConst.MOBILE_COLLECTION_TITLE,
+      title1: StringConst.SMART_BRANCH_SYSTEM_TITLE,
       hasTitle2: false,
-      body: StringConst.MOBILE_COLLECTION_DESC,
+      body: StringConst.SMART_BRANCH_SYSTEM_DESC,
       child: Column(
         children: [],
       ),
@@ -161,9 +161,9 @@ class _MobColSectionState extends State<MobColSection> with SingleTickerProvider
 
   Widget _buildNimbusInfoSectionLg() {
     return NimbusInfoSection1(
-      title1: StringConst.MOBILE_COLLECTION_TITLE,
+      title1: StringConst.SMART_BRANCH_SYSTEM_TITLE,
       hasTitle2: false,
-      body: StringConst.MOBILE_COLLECTION_DESC,
+      body: StringConst.SMART_BRANCH_SYSTEM_DESC,
       child: Container(
         child: Row(
           children: [],
@@ -194,7 +194,7 @@ class _MobColSectionState extends State<MobColSection> with SingleTickerProvider
           Stack(
             children: [
               Image.asset(
-                'assets/gif/mobcol_maroon.gif',
+                'assets/gif/sbs_maroon.gif',
               ),
             ],
           ),

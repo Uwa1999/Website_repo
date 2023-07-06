@@ -1,7 +1,5 @@
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/responsive.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/strings.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/styles.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/content_area.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/nimbus_info_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/sizedbox.dart';
@@ -67,80 +65,84 @@ class _ChatbotSectionState extends State<ChatbotSection> with SingleTickerProvid
         }
       },
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        // mainAxisAlignment: MainAxisAlignment.center,
         children: [
           SizedBoxH50(),
           Container(
             padding: EdgeInsets.only(left: getSidePadding(context)),
-            child: ResponsiveBuilder(
-              refinedBreakpoints: RefinedBreakpoints(),
-              builder: (context, sizingInformation) {
-                double screenWidth = sizingInformation.screenSize.width;
-                if (screenWidth <= 1024) {
-                  return Column(
-                    children: [
-                      ResponsiveBuilder(
-                        builder: (context, sizingInformation) {
-                          double screenWidth = sizingInformation.screenSize.width;
-                          if (screenWidth < (RefinedBreakpoints().tabletSmall)) {
-                            return _buildNimbusInfoSectionSm();
-                          } else {
-                            return _buildNimbusInfoSectionLg();
-                          }
-                        },
-                      ),
-                      SizedBoxH50(),
-                      ResponsiveBuilder(
-                        builder: (context, sizingInformation) {
-                          double screenWidth = sizingInformation.screenSize.width;
-                          if (screenWidth < (RefinedBreakpoints().tabletSmall)) {
-                            return _buildImage(
-                              width: screenWidth,
-                              height: screenHeight * 0.5,
-                            );
-                          } else {
-                            return Center(
-                              child: _buildImage(
-                                width: screenWidth * 0.75,
-                                height: screenHeight * 0.75,
-                              ),
-                            );
-                          }
-                        },
-                      ),
-                    ],
-                  );
-                } else {
-                  return Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      ContentArea(
-                        width: contentAreaWidth,
-                        height: contentAreaHeight,
-                        child: Container(
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: Column(
-                                  children: [
-                                    Spacer(),
-                                    _buildNimbusInfoSectionLg(),
-                                    Spacer(flex: 2),
-                                  ],
-                                ),
-                              ),
-                            ],
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                ResponsiveBuilder(
+                  refinedBreakpoints: RefinedBreakpoints(),
+                  builder: (context, sizingInformation) {
+                    double screenWidth = sizingInformation.screenSize.width;
+                    if (screenWidth <= 1024) {
+                      return Column(
+                        children: [
+                          ResponsiveBuilder(
+                            builder: (context, sizingInformation) {
+                              double screenWidth = sizingInformation.screenSize.width;
+                              if (screenWidth < (RefinedBreakpoints().tabletSmall)) {
+                                return _buildNimbusInfoSectionSm();
+                              } else {
+                                return _buildNimbusInfoSectionLg();
+                              }
+                            },
                           ),
-                        ),
-                      ),
-                      _buildImage(
-                        width: contentAreaWidth,
-                        height: contentAreaHeight,
-                      ),
-                    ],
-                  );
-                }
-              },
+                          SizedBoxH50(),
+                          ResponsiveBuilder(
+                            builder: (context, sizingInformation) {
+                              double screenWidth = sizingInformation.screenSize.width;
+                              if (screenWidth < (RefinedBreakpoints().tabletSmall)) {
+                                return _buildImage(
+                                  width: screenWidth,
+                                  height: screenHeight * 0.5,
+                                );
+                              } else {
+                                return Center(
+                                  child: _buildImage(
+                                    width: screenWidth * 0.75,
+                                    height: screenHeight * 0.75,
+                                  ),
+                                );
+                              }
+                            },
+                          ),
+                        ],
+                      );
+                    } else {
+                      return Row(
+                        children: [
+                          ContentArea(
+                            width: contentAreaWidth,
+                            height: contentAreaHeight,
+                            child: Container(
+                              child: Row(
+                                children: [
+                                  Expanded(
+                                    child: Column(
+                                      children: [
+                                        // Spacer(),
+                                        _buildNimbusInfoSectionLg(),
+                                        // Spacer(flex: 2),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          _buildImage(
+                            width: contentAreaWidth,
+                            height: contentAreaHeight,
+                          ),
+                        ],
+                      );
+                    }
+                  },
+                ),
+              ],
             ),
           ),
         ],
@@ -176,27 +178,13 @@ class _ChatbotSectionState extends State<ChatbotSection> with SingleTickerProvid
     required double width,
     required double height,
   }) {
-    TextTheme textTheme = Theme.of(context).textTheme;
-    TextStyle? titleStyle = textTheme.bodyText1?.merge(
-      Styles.customTextStyle3(
-        fontSize: responsiveSize(context, 64, 80, md: 76),
-        height: 1.25,
-        color: AppColors.primaryColor,
-      ),
-    );
-    double textPosition = assignWidth(context, 0.1);
     return ContentArea(
       width: width,
       height: height,
       child: Stack(
         children: [
-          SizedBoxH50(),
-          Stack(
-            children: [
-              Image.asset(
-                'assets/gif/chatbot_maroon.gif',
-              ),
-            ],
+          Image.asset(
+            'assets/gif/chatbot_maroon.gif',
           ),
         ],
       ),

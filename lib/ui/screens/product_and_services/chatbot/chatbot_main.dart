@@ -85,6 +85,7 @@ class _ChatbotDescMainState extends State<ChatbotDescMain> with SingleTickerProv
             child: SingleChildScrollView(
               controller: _scrollController,
               child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   ChatbotSection(),
                   SizedBoxH10(),

@@ -69,7 +69,7 @@ class _ApiSectionState extends State<ApiSection> with SingleTickerProviderStateM
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SizedBoxH50(),
+          SizedBoxH30(),
           Container(
             padding: EdgeInsets.only(left: getSidePadding(context)),
             child: ResponsiveBuilder(
@@ -194,7 +194,7 @@ class _ApiSectionState extends State<ApiSection> with SingleTickerProviderStateM
           Stack(
             children: [
               Image.asset(
-                'assets/gif/amla.gif',
+                'assets/gif/api_maroon.gif',
               ),
             ],
           ),

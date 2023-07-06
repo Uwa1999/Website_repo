@@ -159,29 +159,29 @@ class Data {
   static List<ProductServicesCategoryData> productServicesCategories = [
     ProductServicesCategoryData(
       title: StringConst.ALL,
-      number: 6,
+      number: 13,
       isSelected: true,
     ),
-    ProductServicesCategoryData(
-      title: StringConst.MOBILE_APP,
-      number: 2,
-      isSelected: true,
-    ),
-    ProductServicesCategoryData(
-      title: StringConst.WEB,
-      number: 1,
-      isSelected: true,
-    ),
-    ProductServicesCategoryData(
-      title: StringConst.ATM,
-      number: 2,
-      isSelected: true,
-    ),
-    ProductServicesCategoryData(
-      title: StringConst.WEB_DESIGN,
-      number: 3,
-      isSelected: true,
-    ),
+    // ProductServicesCategoryData(
+    //   title: StringConst.MOBILE_APP,
+    //   number: 2,
+    //   isSelected: true,
+    // ),
+    // ProductServicesCategoryData(
+    //   title: StringConst.WEB,
+    //   number: 1,
+    //   isSelected: true,
+    // ),
+    // ProductServicesCategoryData(
+    //   title: StringConst.ATM,
+    //   number: 2,
+    //   isSelected: true,
+    // ),
+    // ProductServicesCategoryData(
+    //   title: StringConst.WEB_DESIGN,
+    //   number: 3,
+    //   isSelected: true,
+    // ),
   ];
 
   static List<String> awards1 = [
@@ -337,64 +337,64 @@ class Data {
       width: 0.225,
     ),
   ];
-  static List<ProductServicesData> mobileProductServices = [
-    ProductServicesData(
-      productServicesCoverUrl: ImagePath.KPLUS_MAROON_WHITEBG,
-      width: 0.220,
-      mobileHeight: 0.3,
-    ),
-    ProductServicesData(
-      category: StringConst.MOBILE_APP,
-      productServicesCoverUrl: ImagePath.CHATBOT_MAROON,
-      width: 0.220,
-    ),
-    ProductServicesData(
-      category: StringConst.MOBILE_APP,
-      productServicesCoverUrl: ImagePath.MOBILE_COLLECTION_MAROON,
-      width: 0.225,
-    ),
-  ];
-  static List<ProductServicesData> webProductServices = [
-    ProductServicesData(
-      category: StringConst.WEB,
-      productServicesCoverUrl: ImagePath.DCM_MAROON,
-      width: 0.220,
-    ),
-  ];
-  static List<ProductServicesData> atmProductServices = [
-    ProductServicesData(
-      category: StringConst.ATM,
-      productServicesCoverUrl: ImagePath.KPLUS_GREEN_WHITEBG,
-      width: 0.220,
-      mobileHeight: 0.3,
-    ),
-    ProductServicesData(
-      category: StringConst.ATM,
-      productServicesCoverUrl: ImagePath.WEB_COLLECTION_MAROON,
-      width: 0.220,
-      mobileHeight: 0.3,
-    ),
-    ProductServicesData(
-      category: StringConst.ATM,
-      productServicesCoverUrl: ImagePath.ATM_SWITCH_MAROON,
-      width: 0.225,
-    ),
-  ];
-  static List<ProductServicesData> dcmProductServices = [
-    ProductServicesData(
-      category: StringConst.WEB_DESIGN,
-      productServicesCoverUrl: ImagePath.CHATBOT_MAROON,
-      width: 0.220,
-    ),
-    ProductServicesData(
-      category: StringConst.WEB_DESIGN,
-      productServicesCoverUrl: ImagePath.OPEN_API_MAROON,
-      width: 0.220,
-    ),
-    ProductServicesData(
-      category: StringConst.WEB,
-      productServicesCoverUrl: ImagePath.DCM_MAROON,
-      width: 0.220,
-    ),
-  ];
+  // static List<ProductServicesData> mobileProductServices = [
+  //   ProductServicesData(
+  //     productServicesCoverUrl: ImagePath.KPLUS_MAROON_WHITEBG,
+  //     width: 0.220,
+  //     mobileHeight: 0.3,
+  //   ),
+  //   ProductServicesData(
+  //     category: StringConst.MOBILE_APP,
+  //     productServicesCoverUrl: ImagePath.CHATBOT_MAROON,
+  //     width: 0.220,
+  //   ),
+  //   ProductServicesData(
+  //     category: StringConst.MOBILE_APP,
+  //     productServicesCoverUrl: ImagePath.MOBILE_COLLECTION_MAROON,
+  //     width: 0.225,
+  //   ),
+  // ];
+  // static List<ProductServicesData> webProductServices = [
+  //   ProductServicesData(
+  //     category: StringConst.WEB,
+  //     productServicesCoverUrl: ImagePath.DCM_MAROON,
+  //     width: 0.220,
+  //   ),
+  // ];
+  // static List<ProductServicesData> atmProductServices = [
+  //   ProductServicesData(
+  //     category: StringConst.ATM,
+  //     productServicesCoverUrl: ImagePath.KPLUS_GREEN_WHITEBG,
+  //     width: 0.220,
+  //     mobileHeight: 0.3,
+  //   ),
+  //   ProductServicesData(
+  //     category: StringConst.ATM,
+  //     productServicesCoverUrl: ImagePath.WEB_COLLECTION_MAROON,
+  //     width: 0.220,
+  //     mobileHeight: 0.3,
+  //   ),
+  //   ProductServicesData(
+  //     category: StringConst.ATM,
+  //     productServicesCoverUrl: ImagePath.ATM_SWITCH_MAROON,
+  //     width: 0.225,
+  //   ),
+  // ];
+  // static List<ProductServicesData> dcmProductServices = [
+  //   ProductServicesData(
+  //     category: StringConst.WEB_DESIGN,
+  //     productServicesCoverUrl: ImagePath.CHATBOT_MAROON,
+  //     width: 0.220,
+  //   ),
+  //   ProductServicesData(
+  //     category: StringConst.WEB_DESIGN,
+  //     productServicesCoverUrl: ImagePath.OPEN_API_MAROON,
+  //     width: 0.220,
+  //   ),
+  //   ProductServicesData(
+  //     category: StringConst.WEB,
+  //     productServicesCoverUrl: ImagePath.DCM_MAROON,
+  //     width: 0.220,
+  //   ),
+  // ];
 }

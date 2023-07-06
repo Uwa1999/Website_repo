@@ -7,6 +7,10 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/core_bankin
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/dcm/dcm_main.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/k2c/k2c_main.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/kplus/kplus_main.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/mobcol/mobcol_main.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/sbs/sbs_main.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/temenos/temenos_main.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/web/web_main.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/responsive.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/data.dart';
@@ -43,10 +47,10 @@ class _ProductServicesSectionState extends State<ProductServicesSection> with Si
   late Animation<double> _projectScaleAnimation;
   List<List<ProductServicesData>> productServices = [
     Data.allProductServices,
-    Data.mobileProductServices,
-    Data.webProductServices,
-    Data.atmProductServices,
-    Data.dcmProductServices,
+    // Data.mobileProductServices,
+    // Data.webProductServices,
+    // Data.atmProductServices,
+    // Data.dcmProductServices,
   ];
   late List<ProductServicesData> selectedProductServices;
   late List<ProductServicesCategoryData> productServicesCategories;
@@ -276,6 +280,7 @@ class _ProductServicesSectionState extends State<ProductServicesSection> with Si
         print('-----KONEK2CARD SCREEN-----');
       },
       () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) => MobColDescMain()));
         print('-----MOBILE COLLECTION SCREEN-----');
       },
       () {
@@ -283,12 +288,15 @@ class _ProductServicesSectionState extends State<ProductServicesSection> with Si
         print('-----OPEN API SCREEN-----');
       },
       () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) => SbsDescMain()));
         print('-----SMART BRANCH SYSTEM SCREEN-----');
       },
       () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) => TemenosDecsMain()));
         print('-----TEMENOS SCREEN-----');
       },
       () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) => WebCollectionDescMain()));
         print('-----WEB COLLECTION SCREEN-----');
       },
     ];
