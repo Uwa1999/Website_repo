@@ -71,7 +71,7 @@ class ImagePath {
   static const String K2C_GIF = "$gifDir/k2c_maroon.gif";
   static const String KPLUS_GIF = "$gifDir/kplus_maroon_whitebg.gif";
   static const String MOBILE_COLLECTION_GIF = "$gifDir/mobcol_maroon.gif";
-  static const String SMART_BRANCH_SYSTEM_GIF = "$gifDir/sbs_maroon.gif";
   static const String TEMENOS_GIF = "$gifDir/temenos_maroon.gif";
   static const String WEB_COLLECTION_GIF = "$gifDir/web_maroon.gif";
+  static const String SMART_BRANCH_SYSTEM_GIF = "$gifDir/sbs_maroon.gif";
 }

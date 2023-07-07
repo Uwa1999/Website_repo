@@ -1,6 +1,6 @@
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/footer_section.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/productservices_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/responsive_navigation/nav_section_mobile.dart';
+//import 'package:FDS_ASYA_PHILIPPINES/ui/screens/insights/webinars/news_screen.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/header_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/responsive.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
@@ -10,14 +10,14 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
-class ProductServicesMain extends StatefulWidget {
-  const ProductServicesMain({Key? key}) : super(key: key);
+class NewsDescMain extends StatefulWidget {
+  const NewsDescMain({Key? key}) : super(key: key);
 
   @override
-  State<ProductServicesMain> createState() => _ProductServicesMainState();
+  State<NewsDescMain> createState() => _NewsDescMainState();
 }
 
-class _ProductServicesMainState extends State<ProductServicesMain> with SingleTickerProviderStateMixin {
+class _NewsDescMainState extends State<NewsDescMain> with SingleTickerProviderStateMixin {
   late final AnimationController _controller = AnimationController(
     duration: const Duration(milliseconds: 300),
     vsync: this,
@@ -86,8 +86,8 @@ class _ProductServicesMainState extends State<ProductServicesMain> with SingleTi
               controller: _scrollController,
               child: Column(
                 children: [
-                  ProductServicesSection(),
-                  SizedBoxH80(),
+                  //   NewsDescScreen(),
+                  SizedBoxH10(),
                   FooterSection(),
                 ],
               ),

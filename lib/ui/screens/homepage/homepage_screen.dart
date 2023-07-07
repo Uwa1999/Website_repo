@@ -13,6 +13,7 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/sizes.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/strings.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/app_drawer.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/nav_item.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/sizedbox.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:responsive_builder/responsive_builder.dart';
@@ -160,7 +161,9 @@ class _HomepageScreenState extends State<HomepageScreen> with SingleTickerProvid
                     children: [
                       Column(
                         children: [
+                          SizedBoxH50(),
                           LeadingBankingPartnerSection(),
+                          SizedBoxH80(),
                           Container(
                             key: navItems[3].key,
                             child: InsightSection(),

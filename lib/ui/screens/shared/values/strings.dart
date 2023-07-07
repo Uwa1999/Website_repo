@@ -78,26 +78,26 @@ class StringConst {
   static const String SKILLS_4_DESC = "We believe direct collaboration with our clients is essential to bringing unique";
 
   //Leading Banking Partner Section
-  static const String TITLE_STATS = "Leading Banking Partner";
-  static const String HAPPY_CLIENTS = "Happy Clients";
+  static const String TITLE_STATS = " ";
+  static const String CLIENTS = "Clients";
   static const String YEARS_OF_EXPERIENCE = "Years of Experience";
-  static const String INCREDIBLE_PROJECTS = "Incredible Projects";
-  static const String AWARD_WINNING = "Award Winning";
-  static const String API_CALLS_PER_DAY = "API calls per day";
   static const String COUNTRIES = "Countries";
+  static const String INCREDIBLE_PROJECTS = " ";
+  static const String AWARD_WINNING = " ";
+  static const String API_CALLS_PER_DAY = " ";
 
   //Leading Banking Partner Section Numbers
-  static const String HAPPY_CLIENTS_NUM = "120";
+  static const String CLIENTS_NUM = "8M";
   static const String YEARS_OF_EXPERIENCE_NUM = "10";
-  static const String INCREDIBLE_PROJECTS_NUM = "230";
-  static const String AWARD_WINNING_NUM = "18";
-  static const String API_CALLS_PER_DAY_NUM = "1000";
-  static const String COUNTRIES_NUM = "65";
+  static const String COUNTRIES_NUM = "4";
+  static const String INCREDIBLE_PROJECTS_NUM = " ";
+  static const String AWARD_WINNING_NUM = " ";
+  static const String API_CALLS_PER_DAY_NUM = " ";
 
   //Products & Services Section
   static const String PRODUCT_AND_SERVICES = "Products & Services";
   static const String MY_WORKS = "my works";
-  static const String PRODUCT_AND_SERVICES_DESC = '''It has the license, expertise, and ability to provide IT Operations Software as a Service. FDSAP provides business solution as kPlus, chatbot, openAPI, ATM Switch k2c, CBS, mobcol, dcm, amla and other program offerings.''';
+  static const String PRODUCT_AND_SERVICES_DESC = '''It has the license, expertise, and ability to provide IT Operations Software as a Service. FDSAP provides business solution as Kplus, Chatbot, OpenAPI, ATM Switch K2C, CBS, MobCol, DCM, AMLA and other program offerings.''';
   static const String ALL = "All Products & Services";
   static const String MOBILE_APP = "Mobile App";
   static const String WEB = "Web";
@@ -199,18 +199,14 @@ class StringConst {
   //Insights Section
   static const String INSIGHTS_TITLE_1 = "Insights";
   static const String INSIGHTS_TITLE_2 = "Articles & Events";
-  static const String INSIGHTS_DESC = "We met years ago at an advertising agency where we learned a ton of dos and some don'ts. There were project deadlines, happy hours, client proposals and a few sparks flying.";
+  static const String INSIGHTS_DESC = "";
   static const String INSIGHTS_VIEW_ALL = "View All";
   static const String INSIGHTS_CATEGORY_1 = "Article";
   static const String INSIGHTS_CATEGORY_2 = "Event";
-  static const String INSIGHTS_CATEGORY_3 = "Webinars";
+  static const String INSIGHTS_CATEGORY_3 = "News";
   static const String INSIGHTS_CATEGORY_4 = " ";
   static const String INSIGHTS_CATEGORY_5 = " ";
   static const String INSIGHTS_CATEGORY_6 = " ";
-
-  //Article Info
-  //EVENTS Info
-  //NEWS Info
 
   //Article Description
   static const String ARTICLE_DATE = "February 4, 2023";
@@ -222,6 +218,59 @@ class StringConst {
   static const String ARTICLE_SUBTITLE_3 = "CARD MRI launched the konek2CARD PLUS, a mobile application that allows the clients of CARD MRI to enjoy a hassle-free banking transaction anytime, anywhere using their smartphones.";
   static const String ARTICLE_READ_MORE = "Read More";
   static const String ARTICLES = "Blogging";
+
+  //Article Info
+  static const String ARTICLE_DESC_TITLE = '''FDS ASYA PHILIPPINES INC.
+Pioneering Digital Transformations in Banking and Financial Services''';
+  static const String ARTICLE_DESC_SUBTITLE1 = 'Article';
+  static const String ARTICLE_DESC1 = '''By co-creating value and empowering financial institutions with solutions designed for the digital era, FDS ASYA PHILIPPINES INC. (FDSAP) drives growth, enhances operational efficiency, and delivers exceptional customer experiences. With a commitment to collaboration, harnessing technological advancements, and building lasting partnerships, FDSAP remains at the forefront of regional transformation, playing a crucial role in shaping the future of banking.
+
+FDSAP is a subsidiary of FDS Asya, Inc., based in Singapore. It is the result of a joint venture between two industry-leading companies, CARD MRI and Fortress Data Services (FDS) in Indonesia. While FDS offers top-notch banking applications to Indonesian banks and financial services, CARD MRI is a group of institutions dedicated to eradicating poverty in the Philippines. Both FDSAP and CARD MRI Holdings, Inc. are member-institutions of CARD Mutually Reinforcing Institutions (CARD MRI).''';
+  static const String ARTICLE_DESC_SUBTITLE2 = 'Enabling Success in the Digital Era:';
+  static const String ARTICLE_DESC2 = '''As technology rapidly evolves, the banking landscape is undergoing a profound shift. FDSAP recognizes this paradigm change and plays a pivotal role in equipping financial institutions with the tools and strategies required to navigate the digital era successfully. By embracing innovation and leveraging cutting-edge technologies, FDSAP empowers banks to stay ahead of the curve, enhance operational efficiency, and deliver unparalleled customer experiences.''';
+  static const String ARTICLE_DESC_SUBTITLE3 = 'Co-creating Value:';
+  static const String ARTICLE_DESC3 = '''FDSAP understands that true success is achieved by working hand in hand with financial institutions to co-create value. By fostering deep relationships, actively listening to clients' needs, and tailoring solutions accordingly, FDSAP ensures that the provided services are aligned with the specific goals and objectives of its partners. This collaborative approach not only fosters growth and profitability for financial institutions but also contributes to the overall development of the regional economy and community.''';
+  static const String ARTICLE_DESC_SUBTITLE4 = 'Harnessing Technological Advancements:';
+  static const String ARTICLE_DESC4 = '''FDSAP stays at the forefront of technological advancements, leveraging them to deliver cutting-edge solutions. With expertise in areas such as core banking, mobile banking, and digital financial ecosystems, FDSAP equips financial institutions with scalable and flexible architectures that can accommodate businesses of all sizes. By harnessing emerging technologies such as artificial intelligence, blockchain, and data analytics, FDSAP enables financial institutions to drive innovation, enhance security, and unlock new opportunities for growth.''';
+  static const String ARTICLE_DESC_SUBTITLE5 = 'A Trusted Partner:';
+  static const String ARTICLE_DESC5 = '''Throughout its journey, FDSAP has built a reputation as a trusted and reliable partner for financial institutions.. With its deep industry knowledge, extensive experience, and a track record of successful implementations, FDSAP has garnered the trust of its clients. Financial institutions recognize FDSAP as a partner that understands their unique challenges and provides tailored solutions to address their specific needs, ultimately positioning them for long-term success in the digital era.''';
+
+  //Events Info
+  static const String EVENTS_DESC_TITLE = '''Celebrating a Milestone:
+FDS Asya Philippines Inc. Reflects on Years of Success and Innovation on its Founding Anniversary''';
+  static const String EVENTS_DESC_SUBTITLE1 = "Event";
+  static const String EVENTS_DESC1 = "FDS ASYA PHILIPPINES INC. (FDSAP) had joyously commemorated a significant milestone as it celebrates its anniversary on August 16,2022 . This auspicious occasion presents an opportunity to reflect upon the remarkable journey that has led the company to this point, express gratitude to its esteemed clients, partners, and dedicated employees, and acknowledge its achievements. Highlighting its exceptional accomplishments, unwavering commitment to innovation, and future aspirations";
+  static const String EVENTS_DESC_SUBTITLE2 = "A Journey of Growth and Success:";
+  static const String EVENTS_DESC2 = "Since its inception, FDS ASYA PHILIPPINES INC. (FDSAP) has embarked on a transformative journey, evolving from a humble startup to an industry-leading institution. Over the years, the company has expanded its range of services, diversified its client base, and earned a reputation for consistently delivering exceptional quality and value. FDSAP’s unwavering commitment to excellence has served as a guiding force, enabling it to navigate challenges, seize opportunities, and achieve remarkable success in a dynamic business landscape.";
+  static const String EVENTS_DESC_SUBTITLE3 = "Pioneering Innovation:";
+  static const String EVENTS_DESC3 = '''Right from its early days, the institution recognized the significance of staying ahead of the curve and embracing emerging technologies. Through their innovative products and services, FDSAP has assisted clients in adapting to the rapidly changing digital landscape and realizing their objectives."''';
+  static const String EVENTS_DESC_SUBTITLE4 = "Empowering Employees:";
+  static const String EVENTS_DESC4 = "The dedicated employees of FDSAP have played an instrumental role in the company's success. FDSAP recognizes and values their expertise, passion, and unwavering commitment to excellence. Over the years, the company has fostered a supportive and collaborative work environment that encourages innovation, personal growth, and professional development. It is through the collective efforts of its employees that FDSAP has achieved remarkable milestones and earned recognition within the industry.";
+  static const String EVENTS_DESC_SUBTITLE5 = "Expressing Gratitude:";
+  static const String EVENTS_DESC5 = "FDSAP extends its heartfelt gratitude to its esteemed clients, partners, and stakeholders. Their unwavering trust, support, and collaboration have been instrumental in the company's success. FDSAP considers it a privilege to have had the opportunity to work alongside these individuals and organizations, contributing to their journey. Additionally, the company expresses deep appreciation to its dedicated employees for their unwavering commitment and hard work, recognizing that their efforts have been integral to FDSAP’s achievements.";
+
+  //News Info
+  static const String NEWS_DESC_TITLE = '''FDS ASYA PHILIPPINES INC.
+Signs MOA with university for OJT Program for IT Students''';
+  static const String NEWS_DESC_SUBTITLE1 = 'News';
+  static const String NEWS_DESC1 = '''On May 23, 2022, FDS ASYA PHILIPPINES INC. (FDSAP) and Pamantasan ng Lungsod ng San Pablo (PLSP) signed a Memorandum of Agreement (MOA) for an On-the-Job Training program for Information Technology (IT) students. The collaboration aims to provide PLSP students with practical experience in the field of digital banking, microfinancing services, and other Information Technology operations-related services.
+
+The MOA signing took place at Pamantasan ng Lungsod ng San Pablo and was attended by representatives from FDSAP, including its president, Mr. Roderick G. Mercado, along with Mr. Arnel Mendoza, Mr. Raymond Villapando, Ms. Irish Vhernela Emralino, and Ms. Queenie Ricablanca. Representatives from PLSP, including Concurrent University President Engineer Arthur B. Almario, PLSP Executive Vice President for Administration and Finance Dr. Sigfredo C. Adajar, PLSP Vice President for External Affairs and Linkages Prof. Arceli C. Adajar, and PLSP Acting Dean College of Computer Studies and Technology Prof. Sherwin D. Quizon, were also present. CARD MRI Founder and Chairman Emeritus Dr. Aristotle B. Alip, CARD MRI Information Technology (CMIT) President Edgar V. Cauyan, CMIT Vice President for Technical Services Maricar Lopez, CMIT Chief Information Security Officer Arman B. Peñafiel, and Director for RM/Partnership/IG Ms. Jean Pauline B. Landicho virtually joined the event.
+
+During the signing ceremony, Mercado emphasized the importance of the agreement, stating, "Since CARD MRI began its operations in San Pablo, Laguna, we also aim to give back to this community we call home. As part of our mission of providing opportunities for the members of this town, we hope to generate employment, especially for students who have the potential to contribute to our vision of a poverty-free country through the use of technology."
+
+In response, Engr. Almario expressed, "This collaboration with FDSAP will help our students enhance and develop their skills, opening up better opportunities for them in the future, especially as we adapt to the era of modernization where information technology is highly in demand. The joint forces of PLSP and FDSAP will have a significant impact not only on the San Pablo community but also on the country's economy, especially amid the effects of the pandemic."
+
+Moreover, CARD MRI envisions extending the On-the-Job training program to include not only IT students but also students from other professional fields such as business administration and accountancy. This initial partnership paves the way for further opportunities for fresh graduates to undergo fruitful training and secure employment prospects.
+''';
+  static const String NEWS_DESC_SUBTITLE2 = '';
+  static const String NEWS_DESC2 = '';
+  static const String NEWS_DESC_SUBTITLE3 = '';
+  static const String NEWS_DESC3 = '';
+  static const String NEWS_DESC_SUBTITLE4 = '';
+  static const String NEWS_DESC4 = '';
+  static const String NEWS_DESC_SUBTITLE5 = '';
+  static const String NEWS_DESC5 = '';
 
   //Events Description
   static const String EVENTS_DATE = "February 14, 2023";
@@ -251,7 +300,6 @@ class StringConst {
 shared services provider of
 world-class banking applications
 for banks and financial services''';
-
   static const String ABOUT_FDS_ASYA_FOOTER2 = '''Core Banking Solutions
 Cyber Security & Fraud
 Digipay

@@ -86,8 +86,6 @@ class Data {
     ),
   ];
 
-  //bago lang
-
   static List<SkillCardData> skillCardData = [
     SkillCardData(
       title: StringConst.SKILLS_1,
@@ -122,21 +120,24 @@ class Data {
   ];
   static List<StatItemData> statItemsData = [
     StatItemData(
-      value: 120,
-      subtitle: StringConst.HAPPY_CLIENTS,
+      value: 8,
+      values: "M",
+      subtitle: StringConst.CLIENTS,
     ),
     StatItemData(
       value: 10,
+      values: "",
       subtitle: StringConst.YEARS_OF_EXPERIENCE,
     ),
     StatItemData(
-      value: 230,
-      subtitle: StringConst.INCREDIBLE_PROJECTS,
+      value: 4,
+      values: "",
+      subtitle: StringConst.COUNTRIES,
     ),
-    StatItemData(
-      value: 18,
-      subtitle: StringConst.AWARD_WINNING,
-    ),
+    // StatItemData(
+    //   value: 18,
+    //   subtitle: StringConst.AWARD_WINNING,
+    // ),
   ];
 
   static List<StatItemData> statItemsData2 = [
@@ -274,33 +275,8 @@ class Data {
 
   static List<ProductServicesData> allProductServices = [
     ProductServicesData(
-      category: StringConst.WEB,
-      productServicesCoverUrl: ImagePath.CORE_BANKING,
-      width: 0.225,
-    ),
-    ProductServicesData(
-      category: StringConst.WEB,
-      productServicesCoverUrl: ImagePath.DCM,
-      width: 0.225,
-    ),
-    ProductServicesData(
-      category: StringConst.ATM,
-      productServicesCoverUrl: ImagePath.AML,
-      width: 0.225,
-    ),
-    ProductServicesData(
-      category: StringConst.ATM,
-      productServicesCoverUrl: ImagePath.ATM_SWITCH,
-      width: 0.225,
-    ),
-    ProductServicesData(
       category: StringConst.WEB_DESIGN,
       productServicesCoverUrl: ImagePath.CHATBOT,
-      width: 0.225,
-    ),
-    ProductServicesData(
-      category: StringConst.WEB,
-      productServicesCoverUrl: ImagePath.CLOUD_TEST_ENVIRONMENT,
       width: 0.225,
     ),
     ProductServicesData(
@@ -314,8 +290,38 @@ class Data {
       mobileHeight: 0.3,
     ),
     ProductServicesData(
+      category: StringConst.WEB,
+      productServicesCoverUrl: ImagePath.DCM,
+      width: 0.225,
+    ),
+    ProductServicesData(
       category: StringConst.MOBILE_APP,
       productServicesCoverUrl: ImagePath.MOBILE_COLLECTION,
+      width: 0.225,
+    ),
+    ProductServicesData(
+      category: StringConst.ATM,
+      productServicesCoverUrl: ImagePath.WEB_COLLECTION,
+      width: 0.225,
+    ),
+    ProductServicesData(
+      category: StringConst.WEB,
+      productServicesCoverUrl: ImagePath.CORE_BANKING,
+      width: 0.225,
+    ),
+    ProductServicesData(
+      category: StringConst.ATM,
+      productServicesCoverUrl: ImagePath.AML,
+      width: 0.225,
+    ),
+    ProductServicesData(
+      category: StringConst.ATM,
+      productServicesCoverUrl: ImagePath.ATM_SWITCH,
+      width: 0.225,
+    ),
+    ProductServicesData(
+      category: StringConst.MOBILE_APP,
+      productServicesCoverUrl: ImagePath.TEMENOS,
       width: 0.225,
     ),
     ProductServicesData(
@@ -329,13 +335,8 @@ class Data {
       width: 0.225,
     ),
     ProductServicesData(
-      category: StringConst.MOBILE_APP,
-      productServicesCoverUrl: ImagePath.TEMENOS,
-      width: 0.225,
-    ),
-    ProductServicesData(
-      category: StringConst.ATM,
-      productServicesCoverUrl: ImagePath.WEB_COLLECTION,
+      category: StringConst.WEB,
+      productServicesCoverUrl: ImagePath.CLOUD_TEST_ENVIRONMENT,
       width: 0.225,
     ),
   ];

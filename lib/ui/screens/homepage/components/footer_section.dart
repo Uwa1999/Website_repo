@@ -43,15 +43,10 @@ class DesktopFooter extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.only(
-                        right: Sizes.PADDING_10,
-                      ),
-                      child: Image.asset(
-                        ImagePath.FDSAP_WHITE_LOGO,
-                        fit: BoxFit.cover,
-                        height: MediaQuery.of(context).size.height * 0.1,
-                      ),
+                    Image.asset(
+                      ImagePath.FDSAP_WHITE_LOGO,
+                      fit: BoxFit.cover,
+                      height: MediaQuery.of(context).size.height * 0.2,
                     ),
                     RichText(
                       textAlign: TextAlign.center,

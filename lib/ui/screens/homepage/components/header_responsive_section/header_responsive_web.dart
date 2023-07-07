@@ -1,5 +1,6 @@
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/header_responsive_section/widgets.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/responsive.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/data.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/images.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/sizes.dart';
@@ -117,6 +118,7 @@ class _HeaderResponsiveWebState extends State<HeaderResponsiveWeb> with SingleTi
                                 style: GoogleFonts.poppins(
                                   fontSize: headerIntroTextSize,
                                   fontWeight: FontWeight.w600,
+                                  color: AppColors.white,
                                 ),
                               ),
                             ),
@@ -127,6 +129,7 @@ class _HeaderResponsiveWebState extends State<HeaderResponsiveWeb> with SingleTi
                                 style: GoogleFonts.poppins(
                                   fontSize: headerIntroTextSize,
                                   fontWeight: FontWeight.w600,
+                                  color: AppColors.white,
                                 ),
                               ),
                             ),
@@ -140,6 +143,7 @@ class _HeaderResponsiveWebState extends State<HeaderResponsiveWeb> with SingleTi
                                     textStyle: GoogleFonts.poppins(
                                       fontSize: headerIntroTextSize,
                                       fontWeight: FontWeight.w600,
+                                      color: AppColors.white,
                                     ),
                                   ),
                                 ],
@@ -153,8 +157,8 @@ class _HeaderResponsiveWebState extends State<HeaderResponsiveWeb> with SingleTi
                               constraints: BoxConstraints(maxWidth: screenWidth * 0.35),
                               child: SelectableText(
                                 StringConst.ABOUT_DEV,
-
                                 style: GoogleFonts.poppins(
+                                  color: AppColors.white,
                                   fontWeight: FontWeight.w500,
                                   fontSize: 18,
                                   height: 1.5,

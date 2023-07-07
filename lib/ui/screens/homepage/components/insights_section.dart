@@ -1,3 +1,6 @@
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/insights/articles/article_main.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/insights/events/event_main.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/insights/webinars/news_main.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/responsive.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/data.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/sizes.dart';
@@ -42,7 +45,7 @@ class _InsightSectionState extends State<InsightSection> {
         Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            SizedBoxH20(),
+            SizedBoxH50(),
             ResponsiveBuilder(
               builder: (context, sizingInformation) {
                 double screenWidth = sizingInformation.screenSize.width;
@@ -57,7 +60,7 @@ class _InsightSectionState extends State<InsightSection> {
                           child: NimbusInfoSection2(
                             title1: StringConst.INSIGHTS_TITLE_1,
                             //title2: StringConst.INSIGHTS_TITLE_2,
-                            body: StringConst.INSIGHTS_DESC,
+                            body: '',
                           ),
                         ),
                       ],
@@ -70,11 +73,11 @@ class _InsightSectionState extends State<InsightSection> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         ContentArea(
-                          width: screenWidth * 0.7,
+                          width: screenWidth * 0.8,
                           child: NimbusInfoSection1(
                             title1: StringConst.INSIGHTS_TITLE_1,
                             //title2: StringConst.INSIGHTS_TITLE_2,
-                            body: StringConst.INSIGHTS_DESC,
+                            body: '',
                           ),
                         ),
                         Spacer(),
@@ -84,7 +87,7 @@ class _InsightSectionState extends State<InsightSection> {
                 }
               },
             ),
-            SizedBoxH20(),
+            // SizedBoxH20(),
             Padding(
               padding: padding,
               child: Row(
@@ -118,7 +121,7 @@ class _InsightSectionState extends State<InsightSection> {
                                           width: screenWidth,
                                         ),
                                       ),
-                                      SizedBoxH40(),
+                                      // SizedBoxH30(),
                                     ],
                                   ),
                                 ),
@@ -164,26 +167,20 @@ class _InsightSectionState extends State<InsightSection> {
   // }
 
   List<Widget> _buildInsightCards({required List<InsightsData> insightsData, required double width, required context}) {
-    double cardWidth = ((width - (kSpacing * 2)) / 4);
+    double cardWidth = ((width - (kSpacing * 2)) / 5);
     List<Widget> items = [];
     List<VoidCallback> function = [
       () {
-        print('-----SCREEN1-----');
+        Navigator.push(context, MaterialPageRoute(builder: (context) => ArticleDescMain()));
+        print('-----ARTICLE SCREEN-----');
       },
       () {
-        print('-----SCREEN2-----');
+        Navigator.push(context, MaterialPageRoute(builder: (context) => EventDescMain()));
+        print('-----EVENTS SCREEN-----');
       },
       () {
-        print('-----SCREEN3-----');
-      },
-      () {
-        print('-----SCREEN4-----');
-      },
-      () {
-        print('-----SCREEN5-----');
-      },
-      () {
-        print('-----SCREEN6-----');
+        Navigator.push(context, MaterialPageRoute(builder: (context) => NewsDescMain()));
+        print('-----NEWS SCREEN-----');
       },
     ];
     for (int index = 0; index < insightsData.length; index++) {

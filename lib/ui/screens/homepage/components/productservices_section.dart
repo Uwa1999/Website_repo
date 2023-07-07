@@ -59,7 +59,7 @@ class _ProductServicesSectionState extends State<ProductServicesSection> with Si
   void initState() {
     super.initState();
     selectedProductServices = productServices[0];
-    productServicesCategories = Data.productServicesCategories;
+
     _productController = AnimationController(
       duration: const Duration(milliseconds: 500),
       vsync: this,
@@ -116,11 +116,11 @@ class _ProductServicesSectionState extends State<ProductServicesSection> with Si
                   children: [
                     _buildProductServicesInfoSm(),
                     SizedBoxH40(),
-                    Wrap(
-                      spacing: kSpacing,
-                      runSpacing: kRunSpacing,
-                      children: _buildProductServicesCategories(productServicesCategories),
-                    ),
+                    // Wrap(
+                    //   spacing: kSpacing,
+                    //   runSpacing: kRunSpacing,
+                    //   children: _buildProductServicesCategories(productServicesCategories),
+                    // ),
                     SizedBoxH40(),
                     Wrap(
                       runSpacing: assignHeight(context, 0.05),
@@ -168,37 +168,36 @@ class _ProductServicesSectionState extends State<ProductServicesSection> with Si
                     ),
                   ),
                   SizedBoxH40(),
-                  Padding(
-                    padding: EdgeInsets.only(left: 35, right: 35),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Expanded(
-                          child: SizedBox(
-                            height: MediaQuery.of(context).size.height * 0.4,
-                            child: new ListView.builder(
-                              shrinkWrap: true,
-                              scrollDirection: Axis.horizontal,
-                              physics: NeverScrollableScrollPhysics(),
-                              itemCount: productServicesCategories.length,
-                              itemBuilder: (context, index) {
-                                return new Container(
-                                  alignment: Alignment.center,
-                                  width: widthOfScreen(context),
-                                  child: ListView(
-                                    scrollDirection: Axis.horizontal,
-                                    children: _buildProductServices(selectedProductServices),
-                                  ),
-                                );
-                              },
-                            ),
+                  SizedBoxW5(),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Expanded(
+                        child: SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.4,
+                          child: new ListView.builder(
+                            shrinkWrap: true,
+                            scrollDirection: Axis.horizontal,
+                            physics: NeverScrollableScrollPhysics(),
+                            //  itemCount: productServicesCategories.length,
+                            itemBuilder: (context, index) {
+                              return new Container(
+                                alignment: Alignment.center,
+                                width: widthOfScreen(context),
+                                child: ListView(
+                                  scrollDirection: Axis.horizontal,
+                                  children: _buildProductServices(selectedProductServices, context: context),
+                                ),
+                              );
+                            },
                           ),
                         ),
-                        SizedBoxH40(),
-                      ],
-                    ),
+                      ),
+                      SizedBoxH40(),
+                    ],
                   ),
+                  SizedBoxW5(),
                 ],
               ),
             );
@@ -221,55 +220,35 @@ class _ProductServicesSectionState extends State<ProductServicesSection> with Si
       title1: StringConst.PRODUCT_AND_SERVICES,
       hasTitle2: false,
       body: StringConst.PRODUCT_AND_SERVICES_DESC,
-      child: Wrap(
-        spacing: kSpacing,
-        runSpacing: kRunSpacing,
-        children: _buildProductServicesCategories(productServicesCategories),
-      ),
+      // child: Wrap(
+      //   spacing: kSpacing,
+      //   runSpacing: kRunSpacing,
+      //   children: _buildProductServicesCategories(productServicesCategories),
+      // ),
     );
   }
 
-  List<Widget> _buildProductServicesCategories(List<ProductServicesCategoryData> categories) {
-    List<Widget> items = [];
-    for (int index = 0; index < categories.length; index++) {
-      items.add(
-        ProductServicesCategory(
-          title: categories[index].title,
-          number: categories[index].number,
-          isSelected: categories[index].isSelected,
-          onTap: () => onProductServicesCategoryTap(index),
-        ),
-      );
-    }
-    return items;
-  }
+  // List<Widget> _buildProductServicesCategories(List<ProductServicesCategoryData> categories) {
+  //   List<Widget> items = [];
+  //   for (int index = 0; index < categories.length; index++) {
+  //     items.add(
+  //       ProductServicesCategory(
+  //         title: categories[index].title,
+  //         number: categories[index].number,
+  //         isSelected: categories[index].isSelected,
+  //         onTap: () => onProductServicesCategoryTap(index),
+  //       ),
+  //     );
+  //   }
+  //   return items;
+  // }
 
-  List<Widget> _buildProductServices(List<ProductServicesData> data, {bool isMobile = false}) {
+  List<Widget> _buildProductServices(List<ProductServicesData> data, {bool isMobile = false, context}) {
     List<Widget> items = [];
     List<VoidCallback> functions = [
       () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => CoreBankingDescMain()));
-        print('-----CORE BANKING SCREEN-----');
-      },
-      () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => DcmDescMain()));
-        print('-----DCM SCREEN-----');
-      },
-      () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => AmlaDescMain()));
-        print('-----AMLA SCREEN-----');
-      },
-      () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => AtmDescMain()));
-        print('-----ATM SWITCH SCREEN-----');
-      },
-      () {
         Navigator.push(context, MaterialPageRoute(builder: (context) => ChatbotDescMain()));
         print('-----CHATBOT SCREEN-----');
-      },
-      () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => CloudDescMain()));
-        print('-----CLOUD TEST ENVIRONMENT SCREEN-----');
       },
       () {
         Navigator.push(context, MaterialPageRoute(builder: (context) => kPlusDescMain()));
@@ -280,8 +259,32 @@ class _ProductServicesSectionState extends State<ProductServicesSection> with Si
         print('-----KONEK2CARD SCREEN-----');
       },
       () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) => DcmDescMain()));
+        print('-----DCM SCREEN-----');
+      },
+      () {
         Navigator.push(context, MaterialPageRoute(builder: (context) => MobColDescMain()));
         print('-----MOBILE COLLECTION SCREEN-----');
+      },
+      () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) => WebCollectionDescMain()));
+        print('-----WEB COLLECTION SCREEN-----');
+      },
+      () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) => CoreBankingDescMain()));
+        print('-----CORE BANKING SCREEN-----');
+      },
+      () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) => AmlaDescMain()));
+        print('-----AMLA SCREEN-----');
+      },
+      () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) => AtmDescMain()));
+        print('-----ATM SWITCH SCREEN-----');
+      },
+      () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) => TemenosDecsMain()));
+        print('-----TEMENOS SCREEN-----');
       },
       () {
         Navigator.push(context, MaterialPageRoute(builder: (context) => ApiDescMain()));
@@ -292,12 +295,8 @@ class _ProductServicesSectionState extends State<ProductServicesSection> with Si
         print('-----SMART BRANCH SYSTEM SCREEN-----');
       },
       () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => TemenosDecsMain()));
-        print('-----TEMENOS SCREEN-----');
-      },
-      () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => WebCollectionDescMain()));
-        print('-----WEB COLLECTION SCREEN-----');
+        Navigator.push(context, MaterialPageRoute(builder: (context) => CloudDescMain()));
+        print('-----CLOUD TEST ENVIRONMENT SCREEN-----');
       },
     ];
     for (int index = 0; index < data.length; index++) {
@@ -411,14 +410,14 @@ class _ProductServicesCategoryState extends State<ProductServicesCategory> with 
                       color: colorOfCategory(),
                     ),
               ),
-              WidgetSpan(
-                child: widget.isSelected
-                    ? numberOfProductServicesItems()
-                    : FadeTransition(
-                        opacity: _controller.view,
-                        child: numberOfProductServicesItems(),
-                      ),
-              ),
+              // WidgetSpan(
+              //   child: widget.isSelected
+              //       ? numberOfProductServicesItems()
+              //       : FadeTransition(
+              //           opacity: _controller.view,
+              //           child: numberOfProductServicesItems(),
+              //         ),
+              // ),
             ],
           ),
         ),
@@ -426,23 +425,23 @@ class _ProductServicesCategoryState extends State<ProductServicesCategory> with 
     );
   }
 
-  Widget numberOfProductServicesItems() {
-    TextTheme textTheme = Theme.of(context).textTheme;
-    return Transform.translate(
-      offset: const Offset(2, -8),
-      child: Text(
-        "(${widget.number})",
-        textScaleFactor: 0.7,
-        style: widget.numberStyle?.copyWith(
-              color: widget.hoverColor,
-            ) ??
-            textTheme.titleMedium?.copyWith(
-              fontSize: Sizes.TEXT_SIZE_16,
-              color: widget.hoverColor,
-            ),
-      ),
-    );
-  }
+  // Widget numberOfProductServicesItems() {
+  //   TextTheme textTheme = Theme.of(context).textTheme;
+  //   return Transform.translate(
+  //     offset: const Offset(2, -8),
+  //     child: Text(
+  //       "(${widget.number})",
+  //       textScaleFactor: 0.7,
+  //       style: widget.numberStyle?.copyWith(
+  //             color: widget.hoverColor,
+  //           ) ??
+  //           textTheme.titleMedium?.copyWith(
+  //             fontSize: Sizes.TEXT_SIZE_16,
+  //             color: widget.hoverColor,
+  //           ),
+  //     ),
+  //   );
+  // }
 
   void _mouseEnter(bool hovering) {
     setState(() {

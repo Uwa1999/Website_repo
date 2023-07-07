@@ -3,7 +3,6 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/data.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/images.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/sizes.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/strings.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/sizedbox.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -11,10 +10,15 @@ import 'package:responsive_builder/responsive_builder.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
 class StatItemData {
-  final int value;
+  final int? value;
   final String subtitle;
+  final String? values;
 
-  StatItemData({required this.value, required this.subtitle});
+  StatItemData({
+    this.value,
+    required this.subtitle,
+    this.values,
+  });
 }
 
 class LeadingBankingPartnerSection extends StatefulWidget {
@@ -97,25 +101,25 @@ class _LeadingBankingPartnerSectionState extends State<LeadingBankingPartnerSect
                           height: 200,
                         ),
                       ),
-                      Positioned(
-                        right: -25,
-                        bottom: -25,
-                        child: Image.asset(
-                          ImagePath.BLOB_BLACK,
-                          height: 200,
-                        ),
-                      ),
+                      // Positioned(
+                      //   right: -25,
+                      //   bottom: -25,
+                      //   child: Image.asset(
+                      //     ImagePath.BLOB_BLACK,
+                      //     height: 200,
+                      //   ),
+                      // ),
                       Padding(
                         padding: const EdgeInsets.symmetric(vertical: Sizes.PADDING_40),
                         child: Column(
                           children: [
-                            Text(
-                              StringConst.TITLE_STATS,
-                              style: GoogleFonts.poppins(
-                                color: AppColors.white,
-                                fontSize: 40,
-                              ),
-                            ),
+                            // Text(
+                            //   StringConst.TITLE_STATS,
+                            //   style: GoogleFonts.poppins(
+                            //     color: AppColors.white,
+                            //     fontSize: 40,
+                            //   ),
+                            // ),
                             SizedBoxH50(),
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -129,20 +133,21 @@ class _LeadingBankingPartnerSectionState extends State<LeadingBankingPartnerSect
                               ],
                             ),
                             SizedBoxH10(),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                Spacer(),
-                                ..._buildItems(
-                                  Data.statItemsData2,
-                                  isHorizontal: true,
-                                ),
-                                Spacer(),
-                              ],
-                            ),
+                            // Row(
+                            //   mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            //   children: [
+                            //     Spacer(),
+                            //     ..._buildItems(
+                            //       Data.statItemsData2,
+                            //       isHorizontal: true,
+                            //     ),
+                            //     Spacer(),
+                            //   ],
+                            // ),
                           ],
                         ),
                       ),
+                      SizedBoxH80(),
                     ],
                   ),
                 );
@@ -162,7 +167,8 @@ class _LeadingBankingPartnerSectionState extends State<LeadingBankingPartnerSect
     for (int index = 0; index < data.length; index++) {
       items.add(
         StatItem(
-          title: data[index].value,
+          title: data[index].value!,
+          subnum: data[index].values!,
           subtitle: data[index].subtitle,
           controller: _controller,
         ),
@@ -189,11 +195,13 @@ class StatItem extends StatelessWidget {
     this.subtitleColor = AppColors.grey150,
     this.titleStyle,
     this.subtitleStyle,
+    this.subnum,
     this.curve = Curves.easeIn,
   });
 
   final int title;
   final String subtitle;
+  final String? subnum;
   final Color titleColor;
   final Color subtitleColor;
   final TextStyle? titleStyle;
@@ -213,24 +221,26 @@ class StatItem extends StatelessWidget {
     return AnimatedBuilder(
       animation: animation,
       builder: (context, child) {
-        return _buildChild(
-          context: context,
-          value: animation.value,
-        );
+        return _buildChild(context: context, value: animation.value, values: subnum);
       },
     );
   }
 
-  Widget _buildChild({
-    required BuildContext context,
-    required int value,
-  }) {
+  Widget _buildChild({required BuildContext context, required int value, String? values}) {
     TextTheme textTheme = Theme.of(context).textTheme;
     return Column(
       children: [
-        Text(
-          "$value",
-          style: GoogleFonts.poppins(color: titleColor, fontSize: 100),
+        Row(
+          children: [
+            Text(
+              "$value",
+              style: GoogleFonts.poppins(color: titleColor, fontSize: 100),
+            ),
+            Text(
+              "$values",
+              style: GoogleFonts.poppins(color: titleColor, fontSize: 100),
+            ),
+          ],
         ),
         SizedBoxH12(),
         Text(

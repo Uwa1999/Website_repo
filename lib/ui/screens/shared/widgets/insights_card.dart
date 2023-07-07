@@ -90,7 +90,7 @@ class _InsightsCardState extends State<InsightsCard> {
       child: Container(
         width: 420,
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Stack(
               children: [
@@ -99,8 +99,7 @@ class _InsightsCardState extends State<InsightsCard> {
                   //   margin: const EdgeInsets.only(left: Sizes.MARGIN_18),
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       Image.asset(
                         widget.imageUrl,
@@ -108,25 +107,25 @@ class _InsightsCardState extends State<InsightsCard> {
                         width: double.infinity,
                         fit: BoxFit.fitHeight,
                       ),
+                      // Padding(
+                      //   padding: const EdgeInsets.only(left: 10.0, top: 10.0),
+                      //   child: Row(
+                      //     mainAxisAlignment: MainAxisAlignment.start,
+                      //     children: [
+                      //       Icon(
+                      //         widget.dateIcon,
+                      //         color: AppColors.maroon04,
+                      //       ),
+                      //       SizedBoxW8(),
+                      //       Text(
+                      //         widget.date,
+                      //         style: widget.dateStyle ?? textTheme.titleLarge,
+                      //       )
+                      //     ],
+                      //   ),
+                      // ),
                       Padding(
-                        padding: const EdgeInsets.only(left: 10.0, top: 10.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Icon(
-                              widget.dateIcon,
-                              color: AppColors.maroon04,
-                            ),
-                            SizedBoxW8(),
-                            Text(
-                              widget.date,
-                              style: widget.dateStyle ?? textTheme.titleLarge,
-                            )
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 10.0),
+                        padding: const EdgeInsets.only(left: 10.0, top: 10.0, bottom: 10.0),
                         child: Align(
                           alignment: Alignment.centerLeft,
                           child: Text(
