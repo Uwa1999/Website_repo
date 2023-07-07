@@ -208,6 +208,10 @@ class StringConst {
   static const String INSIGHTS_CATEGORY_5 = " ";
   static const String INSIGHTS_CATEGORY_6 = " ";
 
+  //Article Info
+  //EVENTS Info
+  //NEWS Info
+
   //Article Description
   static const String ARTICLE_DATE = "February 4, 2023";
   static const String ARTICLE_TITLE_1 = "konek2CARD PLUS";

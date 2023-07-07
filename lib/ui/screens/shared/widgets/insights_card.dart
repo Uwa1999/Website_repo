@@ -88,7 +88,7 @@ class _InsightsCardState extends State<InsightsCard> {
     return GestureDetector(
       onTap: widget.onPressed,
       child: Container(
-        width: widget.width,
+        width: 420,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
@@ -104,7 +104,7 @@ class _InsightsCardState extends State<InsightsCard> {
                     children: <Widget>[
                       Image.asset(
                         widget.imageUrl,
-                        height: MediaQuery.of(context).size.height * 0.4,
+                        height: MediaQuery.of(context).size.height * 0.5,
                         width: double.infinity,
                         fit: BoxFit.fitHeight,
                       ),
