@@ -120,7 +120,7 @@ class StringConst {
 
   //Products & Services (AML Section)
   static const String AML_TITLE = "Anti-Money Laundering";
-  static const String AML_DESC = '''Anti-Money Laundering (AMLA) software to analyze customer data and detect suspicious transactions. The software filters, classifies, and inspects customer data for anomalies.''';
+  static const String AML_DESC = '''Anti-money laundering (AMLA) software is used by CARD MRI’s banking and non-banking institutions to analyze customer data and detect suspicious transactions. It filters customer data, classifies it according to its level of suspicion, and inspects it for anomalies.''';
 
   //Products & Services (ATM SWITCH Section)
   static const String ATM_SWITCH_TITLE = "ATM SWITCH";

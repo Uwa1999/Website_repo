@@ -86,6 +86,8 @@ class Data {
     ),
   ];
 
+  //bago lang
+
   static List<SkillCardData> skillCardData = [
     SkillCardData(
       title: StringConst.SKILLS_1,
@@ -273,12 +275,12 @@ class Data {
   static List<ProductServicesData> allProductServices = [
     ProductServicesData(
       category: StringConst.WEB,
-      productServicesCoverUrl: ImagePath.CORE_BANKING_MAROON,
+      productServicesCoverUrl: ImagePath.CORE_BANKING,
       width: 0.225,
     ),
     ProductServicesData(
       category: StringConst.WEB,
-      productServicesCoverUrl: ImagePath.DCM_MAROON,
+      productServicesCoverUrl: ImagePath.DCM,
       width: 0.225,
     ),
     ProductServicesData(
@@ -288,52 +290,52 @@ class Data {
     ),
     ProductServicesData(
       category: StringConst.ATM,
-      productServicesCoverUrl: ImagePath.ATM_SWITCH_MAROON,
+      productServicesCoverUrl: ImagePath.ATM_SWITCH,
       width: 0.225,
     ),
     ProductServicesData(
       category: StringConst.WEB_DESIGN,
-      productServicesCoverUrl: ImagePath.CHATBOT_MAROON,
+      productServicesCoverUrl: ImagePath.CHATBOT,
       width: 0.225,
     ),
     ProductServicesData(
       category: StringConst.WEB,
-      productServicesCoverUrl: ImagePath.CLOUD_TEST_ENVIRONMENT_MAROON,
+      productServicesCoverUrl: ImagePath.CLOUD_TEST_ENVIRONMENT,
       width: 0.225,
     ),
     ProductServicesData(
-      productServicesCoverUrl: ImagePath.KPLUS_MAROON_WHITEBG,
+      productServicesCoverUrl: ImagePath.KPLUS_WHITEBG,
       width: 0.220,
       mobileHeight: 0.3,
     ),
     ProductServicesData(
-      productServicesCoverUrl: ImagePath.KONEK2CARD_MAROON,
+      productServicesCoverUrl: ImagePath.KONEK2CARD,
       width: 0.220,
       mobileHeight: 0.3,
     ),
     ProductServicesData(
       category: StringConst.MOBILE_APP,
-      productServicesCoverUrl: ImagePath.MOBILE_COLLECTION_MAROON,
+      productServicesCoverUrl: ImagePath.MOBILE_COLLECTION,
       width: 0.225,
     ),
     ProductServicesData(
       category: StringConst.WEB_DESIGN,
-      productServicesCoverUrl: ImagePath.OPEN_API_MAROON,
+      productServicesCoverUrl: ImagePath.OPEN_API,
       width: 0.225,
     ),
     ProductServicesData(
       category: StringConst.ATM,
-      productServicesCoverUrl: ImagePath.SMART_BRANCH_SYSTEM_MAROON,
+      productServicesCoverUrl: ImagePath.SMART_BRANCH_SYSTEM,
       width: 0.225,
     ),
     ProductServicesData(
       category: StringConst.MOBILE_APP,
-      productServicesCoverUrl: ImagePath.TEMENOS_MAROON,
+      productServicesCoverUrl: ImagePath.TEMENOS,
       width: 0.225,
     ),
     ProductServicesData(
       category: StringConst.ATM,
-      productServicesCoverUrl: ImagePath.WEB_COLLECTION_MAROON,
+      productServicesCoverUrl: ImagePath.WEB_COLLECTION,
       width: 0.225,
     ),
   ];

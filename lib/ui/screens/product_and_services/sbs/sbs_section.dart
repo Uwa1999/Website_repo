@@ -1,5 +1,6 @@
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/responsive.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/images.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/strings.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/styles.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/content_area.dart';
@@ -194,7 +195,7 @@ class _SbsSectionState extends State<SbsSection> with SingleTickerProviderStateM
           Stack(
             children: [
               Image.asset(
-                'assets/gif/sbs_maroon.gif',
+                ImagePath.SMART_BRANCH_SYSTEM_GIF,
               ),
             ],
           ),

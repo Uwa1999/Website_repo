@@ -1,4 +1,5 @@
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/responsive.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/images.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/strings.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/content_area.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/nimbus_info_section.dart';
@@ -184,7 +185,7 @@ class _ChatbotSectionState extends State<ChatbotSection> with SingleTickerProvid
       child: Stack(
         children: [
           Image.asset(
-            'assets/gif/chatbot_maroon.gif',
+            ImagePath.CHATBOT_GIF,
           ),
         ],
       ),

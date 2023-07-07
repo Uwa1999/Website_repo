@@ -1,5 +1,6 @@
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/responsive.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/images.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/strings.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/styles.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/content_area.dart';
@@ -194,7 +195,7 @@ class _CoreBankingSectionState extends State<CoreBankingSection> with SingleTick
           Stack(
             children: [
               Image.asset(
-                'assets/gif/core_banking_maroon.gif',
+                ImagePath.CORE_BANKING_GIF,
               ),
             ],
           ),

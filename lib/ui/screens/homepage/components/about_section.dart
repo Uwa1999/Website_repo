@@ -111,8 +111,10 @@ class _AboutSectionState extends State<AboutSection> with TickerProviderStateMix
             } else {
               return Column(
                 children: [
+                  SizedBoxH80(),
                   Row(
                     children: [
+                      SizedBoxH50(),
                       ContentArea(
                         width: contentAreaWidthLg,
                         child: _buildFdsapLogo(
@@ -129,6 +131,7 @@ class _AboutSectionState extends State<AboutSection> with TickerProviderStateMix
                       ),
                     ],
                   ),
+                  SizedBoxH60(),
                   Container(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,

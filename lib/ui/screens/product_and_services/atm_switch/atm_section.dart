@@ -1,5 +1,6 @@
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/responsive.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/images.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/strings.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/styles.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/content_area.dart';
@@ -194,7 +195,7 @@ class _AtmSectionState extends State<AtmSection> with SingleTickerProviderStateM
           Stack(
             children: [
               Image.asset(
-                'assets/gif/atm_maroon.gif',
+                ImagePath.ATM_GIF,
               ),
             ],
           ),

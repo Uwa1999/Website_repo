@@ -39,52 +39,39 @@ class ImagePath {
   static const String WEBINARS_01 = "$imageDir/kplus_01.jpg";
   static const String WEBINARS_02 = "$imageDir/kplus_01.jpg";
   static const String WEBINARS_03 = "$imageDir/kplus_01.jpg";
+  //git
 
   //Footer
   static const String FDSAP_WHITE_LOGO = "$imageDir/fds_logo_white.png";
 
   // Product & Services Images
-  static const String KPLUS = "$imageDir/kplus_logo.png";
-  static const String CHATBOT = "$imageDir/chatbot.png";
-  static const String TEMENOS = "$imageDir/temenos.png";
-  static const String TEMENOS_BLUE = "$imageDir/temenos_blue.png";
-  static const String OPENBANKING = "$imageDir/open_banking.png";
-  static const String DCM = "$imageDir/dcm.png";
-  static const String WEB_COLLECTION = "$imageDir/web_collection.png";
-  static const String CLOUD = "$imageDir/cloud.png";
-  static const String SBS = "$imageDir/sbs.png";
+  static const String KPLUS = "$imageDir/kplus_maroon.png";
+  static const String KPLUS_WHITEBG = "$imageDir/kplus_maroon_whitebg.png";
+  static const String KONEK2CARD = "$imageDir/k2c_maroon.png";
   static const String AML = "$imageDir/aml.png";
-
-  // Product & Services Images (GREEN)
-  static const String KPLUS_GREEN = "$imageDir/kplus_green.png";
-  static const String KONEK2CARD_GREEN = "$imageDir/k2c_green.png";
-  static const String KPLUS_GREEN_WHITEBG = "$imageDir/kplus_green_whitebg.png";
-  static const String CHATBOT_GREEN = "$imageDir/chatbot_green.png";
-  static const String TEMENOS_GREEN = "$imageDir/temenos_green.png";
-  static const String DCM_GREEN = "$imageDir/dcm_green.png";
-  static const String ATM_SWITCH_GREEN = "$imageDir/atm_green.png";
-  static const String WEB_COLLECTION_GREEN = "$imageDir/web_green.png";
-  static const String CLOUD_TEST_ENVIRONMENT_GREEN = "$imageDir/cloud_green.png";
-  static const String MOBILE_COLLECTION_GREEN = "$imageDir/mobcol_green.png";
-  static const String SMART_BRANCH_SYSTEM_GREEN = "$imageDir/sbs_green.png";
-  static const String CORE_BANKING_GREEN = "$imageDir/core_banking_green.png";
-  static const String OPEN_API_GREEN = "$imageDir/api_green.png";
-
-  // Product & Services Images (MAROON)
-  static const String KPLUS_MAROON = "$imageDir/kplus_maroon.png";
-  static const String KPLUS_MAROON_WHITEBG = "$imageDir/kplus_maroon_whitebg.png";
-  static const String KONEK2CARD_MAROON = "$imageDir/k2c_maroon.png";
-  static const String CHATBOT_MAROON = "$imageDir/chatbot_maroon.png";
-  static const String DCM_MAROON = "$imageDir/dcm_maroon.png";
-  static const String TEMENOS_MAROON = "$imageDir/temenos_maroon.png";
-  static const String WEB_COLLECTION_MAROON = "$imageDir/web_maroon.png";
-  static const String ATM_SWITCH_MAROON = "$imageDir/atm_maroon.png";
-  static const String CLOUD_TEST_ENVIRONMENT_MAROON = "$imageDir/cloud_maroon.png";
-  static const String MOBILE_COLLECTION_MAROON = "$imageDir/mobcol_maroon.png";
-  static const String SMART_BRANCH_SYSTEM_MAROON = "$imageDir/sbs_maroon.png";
-  static const String CORE_BANKING_MAROON = "$imageDir/core_banking_maroon.png";
-  static const String OPEN_API_MAROON = "$imageDir/api_maroon.png";
+  static const String CHATBOT = "$imageDir/chatbot_maroon.png";
+  static const String DCM = "$imageDir/dcm_maroon.png";
+  static const String TEMENOS = "$imageDir/temenos_maroon.png";
+  static const String WEB_COLLECTION = "$imageDir/web_maroon.png";
+  static const String ATM_SWITCH = "$imageDir/atm_maroon.png";
+  static const String CLOUD_TEST_ENVIRONMENT = "$imageDir/cloud_maroon.png";
+  static const String MOBILE_COLLECTION = "$imageDir/mobcol_maroon.png";
+  static const String SMART_BRANCH_SYSTEM = "$imageDir/sbs_maroon.png";
+  static const String CORE_BANKING = "$imageDir/core_banking_maroon.png";
+  static const String OPEN_API = "$imageDir/api_maroon.png";
 
 // Product & Services GIF
-  static const String AML_GIF = "$gifDir/aml.gif";
+  static const String AML_GIF = "$gifDir/amla.gif";
+  static const String API_GIF = "$gifDir/api_maroon.gif";
+  static const String ATM_GIF = "$gifDir/atm_maroon.gif";
+  static const String CHATBOT_GIF = "$gifDir/chatbot_maroon.gif";
+  static const String CLOUD_GIF = "$gifDir/cloud_maroon.gif";
+  static const String CORE_BANKING_GIF = "$gifDir/core_banking_maroon.gif";
+  static const String DCM_GIF = "$gifDir/dcm_maroon.gif";
+  static const String K2C_GIF = "$gifDir/k2c_maroon.gif";
+  static const String KPLUS_GIF = "$gifDir/kplus_maroon_whitebg.gif";
+  static const String MOBILE_COLLECTION_GIF = "$gifDir/mobcol_maroon.gif";
+  static const String SMART_BRANCH_SYSTEM_GIF = "$gifDir/sbs_maroon.gif";
+  static const String TEMENOS_GIF = "$gifDir/temenos_maroon.gif";
+  static const String WEB_COLLECTION_GIF = "$gifDir/web_maroon.gif";
 }
