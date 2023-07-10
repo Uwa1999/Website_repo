@@ -125,12 +125,12 @@ class _InsightsCardState extends State<InsightsCard> {
                       //   ),
                       // ),
                       Padding(
-                        padding: const EdgeInsets.only(left: 10.0, top: 10.0, bottom: 10.0),
+                        padding: const EdgeInsets.only(left: 10.0, top: 10.0, bottom: 10.0, right: 10.0),
                         child: Align(
                           alignment: Alignment.centerLeft,
                           child: Text(
                             widget.title,
-                            style: widget.dateStyle ?? textTheme.titleLarge,
+                            style: widget.dateStyle ?? textTheme.titleMedium,
                           ),
                         ),
                       ),
@@ -140,7 +140,7 @@ class _InsightsCardState extends State<InsightsCard> {
                           alignment: Alignment.centerLeft,
                           child: Text(
                             widget.subtitle,
-                            style: widget.titleStyle ?? textTheme.bodySmall,
+                            style: widget.titleStyle ?? textTheme.bodyMedium,
                           ),
                         ),
                       ),
