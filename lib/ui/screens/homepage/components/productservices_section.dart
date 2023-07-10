@@ -273,6 +273,14 @@ class _ProductServicesSectionState extends State<ProductServicesSection> with Si
         print('-----WEB COLLECTION SCREEN-----');
       },
       () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) => MinokawaDescMain()));
+        print('-----MINOKAWA SCREEN-----');
+      },
+      () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) => BakawanDescMain()));
+        print('-----BAKAWAN SCREEN-----');
+      },
+      () {
         Navigator.push(context, MaterialPageRoute(builder: (context) => CoreBankingDescMain()));
         print('-----CORE BANKING SCREEN-----');
       },
@@ -287,14 +295,6 @@ class _ProductServicesSectionState extends State<ProductServicesSection> with Si
       () {
         Navigator.push(context, MaterialPageRoute(builder: (context) => TemenosDecsMain()));
         print('-----TEMENOS SCREEN-----');
-      },
-      () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => MinokawaDescMain()));
-        print('-----MINOKAWA SCREEN-----');
-      },
-      () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => BakawanDescMain()));
-        print('-----BAKAWAN SCREEN-----');
       },
       () {
         Navigator.push(context, MaterialPageRoute(builder: (context) => ApiDescMain()));

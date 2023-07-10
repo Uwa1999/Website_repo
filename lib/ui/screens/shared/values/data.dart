@@ -213,7 +213,7 @@ class Data {
     InsightsData(
       category: StringConst.INSIGHTS_CATEGORY_2,
       title: StringConst.EVENTS_TITLE_1,
-      subtitle: StringConst.EVENTS_SUBTITLE_2,
+      subtitle: StringConst.EVENTS_SUBTITLE_1,
       date: StringConst.EVENTS_DATE,
       //  buttonText: StringConst.EVENTS_READ_MORE,
       imageUrl: ImagePath.EVENTS_02,
@@ -221,7 +221,7 @@ class Data {
     InsightsData(
       category: StringConst.INSIGHTS_CATEGORY_3,
       title: StringConst.WEBINARS_TITLE_1,
-      subtitle: StringConst.WEBINARS_SUBTITLE_3,
+      subtitle: StringConst.WEBINARS_SUBTITLE_1,
       date: StringConst.WEBINARS_DATE,
       // buttonText: StringConst.WEBINARS_READ_MORE,
       imageUrl: ImagePath.WEBINARS_01,
@@ -305,6 +305,16 @@ class Data {
       width: 0.225,
     ),
     ProductServicesData(
+      category: StringConst.MOBILE_APP,
+      productServicesCoverUrl: ImagePath.MINOKAWA,
+      width: 0.225,
+    ),
+    ProductServicesData(
+      category: StringConst.MOBILE_APP,
+      productServicesCoverUrl: ImagePath.BAKAWAN,
+      width: 0.225,
+    ),
+    ProductServicesData(
       category: StringConst.WEB,
       productServicesCoverUrl: ImagePath.CORE_BANKING,
       width: 0.225,
@@ -322,16 +332,6 @@ class Data {
     ProductServicesData(
       category: StringConst.MOBILE_APP,
       productServicesCoverUrl: ImagePath.TEMENOS,
-      width: 0.225,
-    ),
-    ProductServicesData(
-      category: StringConst.MOBILE_APP,
-      productServicesCoverUrl: ImagePath.MINOKAWA,
-      width: 0.225,
-    ),
-    ProductServicesData(
-      category: StringConst.MOBILE_APP,
-      productServicesCoverUrl: ImagePath.BAKAWAN,
       width: 0.225,
     ),
     ProductServicesData(

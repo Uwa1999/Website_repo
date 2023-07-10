@@ -88,7 +88,7 @@ class _InsightsCardState extends State<InsightsCard> {
     return GestureDetector(
       onTap: widget.onPressed,
       child: Container(
-        width: 420,
+        width: MediaQuery.of(context).size.width * 0.3,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -103,8 +103,8 @@ class _InsightsCardState extends State<InsightsCard> {
                     children: <Widget>[
                       Image.asset(
                         widget.imageUrl,
-                        height: MediaQuery.of(context).size.height * 0.5,
-                        width: double.infinity,
+                        height: MediaQuery.of(context).size.height * 0.3,
+                        // width: MediaQuery.of(context).size.width * 0.7,
                         fit: BoxFit.fitHeight,
                       ),
                       // Padding(
@@ -130,7 +130,7 @@ class _InsightsCardState extends State<InsightsCard> {
                           alignment: Alignment.centerLeft,
                           child: Text(
                             widget.title,
-                            style: widget.dateStyle ?? textTheme.headlineSmall,
+                            style: widget.dateStyle ?? textTheme.titleLarge,
                           ),
                         ),
                       ),
@@ -140,7 +140,7 @@ class _InsightsCardState extends State<InsightsCard> {
                           alignment: Alignment.centerLeft,
                           child: Text(
                             widget.subtitle,
-                            style: widget.titleStyle ?? textTheme.bodyMedium,
+                            style: widget.titleStyle ?? textTheme.bodySmall,
                           ),
                         ),
                       ),
@@ -151,7 +151,7 @@ class _InsightsCardState extends State<InsightsCard> {
 
                 //Insights Label
                 Container(
-                  margin: const EdgeInsets.only(top: Sizes.MARGIN_20),
+                  margin: const EdgeInsets.only(top: Sizes.MARGIN_210),
                   padding: const EdgeInsets.symmetric(
                     horizontal: Sizes.PADDING_8,
                     vertical: Sizes.PADDING_8,

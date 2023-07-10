@@ -155,7 +155,15 @@ class Sizes {
   static const double WIDTH_0 = 0.0;
 
   //Margins
+  static const double MARGIN_600 = 600.0;
+  static const double MARGIN_400 = 400.0;
+  static const double MARGIN_350 = 350.0;
+  static const double MARGIN_210 = 210.0;
   static const double MARGIN_200 = 200.0;
+  static const double MARGIN_100 = 100.0;
+  static const double MARGIN_90 = 90.0;
+  static const double MARGIN_80 = 80.0;
+  static const double MARGIN_70 = 70.0;
   static const double MARGIN_60 = 60.0;
   static const double MARGIN_48 = 48.0;
   static const double MARGIN_46 = 46.0;

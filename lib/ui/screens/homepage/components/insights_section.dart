@@ -73,7 +73,7 @@ class _InsightSectionState extends State<InsightSection> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         ContentArea(
-                          width: screenWidth * 0.8,
+                          width: screenWidth * 0.9,
                           child: NimbusInfoSection1(
                             title1: StringConst.INSIGHTS_TITLE_1,
                             //title2: StringConst.INSIGHTS_TITLE_2,

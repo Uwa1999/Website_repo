@@ -26,19 +26,19 @@ class ImagePath {
   static const String BOX_COVER_MAP = "$imageDir/fdsap_location.png";
 
   // Article Images
-  static const String ARTICLE_01 = "$imageDir/kplus_01.jpg";
-  static const String ARTICLE_02 = "$imageDir/kplus_01.jpg";
-  static const String ARTICLE_03 = "$imageDir/kplus_01.jpg";
+  static const String ARTICLE_01 = "$imageDir/insight_article.png";
+  static const String ARTICLE_02 = "$imageDir/insight_article.png";
+  static const String ARTICLE_03 = "$imageDir/insight_article.png";
 
   // Event Images
-  static const String EVENTS_01 = "$imageDir/kplus_01.jpg";
-  static const String EVENTS_02 = "$imageDir/kplus_01.jpg";
-  static const String EVENTS_03 = "$imageDir/kplus_01.jpg";
+  static const String EVENTS_01 = "$imageDir/insight_event.png";
+  static const String EVENTS_02 = "$imageDir/insight_event.png";
+  static const String EVENTS_03 = "$imageDir/insight_event.png";
 
   // Event Images
-  static const String WEBINARS_01 = "$imageDir/kplus_01.jpg";
-  static const String WEBINARS_02 = "$imageDir/kplus_01.jpg";
-  static const String WEBINARS_03 = "$imageDir/kplus_01.jpg";
+  static const String WEBINARS_01 = "$imageDir/insight_news.png";
+  static const String WEBINARS_02 = "$imageDir/insight_news.png";
+  static const String WEBINARS_03 = "$imageDir/insight_news.png";
 
   //Footer
   static const String FDSAP_WHITE_LOGO = "$imageDir/fds_logo_white.png";
