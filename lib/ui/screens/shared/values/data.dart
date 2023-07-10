@@ -325,6 +325,16 @@ class Data {
       width: 0.225,
     ),
     ProductServicesData(
+      category: StringConst.MOBILE_APP,
+      productServicesCoverUrl: ImagePath.MINOKAWA,
+      width: 0.225,
+    ),
+    ProductServicesData(
+      category: StringConst.MOBILE_APP,
+      productServicesCoverUrl: ImagePath.BAKAWAN,
+      width: 0.225,
+    ),
+    ProductServicesData(
       category: StringConst.WEB_DESIGN,
       productServicesCoverUrl: ImagePath.OPEN_API,
       width: 0.225,

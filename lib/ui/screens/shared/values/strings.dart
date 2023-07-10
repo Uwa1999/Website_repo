@@ -173,6 +173,14 @@ class StringConst {
   static const String TEMENOS_TITLE = "Temenos";
   static const String TEMENOS_DESC = '''Temenos, also known as T24 is the core banking system of FDSAP, it was developed to let banks scale quickly using traditional infrastructure and cloud platforms.''';
 
+  //Products & Services (Minokawa Section)
+  static const String MINOKAWA_TITLE = 'Minokawa ERP';
+  static const String MINOKAWA_DESC = '''A system used to track and organize all the financial information for an institution. It will eliminate many cumbersome and time-consuming manual processes. It benefits the institution by increasing employee productivity and efficiency while also allowing them to save crucial time.''';
+
+  //Products & Services (Bakawan Section)
+  static const String BAKAWAN_TITLE = 'Bakawan Data Platform';
+  static const String BAKAWAN_DESC = '''The Bakawan Data Platform Project is a large-scale initiative that involves building a centralized repository of raw, unstructured, and semi-structured data that can be accessed and analyzed by different users across an organization.''';
+
   //Products & Services (Web Collection Section)
   static const String WEB_COLLECTION_TITLE = "Web Collection";
   static const String WEB_COLLECTION_DESC = '''This web collection system is a method of compiling qualitative and quantitative information with the help of a mobile collection system. It will help to control the collection activity effectively and manage and monitor the account officer activity in real-time.''';

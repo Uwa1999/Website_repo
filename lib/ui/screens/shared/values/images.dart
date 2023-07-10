@@ -47,11 +47,11 @@ class ImagePath {
   // Product & Services Images
   static const String KPLUS = "$imageDir/kplus_maroon.png";
   static const String KPLUS_WHITEBG = "$imageDir/kplus_maroon_whitebg.png";
-  static const String KONEK2CARD = "$imageDir/k2c_maroon.png";
+  static const String KONEK2CARD = "$imageDir/k2c_green.png";
   static const String AML = "$imageDir/aml.png";
   static const String CHATBOT = "$imageDir/chatbot_maroon.png";
   static const String DCM = "$imageDir/dcm_maroon.png";
-  static const String TEMENOS = "$imageDir/temenos_maroon.png";
+  static const String TEMENOS = "$imageDir/temenos_white.png";
   static const String WEB_COLLECTION = "$imageDir/web_maroon.png";
   static const String ATM_SWITCH = "$imageDir/atm_maroon.png";
   static const String CLOUD_TEST_ENVIRONMENT = "$imageDir/cloud_maroon.png";
@@ -59,6 +59,8 @@ class ImagePath {
   static const String SMART_BRANCH_SYSTEM = "$imageDir/sbs_maroon.png";
   static const String CORE_BANKING = "$imageDir/core_banking_maroon.png";
   static const String OPEN_API = "$imageDir/api_maroon.png";
+  static const String MINOKAWA = "$imageDir/minokawa.png";
+  static const String BAKAWAN = "$imageDir/bakawan.png";
 
 // Product & Services GIF
   static const String AML_GIF = "$gifDir/amla.gif";
@@ -68,10 +70,12 @@ class ImagePath {
   static const String CLOUD_GIF = "$gifDir/cloud_maroon.gif";
   static const String CORE_BANKING_GIF = "$gifDir/core_banking_maroon.gif";
   static const String DCM_GIF = "$gifDir/dcm_maroon.gif";
-  static const String K2C_GIF = "$gifDir/k2c_maroon.gif";
+  static const String K2C_GIF = "$gifDir/k2c_green.gif";
   static const String KPLUS_GIF = "$gifDir/kplus_maroon_whitebg.gif";
   static const String MOBILE_COLLECTION_GIF = "$gifDir/mobcol_maroon.gif";
-  static const String TEMENOS_GIF = "$gifDir/temenos_maroon.gif";
+  static const String TEMENOS_GIF = "$gifDir/temenos_white.gif";
   static const String WEB_COLLECTION_GIF = "$gifDir/web_maroon.gif";
   static const String SMART_BRANCH_SYSTEM_GIF = "$gifDir/sbs_maroon.gif";
+  static const String MINOKAWA_GIF = "$gifDir/minokawa.gif";
+  static const String BAKAWAN_GIF = "$gifDir/bakawan.gif";
 }

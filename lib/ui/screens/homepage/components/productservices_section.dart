@@ -1,12 +1,14 @@
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/amla/amla_main.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/api/api_main.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/atm_switch/atm_main.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/bakawan/bakawan_main.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/chatbot/chatbot_main.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/cloud/cloud_main.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/core_banking/core_banking_main.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/dcm/dcm_main.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/k2c/k2c_main.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/kplus/kplus_main.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/minokawa/minokawa_main.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/mobcol/mobcol_main.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/sbs/sbs_main.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/temenos/temenos_main.dart';
@@ -285,6 +287,14 @@ class _ProductServicesSectionState extends State<ProductServicesSection> with Si
       () {
         Navigator.push(context, MaterialPageRoute(builder: (context) => TemenosDecsMain()));
         print('-----TEMENOS SCREEN-----');
+      },
+      () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) => MinokawaDescMain()));
+        print('-----MINOKAWA SCREEN-----');
+      },
+      () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) => BakawanDescMain()));
+        print('-----BAKAWAN SCREEN-----');
       },
       () {
         Navigator.push(context, MaterialPageRoute(builder: (context) => ApiDescMain()));
