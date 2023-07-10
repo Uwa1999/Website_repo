@@ -1,6 +1,6 @@
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/footer_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/responsive_navigation/nav_section_mobile.dart';
-//import 'package:FDS_ASYA_PHILIPPINES/ui/screens/insights/webinars/news_screen.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/insights/webinars/news_screen.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/header_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/responsive.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
@@ -86,7 +86,7 @@ class _NewsDescMainState extends State<NewsDescMain> with SingleTickerProviderSt
               controller: _scrollController,
               child: Column(
                 children: [
-                  //   NewsDescScreen(),
+                  NewsDescScreen(),
                   SizedBoxH10(),
                   FooterSection(),
                 ],

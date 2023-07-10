@@ -113,7 +113,7 @@ class _EventsDescScreenState extends State<EventsDescScreen> {
             left: Sizes.PADDING_100,
             right: Sizes.PADDING_100,
           ),
-          height: MediaQuery.of(context).size.height * 0.3,
+          height: MediaQuery.of(context).size.height * 0.2,
           width: double.infinity,
           decoration: BoxDecoration(
             gradient: LinearGradient(
