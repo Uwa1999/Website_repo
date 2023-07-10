@@ -232,7 +232,8 @@ class StringConst {
   static const String EVENTS_TITLE_1 = '''FDS Asya Philippines Inc. Reflects on Years of Success and Innovation on its Founding Anniversary''';
   static const String EVENTS_TITLE_2 = " ";
   static const String EVENTS_TITLE_3 = " ";
-  static const String EVENTS_SUBTITLE_1 = '''FDS ASYA PHILIPPINES INC. (FDSAP) had joyously commemorated a significant milestone as it celebrates its anniversary on August 16,2022 . This auspicious occasion presents an opportunity to reflect upon the remarkable journey that has led the company to this point, express gratitude to its esteemed clients, partners, and dedicated employees, and acknowledge its achievements.''';
+  static const String EVENTS_SUBTITLE_1 = '''FDS ASYA PHILIPPINES INC. (FDSAP) had joyously commemorated a significant milestone as it celebrates its anniversary on August 16,2022 . This auspicious occasion presents an opportunity to reflect upon the remarkable journey that has led the company to this point, express gratitude to its esteemed clients, partners, and dedicated employees, and acknowledge its achievements.
+  ''';
   static const String EVENTS_SUBTITLE_2 = ''' ''';
   static const String EVENTS_SUBTITLE_3 = '''  ''';
   static const String EVENTS_READ_MORE = "Read More";
@@ -240,10 +241,12 @@ class StringConst {
 
   //Webinars Description
   static const String WEBINARS_DATE = "February 25, 2023";
-  static const String WEBINARS_TITLE_1 = '''FDS ASYA PHILIPPINES INC. Signs MOA with university for OJT Program for IT Students''';
+  static const String WEBINARS_TITLE_1 = '''FDS ASYA PHILIPPINES INC. Signs MOA with university for OJT Program for IT Students
+  ''';
   static const String WEBINARS_TITLE_2 = " ";
   static const String WEBINARS_TITLE_3 = " ";
-  static const String WEBINARS_SUBTITLE_1 = '''On May 23, 2022, FDS ASYA PHILIPPINES INC. (FDSAP) and Pamantasan ng Lungsod ng San Pablo (PLSP) signed a Memorandum of Agreement (MOA) for an On-the-Job Training program for Information Technology (IT) students. The collaboration aims to provide PLSP students with practical experience in the field of digital banking, microfinancing services, and other Information Technology operations-related services.''';
+  static const String WEBINARS_SUBTITLE_1 = '''On May 23, 2022, FDS ASYA PHILIPPINES INC. (FDSAP) and Pamantasan ng Lungsod ng San Pablo (PLSP) signed a Memorandum of Agreement (MOA) for an On-the-Job Training program for Information Technology (IT) students. The collaboration aims to provide PLSP students with practical experience in the field of digital banking, microfinance services, and other Information Technology operations-related services.
+    ''';
   static const String WEBINARS_SUBTITLE_2 = ''' ''';
   static const String WEBINARS_SUBTITLE_3 = ''' ''';
   static const String WEBINARS_READ_MORE = "Read More";
