@@ -23,7 +23,7 @@ class ImagePath {
   static const String BOX_COVER_GOLD = "$imageDir/box_cover_gold.png";
   static const String BOX_COVER_BLACK = "$imageDir/box_cover_dark.png";
   static const String ICON_BOX = "$imageDir/icon_box.jpg";
-  static const String BOX_COVER_MAP = "$imageDir/map.jpg";
+  static const String BOX_COVER_MAP = "$imageDir/fdsap_location.png";
 
   // Article Images
   static const String ARTICLE_01 = "$imageDir/kplus_01.jpg";
@@ -39,7 +39,6 @@ class ImagePath {
   static const String WEBINARS_01 = "$imageDir/kplus_01.jpg";
   static const String WEBINARS_02 = "$imageDir/kplus_01.jpg";
   static const String WEBINARS_03 = "$imageDir/kplus_01.jpg";
-  //git
 
   //Footer
   static const String FDSAP_WHITE_LOGO = "$imageDir/fds_logo_white.png";
