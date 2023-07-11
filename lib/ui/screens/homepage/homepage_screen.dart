@@ -41,7 +41,7 @@ class _HomepageScreenState extends State<HomepageScreen> with SingleTickerProvid
   final ScrollController _scrollController = ScrollController();
 
   final List<NavItemData> navItems = [
-    NavItemData(name: StringConst.HOME, key: GlobalKey()),
+    NavItemData(name: StringConst.HOME, key: GlobalKey(), isSelected: true),
     NavItemData(name: StringConst.ABOUT, key: GlobalKey()),
     NavItemData(name: StringConst.SERVICES, key: GlobalKey()),
     NavItemData(name: StringConst.INSIGHTS, key: GlobalKey()),

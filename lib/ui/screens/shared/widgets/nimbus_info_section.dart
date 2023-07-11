@@ -31,7 +31,7 @@ class NimbusInfoSection1 extends StatelessWidget {
     this.bodyStyle,
     this.thickness = 1.15,
     this.quarterTurns = 3,
-    this.dividerColor = AppColors.grey350,
+    this.dividerColor = AppColors.black,
     // this.dividerHeight = Sizes.HEIGHT_40,
     this.child,
   });
@@ -41,6 +41,7 @@ class NimbusInfoSection1 extends StatelessWidget {
     TextTheme textTheme = Theme.of(context).textTheme;
     TextStyle? titleStyle = textTheme.headlineMedium?.copyWith(
       fontSize: responsiveSize(context, 26, 36, md: 32),
+      color: AppColors.black,
     );
     double fontSize = responsiveSize(context, 16, 18);
     return Container(
@@ -54,7 +55,7 @@ class NimbusInfoSection1 extends StatelessWidget {
                 children: [
                   Text(
                     title1!,
-                    style: title1Style ?? titleStyle,
+                    style: title1Style ?? titleStyle?.copyWith(color: AppColors.black),
                   ),
                   // hasTitle2
                   //      ? SizedBox(
@@ -75,7 +76,7 @@ class NimbusInfoSection1 extends StatelessWidget {
                   SizedBoxH10(),
                   Text(
                     body,
-                    style: textTheme.bodySmall?.copyWith(fontSize: fontSize, height: 1.8),
+                    style: textTheme.bodySmall?.copyWith(fontSize: fontSize, height: 1.8, color: AppColors.black),
                   ),
                   child != null ? SizedBoxH30() : EmptyContainer(),
                   child ?? EmptyContainer(),
@@ -113,7 +114,7 @@ class NimbusInfoSection2 extends StatelessWidget {
     this.title2Style,
     this.bodyStyle,
     this.thickness = 1.15,
-    this.dividerColor = AppColors.grey350,
+    this.dividerColor = AppColors.black,
     this.dividerWidth = Sizes.HEIGHT_64,
     this.child,
   });
@@ -123,6 +124,7 @@ class NimbusInfoSection2 extends StatelessWidget {
     TextTheme textTheme = Theme.of(context).textTheme;
     TextStyle? titleStyle = textTheme.headlineMedium?.copyWith(
       fontSize: responsiveSize(context, 26, 48, md: 32),
+      color: AppColors.black,
     );
     double fontSize = responsiveSize(context, 16, 18);
     return Column(
@@ -292,7 +294,7 @@ class NimbusInfoSection4 extends StatelessWidget {
     this.bodyStyle,
     this.thickness = 1.15,
     this.quarterTurns = 3,
-    this.dividerColor = AppColors.grey350,
+    this.dividerColor = AppColors.black,
     // this.dividerHeight = Sizes.HEIGHT_40,
     this.child,
   });
@@ -302,7 +304,7 @@ class NimbusInfoSection4 extends StatelessWidget {
     TextTheme textTheme = Theme.of(context).textTheme;
     TextStyle? titleStyle = textTheme.headlineMedium?.copyWith(
       fontSize: responsiveSize(context, 26, 36, md: 32),
-      color: AppColors.grey350,
+      color: AppColors.black,
     );
     double fontSize = responsiveSize(context, 16, 18);
     return Container(
@@ -340,7 +342,7 @@ class NimbusInfoSection4 extends StatelessWidget {
                     style: textTheme.bodySmall?.copyWith(
                       fontSize: fontSize,
                       height: 1.8,
-                      color: AppColors.grey350,
+                      color: AppColors.black,
                     ),
                   ),
                   // child != null ? SizedBoxH30() : EmptyContainer(),
@@ -381,7 +383,7 @@ class NimbusInfoSection5 extends StatelessWidget {
     this.bodyStyle,
     this.thickness = 1.15,
     this.quarterTurns = 3,
-    this.dividerColor = AppColors.grey350,
+    this.dividerColor = AppColors.black,
     // this.dividerHeight = Sizes.HEIGHT_40,
     this.child,
   });
@@ -391,7 +393,7 @@ class NimbusInfoSection5 extends StatelessWidget {
     TextTheme textTheme = Theme.of(context).textTheme;
     TextStyle? titleStyle = textTheme.headlineMedium?.copyWith(
       fontSize: responsiveSize(context, 26, 26, md: 32),
-      color: AppColors.grey350,
+      color: AppColors.black,
     );
     double fontSize = responsiveSize(context, 16, 18);
     return Container(
@@ -429,7 +431,7 @@ class NimbusInfoSection5 extends StatelessWidget {
                     style: textTheme.bodySmall?.copyWith(
                       fontSize: fontSize,
                       height: 1.8,
-                      color: AppColors.grey350,
+                      color: AppColors.black,
                     ),
                   ),
                   // child != null ? SizedBoxH30() : EmptyContainer(),

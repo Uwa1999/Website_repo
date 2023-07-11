@@ -21,7 +21,7 @@ class _WebCollectionDescScreenState extends State<WebCollectionDescScreen> {
       Styles.customTextStyle4(
         fontSize: responsiveSize(context, 64, 80, md: 76),
         height: 1.25,
-        color: AppColors.white,
+        color: AppColors.black,
       ),
     );
     return Column(

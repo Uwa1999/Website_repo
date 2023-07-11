@@ -1,7 +1,6 @@
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/functions.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/responsive.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/data.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/images.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/sizes.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/strings.dart';
@@ -32,7 +31,7 @@ class DesktopFooter extends StatelessWidget {
       children: [
         Container(
           height: MediaQuery.of(context).size.height * 0.9,
-          decoration: BoxDecoration(color: AppColors.maroon02),
+          decoration: BoxDecoration(color: AppColors.maroon03),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 100),
             child: Column(
@@ -80,7 +79,7 @@ class DesktopFooter extends StatelessWidget {
                       "© FDSAP 2023",
                       style: TextStyle(color: Colors.white, fontSize: 16, letterSpacing: 0.5),
                     ),
-                    ..._buildSocialIcons(Data.socialfooterData),
+                    //   ..._buildSocialIcons(Data.socialfooterData),
                   ],
                 ),
               ],

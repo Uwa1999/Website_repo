@@ -55,7 +55,7 @@ class Styles {
   }
 
   static TextStyle customTextStyle4({
-    Color color = AppColors.white,
+    Color color = AppColors.black,
     FontWeight fontWeight = FontWeight.w500,
     double fontSize = 70,
     double? height,

@@ -7,7 +7,7 @@ class StringConst {
   //Nav Section
   static const String NAME_ABBREV = "CA";
   static const String HOME = "Home";
-  static const String ABOUT = "About";
+  static const String ABOUT = "About Us";
   static const String SERVICES = "Product & Services";
   static const String INSIGHTS = "Insights";
   static const String PARTNERS = "Partners";
@@ -333,6 +333,7 @@ Latest Article & News''';
   static const String OUR_LOCATION = "Our Location";
 
   //URL Links
+  static const String LOCATION_URL = "https://www.google.com/maps/place/Card+MBA+Inc./@14.0677803,121.3269378,19.39z/data=!4m6!3m5!1s0x33bd5ccb0a97e6f5:0xdfba275f27ec8776!8m2!3d14.0678122!4d121.3270008!16s%2Fg%2F11c74g33l6?entry=ttu";
   static const String LINKED_IN_URL = "https:linkedin.com/";
   static const String GITHUB_URL = "https://github.com/";
   static const String FACEBOOK_URL = "https://facebook.com/";

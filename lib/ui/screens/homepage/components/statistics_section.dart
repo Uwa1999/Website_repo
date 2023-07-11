@@ -66,7 +66,7 @@ class _LeadingBankingPartnerSectionState extends State<LeadingBankingPartnerSect
               Radius.circular(Sizes.RADIUS_10),
             ),
           ),
-          color: AppColors.maroon02,
+          color: AppColors.maroon03,
           child: ResponsiveBuilder(
             refinedBreakpoints: RefinedBreakpoints(),
             builder: (context, sizingInformation) {

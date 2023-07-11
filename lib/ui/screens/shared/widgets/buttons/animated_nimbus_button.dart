@@ -61,7 +61,7 @@ class _AnimatedNimbusButtonState extends State<AnimatedNimbusButton> {
     TextTheme textTheme = Theme.of(context).textTheme;
     return InkWell(
       onTap: _isHovering ? widget.onTap : null,
-      hoverColor: Colors.transparent,
+      hoverColor: Colors.black,
       child: Container(
         width: widget.width,
         child: Row(

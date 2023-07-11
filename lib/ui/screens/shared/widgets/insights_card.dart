@@ -97,55 +97,84 @@ class _InsightsCardState extends State<InsightsCard> {
                 Card(
                   shadowColor: AppColors.black,
                   //   margin: const EdgeInsets.only(left: Sizes.MARGIN_18),
-                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Image.asset(
-                        widget.imageUrl,
-                        height: MediaQuery.of(context).size.height * 0.3,
-                        // width: MediaQuery.of(context).size.width * 0.7,
-                        fit: BoxFit.fitHeight,
-                      ),
-                      // Padding(
-                      //   padding: const EdgeInsets.only(left: 10.0, top: 10.0),
-                      //   child: Row(
-                      //     mainAxisAlignment: MainAxisAlignment.start,
-                      //     children: [
-                      //       Icon(
-                      //         widget.dateIcon,
-                      //         color: AppColors.maroon04,
-                      //       ),
-                      //       SizedBoxW8(),
-                      //       Text(
-                      //         widget.date,
-                      //         style: widget.dateStyle ?? textTheme.titleLarge,
-                      //       )
-                      //     ],
-                      //   ),
-                      // ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 10.0, top: 10.0, bottom: 10.0, right: 10.0),
-                        child: Align(
-                          alignment: Alignment.centerLeft,
-                          child: Text(
-                            widget.title,
-                            style: widget.dateStyle ?? textTheme.titleMedium,
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(Sizes.RADIUS_16),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        MouseRegion(
+                          onEnter: (e) => _onImageHover(true),
+                          onExit: (e) => _onImageHover(false),
+                          child: AnimatedOpacity(
+                            opacity: _isHoveringOnImage ? 1.0 : 0.60,
+                            duration: Duration(milliseconds: 300),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(Sizes.RADIUS_16),
+                              ),
+                              child: Column(
+                                children: [
+                                  Image.asset(
+                                    widget.imageUrl,
+                                    height: MediaQuery.of(context).size.height * 0.3,
+                                    // width: MediaQuery.of(context).size.width * 0.7,
+                                    fit: BoxFit.fitHeight,
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 10.0, top: 10.0, bottom: 10.0, right: 10.0),
+                                    child: Align(
+                                      alignment: Alignment.centerLeft,
+                                      child: Text(
+                                        widget.title,
+                                        style: widget.dateStyle ?? textTheme.titleMedium,
+                                      ),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 10.0, right: 10.0),
+                                    child: Align(
+                                      alignment: Alignment.centerLeft,
+                                      child: Text(
+                                        widget.subtitle,
+                                        style: widget.titleStyle ?? textTheme.bodyMedium,
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
                           ),
                         ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: 10.0, right: 10.0),
-                        child: Align(
-                          alignment: Alignment.centerLeft,
-                          child: Text(
-                            widget.subtitle,
-                            style: widget.titleStyle ?? textTheme.bodyMedium,
-                          ),
-                        ),
-                      ),
-                      SizedBoxH10(),
-                    ],
+                        // Image.asset(
+                        //   widget.imageUrl,
+                        //   height: MediaQuery.of(context).size.height * 0.3,
+                        //   // width: MediaQuery.of(context).size.width * 0.7,
+                        //   fit: BoxFit.fitHeight,
+                        // ),
+                        // Padding(
+                        //   padding: const EdgeInsets.only(left: 10.0, top: 10.0),
+                        //   child: Row(
+                        //     mainAxisAlignment: MainAxisAlignment.start,
+                        //     children: [
+                        //       Icon(
+                        //         widget.dateIcon,
+                        //         color: AppColors.maroon04,
+                        //       ),
+                        //       SizedBoxW8(),
+                        //       Text(
+                        //         widget.date,
+                        //         style: widget.dateStyle ?? textTheme.titleLarge,
+                        //       )
+                        //     ],
+                        //   ),
+                        // ),
+
+                        SizedBoxH10(),
+                      ],
+                    ),
                   ),
                 ),
 

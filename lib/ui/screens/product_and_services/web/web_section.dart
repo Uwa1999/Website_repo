@@ -154,6 +154,7 @@ class _WebCollectionSectionState extends State<WebCollectionSection> with Single
       title1: StringConst.WEB_COLLECTION_TITLE,
       hasTitle2: false,
       body: StringConst.WEB_COLLECTION_DESC,
+      dividerColor: AppColors.black,
       child: Column(
         children: [],
       ),
@@ -182,7 +183,7 @@ class _WebCollectionSectionState extends State<WebCollectionSection> with Single
       Styles.customTextStyle3(
         fontSize: responsiveSize(context, 64, 80, md: 76),
         height: 1.25,
-        color: AppColors.primaryColor,
+        color: AppColors.black,
       ),
     );
     double textPosition = assignWidth(context, 0.1);

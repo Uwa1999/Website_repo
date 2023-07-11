@@ -6,6 +6,7 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/content_area.dart
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/nimbus_info_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/sizedbox.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class OurLocationSection extends StatefulWidget {
   const OurLocationSection({Key? key}) : super(key: key);
@@ -44,9 +45,12 @@ class _OurLocationSectionState extends State<OurLocationSection> {
               ),
               child: Padding(
                 padding: const EdgeInsets.all(5.0),
-                child: Image.asset(
-                  ImagePath.BOX_COVER_MAP,
-                  fit: BoxFit.cover,
+                child: InkWell(
+                  onTap: _launchURL,
+                  child: Image.asset(
+                    ImagePath.BOX_COVER_MAP,
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
             ),
@@ -55,5 +59,12 @@ class _OurLocationSectionState extends State<OurLocationSection> {
         SizedBoxH50(),
       ],
     );
+  }
+}
+
+_launchURL() async {
+  final Uri url = Uri.parse(StringConst.LOCATION_URL);
+  if (!await launchUrl(url)) {
+    throw Exception('Could not launch');
   }
 }

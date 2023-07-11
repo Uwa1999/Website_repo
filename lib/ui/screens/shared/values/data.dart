@@ -121,7 +121,7 @@ class Data {
   static List<StatItemData> statItemsData = [
     StatItemData(
       value: 8,
-      values: "M",
+      values: "M+",
       subtitle: StringConst.CLIENTS,
     ),
     StatItemData(
