@@ -2,6 +2,7 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:hovering/hovering.dart';
 
 class ProductServicesData {
   final String productServicesCoverUrl;
@@ -111,16 +112,21 @@ class _ProductServicesItemState extends State<ProductServicesItem> with TickerPr
     return MouseRegion(
       onEnter: (e) => _mouseEnter(true),
       onExit: (e) => _mouseEnter(false),
+      cursor: SystemMouseCursors.click,
       child: GestureDetector(
         onTap: widget.onTap,
         child: Container(
           child: Stack(
             children: [
-              Image.asset(
-                widget.imageUrl,
-                width: widget.width,
-                height: widget.height,
-                fit: BoxFit.fill,
+              HoverContainer(
+                transform: Matrix4.identity()..translate(0, -8, 0),
+                hoverMargin: EdgeInsets.all(8),
+                child: Image.asset(
+                  widget.imageUrl,
+                  width: widget.width,
+                  height: widget.height,
+                  fit: BoxFit.fill,
+                ),
               ),
             ],
           ),

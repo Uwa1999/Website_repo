@@ -20,14 +20,14 @@ class Data {
       url: StringConst.LINKED_IN_URL,
     ),
     SocialButtonData(
-      tag: StringConst.GITHUB_URL,
-      iconData: FontAwesomeIcons.github,
-      url: StringConst.GITHUB_URL,
-    ),
-    SocialButtonData(
       tag: StringConst.FACEBOOK_URL,
       iconData: FontAwesomeIcons.facebook,
       url: StringConst.FACEBOOK_URL,
+    ),
+    SocialButtonData(
+      tag: StringConst.GITHUB_URL,
+      iconData: FontAwesomeIcons.github,
+      url: StringConst.GITHUB_URL,
     ),
     SocialButtonData(
       tag: StringConst.INSTA,
@@ -48,27 +48,27 @@ class Data {
       url: StringConst.LINKED_IN_URL,
     ),
     FooterSocialButtonData(
-      tag: StringConst.GITHUB_URL,
-      iconData: FontAwesomeIcons.github,
-      iconColor: AppColors.white,
-      url: StringConst.GITHUB_URL,
-    ),
-    FooterSocialButtonData(
       tag: StringConst.FACEBOOK_URL,
       iconData: FontAwesomeIcons.facebook,
       iconColor: AppColors.white,
       url: StringConst.FACEBOOK_URL,
     ),
-    FooterSocialButtonData(
-      tag: StringConst.INSTA,
-      iconData: FontAwesomeIcons.instagram,
-      url: StringConst.INSTAGRAM_URL,
-    ),
-    FooterSocialButtonData(
-      tag: StringConst.TWITTER_URL,
-      iconData: FontAwesomeIcons.twitter,
-      url: StringConst.TWITTER_URL,
-    ),
+    // FooterSocialButtonData(
+    //   tag: StringConst.GITHUB_URL,
+    //   iconData: FontAwesomeIcons.github,
+    //   iconColor: AppColors.white,
+    //   url: StringConst.GITHUB_URL,
+    // ),
+    // FooterSocialButtonData(
+    //   tag: StringConst.INSTA,
+    //   iconData: FontAwesomeIcons.instagram,
+    //   url: StringConst.INSTAGRAM_URL,
+    // ),
+    // FooterSocialButtonData(
+    //   tag: StringConst.TWITTER_URL,
+    //   iconData: FontAwesomeIcons.twitter,
+    //   url: StringConst.TWITTER_URL,
+    // ),
   ];
 
   static List<SkillLevelData> skillLevelData = [

@@ -7,7 +7,9 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/strings.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/buttons/social_button.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/sizedbox.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class FooterSection extends StatelessWidget {
   const FooterSection({
@@ -68,7 +70,68 @@ class DesktopFooter extends StatelessWidget {
                     SizedBoxH10(),
                     RichText(text: TextSpan(text: StringConst.ABOUT_FDS_ASYA_FOOTER2, style: GoogleFonts.poppins(fontSize: 16, color: Colors.white, fontWeight: FontWeight.normal))),
                     SizedBoxH10(),
-                    RichText(text: TextSpan(text: StringConst.ABOUT_FDS_ASYA_FOOTER2, style: GoogleFonts.poppins(fontSize: 16, color: Colors.white, fontWeight: FontWeight.normal))),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Icon(FontAwesomeIcons.mobileAlt, size: 20),
+                            SizedBoxW12(),
+                            Text(
+                              StringConst.OUR_NUMBER,
+                              style: GoogleFonts.poppins(
+                                fontSize: 16,
+                                color: Colors.white,
+                                fontWeight: FontWeight.normal,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 5),
+                          child: InkWell(
+                            onTap: _launchLinkInURL,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Icon(FontAwesomeIcons.linkedin, size: 20),
+                                SizedBoxW12(),
+                                Text(
+                                  StringConst.LINKED_IN,
+                                  style: GoogleFonts.poppins(
+                                    fontSize: 16,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.normal,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 5),
+                          child: InkWell(
+                            onTap: _launchFacebookURL,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Icon(FontAwesomeIcons.facebook, size: 20),
+                                SizedBoxW12(),
+                                Text(
+                                  StringConst.FACEBOOK,
+                                  style: GoogleFonts.poppins(
+                                    fontSize: 16,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.normal,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                     SizedBoxH20(),
                   ],
                 ),
@@ -79,7 +142,7 @@ class DesktopFooter extends StatelessWidget {
                       "© FDSAP 2023",
                       style: TextStyle(color: Colors.white, fontSize: 16, letterSpacing: 0.5),
                     ),
-                    //   ..._buildSocialIcons(Data.socialfooterData),
+                    //    ..._buildSocialIcons(Data.socialfooterData),
                   ],
                 ),
               ],
@@ -88,6 +151,20 @@ class DesktopFooter extends StatelessWidget {
         ),
       ],
     );
+  }
+
+  _launchFacebookURL() async {
+    final Uri url = Uri.parse(StringConst.FACEBOOK_URL);
+    if (!await launchUrl(url)) {
+      throw Exception('Could not launch');
+    }
+  }
+
+  _launchLinkInURL() async {
+    final Uri url = Uri.parse(StringConst.LINKED_IN_URL);
+    if (!await launchUrl(url)) {
+      throw Exception('Could not launch');
+    }
   }
 
   List<Widget> _buildSocialIcons(List<FooterSocialButtonData> socialItems) {
@@ -159,7 +236,68 @@ class MobileFooter extends StatelessWidget {
                 SizedBoxH10(),
                 RichText(text: TextSpan(text: StringConst.ABOUT_FDS_ASYA_FOOTER2, style: GoogleFonts.poppins(fontSize: 8, color: Colors.white, fontWeight: FontWeight.normal))),
                 SizedBoxH10(),
-                RichText(text: TextSpan(text: StringConst.ABOUT_FDS_ASYA_FOOTER2, style: GoogleFonts.poppins(fontSize: 8, color: Colors.white, fontWeight: FontWeight.normal))),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Icon(FontAwesomeIcons.mobileAlt, size: 20),
+                        SizedBoxW12(),
+                        Text(
+                          StringConst.OUR_NUMBER,
+                          style: GoogleFonts.poppins(
+                            fontSize: 8,
+                            color: Colors.white,
+                            fontWeight: FontWeight.normal,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 5),
+                      child: InkWell(
+                        onTap: _launchLinkInURL,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Icon(FontAwesomeIcons.linkedin, size: 20),
+                            SizedBoxW12(),
+                            Text(
+                              StringConst.LINKED_IN,
+                              style: GoogleFonts.poppins(
+                                fontSize: 8,
+                                color: Colors.white,
+                                fontWeight: FontWeight.normal,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 5),
+                      child: InkWell(
+                        onTap: _launchFacebookURL,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Icon(FontAwesomeIcons.facebook, size: 20),
+                            SizedBoxW12(),
+                            Text(
+                              StringConst.FACEBOOK,
+                              style: GoogleFonts.poppins(
+                                fontSize: 8,
+                                color: Colors.white,
+                                fontWeight: FontWeight.normal,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
                 SizedBoxH20(),
               ],
             ),
@@ -177,6 +315,37 @@ class MobileFooter extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  _launchFacebookURL() async {
+    final Uri url = Uri.parse(StringConst.FACEBOOK_URL);
+    if (!await launchUrl(url)) {
+      throw Exception('Could not launch');
+    }
+  }
+
+  _launchLinkInURL() async {
+    final Uri url = Uri.parse(StringConst.LINKED_IN_URL);
+    if (!await launchUrl(url)) {
+      throw Exception('Could not launch');
+    }
+  }
+
+  List<Widget> _buildSocialIcons(List<FooterSocialButtonData> socialItems) {
+    List<Widget> items = [];
+    for (int index = 0; index < socialItems.length; index++) {
+      items.add(
+        FooterSocialButton(
+          iconSize: 10,
+          tag: socialItems[index].tag,
+          iconData: socialItems[index].iconData,
+          //  iconColor: socialItems[index].iconColor,
+          onPressed: () => openUrlLink(socialItems[index].url),
+        ),
+      );
+      items.add(SizedBoxW16());
+    }
+    return items;
   }
 }
 

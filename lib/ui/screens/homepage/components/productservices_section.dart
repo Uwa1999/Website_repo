@@ -379,6 +379,7 @@ class ProductServicesCategory extends StatefulWidget {
 
 class _ProductServicesCategoryState extends State<ProductServicesCategory> with SingleTickerProviderStateMixin {
   bool _isHovering = false;
+
   late AnimationController _controller;
   late Color color;
 
@@ -388,7 +389,7 @@ class _ProductServicesCategoryState extends State<ProductServicesCategory> with 
     color = widget.titleColor;
     _controller = AnimationController(
       vsync: this,
-      duration: Duration(milliseconds: 450),
+      duration: Duration(milliseconds: 200),
     );
   }
 
@@ -401,34 +402,41 @@ class _ProductServicesCategoryState extends State<ProductServicesCategory> with 
   @override
   Widget build(BuildContext context) {
     TextTheme textTheme = Theme.of(context).textTheme;
+    final hoveredTransform = Matrix4.identity()..translate(0, -8, 0);
+    final transform = _isHovering ? hoveredTransform : Matrix4.identity();
+
     return MouseRegion(
-      onEnter: (e) => _mouseEnter(true),
-      onExit: (e) => _mouseEnter(false),
-      child: InkWell(
-        onTap: widget.onTap,
-        hoverColor: Colors.transparent,
-        child: RichText(
-          text: TextSpan(
-            children: [
-              TextSpan(
-                text: widget.title,
-                style: widget.titleStyle?.copyWith(
-                      color: colorOfCategory(),
-                    ) ??
-                    textTheme.titleMedium?.copyWith(
-                      fontSize: Sizes.TEXT_SIZE_16,
-                      color: colorOfCategory(),
-                    ),
-              ),
-              // WidgetSpan(
-              //   child: widget.isSelected
-              //       ? numberOfProductServicesItems()
-              //       : FadeTransition(
-              //           opacity: _controller.view,
-              //           child: numberOfProductServicesItems(),
-              //         ),
-              // ),
-            ],
+      onEnter: (event) => _mouseEnter(true),
+      onExit: (event) => _mouseEnter(false),
+      cursor: SystemMouseCursors.click,
+      child: AnimatedContainer(
+        duration: Duration(milliseconds: 200),
+        transform: transform,
+        child: InkWell(
+          onTap: widget.onTap,
+          child: RichText(
+            text: TextSpan(
+              children: [
+                TextSpan(
+                  text: widget.title,
+                  style: widget.titleStyle?.copyWith(
+                        color: colorOfCategory(),
+                      ) ??
+                      textTheme.titleMedium?.copyWith(
+                        fontSize: Sizes.TEXT_SIZE_16,
+                        color: colorOfCategory(),
+                      ),
+                ),
+                // WidgetSpan(
+                //   child: widget.isSelected
+                //       ? numberOfProductServicesItems()
+                //       : FadeTransition(
+                //           opacity: _controller.view,
+                //           child: numberOfProductServicesItems(),
+                //         ),
+                // ),
+              ],
+            ),
           ),
         ),
       ),
@@ -455,7 +463,7 @@ class _ProductServicesCategoryState extends State<ProductServicesCategory> with 
 
   void _mouseEnter(bool hovering) {
     setState(() {
-      _isHovering = hovering;
+      this._isHovering = hovering;
     });
     if (hovering) {
       _controller.forward();

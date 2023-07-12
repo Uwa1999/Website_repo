@@ -143,7 +143,7 @@ class StringConst {
 
   //Products & Services (KPLUS Section)
   static const String KPLUS_TITLE = "Kplus";
-  static const String KPLUS_DESC = '''Kplus is a digital app with an e-wallet foe MFI's, rural banks and cooperatives. It connects billers, service providers and CARD MRI's products & services, helping them digitize. Users get basic banking services and access ti local agents.''';
+  static const String KPLUS_DESC = '''Kplus is a digital app with an e-wallet to MFI's, rural banks and cooperatives. It connects billers, service providers and CARD MRI's products & services, helping them digitize. Users get basic banking services and access to local agents.''';
 
   //Products & Services (KONEK2CARD Section)
   static const String KONEK2CARD_TITLE = "Konek2CARD";
@@ -258,7 +258,7 @@ Pioneering Digital Transformations in Banking and Financial Services''';
   static const String ARTICLE_DESC_SUBTITLE1 = 'Article';
   static const String ARTICLE_DESC1 = '''By co-creating value and empowering financial institutions with solutions designed for the digital era, FDS ASYA PHILIPPINES INC. (FDSAP) drives growth, enhances operational efficiency, and delivers exceptional customer experiences. With a commitment to collaboration, harnessing technological advancements, and building lasting partnerships, FDSAP remains at the forefront of regional transformation, playing a crucial role in shaping the future of banking.
 
-FDSAP is a subsidiary of FDS Asya, Inc., based in Singapore. It is the result of a joint venture between two industry-leading companies, CARD MRI and Fortress Data Services (FDS) in Indonesia. While FDS offers top-notch banking applications to Indonesian banks and financial services, CARD MRI is a group of institutions dedicated to eradicating poverty in the Philippines. Both FDSAP and CARD MRI Holdings, Inc. are member-institutions of CARD Mutually Reinforcing Institutions (CARD MRI).''';
+FDSAP is a company owned of FDS Asya, Inc. based  in Singapore. It is the result of a joint venture between two industry-leading companies, CARD MRI and Fortress Data Services Indonesia. While FDS offers top-notch banking applications to Indonesian banks and financial services, CARD MRI is a group of institutions dedicated to eradicating poverty in the Philippines. Both FDSAP and CARD MRI Holdings, Inc. are member-institutions of CARD Mutually Reinforcing Institutions (CARD MRI).''';
   static const String ARTICLE_DESC_SUBTITLE2 = 'Enabling Success in the Digital Era:';
   static const String ARTICLE_DESC2 = '''As technology rapidly evolves, the banking landscape is undergoing a profound shift. FDSAP recognizes this paradigm change and plays a pivotal role in equipping financial institutions with the tools and strategies required to navigate the digital era successfully. By embracing innovation and leveraging cutting-edge technologies, FDSAP empowers banks to stay ahead of the curve, enhance operational efficiency, and deliver unparalleled customer experiences.''';
   static const String ARTICLE_DESC_SUBTITLE3 = 'Co-creating Value:';
@@ -276,7 +276,7 @@ FDS Asya Philippines Inc. Reflects on Years of Success and Innovation on its Fou
   static const String EVENTS_DESC_SUBTITLE2 = "A Journey of Growth and Success:";
   static const String EVENTS_DESC2 = "Since its inception, FDS ASYA PHILIPPINES INC. (FDSAP) has embarked on a transformative journey, evolving from a humble startup to an industry-leading institution. Over the years, the company has expanded its range of services, diversified its client base, and earned a reputation for consistently delivering exceptional quality and value. FDSAP’s unwavering commitment to excellence has served as a guiding force, enabling it to navigate challenges, seize opportunities, and achieve remarkable success in a dynamic business landscape.";
   static const String EVENTS_DESC_SUBTITLE3 = "Pioneering Innovation:";
-  static const String EVENTS_DESC3 = '''Right from its early days, the institution recognized the significance of staying ahead of the curve and embracing emerging technologies. Through their innovative products and services, FDSAP has assisted clients in adapting to the rapidly changing digital landscape and realizing their objectives."''';
+  static const String EVENTS_DESC3 = '''Right from its early days, the institution recognized the significance of staying ahead of the curve and embracing emerging technologies. Through their innovative products and services, FDSAP has assisted clients in adapting to the rapidly changing digital landscape and realizing their objectives.''';
   static const String EVENTS_DESC_SUBTITLE4 = "Empowering Employees:";
   static const String EVENTS_DESC4 = "The dedicated employees of FDSAP have played an instrumental role in the company's success. FDSAP recognizes and values their expertise, passion, and unwavering commitment to excellence. Over the years, the company has fostered a supportive and collaborative work environment that encourages innovation, personal growth, and professional development. It is through the collective efforts of its employees that FDSAP has achieved remarkable milestones and earned recognition within the industry.";
   static const String EVENTS_DESC_SUBTITLE5 = "Expressing Gratitude:";
@@ -290,7 +290,7 @@ Signs MOA with university for OJT Program for IT Students''';
 
 The MOA signing took place at Pamantasan ng Lungsod ng San Pablo and was attended by representatives from FDSAP, including its president, Mr. Roderick G. Mercado, along with Mr. Arnel Mendoza, Mr. Raymond Villapando, Ms. Irish Vhernela Emralino, and Ms. Queenie Ricablanca. Representatives from PLSP, including Concurrent University President Engineer Arthur B. Almario, PLSP Executive Vice President for Administration and Finance Dr. Sigfredo C. Adajar, PLSP Vice President for External Affairs and Linkages Prof. Arceli C. Adajar, and PLSP Acting Dean College of Computer Studies and Technology Prof. Sherwin D. Quizon, were also present. CARD MRI Founder and Chairman Emeritus Dr. Aristotle B. Alip, CARD MRI Information Technology (CMIT) President Edgar V. Cauyan, CMIT Vice President for Technical Services Maricar Lopez, CMIT Chief Information Security Officer Arman B. Peñafiel, and Director for RM/Partnership/IG Ms. Jean Pauline B. Landicho virtually joined the event.
 
-During the signing ceremony, Mercado emphasized the importance of the agreement, stating, "Since CARD MRI began its operations in San Pablo, Laguna, we also aim to give back to this community we call home. As part of our mission of providing opportunities for the members of this town, we hope to generate employment, especially for students who have the potential to contribute to our vision of a poverty-free country through the use of technology."
+During the signing ceremony, Mr. Mercado emphasized the importance of the agreement, stating, "Since CARD MRI began its operations in San Pablo, Laguna, we also aim to give back to this community we call home. As part of our mission of providing opportunities for the members of this town, we hope to generate employment, especially for students who have the potential to contribute to our vision of a poverty-free country through the use of technology."
 
 In response, Engr. Almario expressed, "This collaboration with FDSAP will help our students enhance and develop their skills, opening up better opportunities for them in the future, especially as we adapt to the era of modernization where information technology is highly in demand. The joint forces of PLSP and FDSAP will have a significant impact not only on the San Pablo community but also on the country's economy, especially amid the effects of the pandemic."
 
@@ -331,12 +331,15 @@ Latest Article & News''';
 
   // Locations
   static const String OUR_LOCATION = "Our Location";
+  static const String OUR_NUMBER = "+63-919-098-6970";
+  static const String LINKED_IN = "FDS ASYA PHILIPPINES INC.";
+  static const String FACEBOOK = "FDS ASYA PHILIPPINES INC.";
 
   //URL Links
   static const String LOCATION_URL = "https://www.google.com/maps/place/Card+MBA+Inc./@14.0677803,121.3269378,19.39z/data=!4m6!3m5!1s0x33bd5ccb0a97e6f5:0xdfba275f27ec8776!8m2!3d14.0678122!4d121.3270008!16s%2Fg%2F11c74g33l6?entry=ttu";
-  static const String LINKED_IN_URL = "https:linkedin.com/";
+  static const String LINKED_IN_URL = "https://www.linkedin.com/company/91151225/";
+  static const String FACEBOOK_URL = "https://www.facebook.com/FDSAsyaPhilippinesInc";
   static const String GITHUB_URL = "https://github.com/";
-  static const String FACEBOOK_URL = "https://facebook.com/";
   static const String INSTAGRAM_URL = "https://www.instagram.com/";
   static const String TWITTER_URL = "http://twitter.com/";
 }

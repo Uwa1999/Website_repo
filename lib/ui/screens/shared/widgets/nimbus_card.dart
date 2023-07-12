@@ -101,21 +101,23 @@ class _FdsTagLineCardState extends State<FdsTagLineCard> with SingleTickerProvid
 
   @override
   Widget build(BuildContext context) {
-    return widget.hasAnimation
-        ? MouseRegion(
-            onEnter: (e) => _mouseEnter(true),
-            onExit: (e) => _mouseEnter(false),
-            child: AnimatedBuilder(
-              animation: _controller,
-              builder: (context, child) {
-                return Transform.translate(
-                  offset: Offset(0, animation.value),
-                  child: _buildFdsTagLineCard(),
-                );
-              },
-            ),
-          )
-        : _buildFdsTagLineCard();
+    return
+        // widget.hasAnimation
+        //   ? MouseRegion(
+        //       onEnter: (e) => _mouseEnter(true),
+        //       onExit: (e) => _mouseEnter(false),
+        //       child: AnimatedBuilder(
+        //         animation: _controller,
+        //         builder: (context, child) {
+        //           return Transform.translate(
+        //             offset: Offset(0, animation.value),
+        //             child: _buildFdsTagLineCard(),
+        //           );
+        //         },
+        //       ),
+        //     )
+        //   :
+        _buildFdsTagLineCard();
   }
 
   Widget _buildFdsTagLineCard() {
