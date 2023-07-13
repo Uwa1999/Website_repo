@@ -45,7 +45,7 @@ class _InsightSectionState extends State<InsightSection> {
         Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            SizedBoxH50(),
+            SizedBoxH30(),
             ResponsiveBuilder(
               builder: (context, sizingInformation) {
                 double screenWidth = sizingInformation.screenSize.width;
@@ -96,7 +96,7 @@ class _InsightSectionState extends State<InsightSection> {
                 children: <Widget>[
                   Expanded(
                     child: SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.9,
+                      height: MediaQuery.of(context).size.height * 0.8,
                       child: new ListView.builder(
                         shrinkWrap: true,
                         scrollDirection: Axis.horizontal,
@@ -171,15 +171,15 @@ class _InsightSectionState extends State<InsightSection> {
     List<Widget> items = [];
     List<VoidCallback> function = [
       () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => ArticleDescMain()));
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) => ArticleDescMain()));
         print('-----ARTICLE SCREEN-----');
       },
       () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => EventDescMain()));
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) => EventDescMain()));
         print('-----EVENTS SCREEN-----');
       },
       () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => NewsDescMain()));
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) => NewsDescMain()));
         print('-----NEWS SCREEN-----');
       },
     ];

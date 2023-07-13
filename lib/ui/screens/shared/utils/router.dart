@@ -5,7 +5,10 @@ import 'package:auto_route/annotations.dart';
   replaceInRouteName: 'Page,Route',
   routes: <AutoRoute>[
     // initial route is named "/"
-    AutoRoute(page: HomepageScreen, initial: true)
+    AutoRoute(
+      page: HomepageScreen,
+      initial: true,
+    ),
   ],
 )
 class $AppRouter {}

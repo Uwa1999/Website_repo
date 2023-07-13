@@ -71,7 +71,8 @@ class _HeaderSectionState extends State<HeaderSection> with SingleTickerProvider
                     SizedBox(width: logoSpaceLeft),
                     InkWell(
                       onTap: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => HomepageScreen()));
+                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => HomepageScreen()));
+                        print("-----HOMEPAGE SCREEN----");
                       },
                       child: Padding(
                         padding: const EdgeInsets.only(
@@ -92,8 +93,7 @@ class _HeaderSectionState extends State<HeaderSection> with SingleTickerProvider
                         NavItem(
                           title: 'Home',
                           onTap: () {
-                            Navigator.pushReplacement(
-                              context,
+                            Navigator.of(context).push(
                               MaterialPageRoute(builder: (context) => HomepageScreen()),
                             );
                           },
@@ -102,30 +102,21 @@ class _HeaderSectionState extends State<HeaderSection> with SingleTickerProvider
                         NavItem(
                           title: 'About',
                           onTap: () {
-                            Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(builder: (context) => AboutMain()),
-                            );
+                            Navigator.of(context).push(MaterialPageRoute(builder: (context) => AboutMain()));
                           },
                         ),
                         SizedBoxW60(),
                         NavItem(
                           title: 'Product & Services',
                           onTap: () {
-                            Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(builder: (context) => ProductServicesMain()),
-                            );
+                            Navigator.of(context).push(MaterialPageRoute(builder: (context) => ProductServicesMain()));
                           },
                         ),
                         SizedBoxW60(),
                         NavItem(
                           title: 'Insights',
                           onTap: () {
-                            Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(builder: (context) => InsightsMain()),
-                            );
+                            Navigator.of(context).push(MaterialPageRoute(builder: (context) => InsightsMain()));
                           },
                         ),
                       ],

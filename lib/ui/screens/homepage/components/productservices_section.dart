@@ -249,63 +249,63 @@ class _ProductServicesSectionState extends State<ProductServicesSection> with Si
     List<Widget> items = [];
     List<VoidCallback> functions = [
       () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => ChatbotDescMain()));
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) => ChatbotDescMain()));
         print('-----CHATBOT SCREEN-----');
       },
       () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => kPlusDescMain()));
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) => kPlusDescMain()));
         print('-----KPLUS SCREEN-----');
       },
       () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => K2cDescMain()));
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) => K2cDescMain()));
         print('-----KONEK2CARD SCREEN-----');
       },
       () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => DcmDescMain()));
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) => DcmDescMain()));
         print('-----DCM SCREEN-----');
       },
       () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => MobColDescMain()));
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) => MobColDescMain()));
         print('-----MOBILE COLLECTION SCREEN-----');
       },
       () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => WebCollectionDescMain()));
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) => WebCollectionDescMain()));
         print('-----WEB COLLECTION SCREEN-----');
       },
       () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => MinokawaDescMain()));
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) => MinokawaDescMain()));
         print('-----MINOKAWA SCREEN-----');
       },
       () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => BakawanDescMain()));
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) => BakawanDescMain()));
         print('-----BAKAWAN SCREEN-----');
       },
       () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => CoreBankingDescMain()));
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) => CoreBankingDescMain()));
         print('-----CORE BANKING SCREEN-----');
       },
       () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => AmlaDescMain()));
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) => AmlaDescMain()));
         print('-----AMLA SCREEN-----');
       },
       () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => AtmDescMain()));
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) => AtmDescMain()));
         print('-----ATM SWITCH SCREEN-----');
       },
       () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => TemenosDecsMain()));
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) => TemenosDecsMain()));
         print('-----TEMENOS SCREEN-----');
       },
       () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => ApiDescMain()));
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) => ApiDescMain()));
         print('-----OPEN API SCREEN-----');
       },
       () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => SbsDescMain()));
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) => SbsDescMain()));
         print('-----SMART BRANCH SYSTEM SCREEN-----');
       },
       () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => CloudDescMain()));
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) => CloudDescMain()));
         print('-----CLOUD TEST ENVIRONMENT SCREEN-----');
       },
     ];
