@@ -332,8 +332,8 @@ Latest Article & News''';
   // Locations
   static const String OUR_LOCATION = "Our Location";
   static const String OUR_NUMBER = "+63-919-098-6970";
-  static const String LINKED_IN = "FDS ASYA PHILIPPINES INC.";
-  static const String FACEBOOK = "FDS ASYA PHILIPPINES INC.";
+  static const String LINKED_IN = '''FDS ASYA PHILIPPINES INC.''';
+  static const String FACEBOOK = '''FDS ASYA PHILIPPINES INC.''';
 
   //URL Links
   static const String LOCATION_URL = "https://www.google.com/maps/place/Card+MBA+Inc./@14.0677803,121.3269378,19.39z/data=!4m6!3m5!1s0x33bd5ccb0a97e6f5:0xdfba275f27ec8776!8m2!3d14.0678122!4d121.3270008!16s%2Fg%2F11c74g33l6?entry=ttu";

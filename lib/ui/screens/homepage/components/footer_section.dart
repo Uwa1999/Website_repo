@@ -72,9 +72,11 @@ class DesktopFooter extends StatelessWidget {
                     SizedBoxH10(),
                     Column(
                       mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Row(
                           mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Icon(FontAwesomeIcons.mobileAlt, size: 20),
                             SizedBoxW12(),
