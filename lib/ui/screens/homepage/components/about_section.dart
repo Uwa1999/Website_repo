@@ -111,10 +111,9 @@ class _AboutSectionState extends State<AboutSection> with TickerProviderStateMix
             } else {
               return Column(
                 children: [
-                  SizedBoxH80(),
+                  SizedBoxH50(),
                   Row(
                     children: [
-                      SizedBoxH50(),
                       ContentArea(
                         width: contentAreaWidthLg,
                         child: _buildFdsapLogo(
@@ -131,7 +130,6 @@ class _AboutSectionState extends State<AboutSection> with TickerProviderStateMix
                       ),
                     ],
                   ),
-                  SizedBoxH60(),
                   Container(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -188,7 +186,7 @@ class _AboutSectionState extends State<AboutSection> with TickerProviderStateMix
           scale: _scaleAnimation,
           child: Image.asset(
             ImagePath.LOGO_FDSAP,
-            width: width * 0.80,
+            width: width * 0.75,
           ),
         ),
       ],
@@ -211,7 +209,7 @@ class _AboutSectionState extends State<AboutSection> with TickerProviderStateMix
               return nimbusInfoSectionSm(width: width);
             } else {
               return Container(
-                width: width * 0.80,
+                width: width * 0.75,
                 child: nimbusInfoSectionLg(),
               );
             }

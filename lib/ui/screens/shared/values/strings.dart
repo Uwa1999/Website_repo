@@ -87,7 +87,7 @@ class StringConst {
   static const String API_CALLS_PER_DAY = " ";
 
   //Leading Banking Partner Section Numbers
-  static const String CLIENTS_NUM = "8M";
+  static const String CLIENTS_NUM = "8M+";
   static const String YEARS_OF_EXPERIENCE_NUM = "10";
   static const String COUNTRIES_NUM = "4";
   static const String INCREDIBLE_PROJECTS_NUM = " ";
