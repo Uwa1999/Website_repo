@@ -87,7 +87,7 @@ class _AboutMainState extends State<AboutMain> with SingleTickerProviderStateMix
               child: Column(
                 children: [
                   AboutSection(),
-                  SizedBoxH30(),
+                  SizedBoxH100(),
                   FooterSection(),
                 ],
               ),

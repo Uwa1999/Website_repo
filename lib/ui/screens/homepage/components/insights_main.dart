@@ -5,6 +5,7 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/header_sect
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/responsive.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/sizes.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/sizedbox.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:responsive_builder/responsive_builder.dart';
@@ -86,6 +87,7 @@ class _InsightsMainState extends State<InsightsMain> with SingleTickerProviderSt
               child: Column(
                 children: [
                   InsightSection(),
+                  SizedBoxH100(),
                   FooterSection(),
                 ],
               ),

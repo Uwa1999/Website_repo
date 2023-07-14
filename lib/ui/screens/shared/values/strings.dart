@@ -46,7 +46,7 @@ class StringConst {
   static const String CSS = "CSS";
 
   //AboutMe Section
-  static const String ABOUT_ME_DESC = '''The FDS ASYA PHILIPPINES INC. (FDSAP) is wholly owned company of FDS Asya Pte. Ltd., a joint venture of CARD MRI and Fortress Data Services Indonesia (FDSI). FDSAP was established and registered on August 16, 2016. These two institutions who shares the same vision were working collaboratively with each other since 2014.''';
+  static const String ABOUT_ME_DESC = '''FDS ASYA PHILIPPINES INC. (FDSAP) is a wholly owned company of FDS ASYA Pte. Ltd., a joint venture of CARD MRI and Fortress Data Services Indonesia (FDSI). FDSAP was established and registered on August 16, 2016. These two institutions, which share the same vision, have been working collaboratively with each other since 2014.''';
   static const String ABOUT_ME_DESC_1 = "Product Designer and Digital Creative Director working in design ";
   static const String ABOUT_ME_DESC_2 = "field for 13 years so far, specialized in UI/UX, Branding and digital";
   static const String ABOUT_ME_DESC_3 = "designs. These are the words we live by in everything we do. Every";

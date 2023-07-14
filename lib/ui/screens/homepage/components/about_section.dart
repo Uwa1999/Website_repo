@@ -110,9 +110,13 @@ class _AboutSectionState extends State<AboutSection> with TickerProviderStateMix
               );
             } else {
               return Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   SizedBoxH50(),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       ContentArea(
                         width: contentAreaWidthLg,
@@ -133,6 +137,7 @@ class _AboutSectionState extends State<AboutSection> with TickerProviderStateMix
                   Container(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         ...buildCardRow(
                           context: context,
