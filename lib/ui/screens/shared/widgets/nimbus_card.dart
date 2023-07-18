@@ -132,7 +132,7 @@ class _FdsTagLineCardState extends State<FdsTagLineCard> with SingleTickerProvid
             padding: widget.padding,
             child: Row(
               mainAxisAlignment: widget.rowMainAxisAlignment,
-              //  crossAxisAlignment: widget.rowCrossAxisAlignment,
+              crossAxisAlignment: widget.rowCrossAxisAlignment,
               children: [
                 // widget.leading != null ? Spacer() : EmptyContainer(),
                 // widget.leading ?? EmptyContainer(),

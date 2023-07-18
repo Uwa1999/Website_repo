@@ -184,8 +184,10 @@ class _ChatbotSectionState extends State<ChatbotSection> with SingleTickerProvid
       height: height,
       child: Stack(
         children: [
-          Image.asset(
-            ImagePath.CHATBOT_GIF,
+          Expanded(
+            child: Image.asset(
+              ImagePath.CHATBOT_GIF,
+            ),
           ),
         ],
       ),

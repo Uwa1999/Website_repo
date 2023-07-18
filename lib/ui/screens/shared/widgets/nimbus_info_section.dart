@@ -1,9 +1,13 @@
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/responsive.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/sizes.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/strings.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/empty.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/sizedbox.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/link.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class NimbusInfoSection1 extends StatelessWidget {
   final String? title1;
@@ -443,5 +447,130 @@ class NimbusInfoSection5 extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class NimbusInfoSection6 extends StatelessWidget {
+  final String? title1;
+  final String? title2;
+  final bool hasTitle2;
+  final String body;
+  final String body2;
+  final String body3;
+  final TextStyle? sectionTitleStyle;
+  final TextStyle? title1Style;
+  final TextStyle? title2Style;
+  final TextStyle? bodyStyle;
+  final Color dividerColor;
+  final double? thickness;
+  final int quarterTurns;
+  // final double dividerHeight;
+  final Widget? child;
+  final String url;
+  final LinkTarget linkTarget;
+  final bool opensUrl;
+
+  NimbusInfoSection6({
+    this.title1 = "",
+    required this.body,
+    required this.body2,
+    required this.body3,
+    this.title2 = "",
+    this.sectionTitleStyle,
+    this.title1Style,
+    this.hasTitle2 = true,
+    this.title2Style,
+    this.bodyStyle,
+    this.thickness = 1.15,
+    this.quarterTurns = 3,
+    this.dividerColor = AppColors.black,
+    // this.dividerHeight = Sizes.HEIGHT_40,
+    this.child,
+    this.opensUrl = false,
+    this.url = "",
+    this.linkTarget = LinkTarget.blank,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    TextTheme textTheme = Theme.of(context).textTheme;
+    TextStyle? titleStyle = textTheme.headlineMedium?.copyWith(
+      fontSize: responsiveSize(context, 26, 36, md: 32),
+      color: AppColors.black,
+    );
+    double fontSize = responsiveSize(context, 16, 18);
+    return Container(
+      child: IntrinsicHeight(
+        child: Row(
+          children: [
+            Expanded(
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    title1!,
+                    style: title1Style ?? titleStyle?.copyWith(color: AppColors.black),
+                  ),
+                  // hasTitle2
+                  //      ? SizedBox(
+                  //          height: responsiveSize(
+                  //            context,
+                  //            Sizes.HEIGHT_4,
+                  //            Sizes.HEIGHT_16,
+                  //            md: Sizes.HEIGHT_8,
+                  //          ),
+                  //        )
+                  //      : EmptyContainer(),
+                  //  hasTitle2
+                  //      ? Text(
+                  //  title2!,
+                  //     style: title2Style ?? titleStyle,
+                  //   )
+                  // : EmptyContainer(),
+                  SizedBoxH10(),
+                  // Text(
+                  //   body,
+                  //   style: textTheme.bodySmall?.copyWith(fontSize: fontSize, height: 1.8, color: AppColors.black),
+                  // ),
+                  RichText(
+                    text: TextSpan(
+                      children: [
+                        TextSpan(
+                          text: body,
+                          style: textTheme.bodySmall?.copyWith(fontSize: fontSize, height: 1.8, color: AppColors.black),
+                        ),
+                        TextSpan(
+                          text: body2,
+                          style: textTheme.bodySmall?.copyWith(fontSize: fontSize, height: 1.8, color: AppColors.blue300, fontWeight: FontWeight.bold),
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () {
+                              launch(StringConst.FDSI_URL);
+                            },
+                        ),
+                        TextSpan(
+                          text: body3,
+                          style: textTheme.bodySmall?.copyWith(fontSize: fontSize, height: 1.8, color: AppColors.black),
+                        ),
+                      ],
+                    ),
+                  ),
+
+                  child != null ? SizedBoxH30() : EmptyContainer(),
+                  child ?? EmptyContainer(),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+_launchURL() async {
+  final Uri url = Uri.parse(StringConst.FDSI_URL);
+  if (!await launchUrl(url)) {
+    throw Exception('Could not launch');
   }
 }

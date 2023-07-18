@@ -46,7 +46,9 @@ class StringConst {
   static const String CSS = "CSS";
 
   //AboutMe Section
-  static const String ABOUT_ME_DESC = '''FDS ASYA PHILIPPINES INC. (FDSAP) is a wholly owned company of FDS ASYA Pte. Ltd., a joint venture of CARD MRI and Fortress Data Services Indonesia (FDSI). FDSAP was established and registered on August 16, 2016. These two institutions, which share the same vision, have been working collaboratively with each other since 2014.''';
+  static const String ABOUT_ME_DESC = '''FDS ASYA PHILIPPINES INC. (FDSAP) is an expert in digital services whose success is also attributed to the support of an international alliance with our holding, ''';
+  static const String ABOUT_ME_DESC2 = 'FORTRESS DATA SERVICES INDONESIA (FDSI).';
+  static const String ABOUT_ME_DESC3 = ''' With a deep understanding of local businesses, we have played a vital role since 2015 in facilitating the digitalization journeys of CARD Bank, CARD RBI, and CARD SME. Throughout the years, FDSAP has become one of the Philippines' leading IT companies and continues to be a trustworthy and reliable partner in the financial industry.''';
   static const String ABOUT_ME_DESC_1 = "Product Designer and Digital Creative Director working in design ";
   static const String ABOUT_ME_DESC_2 = "field for 13 years so far, specialized in UI/UX, Branding and digital";
   static const String ABOUT_ME_DESC_3 = "designs. These are the words we live by in everything we do. Every";
@@ -97,7 +99,7 @@ class StringConst {
   //Products & Services Section
   static const String PRODUCT_AND_SERVICES = "Products & Services";
   static const String MY_WORKS = "my works";
-  static const String PRODUCT_AND_SERVICES_DESC = '''It has the license, expertise, and ability to provide IT Operations Software as a Service. FDSAP provides business solution as Kplus, Chatbot, OpenAPI, ATM Switch K2C, CBS, MobCol, DCM, AMLA and other program offerings.''';
+  static const String PRODUCT_AND_SERVICES_DESC = '''FDSAP is a one-stop solution to provide IT Operations Software as a Service, providing businesses with Kplus, Chatbot, OpenAPI, ATM Switch K2C, CBS, MobCol, DCM, AMLA, and many other innovative and disruptive solutions.''';
   static const String ALL = "All Products & Services";
   static const String MOBILE_APP = "Mobile App";
   static const String WEB = "Web";
@@ -109,6 +111,12 @@ class StringConst {
   static const String PORTFOLIO_4_TITLE = "";
   static const String PORTFOLIO_5_TITLE = "";
   static const String PORTFOLIO_6_TITLE = "";
+
+  //Products & Services Section
+  static const String BANKING_TECHNOLOGY = "Banking Technology";
+  static const String ALTERNATIVE_SOLUTION = "Alternative Deliveries Solution";
+  static const String REGULATORY_SECURITY = "Regulatory and Security";
+  static const String SOFTWARE_SERVICE = "Software as a Service";
 
   //Products & Services (Core Banking Section)
   static const String CORE_BANKING_TITLE = "Core Banking System";
@@ -184,6 +192,18 @@ class StringConst {
   //Products & Services (Web Collection Section)
   static const String WEB_COLLECTION_TITLE = "Web Collection";
   static const String WEB_COLLECTION_DESC = '''This web collection system is a method of compiling qualitative and quantitative information with the help of a mobile collection system. It will help to control the collection activity effectively and manage and monitor the account officer activity in real-time.''';
+
+  //Products & Services (Security Operation Center Section)
+  static const String CYBER_SECURITY_TITLE = "Cyber Security";
+  static const String CYBER_SECURITY_DESC = '''Computer security or information security, refers to the set of practices, processes, and technologies designed to protect computer systems, networks, devices, and data from unauthorized access, damage, theft, disruption, and other cyber threats. The main objective of cyber security is to ensure the confidentiality, integrity, and availability of information and resources in the digital domain.''';
+
+  //Products & Services (Fraud Detection Section)
+  static const String SECURITY_OPERATION_TITLE = "Security Operations Center (SOC)";
+  static const String SECURITY_OPERATION_DESC = '''Centralized unit within an organization that is responsible for monitoring, detecting, investigating, and responding to cyber security incidents and threats in real-time. The SOC serves as the nerve center for an organization's cyber security defenses, and its primary goal is to ensure the security, integrity, and availability of information and digital assets.''';
+
+  //Products & Services (Cyber Security Section)
+  static const String FRAUD_DETECTION_TITLE = "Fraud Detection";
+  static const String FRAUD_DETECTION_DESC = '''Process of identifying and preventing fraudulent activities or transactions to protect individuals, businesses, and financial institutions from financial losses and reputational damage. Fraud can take many forms, such as identity theft, credit card fraud, insurance fraud, online scams, and more. The goal of fraud detection is to identify suspicious patterns, behaviors, or anomalies that may indicate fraudulent behavior and take appropriate actions to mitigate or stop the fraud before it causes harm.''';
 
   //Awards & Section
   static const String MY = "My";
@@ -336,6 +356,7 @@ Latest Article & News''';
   static const String FACEBOOK = '''FDS ASYA PHILIPPINES INC.''';
 
   //URL Links
+  static const String FDSI_URL = "https://fds.co.id/";
   static const String LOCATION_URL = "https://www.google.com/maps/place/Card+MBA+Inc./@14.0677803,121.3269378,19.39z/data=!4m6!3m5!1s0x33bd5ccb0a97e6f5:0xdfba275f27ec8776!8m2!3d14.0678122!4d121.3270008!16s%2Fg%2F11c74g33l6?entry=ttu";
   static const String LINKED_IN_URL = "https://www.linkedin.com/company/91151225/";
   static const String FACEBOOK_URL = "https://www.facebook.com/FDSAsyaPhilippinesInc";

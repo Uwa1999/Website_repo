@@ -60,6 +60,9 @@ class ImagePath {
   static const String OPEN_API = "$imageDir/api_maroon.png";
   static const String MINOKAWA = "$imageDir/minokawa.png";
   static const String BAKAWAN = "$imageDir/bakawan.png";
+  static const String CYBER_SECURITY = "$imageDir/cyber_security.png";
+  static const String SECURITY_OPERATION = "$imageDir/security_operation.png";
+  static const String FRAUD_DETECTION = "$imageDir/fraud_detection.png";
 
 // Product & Services GIF
   static const String AML_GIF = "$gifDir/amla.gif";
@@ -77,4 +80,7 @@ class ImagePath {
   static const String SMART_BRANCH_SYSTEM_GIF = "$gifDir/sbs_maroon.gif";
   static const String MINOKAWA_GIF = "$gifDir/minokawa.gif";
   static const String BAKAWAN_GIF = "$gifDir/bakawan.gif";
+  static const String CYBER_SECURITY_GIF = "$gifDir/cyber_security.gif";
+  static const String SECURITY_OPERATION_GIF = "$gifDir/security_operation.gif";
+  static const String FRAUD_DETECTION_GIF = "$gifDir/fraud_detection.gif";
 }

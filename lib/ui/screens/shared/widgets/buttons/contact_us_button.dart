@@ -11,7 +11,7 @@ class ContactUsButton extends StatelessWidget {
     this.height = Sizes.HEIGHT_60,
     this.titleStyle,
     this.titleColor = AppColors.white,
-    this.buttonColor = AppColors.maroon03,
+    this.buttonColor = AppColors.maroon04,
     this.onPressed,
     this.padding = const EdgeInsets.all(Sizes.PADDING_8),
     this.borderRadius = const BorderRadius.all(

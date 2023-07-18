@@ -326,6 +326,21 @@ class Data {
     ),
     ProductServicesData(
       category: StringConst.ATM,
+      productServicesCoverUrl: ImagePath.CYBER_SECURITY,
+      width: 0.225,
+    ),
+    ProductServicesData(
+      category: StringConst.ATM,
+      productServicesCoverUrl: ImagePath.SECURITY_OPERATION,
+      width: 0.225,
+    ),
+    ProductServicesData(
+      category: StringConst.ATM,
+      productServicesCoverUrl: ImagePath.FRAUD_DETECTION,
+      width: 0.225,
+    ),
+    ProductServicesData(
+      category: StringConst.ATM,
       productServicesCoverUrl: ImagePath.ATM_SWITCH,
       width: 0.225,
     ),

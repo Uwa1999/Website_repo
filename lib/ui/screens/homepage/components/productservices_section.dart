@@ -5,12 +5,15 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/bakawan/bak
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/chatbot/chatbot_main.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/cloud/cloud_main.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/core_banking/core_banking_main.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/cyber_security/cyber_security_main.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/dcm/dcm_main.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/fraud_detection/fraud_detection_main.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/k2c/k2c_main.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/kplus/kplus_main.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/minokawa/minokawa_main.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/mobcol/mobcol_main.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/sbs/sbs_main.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/security_operation/security_operation_main.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/temenos/temenos_main.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/web/web_main.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/responsive.dart';
@@ -287,6 +290,18 @@ class _ProductServicesSectionState extends State<ProductServicesSection> with Si
       () {
         Navigator.of(context).push(MaterialPageRoute(builder: (context) => AmlaDescMain()));
         print('-----AMLA SCREEN-----');
+      },
+      () {
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) => CyberSecurityDecsMain()));
+        print('-----CYBER SECURITY SCREEN-----');
+      },
+      () {
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) => SecurityOperationDecsMain()));
+        print('-----SECURITY OPERATION CENTER SCREEN-----');
+      },
+      () {
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) => FraudDetectionDescMain()));
+        print('-----FRAUD DETENTION SCREEN-----');
       },
       () {
         Navigator.of(context).push(MaterialPageRoute(builder: (context) => AtmDescMain()));

@@ -91,13 +91,13 @@ class _AboutSectionState extends State<AboutSection> with TickerProviderStateMix
             if (screenWidth < (RefinedBreakpoints().tabletLarge)) {
               return Column(
                 children: [
-                  ContentArea(
-                    width: contentAreaWidthSm,
-                    child: _buildFdsapLogo(
-                      width: contentAreaWidthSm,
-                      height: contentAreaHeightSm,
-                    ),
-                  ),
+                  // ContentArea(
+                  //   width: contentAreaWidthSm,
+                  //   child: _buildFdsapLogo(
+                  //     width: contentAreaWidthSm,
+                  //     height: contentAreaHeightSm,
+                  //   ),
+                  // ),
                   SizedBoxH10(),
                   ContentArea(
                     width: contentAreaWidthSm,
@@ -134,7 +134,7 @@ class _AboutSectionState extends State<AboutSection> with TickerProviderStateMix
                       ),
                     ],
                   ),
-                  Container(
+                  ContentArea(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
@@ -214,7 +214,7 @@ class _AboutSectionState extends State<AboutSection> with TickerProviderStateMix
               return nimbusInfoSectionSm(width: width);
             } else {
               return Container(
-                width: width * 0.75,
+                width: width * 0.70,
                 child: nimbusInfoSectionLg(),
               );
             }
@@ -232,10 +232,11 @@ class _AboutSectionState extends State<AboutSection> with TickerProviderStateMix
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              NimbusInfoSection1(
-                title1: 'About Us',
-                title2: StringConst.OUR_HISTORY,
+              NimbusInfoSection6(
+                title1: StringConst.ABOUT,
                 body: StringConst.ABOUT_ME_DESC,
+                body2: StringConst.ABOUT_ME_DESC2,
+                body3: StringConst.ABOUT_ME_DESC3,
               ),
               // Expanded(
               //   child: Container(
@@ -261,26 +262,62 @@ class _AboutSectionState extends State<AboutSection> with TickerProviderStateMix
 
   Widget nimbusInfoSectionSm({required double width}) {
     TextTheme textTheme = Theme.of(context).textTheme;
-    return NimbusInfoSection2(
-      // sectionTitle: StringConst.ABOUT_ME,
-      title1: StringConst.OUR_HISTORY,
-      // title2: StringConst.OUR_HISTORY,
-      body: StringConst.ABOUT_ME_DESC,
-      // child: Column(
-      //   crossAxisAlignment: CrossAxisAlignment.start,
-      //   children: [
-      //     Text(
-      //       StringConst.FOLLOW_ME_1,
-      //       style: textTheme.headlineMedium?.copyWith(color: AppColors.black),
-      //     ),
-      //     SpaceH16(),
-      //     Wrap(
-      //       spacing: kSpacingSm,
-      //       runSpacing: kRunSpacingSm,
-      //       children: _buildSocialButtons(Data.socialData2),
-      //     ),
-      //   ],
-      // ),
+    return Row(
+      children: [
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              NimbusInfoSection6(
+                title1: StringConst.ABOUT,
+                body: StringConst.ABOUT_ME_DESC,
+                body2: StringConst.ABOUT_ME_DESC2,
+                body3: StringConst.ABOUT_ME_DESC3,
+              ),
+              // Expanded(
+              //   child: Container(
+              //     // margin: EdgeInsets.only(left: (sizeOfBlobSm * 0.35)),
+              //     child: Row(
+              //       mainAxisAlignment: MainAxisAlignment.center,
+              //       children: [
+              //         ...buildCardRow(
+              //           context: context,
+              //           data: Data.nimbusCardData,
+              //           width: double.infinity,
+              //         ),
+              //       ],
+              //     ),
+              //   ),
+              // ),
+            ],
+          ),
+        ),
+      ],
     );
   }
+
+  //
+  // Widget nimbusInfoSectionSm({required double width}) {
+  //   TextTheme textTheme = Theme.of(context).textTheme;
+  //   return NimbusInfoSection2(
+  //     // sectionTitle: StringConst.ABOUT_ME,
+  //     title1: StringConst.OUR_HISTORY,
+  //     body: StringConst.ABOUT_ME_DESC,
+  //     child: Column(
+  //       crossAxisAlignment: CrossAxisAlignment.start,
+  //       children: [
+  //         Text(
+  //           StringConst.FOLLOW_ME_1,
+  //           style: textTheme.headlineMedium?.copyWith(color: AppColors.black),
+  //         ),
+  //
+  //         Wrap(
+  //           spacing: kSpacingSm,
+  //           runSpacing: kRunSpacingSm,
+  //           children: _buildSocialButtons(Data.socialData2),
+  //         ),
+  //       ],
+  //     ),
+  //   );
+  // }
 }
