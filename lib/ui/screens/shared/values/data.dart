@@ -276,92 +276,22 @@ class Data {
   static List<ProductServicesData> allProductServices = [
     ProductServicesData(
       category: StringConst.WEB_DESIGN,
-      productServicesCoverUrl: ImagePath.CHATBOT,
+      productServicesCoverUrl: ImagePath.BANKING_TECHNOLOGY_GIF,
       width: 0.225,
     ),
     ProductServicesData(
-      productServicesCoverUrl: ImagePath.KPLUS_WHITEBG,
+      productServicesCoverUrl: ImagePath.ALTERNATIVE_SOLUTION_GIF,
       width: 0.220,
       mobileHeight: 0.3,
     ),
     ProductServicesData(
-      productServicesCoverUrl: ImagePath.KONEK2CARD,
+      productServicesCoverUrl: ImagePath.REGULATORY_SECURITY_GIF,
       width: 0.220,
       mobileHeight: 0.3,
     ),
     ProductServicesData(
       category: StringConst.WEB,
-      productServicesCoverUrl: ImagePath.DCM,
-      width: 0.225,
-    ),
-    ProductServicesData(
-      category: StringConst.MOBILE_APP,
-      productServicesCoverUrl: ImagePath.MOBILE_COLLECTION,
-      width: 0.225,
-    ),
-    ProductServicesData(
-      category: StringConst.ATM,
-      productServicesCoverUrl: ImagePath.WEB_COLLECTION,
-      width: 0.225,
-    ),
-    ProductServicesData(
-      category: StringConst.MOBILE_APP,
-      productServicesCoverUrl: ImagePath.MINOKAWA,
-      width: 0.225,
-    ),
-    ProductServicesData(
-      category: StringConst.MOBILE_APP,
-      productServicesCoverUrl: ImagePath.BAKAWAN,
-      width: 0.225,
-    ),
-    ProductServicesData(
-      category: StringConst.WEB,
-      productServicesCoverUrl: ImagePath.CORE_BANKING,
-      width: 0.225,
-    ),
-    ProductServicesData(
-      category: StringConst.ATM,
-      productServicesCoverUrl: ImagePath.AML,
-      width: 0.225,
-    ),
-    ProductServicesData(
-      category: StringConst.ATM,
-      productServicesCoverUrl: ImagePath.CYBER_SECURITY,
-      width: 0.225,
-    ),
-    ProductServicesData(
-      category: StringConst.ATM,
-      productServicesCoverUrl: ImagePath.SECURITY_OPERATION,
-      width: 0.225,
-    ),
-    ProductServicesData(
-      category: StringConst.ATM,
-      productServicesCoverUrl: ImagePath.FRAUD_DETECTION,
-      width: 0.225,
-    ),
-    ProductServicesData(
-      category: StringConst.ATM,
-      productServicesCoverUrl: ImagePath.ATM_SWITCH,
-      width: 0.225,
-    ),
-    ProductServicesData(
-      category: StringConst.MOBILE_APP,
-      productServicesCoverUrl: ImagePath.TEMENOS,
-      width: 0.225,
-    ),
-    ProductServicesData(
-      category: StringConst.WEB_DESIGN,
-      productServicesCoverUrl: ImagePath.OPEN_API,
-      width: 0.225,
-    ),
-    ProductServicesData(
-      category: StringConst.ATM,
-      productServicesCoverUrl: ImagePath.SMART_BRANCH_SYSTEM,
-      width: 0.225,
-    ),
-    ProductServicesData(
-      category: StringConst.WEB,
-      productServicesCoverUrl: ImagePath.CLOUD_TEST_ENVIRONMENT,
+      productServicesCoverUrl: ImagePath.SOFTWARE_SERVICE_GIF,
       width: 0.225,
     ),
   ];

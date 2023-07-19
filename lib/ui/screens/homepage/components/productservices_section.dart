@@ -1,21 +1,7 @@
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/amla/amla_main.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/api/api_main.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/atm_switch/atm_main.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/bakawan/bakawan_main.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/chatbot/chatbot_main.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/cloud/cloud_main.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/core_banking/core_banking_main.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/cyber_security/cyber_security_main.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/dcm/dcm_main.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/fraud_detection/fraud_detection_main.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/k2c/k2c_main.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/kplus/kplus_main.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/minokawa/minokawa_main.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/mobcol/mobcol_main.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/sbs/sbs_main.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/security_operation/security_operation_main.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/temenos/temenos_main.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/web/web_main.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/alternative_solution/alternative_solution_main.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/banking_technology/banking_technology_main.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/regulatory_security/regulatory_security_main.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/software_service/software_service_main.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/responsive.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/data.dart';
@@ -188,6 +174,9 @@ class _ProductServicesSectionState extends State<ProductServicesSection> with Si
                             //  itemCount: productServicesCategories.length,
                             itemBuilder: (context, index) {
                               return new Container(
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: getSidePadding(context),
+                                ),
                                 alignment: Alignment.center,
                                 width: widthOfScreen(context),
                                 child: ListView(
@@ -252,76 +241,20 @@ class _ProductServicesSectionState extends State<ProductServicesSection> with Si
     List<Widget> items = [];
     List<VoidCallback> functions = [
       () {
-        Navigator.of(context).push(MaterialPageRoute(builder: (context) => ChatbotDescMain()));
-        print('-----CHATBOT SCREEN-----');
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) => BankingTechnologyMain()));
+        print('-----BANKING TECHNOLOGY SCREEN-----');
       },
       () {
-        Navigator.of(context).push(MaterialPageRoute(builder: (context) => kPlusDescMain()));
-        print('-----KPLUS SCREEN-----');
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) => AlternativeSolutionMain()));
+        print('-----ALTERNATIVE DELIVERIES SOLUTION SCREEN-----');
       },
       () {
-        Navigator.of(context).push(MaterialPageRoute(builder: (context) => K2cDescMain()));
-        print('-----KONEK2CARD SCREEN-----');
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) => RegulatorySecurityMain()));
+        print('-----REGULATORY AND SECURITY SCREEN-----');
       },
       () {
-        Navigator.of(context).push(MaterialPageRoute(builder: (context) => DcmDescMain()));
-        print('-----DCM SCREEN-----');
-      },
-      () {
-        Navigator.of(context).push(MaterialPageRoute(builder: (context) => MobColDescMain()));
-        print('-----MOBILE COLLECTION SCREEN-----');
-      },
-      () {
-        Navigator.of(context).push(MaterialPageRoute(builder: (context) => WebCollectionDescMain()));
-        print('-----WEB COLLECTION SCREEN-----');
-      },
-      () {
-        Navigator.of(context).push(MaterialPageRoute(builder: (context) => MinokawaDescMain()));
-        print('-----MINOKAWA SCREEN-----');
-      },
-      () {
-        Navigator.of(context).push(MaterialPageRoute(builder: (context) => BakawanDescMain()));
-        print('-----BAKAWAN SCREEN-----');
-      },
-      () {
-        Navigator.of(context).push(MaterialPageRoute(builder: (context) => CoreBankingDescMain()));
-        print('-----CORE BANKING SCREEN-----');
-      },
-      () {
-        Navigator.of(context).push(MaterialPageRoute(builder: (context) => AmlaDescMain()));
-        print('-----AMLA SCREEN-----');
-      },
-      () {
-        Navigator.of(context).push(MaterialPageRoute(builder: (context) => CyberSecurityDecsMain()));
-        print('-----CYBER SECURITY SCREEN-----');
-      },
-      () {
-        Navigator.of(context).push(MaterialPageRoute(builder: (context) => SecurityOperationDecsMain()));
-        print('-----SECURITY OPERATION CENTER SCREEN-----');
-      },
-      () {
-        Navigator.of(context).push(MaterialPageRoute(builder: (context) => FraudDetectionDescMain()));
-        print('-----FRAUD DETENTION SCREEN-----');
-      },
-      () {
-        Navigator.of(context).push(MaterialPageRoute(builder: (context) => AtmDescMain()));
-        print('-----ATM SWITCH SCREEN-----');
-      },
-      () {
-        Navigator.of(context).push(MaterialPageRoute(builder: (context) => TemenosDecsMain()));
-        print('-----TEMENOS SCREEN-----');
-      },
-      () {
-        Navigator.of(context).push(MaterialPageRoute(builder: (context) => ApiDescMain()));
-        print('-----OPEN API SCREEN-----');
-      },
-      () {
-        Navigator.of(context).push(MaterialPageRoute(builder: (context) => SbsDescMain()));
-        print('-----SMART BRANCH SYSTEM SCREEN-----');
-      },
-      () {
-        Navigator.of(context).push(MaterialPageRoute(builder: (context) => CloudDescMain()));
-        print('-----CLOUD TEST ENVIRONMENT SCREEN-----');
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) => SoftwareServiceMain()));
+        print('-----SOFTWARE AS A SERVICE SCREEN-----');
       },
     ];
     for (int index = 0; index < data.length; index++) {

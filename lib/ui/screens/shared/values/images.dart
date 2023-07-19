@@ -65,6 +65,10 @@ class ImagePath {
   static const String FRAUD_DETECTION = "$imageDir/fraud_detection.png";
 
 // Product & Services GIF
+  static const String BANKING_TECHNOLOGY_GIF = "$gifDir/banking_technology.gif";
+  static const String ALTERNATIVE_SOLUTION_GIF = "$gifDir/alternative_solution.gif";
+  static const String REGULATORY_SECURITY_GIF = "$gifDir/regulatory_security.gif";
+  static const String SOFTWARE_SERVICE_GIF = "$gifDir/software_service.gif";
   static const String AML_GIF = "$gifDir/amla.gif";
   static const String API_GIF = "$gifDir/api_maroon.gif";
   static const String ATM_GIF = "$gifDir/atm_maroon.gif";
