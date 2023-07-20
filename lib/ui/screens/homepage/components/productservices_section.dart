@@ -107,18 +107,15 @@ class _ProductServicesSectionState extends State<ProductServicesSection> with Si
                   children: [
                     _buildProductServicesInfoSm(),
                     SizedBoxH40(),
-                    // Wrap(
-                    //   spacing: kSpacing,
-                    //   runSpacing: kRunSpacing,
-                    //   children: _buildProductServicesCategories(productServicesCategories),
-                    // ),
+                    Wrap(
+                      spacing: kSpacing,
+                      runSpacing: kRunSpacing,
+                      children: _buildProductServices(selectedProductServices, context: context),
+                    ),
                     SizedBoxH40(),
                     Wrap(
                       runSpacing: assignHeight(context, 0.05),
-                      children: _buildProductServices(
-                        selectedProductServices,
-                        isMobile: true,
-                      ),
+                      children: _buildProductServices(selectedProductServices, isMobile: true),
                     ),
                   ],
                 ),
@@ -171,7 +168,6 @@ class _ProductServicesSectionState extends State<ProductServicesSection> with Si
                             shrinkWrap: true,
                             scrollDirection: Axis.horizontal,
                             physics: NeverScrollableScrollPhysics(),
-                            //  itemCount: productServicesCategories.length,
                             itemBuilder: (context, index) {
                               return new Container(
                                 padding: EdgeInsets.symmetric(
@@ -206,6 +202,11 @@ class _ProductServicesSectionState extends State<ProductServicesSection> with Si
       title1: StringConst.PRODUCT_AND_SERVICES,
       hasTitle2: false,
       body: StringConst.PRODUCT_AND_SERVICES_DESC,
+      // child: Wrap(
+      //   spacing: kSpacing,
+      //   runSpacing: kRunSpacing,
+      //   children: _buildProductServices(selectedProductServices, context: context),
+      // ),
     );
   }
 
@@ -217,7 +218,7 @@ class _ProductServicesSectionState extends State<ProductServicesSection> with Si
       // child: Wrap(
       //   spacing: kSpacing,
       //   runSpacing: kRunSpacing,
-      //   children: _buildProductServicesCategories(productServicesCategories),
+      //   children: _buildProductServices(selectedProductServices, context: context),
       // ),
     );
   }

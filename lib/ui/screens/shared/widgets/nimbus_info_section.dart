@@ -567,10 +567,3 @@ class NimbusInfoSection6 extends StatelessWidget {
     );
   }
 }
-
-_launchURL() async {
-  final Uri url = Uri.parse(StringConst.FDSI_URL);
-  if (!await launchUrl(url)) {
-    throw Exception('Could not launch');
-  }
-}

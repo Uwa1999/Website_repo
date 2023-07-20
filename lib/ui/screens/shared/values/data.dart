@@ -7,9 +7,6 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/buttons/social_bu
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/insights_card.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/nimbus_card.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/project_item.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/skill_card.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/skill_level.dart';
-import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Data {
@@ -71,53 +68,53 @@ class Data {
     // ),
   ];
 
-  static List<SkillLevelData> skillLevelData = [
-    SkillLevelData(
-      skill: StringConst.SKILLS_1,
-      level: 80,
-    ),
-    SkillLevelData(
-      skill: StringConst.SKILLS_2,
-      level: 90,
-    ),
-    SkillLevelData(
-      skill: StringConst.SKILLS_3,
-      level: 70,
-    ),
-  ];
-
-  static List<SkillCardData> skillCardData = [
-    SkillCardData(
-      title: StringConst.SKILLS_1,
-      description: StringConst.SKILLS_1_DESC,
-      iconData: FontAwesomeIcons.compress,
-    ),
-    SkillCardData(
-      title: "",
-      description: "",
-      iconData: Icons.pages_outlined,
-    ), //not being used
-    SkillCardData(
-      title: StringConst.SKILLS_2,
-      description: StringConst.SKILLS_2_DESC,
-      iconData: Icons.pages_outlined,
-    ),
-    SkillCardData(
-      title: StringConst.SKILLS_3,
-      description: StringConst.SKILLS_3_DESC,
-      iconData: FontAwesomeIcons.paintBrush,
-    ),
-    SkillCardData(
-      title: StringConst.SKILLS_4,
-      description: StringConst.SKILLS_4_DESC,
-      iconData: FontAwesomeIcons.recordVinyl,
-    ),
-    SkillCardData(
-      title: "",
-      description: "",
-      iconData: Icons.pages_outlined,
-    ), //not being used
-  ];
+  // static List<SkillLevelData> skillLevelData = [
+  //   SkillLevelData(
+  //     skill: StringConst.SKILLS_1,
+  //     level: 80,
+  //   ),
+  //   SkillLevelData(
+  //     skill: StringConst.SKILLS_2,
+  //     level: 90,
+  //   ),
+  //   SkillLevelData(
+  //     skill: StringConst.SKILLS_3,
+  //     level: 70,
+  //   ),
+  // ];
+  //
+  // static List<SkillCardData> skillCardData = [
+  //   SkillCardData(
+  //     title: StringConst.SKILLS_1,
+  //     description: StringConst.SKILLS_1_DESC,
+  //     iconData: FontAwesomeIcons.compress,
+  //   ),
+  //   SkillCardData(
+  //     title: "",
+  //     description: "",
+  //     iconData: Icons.pages_outlined,
+  //   ), //not being used
+  //   SkillCardData(
+  //     title: StringConst.SKILLS_2,
+  //     description: StringConst.SKILLS_2_DESC,
+  //     iconData: Icons.pages_outlined,
+  //   ),
+  //   SkillCardData(
+  //     title: StringConst.SKILLS_3,
+  //     description: StringConst.SKILLS_3_DESC,
+  //     iconData: FontAwesomeIcons.paintBrush,
+  //   ),
+  //   SkillCardData(
+  //     title: StringConst.SKILLS_4,
+  //     description: StringConst.SKILLS_4_DESC,
+  //     iconData: FontAwesomeIcons.recordVinyl,
+  //   ),
+  //   SkillCardData(
+  //     title: "",
+  //     description: "",
+  //     iconData: Icons.pages_outlined,
+  //   ), //not being used
+  // ];
   static List<StatItemData> statItemsData = [
     StatItemData(
       value: 8,

@@ -14,7 +14,7 @@ class NavSectionMobile extends StatelessWidget {
     return Container(
       height: Sizes.HEIGHT_100,
       decoration: BoxDecoration(
-        color: AppColors.black100,
+        color: AppColors.white,
       ),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -24,7 +24,7 @@ class NavSectionMobile extends StatelessWidget {
             child: IconButton(
               icon: Icon(
                 FeatherIcons.menu,
-                color: AppColors.white,
+                color: AppColors.black,
                 size: Sizes.ICON_SIZE_26,
               ),
               onPressed: () {
@@ -42,7 +42,7 @@ class NavSectionMobile extends StatelessWidget {
               onTap: () {},
               child: Image.asset(
                 ImagePath.LOGO_LIGHT,
-                height: Sizes.HEIGHT_52,
+                height: Sizes.HEIGHT_100,
               ),
             ),
           ),

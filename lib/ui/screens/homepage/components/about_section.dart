@@ -232,11 +232,14 @@ class _AboutSectionState extends State<AboutSection> with TickerProviderStateMix
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              NimbusInfoSection6(
-                title1: StringConst.ABOUT,
-                body: StringConst.ABOUT_ME_DESC,
-                body2: StringConst.ABOUT_ME_DESC2,
-                body3: StringConst.ABOUT_ME_DESC3,
+              Padding(
+                padding: EdgeInsets.only(right: !isMobile(context) ? 35 : 0),
+                child: NimbusInfoSection6(
+                  title1: StringConst.ABOUT,
+                  body: StringConst.ABOUT_ME_DESC,
+                  body2: StringConst.ABOUT_ME_DESC2,
+                  body3: StringConst.ABOUT_ME_DESC3,
+                ),
               ),
               // Expanded(
               //   child: Container(
@@ -268,11 +271,14 @@ class _AboutSectionState extends State<AboutSection> with TickerProviderStateMix
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              NimbusInfoSection6(
-                title1: StringConst.ABOUT,
-                body: StringConst.ABOUT_ME_DESC,
-                body2: StringConst.ABOUT_ME_DESC2,
-                body3: StringConst.ABOUT_ME_DESC3,
+              Padding(
+                padding: EdgeInsets.only(right: !isMobile(context) ? 35 : 0),
+                child: NimbusInfoSection6(
+                  title1: StringConst.ABOUT,
+                  body: StringConst.ABOUT_ME_DESC,
+                  body2: StringConst.ABOUT_ME_DESC2,
+                  body3: StringConst.ABOUT_ME_DESC3,
+                ),
               ),
               // Expanded(
               //   child: Container(
@@ -296,28 +302,28 @@ class _AboutSectionState extends State<AboutSection> with TickerProviderStateMix
     );
   }
 
-  //
-  // Widget nimbusInfoSectionSm({required double width}) {
-  //   TextTheme textTheme = Theme.of(context).textTheme;
-  //   return NimbusInfoSection2(
-  //     // sectionTitle: StringConst.ABOUT_ME,
-  //     title1: StringConst.OUR_HISTORY,
-  //     body: StringConst.ABOUT_ME_DESC,
-  //     child: Column(
-  //       crossAxisAlignment: CrossAxisAlignment.start,
-  //       children: [
-  //         Text(
-  //           StringConst.FOLLOW_ME_1,
-  //           style: textTheme.headlineMedium?.copyWith(color: AppColors.black),
-  //         ),
-  //
-  //         Wrap(
-  //           spacing: kSpacingSm,
-  //           runSpacing: kRunSpacingSm,
-  //           children: _buildSocialButtons(Data.socialData2),
-  //         ),
-  //       ],
-  //     ),
-  //   );
-  // }
+//
+// Widget nimbusInfoSectionSm({required double width}) {
+//   TextTheme textTheme = Theme.of(context).textTheme;
+//   return NimbusInfoSection2(
+//     // sectionTitle: StringConst.ABOUT_ME,
+//     title1: StringConst.OUR_HISTORY,
+//     body: StringConst.ABOUT_ME_DESC,
+//     child: Column(
+//       crossAxisAlignment: CrossAxisAlignment.start,
+//       children: [
+//         Text(
+//           StringConst.FOLLOW_ME_1,
+//           style: textTheme.headlineMedium?.copyWith(color: AppColors.black),
+//         ),
+//
+//         Wrap(
+//           spacing: kSpacingSm,
+//           runSpacing: kRunSpacingSm,
+//           children: _buildSocialButtons(Data.socialData2),
+//         ),
+//       ],
+//     ),
+//   );
+// }
 }

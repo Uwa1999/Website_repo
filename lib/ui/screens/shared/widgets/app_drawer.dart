@@ -1,10 +1,9 @@
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/homepage_screen.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/functions.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/responsive.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/images.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/sizes.dart';
-import 'package:auto_route/auto_route.dart';
+// import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
 import 'nav_item.dart';
@@ -18,7 +17,7 @@ class AppDrawer extends StatefulWidget {
   final GestureTapCallback? onClose;
 
   AppDrawer({
-    this.color = AppColors.black200,
+    this.color = AppColors.white,
     this.width,
     required this.menuList,
     this.onClose,
@@ -38,7 +37,7 @@ class _AppDrawerState extends State<AppDrawer> {
       md: assignWidth(context, 0.60),
     );
     return Container(
-      width: widget.width ?? defaultWidthOfDrawer,
+      width: MediaQuery.of(context).size.width * 0.3,
       child: Drawer(
         child: Container(
           color: widget.color,
@@ -47,29 +46,21 @@ class _AppDrawerState extends State<AppDrawer> {
             vertical: Sizes.PADDING_24,
           ),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Row(
-                children: [
-                  InkWell(
-                    onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => HomepageScreen()));
-                    },
-                    child: Image.asset(
-                      ImagePath.LOGO_LIGHT,
-                      height: Sizes.HEIGHT_52,
-                    ),
+              InkWell(
+                onTap: () {
+                  Scaffold.of(context).openEndDrawer();
+                },
+                child: Center(
+                  child: Image.asset(
+                    ImagePath.LOGO_LIGHT,
+                    height: Sizes.HEIGHT_150,
                   ),
-                  Spacer(),
-                  InkWell(
-                    onTap: widget.onClose ?? () => _closeDrawer(),
-                    child: Icon(
-                      Icons.close,
-                      size: Sizes.ICON_SIZE_30,
-                      color: AppColors.white,
-                    ),
-                  ),
-                ],
+                ),
+              ),
+              Divider(
+                color: AppColors.grey350,
               ),
               Spacer(flex: 2),
               ..._buildMenuList(
@@ -101,8 +92,8 @@ class _AppDrawerState extends State<AppDrawer> {
           title: menuList[i].name,
           isMobile: true,
           isSelected: menuList[i].isSelected,
-          titleStyle: textTheme.bodyLarge?.copyWith(
-            color: menuList[i].isSelected ? AppColors.maroon450 : AppColors.white,
+          titleStyle: textTheme.bodyText1?.copyWith(
+            color: menuList[i].isSelected ? AppColors.maroon450 : AppColors.black,
             fontSize: Sizes.TEXT_SIZE_16,
             fontWeight: menuList[i].isSelected ? FontWeight.bold : FontWeight.normal,
           ),
@@ -131,10 +122,15 @@ class _AppDrawerState extends State<AppDrawer> {
   }
 
   _closeDrawer() {
-    context.router.pop();
+    Scaffold.of(context).openEndDrawer();
   }
 
   // Widget _buildFooterText() {
+  //   TextTheme textTheme = Theme.of(context).textTheme;
+  //   TextStyle? footerTextStyle = textTheme.caption?.copyWith(
+  //     color: AppColors.primaryText2,
+  //     fontWeight: FontWeight.bold,
+  //   );
   //   return Column(
   //     crossAxisAlignment: CrossAxisAlignment.start,
   //     children: [

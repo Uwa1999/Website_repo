@@ -121,11 +121,15 @@ class _ProductServicesItemState extends State<ProductServicesItem> with TickerPr
               HoverContainer(
                 transform: Matrix4.identity()..translate(0, -8, 0),
                 hoverMargin: EdgeInsets.all(8),
-                child: Image.asset(
-                  widget.imageUrl,
-                  width: widget.width,
-                  height: widget.height,
-                  fit: BoxFit.fill,
+                child: Stack(
+                  children: [
+                    Image.asset(
+                      widget.imageUrl,
+                      width: widget.width,
+                      height: widget.height,
+                      fit: BoxFit.fill,
+                    ),
+                  ],
                 ),
               ),
             ],
