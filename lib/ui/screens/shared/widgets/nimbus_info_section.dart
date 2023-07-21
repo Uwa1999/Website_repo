@@ -513,6 +513,7 @@ class NimbusInfoSection6 extends StatelessWidget {
                           style: textTheme.bodySmall?.copyWith(fontSize: fontSize, height: 1.8, color: AppColors.blue300, fontWeight: FontWeight.bold),
                           recognizer: TapGestureRecognizer()
                             ..onTap = () {
+                              print('-----FDSI WEBPAGE-----');
                               launch(StringConst.FDSI_URL);
                             },
                         ),

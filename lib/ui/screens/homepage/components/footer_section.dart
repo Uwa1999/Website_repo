@@ -168,6 +168,7 @@ class DesktopFooter extends StatelessWidget {
   }
 
   _launchFacebookURL() async {
+    print('-----FDSAP FACEBOOK PAGE-----');
     final Uri url = Uri.parse(StringConst.FACEBOOK_URL);
     if (!await launchUrl(url)) {
       throw Exception('Could not launch');
@@ -175,6 +176,7 @@ class DesktopFooter extends StatelessWidget {
   }
 
   _launchLinkInURL() async {
+    print('-----FDSAP LINK IN PAGE-----');
     final Uri url = Uri.parse(StringConst.LINKED_IN_URL);
     if (!await launchUrl(url)) {
       throw Exception('Could not launch');
@@ -344,6 +346,7 @@ class MobileFooter extends StatelessWidget {
   }
 
   _launchFacebookURL() async {
+    print('-----FDSAP FACEBOOK PAGE-----');
     final Uri url = Uri.parse(StringConst.FACEBOOK_URL);
     if (!await launchUrl(url)) {
       throw Exception('Could not launch');
@@ -351,6 +354,7 @@ class MobileFooter extends StatelessWidget {
   }
 
   _launchLinkInURL() async {
+    print('-----FDSAP LINK IN PAGE-----');
     final Uri url = Uri.parse(StringConst.LINKED_IN_URL);
     if (!await launchUrl(url)) {
       throw Exception('Could not launch');

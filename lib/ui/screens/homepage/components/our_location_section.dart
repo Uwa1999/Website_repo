@@ -73,6 +73,7 @@ class _OurLocationSectionState extends State<OurLocationSection> {
 }
 
 _launchURL() async {
+  print('-----FDSAP GOOGLE MAP LOCATION-----');
   final Uri url = Uri.parse(StringConst.LOCATION_URL);
   if (!await launchUrl(url)) {
     throw Exception('Could not launch');
