@@ -6,6 +6,7 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/content_area.dart
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/nimbus_info_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/sizedbox.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class OurLocationSection extends StatefulWidget {
@@ -24,6 +25,11 @@ class _OurLocationSectionState extends State<OurLocationSection> {
           child: NimbusInfoSection2(
             title1: StringConst.OUR_LOCATION,
             hasTitle2: false,
+            title1Style: GoogleFonts.poppins(
+              fontSize: Sizes.TEXT_SIZE_35,
+              fontWeight: FontWeight.w700,
+              color: AppColors.black,
+            ),
           ),
         ),
         SizedBoxH20(),

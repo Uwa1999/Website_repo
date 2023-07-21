@@ -1,13 +1,16 @@
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/header_responsive_section/widgets.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/responsive.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/data.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/images.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/sizes.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/strings.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/styles.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/content_area.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/nimbus_info_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/sizedbox.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
@@ -224,6 +227,11 @@ class _AboutSectionState extends State<AboutSection>
                   body: StringConst.ABOUT_ME_DESC,
                   body2: StringConst.ABOUT_ME_DESC2,
                   body3: StringConst.ABOUT_ME_DESC3,
+                  title1Style: GoogleFonts.poppins(
+                    fontSize: Sizes.TEXT_SIZE_35,
+                    fontWeight: FontWeight.w700,
+                    color: AppColors.black,
+                  ),
                 ),
               ),
               // Expanded(
@@ -263,6 +271,11 @@ class _AboutSectionState extends State<AboutSection>
                   body: StringConst.ABOUT_ME_DESC,
                   body2: StringConst.ABOUT_ME_DESC2,
                   body3: StringConst.ABOUT_ME_DESC3,
+                  title1Style: GoogleFonts.poppins(
+                    fontSize: Sizes.TEXT_SIZE_18,
+                    fontWeight: FontWeight.w700,
+                    color: AppColors.black,
+                  ),
                 ),
               ),
             ],

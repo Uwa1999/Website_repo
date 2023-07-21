@@ -53,10 +53,12 @@ class _AmlaDescMainState extends State<AmlaDescMain> with SingleTickerProviderSt
     double screenHeight = heightOfScreen(context);
     double spacerHeight = screenHeight * 0.19;
     return Scaffold(
+      backgroundColor: AppColors.white,
       key: _scaffoldKey,
       floatingActionButton: ScaleTransition(
         scale: _animation,
         child: FloatingActionButton(
+          backgroundColor: AppColors.maroon08,
           onPressed: () {
             // Scroll to header section
             //  scrollToSection(navItems[0].key.currentContext!);

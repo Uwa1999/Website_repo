@@ -1,10 +1,13 @@
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/responsive.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/images.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/sizes.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/strings.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/content_area.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/nimbus_info_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/sizedbox.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
@@ -168,6 +171,11 @@ class _ChatbotSectionState extends State<ChatbotSection> with SingleTickerProvid
       title1: StringConst.CHATBOT_TITLE,
       hasTitle2: false,
       body: StringConst.CHATBOT_DESC,
+      title1Style: GoogleFonts.poppins(
+        fontSize: Sizes.TEXT_SIZE_35,
+        fontWeight: FontWeight.w700,
+        color: AppColors.black,
+      ),
       child: Container(
         child: Row(
           children: [],

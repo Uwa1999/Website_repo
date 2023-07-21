@@ -27,6 +27,7 @@ class _TemenosDescScreenState extends State<TemenosDescScreen> {
     return Column(
       children: [
         Container(
+          color: AppColors.white,
           padding: EdgeInsets.only(left: Sizes.PADDING_100),
           height: MediaQuery.of(context).size.height * 0.5,
           width: double.infinity,

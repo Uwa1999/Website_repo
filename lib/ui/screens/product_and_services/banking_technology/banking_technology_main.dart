@@ -56,10 +56,12 @@ class _BankingTechnologyMainState extends State<BankingTechnologyMain> with Sing
     double screenHeight = heightOfScreen(context);
     double spacerHeight = screenHeight * 0.19;
     return Scaffold(
+      backgroundColor: AppColors.white,
       key: _scaffoldKey,
       floatingActionButton: Visibility(
         visible: isFabVisible,
         child: FloatingActionButton(
+          backgroundColor: AppColors.maroon08,
           child: Icon(
             Icons.expand_more,
             size: Sizes.ICON_SIZE_18,

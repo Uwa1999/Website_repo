@@ -331,10 +331,10 @@ Moreover, CARD MRI envisions extending the On-the-Job training program to includ
 shared services provider of
 world-class banking applications
 for banks and financial services''';
-  static const String ABOUT_FDS_ASYA_FOOTER2 = '''Core Banking Solutions
+  static const String ABOUT_FDS_ASYA_FOOTER2 = '''Business Analytics & AI
+Core Banking Solutions
 Cyber Security & Fraud
-Digipay
-Business Analytics & AI''';
+Digipay''';
   static const String ABOUT_FDS_ASYA_FOOTER3 = '''About
 Contact
 Our Approach

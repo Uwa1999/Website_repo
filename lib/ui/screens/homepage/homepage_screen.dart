@@ -68,6 +68,7 @@ class _HomepageScreenState extends State<HomepageScreen> {
     double spacerHeight = screenHeight * 0.19;
 
     return Scaffold(
+      backgroundColor: AppColors.white,
       key: _scaffoldKey,
       drawer: ResponsiveBuilder(
         refinedBreakpoints: RefinedBreakpoints(),
@@ -96,6 +97,7 @@ class _HomepageScreenState extends State<HomepageScreen> {
       floatingActionButton: Visibility(
         visible: isFabVisible,
         child: FloatingActionButton(
+          backgroundColor: AppColors.maroon08,
           child: Icon(
             Icons.expand_less,
             size: Sizes.ICON_SIZE_18,

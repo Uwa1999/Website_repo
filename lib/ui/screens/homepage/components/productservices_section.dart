@@ -12,6 +12,7 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/nimbus_info_secti
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/project_item.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/sizedbox.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
@@ -202,6 +203,11 @@ class _ProductServicesSectionState extends State<ProductServicesSection> with Si
       title1: StringConst.PRODUCT_AND_SERVICES,
       hasTitle2: false,
       body: StringConst.PRODUCT_AND_SERVICES_DESC,
+      title1Style: GoogleFonts.poppins(
+        fontSize: Sizes.TEXT_SIZE_18,
+        fontWeight: FontWeight.w700,
+        color: AppColors.black,
+      ),
       // child: Wrap(
       //   spacing: kSpacing,
       //   runSpacing: kRunSpacing,
@@ -215,6 +221,11 @@ class _ProductServicesSectionState extends State<ProductServicesSection> with Si
       title1: StringConst.PRODUCT_AND_SERVICES,
       hasTitle2: false,
       body: StringConst.PRODUCT_AND_SERVICES_DESC,
+      title1Style: GoogleFonts.poppins(
+        fontSize: Sizes.TEXT_SIZE_35,
+        fontWeight: FontWeight.w700,
+        color: AppColors.black,
+      ),
       // child: Wrap(
       //   spacing: kSpacing,
       //   runSpacing: kRunSpacing,

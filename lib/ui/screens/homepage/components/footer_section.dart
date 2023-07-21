@@ -78,7 +78,11 @@ class DesktopFooter extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Icon(FontAwesomeIcons.mobileAlt, size: 17),
+                            Icon(
+                              FontAwesomeIcons.mobileAlt,
+                              size: 17,
+                              color: AppColors.white,
+                            ),
                             SizedBoxW12(),
                             Text(
                               StringConst.OUR_NUMBER,
@@ -97,7 +101,11 @@ class DesktopFooter extends StatelessWidget {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
-                                Icon(FontAwesomeIcons.linkedin, size: 17),
+                                Icon(
+                                  FontAwesomeIcons.linkedin,
+                                  size: 17,
+                                  color: AppColors.white,
+                                ),
                                 SizedBoxW12(),
                                 Text(
                                   StringConst.LINKED_IN,
@@ -118,7 +126,11 @@ class DesktopFooter extends StatelessWidget {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
-                                Icon(FontAwesomeIcons.facebook, size: 17),
+                                Icon(
+                                  FontAwesomeIcons.facebook,
+                                  size: 17,
+                                  color: AppColors.white,
+                                ),
                                 SizedBoxW12(),
                                 Text(
                                   StringConst.FACEBOOK,
@@ -244,7 +256,11 @@ class MobileFooter extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        Icon(FontAwesomeIcons.mobileAlt, size: 8),
+                        Icon(
+                          FontAwesomeIcons.mobileAlt,
+                          size: 8,
+                          color: AppColors.white,
+                        ),
                         SizedBoxW12(),
                         Text(
                           StringConst.OUR_NUMBER,
@@ -263,7 +279,11 @@ class MobileFooter extends StatelessWidget {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Icon(FontAwesomeIcons.linkedin, size: 8),
+                            Icon(
+                              FontAwesomeIcons.linkedin,
+                              size: 8,
+                              color: AppColors.white,
+                            ),
                             SizedBoxW12(),
                             Text(
                               StringConst.LINKED_IN,
@@ -284,7 +304,11 @@ class MobileFooter extends StatelessWidget {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Icon(FontAwesomeIcons.facebook, size: 8),
+                            Icon(
+                              FontAwesomeIcons.facebook,
+                              size: 8,
+                              color: AppColors.white,
+                            ),
                             SizedBoxW12(),
                             Text(
                               StringConst.FACEBOOK,

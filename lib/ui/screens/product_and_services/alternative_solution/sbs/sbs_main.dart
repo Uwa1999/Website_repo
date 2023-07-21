@@ -53,6 +53,7 @@ class _SbsDescMainState extends State<SbsDescMain> with SingleTickerProviderStat
     double screenHeight = heightOfScreen(context);
     double spacerHeight = screenHeight * 0.19;
     return Scaffold(
+      backgroundColor: AppColors.white,
       key: _scaffoldKey,
       floatingActionButton: ScaleTransition(
         scale: _animation,

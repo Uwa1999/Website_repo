@@ -2,6 +2,7 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/insights/articles/article_main.d
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/insights/events/event_main.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/insights/webinars/news_main.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/responsive.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/data.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/sizes.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/strings.dart';
@@ -11,6 +12,7 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/nimbus_info_secti
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/sizedbox.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 const double kSpacing = 28.0;
@@ -59,8 +61,12 @@ class _InsightSectionState extends State<InsightSection> {
                           width: contentAreaWidth,
                           child: NimbusInfoSection2(
                             title1: StringConst.INSIGHTS_TITLE_1,
-                            //title2: StringConst.INSIGHTS_TITLE_2,
                             body: '',
+                            title1Style: GoogleFonts.poppins(
+                              fontSize: Sizes.TEXT_SIZE_35,
+                              fontWeight: FontWeight.w700,
+                              color: AppColors.black,
+                            ),
                           ),
                         ),
                       ],
@@ -78,6 +84,11 @@ class _InsightSectionState extends State<InsightSection> {
                             title1: StringConst.INSIGHTS_TITLE_1,
                             //title2: StringConst.INSIGHTS_TITLE_2,
                             body: '',
+                            title1Style: GoogleFonts.poppins(
+                              fontSize: Sizes.TEXT_SIZE_35,
+                              fontWeight: FontWeight.w700,
+                              color: AppColors.black,
+                            ),
                           ),
                         ),
                         Spacer(),
@@ -141,30 +152,6 @@ class _InsightSectionState extends State<InsightSection> {
       ],
     );
   }
-
-  // CarouselOptions carouselOptions({
-  //   bool autoPlay = true,
-  //   bool enlargeCenterPage = false,
-  //   bool enableInfiniteScroll = true,
-  //   double viewportFraction = 1.0,
-  //   double aspectRatio = 0.1,
-  //   int initialPage = 1,
-  //   ScrollPhysics? scrollPhysics = const NeverScrollableScrollPhysics(),
-  // }) {
-  //   return CarouselOptions(
-  //       autoPlay: autoPlay,
-  //       enableInfiniteScroll: enableInfiniteScroll,
-  //       enlargeCenterPage: enlargeCenterPage,
-  //       viewportFraction: viewportFraction,
-  //       aspectRatio: aspectRatio,
-  //       initialPage: initialPage,
-  //       scrollPhysics: scrollPhysics,
-  //       onPageChanged: (int index, CarouselPageChangedReason reason) {
-  //         setState(() {
-  //           currentPageIndex = index.toDouble();
-  //         });
-  //       });
-  // }
 
   List<Widget> _buildInsightCards({required List<InsightsData> insightsData, required double width, required context}) {
     double cardWidth = ((width - (kSpacing * 2)) / 5);

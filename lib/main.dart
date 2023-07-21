@@ -1,7 +1,6 @@
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/router.gr.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/app_theme.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/strings.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/homepage_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:layout/layout.dart';
 
 void main() {
@@ -9,18 +8,29 @@ void main() {
 }
 
 class Fdsap extends StatelessWidget {
-  final _appRouter = AppRouter();
+  // final _appRouter = AppRouter();
 
   @override
   Widget build(BuildContext context) {
     return Layout(
-      child: MaterialApp.router(
-        title: StringConst.APP_NAME,
-        theme: AppTheme.lightThemeData,
+      child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        routerDelegate: _appRouter.delegate(),
-        routeInformationParser: _appRouter.defaultRouteParser(),
+        title: 'FDS ASYA PHILIPPINES INC.',
+        theme: ThemeData(
+          textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme).apply(
+            bodyColor: Colors.black54,
+          ),
+        ),
+        home: HomepageScreen(),
       ),
+
+      // child: MaterialApp.router(
+      //   title: StringConst.APP_NAME,
+      //   theme: AppTheme.lightThemeData,
+      //   debugShowCheckedModeBanner: false,
+      //   routerDelegate: _appRouter.delegate(),
+      //   routeInformationParser: _appRouter.defaultRouteParser(),
+      // ),
     );
   }
 }

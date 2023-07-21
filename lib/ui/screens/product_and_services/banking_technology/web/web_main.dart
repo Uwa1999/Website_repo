@@ -53,6 +53,7 @@ class _WebCollectionDescMainState extends State<WebCollectionDescMain> with Sing
     double screenHeight = heightOfScreen(context);
     double spacerHeight = screenHeight * 0.19;
     return Scaffold(
+      backgroundColor: AppColors.white,
       key: _scaffoldKey,
       floatingActionButton: ScaleTransition(
         scale: _animation,
@@ -61,6 +62,7 @@ class _WebCollectionDescMainState extends State<WebCollectionDescMain> with Sing
             // Scroll to header section
             //  scrollToSection(navItems[0].key.currentContext!);
           },
+          backgroundColor: AppColors.maroon08,
           child: Icon(
             FontAwesomeIcons.arrowUp,
             size: Sizes.ICON_SIZE_18,

@@ -4,6 +4,7 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/strings.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/nimbus_info_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/sizedbox.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class NewsDescScreen extends StatefulWidget {
   const NewsDescScreen({Key? key}) : super(key: key);
@@ -38,13 +39,16 @@ class _NewsDescScreenState extends State<NewsDescScreen> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               SizedBoxH100(),
-              NimbusInfoSection3(title1: StringConst.NEWS_DESC_TITLE, hasTitle2: false, body: StringConst.NEWS_DESC_SUBTITLE1
-                  // child: Wrap(
-                  //   spacing: kSpacing,
-                  //   runSpacing: kRunSpacing,
-                  //   children: _buildProductServicesCategories(productServicesCategories),
-                  // ),
-                  ),
+              NimbusInfoSection3(
+                title1: StringConst.NEWS_DESC_TITLE,
+                hasTitle2: false,
+                body: StringConst.NEWS_DESC_SUBTITLE1,
+                title1Style: GoogleFonts.poppins(
+                  fontSize: Sizes.TEXT_SIZE_35,
+                  fontWeight: FontWeight.w700,
+                  color: AppColors.white,
+                ),
+              ),
             ],
           ),
         ),

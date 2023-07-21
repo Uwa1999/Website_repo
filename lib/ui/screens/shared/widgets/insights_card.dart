@@ -142,7 +142,12 @@ class _InsightsCardState extends State<InsightsCard> {
                                           alignment: Alignment.centerLeft,
                                           child: Text(
                                             widget.title,
-                                            style: widget.dateStyle ?? textTheme.titleMedium,
+                                            style: widget.dateStyle ??
+                                                textTheme.titleMedium?.copyWith(
+                                                  fontSize: Sizes.TEXT_SIZE_18,
+                                                  fontWeight: FontWeight.bold,
+                                                  color: AppColors.black,
+                                                ),
                                           ),
                                         ),
                                       ),
@@ -209,6 +214,7 @@ class _InsightsCardState extends State<InsightsCard> {
                           textTheme.headlineSmall?.copyWith(
                             fontSize: Sizes.TEXT_SIZE_15,
                             color: AppColors.white,
+                            fontWeight: FontWeight.bold,
                           ),
                     ),
                   ),
