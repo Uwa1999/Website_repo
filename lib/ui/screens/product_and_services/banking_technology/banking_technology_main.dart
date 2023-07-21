@@ -11,7 +11,6 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/sizes.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/sizedbox.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 class BankingTechnologyMain extends StatefulWidget {
@@ -62,7 +61,7 @@ class _BankingTechnologyMainState extends State<BankingTechnologyMain> with Sing
         visible: isFabVisible,
         child: FloatingActionButton(
           child: Icon(
-            FontAwesomeIcons.arrowDown,
+            Icons.expand_more,
             size: Sizes.ICON_SIZE_18,
             color: AppColors.white,
           ),

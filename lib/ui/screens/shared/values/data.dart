@@ -50,71 +50,8 @@ class Data {
       iconColor: AppColors.white,
       url: StringConst.FACEBOOK_URL,
     ),
-    // FooterSocialButtonData(
-    //   tag: StringConst.GITHUB_URL,
-    //   iconData: FontAwesomeIcons.github,
-    //   iconColor: AppColors.white,
-    //   url: StringConst.GITHUB_URL,
-    // ),
-    // FooterSocialButtonData(
-    //   tag: StringConst.INSTA,
-    //   iconData: FontAwesomeIcons.instagram,
-    //   url: StringConst.INSTAGRAM_URL,
-    // ),
-    // FooterSocialButtonData(
-    //   tag: StringConst.TWITTER_URL,
-    //   iconData: FontAwesomeIcons.twitter,
-    //   url: StringConst.TWITTER_URL,
-    // ),
   ];
 
-  // static List<SkillLevelData> skillLevelData = [
-  //   SkillLevelData(
-  //     skill: StringConst.SKILLS_1,
-  //     level: 80,
-  //   ),
-  //   SkillLevelData(
-  //     skill: StringConst.SKILLS_2,
-  //     level: 90,
-  //   ),
-  //   SkillLevelData(
-  //     skill: StringConst.SKILLS_3,
-  //     level: 70,
-  //   ),
-  // ];
-  //
-  // static List<SkillCardData> skillCardData = [
-  //   SkillCardData(
-  //     title: StringConst.SKILLS_1,
-  //     description: StringConst.SKILLS_1_DESC,
-  //     iconData: FontAwesomeIcons.compress,
-  //   ),
-  //   SkillCardData(
-  //     title: "",
-  //     description: "",
-  //     iconData: Icons.pages_outlined,
-  //   ), //not being used
-  //   SkillCardData(
-  //     title: StringConst.SKILLS_2,
-  //     description: StringConst.SKILLS_2_DESC,
-  //     iconData: Icons.pages_outlined,
-  //   ),
-  //   SkillCardData(
-  //     title: StringConst.SKILLS_3,
-  //     description: StringConst.SKILLS_3_DESC,
-  //     iconData: FontAwesomeIcons.paintBrush,
-  //   ),
-  //   SkillCardData(
-  //     title: StringConst.SKILLS_4,
-  //     description: StringConst.SKILLS_4_DESC,
-  //     iconData: FontAwesomeIcons.recordVinyl,
-  //   ),
-  //   SkillCardData(
-  //     title: "",
-  //     description: "",
-  //     iconData: Icons.pages_outlined,
-  //   ), //not being used
-  // ];
   static List<StatItemData> statItemsData = [
     StatItemData(
       value: 8,
