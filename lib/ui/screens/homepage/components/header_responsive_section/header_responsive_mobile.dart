@@ -141,12 +141,14 @@ class _HeaderResponsiveMobileState extends State<HeaderResponsiveMobile> with Si
                             ),
                             SizedBoxH16(),
                             ConstrainedBox(
-                              constraints: BoxConstraints(maxWidth: screenWidth * 0.60),
+                              constraints: BoxConstraints(
+                                maxWidth: screenWidth * 0.60,
+                              ),
                               child: SelectableText(
                                 StringConst.ABOUT_DEV,
                                 style: GoogleFonts.poppins(
                                   fontWeight: FontWeight.w500,
-                                  fontSize: 12,
+                                  fontSize: 18,
                                   height: 1.5,
                                 ),
                                 // style: bodyTextStyle?.copyWith(height: 1.5),

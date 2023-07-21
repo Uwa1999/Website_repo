@@ -48,7 +48,7 @@ class StringConst {
   //AboutMe Section
   static const String ABOUT_ME_DESC = '''FDS ASYA PHILIPPINES INC. (FDSAP) is a leader in digital services, whose success is also attributed to the support of an international alliance with our holding, ''';
   static const String ABOUT_ME_DESC2 = 'FORTRESS DATA SERVICES INDONESIA (FDSI).';
-  static const String ABOUT_ME_DESC3 = ''' With a deep understanding of local businesses, we have played a vital role since 2015 in facilitating the digitalization journeys of CARD Bank, CARD RBI, andCARD SME. Throughout the years, we have become one of Southeast Asia's leading IT companies and continues to be a trustworthy and reliable partner in the financial industry.''';
+  static const String ABOUT_ME_DESC3 = ''' With a deep understanding of local businesses, we have played a vital role since 2015 in facilitating the digitalization journeys of CARD Bank, CARD RBI, and CARD SME. Throughout the years, we have become one of Southeast Asia's leading IT companies and continues to be a trustworthy and reliable partner in the financial industry.''';
   static const String ABOUT_ME_DESC_1 = "Product Designer and Digital Creative Director working in design ";
   static const String ABOUT_ME_DESC_2 = "field for 13 years so far, specialized in UI/UX, Branding and digital";
   static const String ABOUT_ME_DESC_3 = "designs. These are the words we live by in everything we do. Every";
