@@ -233,7 +233,7 @@ class _AboutSectionState extends State<AboutSection> with TickerProviderStateMix
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: EdgeInsets.only(right: !isMobile(context) ? 35 : 0),
+                padding: EdgeInsets.only(right: !isMobile(context) ? 15 : 0),
                 child: NimbusInfoSection6(
                   title1: StringConst.ABOUT,
                   body: StringConst.ABOUT_ME_DESC,
@@ -272,7 +272,7 @@ class _AboutSectionState extends State<AboutSection> with TickerProviderStateMix
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
-                padding: EdgeInsets.only(right: !isMobile(context) ? 35 : 0),
+                padding: EdgeInsets.only(right: !isMobile(context) ? 15 : 0),
                 child: NimbusInfoSection6(
                   title1: StringConst.ABOUT,
                   body: StringConst.ABOUT_ME_DESC,
