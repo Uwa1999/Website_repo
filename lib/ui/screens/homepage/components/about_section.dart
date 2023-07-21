@@ -134,6 +134,7 @@ class _AboutSectionState extends State<AboutSection> with TickerProviderStateMix
                       ),
                     ],
                   ),
+                  SizedBoxH10(),
                   ContentArea(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -191,7 +192,7 @@ class _AboutSectionState extends State<AboutSection> with TickerProviderStateMix
           scale: _scaleAnimation,
           child: Image.asset(
             ImagePath.LOGO_FDSAP,
-            width: width * 0.75,
+            width: width * 0.70,
           ),
         ),
       ],
@@ -214,7 +215,7 @@ class _AboutSectionState extends State<AboutSection> with TickerProviderStateMix
               return nimbusInfoSectionSm(width: width);
             } else {
               return Container(
-                width: width * 0.70,
+                width: width * 0.80,
                 child: nimbusInfoSectionLg(),
               );
             }

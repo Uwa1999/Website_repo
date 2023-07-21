@@ -37,7 +37,7 @@ class FdsTagLineCard extends StatefulWidget {
     this.width,
     this.height,
     this.offsetY = -40,
-    this.elevation = Sizes.ELEVATION_4,
+    this.elevation = Sizes.ELEVATION_6,
     this.hasAnimation = true,
     this.borderRadius = const BorderRadius.all(Radius.circular(12)),
     this.padding = const EdgeInsets.symmetric(
@@ -67,19 +67,19 @@ class FdsTagLineCard extends StatefulWidget {
   _FdsTagLineCardState createState() => _FdsTagLineCardState();
 }
 
-class _FdsTagLineCardState extends State<FdsTagLineCard> with SingleTickerProviderStateMixin {
+class _FdsTagLineCardState extends State<FdsTagLineCard> {
   bool _hovering = false;
   late AnimationController _controller;
   late Animation<double> animation;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = AnimationController(vsync: this, duration: Duration(milliseconds: 300));
-    animation = Tween(begin: 0.0, end: widget.offsetY).animate(
-      CurvedAnimation(parent: _controller, curve: Curves.easeInOutQuart),
-    );
-  }
+  //
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   _controller = AnimationController(vsync: this, duration: Duration(milliseconds: 300));
+  //   animation = Tween(begin: 0.0, end: widget.offsetY).animate(
+  //     CurvedAnimation(parent: _controller, curve: Curves.easeInOutQuart),
+  //   );
+  // }
 
   Future<void> _animateCard() async {
     if (_hovering) {
@@ -143,7 +143,7 @@ class _FdsTagLineCardState extends State<FdsTagLineCard> with SingleTickerProvid
                   children: [
                     Spacer(),
                     widget.title ?? EmptyContainer(),
-                    widget.title != null ? SizedBoxH5() : EmptyContainer(),
+                    widget.title != null ? SizedBoxH4() : EmptyContainer(),
                     widget.subtitle ?? EmptyContainer(),
                     Spacer(),
                   ],
