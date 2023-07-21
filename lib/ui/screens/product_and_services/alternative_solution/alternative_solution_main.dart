@@ -12,6 +12,7 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/sizes.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/sizedbox.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
@@ -58,67 +59,67 @@ class _AlternativeSolutionMainState extends State<AlternativeSolutionMain> with 
     double spacerHeight = screenHeight * 0.19;
     return Scaffold(
       key: _scaffoldKey,
-      // floatingActionButton: Visibility(
-      //   visible: isFabVisible,
-      //   child: FloatingActionButton(
-      //     child: Icon(
-      //       FontAwesomeIcons.arrowDown,
-      //       size: Sizes.ICON_SIZE_18,
-      //       color: AppColors.white,
-      //     ),
-      //     onPressed: () {},
-      //   ),
-      // ),
-      // body: NotificationListener<UserScrollNotification>(
-      //   onNotification: (notification) {
-      //     if (notification.direction == ScrollDirection.reverse) {
-      //       if (!isFabVisible) setState(() => isFabVisible = true);
-      //     } else if (notification.direction == ScrollDirection.forward) {
-      //       if (isFabVisible) setState(() => isFabVisible = false);
-      //     }
-      //     return true;
-      //   },
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: Icon(
-          FontAwesomeIcons.arrowDown,
-          size: Sizes.ICON_SIZE_18,
-          color: AppColors.white,
+      floatingActionButton: Visibility(
+        visible: isFabVisible,
+        child: FloatingActionButton(
+          child: Icon(
+            FontAwesomeIcons.arrowDown,
+            size: Sizes.ICON_SIZE_18,
+            color: AppColors.white,
+          ),
+          onPressed: () {},
         ),
       ),
-      body: Column(
-        children: [
-          ResponsiveBuilder(
-            refinedBreakpoints: RefinedBreakpoints(),
-            builder: (context, sizingInformation) {
-              double screenWidth = sizingInformation.screenSize.width;
-              if (screenWidth < RefinedBreakpoints().desktopSmall) {
-                return NavSectionMobile(scaffoldKey: _scaffoldKey);
-              } else {
-                return HeaderSection();
-              }
-            },
-          ),
-          Expanded(
-            child: SingleChildScrollView(
-              controller: _scrollController,
-              child: Column(
-                children: [
-                  KplusSection(),
-                  ChatbotSection(),
-                  K2cSection(),
-                  DcmSection(),
-                  SbsSection(),
-                  AtmSection(),
-                  SizedBoxH100(),
-                  FooterSection(),
-                ],
+      body: NotificationListener<UserScrollNotification>(
+        onNotification: (notification) {
+          if (notification.direction == ScrollDirection.reverse) {
+            if (!isFabVisible) setState(() => isFabVisible = true);
+          } else if (notification.direction == ScrollDirection.forward) {
+            if (isFabVisible) setState(() => isFabVisible = false);
+          }
+          return true;
+        },
+        // floatingActionButton: FloatingActionButton(
+        //   onPressed: () {},
+        //   child: Icon(
+        //     FontAwesomeIcons.arrowDown,
+        //     size: Sizes.ICON_SIZE_18,
+        //     color: AppColors.white,
+        //   ),
+        // ),
+        child: Column(
+          children: [
+            ResponsiveBuilder(
+              refinedBreakpoints: RefinedBreakpoints(),
+              builder: (context, sizingInformation) {
+                double screenWidth = sizingInformation.screenSize.width;
+                if (screenWidth < RefinedBreakpoints().desktopSmall) {
+                  return NavSectionMobile(scaffoldKey: _scaffoldKey);
+                } else {
+                  return HeaderSection();
+                }
+              },
+            ),
+            Expanded(
+              child: SingleChildScrollView(
+                controller: _scrollController,
+                child: Column(
+                  children: [
+                    KplusSection(),
+                    ChatbotSection(),
+                    K2cSection(),
+                    DcmSection(),
+                    SbsSection(),
+                    AtmSection(),
+                    SizedBoxH100(),
+                    FooterSection(),
+                  ],
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
-      // ),
     );
   }
 }

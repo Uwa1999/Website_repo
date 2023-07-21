@@ -98,7 +98,7 @@ class _HomepageScreenState extends State<HomepageScreen> {
         visible: isFabVisible,
         child: FloatingActionButton(
           child: Icon(
-            FontAwesomeIcons.arrowUp,
+            FontAwesomeIcons.arrowDown,
             size: Sizes.ICON_SIZE_18,
             color: AppColors.white,
           ),
