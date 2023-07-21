@@ -151,25 +151,9 @@ class _HeaderResponsiveMobileState extends State<HeaderResponsiveMobile> with Si
                                   fontSize: 18,
                                   height: 1.5,
                                 ),
-                                // style: bodyTextStyle?.copyWith(height: 1.5),
                               ),
                             ),
                             SizedBoxH70(),
-                            // Row(
-                            //   children: [
-                            //     ContactUsButton(
-                            //       width: buttonWidth,
-                            //       height: buttonHeight,
-                            //       buttonTitle: StringConst.DOWNLOAD_CV,
-                            //       opensUrl: true,
-                            //       url: StringConst.EMAIL_URL,
-                            //       titleStyle: GoogleFonts.poppins(
-                            //         color: Colors.white,
-                            //         fontWeight: FontWeight.w600,
-                            //       ),
-                            //     ),
-                            //   ],
-                            // ),
                           ],
                         ),
                       ],
@@ -177,21 +161,6 @@ class _HeaderResponsiveMobileState extends State<HeaderResponsiveMobile> with Si
                   ),
                 ],
               ),
-              //  SizedBoxH100(),
-              // Padding(
-              //   padding: EdgeInsets.symmetric(
-              //     horizontal: sidePadding,
-              //   ),
-              //   child: Column(
-              //     children: buildCardRow(
-              //       context: context,
-              //       data: Data.nimbusCardData,
-              //       width: contentAreaWidth,
-              //       isHorizontal: false,
-              //       hasAnimation: false,
-              //     ),
-              //   ),
-              // ),
             ],
           ),
         ],
