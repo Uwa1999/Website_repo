@@ -1,17 +1,9 @@
-# fds_asya
+# FDS ASYA PHILIPPINES INC.
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-# Website_repo
+FDS ASYA PHILIPPINES INC. (FDSAP) is a leader in digital services,
+whose success is also attributed to the support of an international
+alliance with our holding, [FORTRESS DATA SERVICES INDONESIA (FDSI)](https://fds.co.id/).
+With a deep understanding of local businesses, we have played a vital
+role since 2015 in facilitating the digitalization journeys of CARD Bank, CARD RBI,
+and CARD SME. Throughout the years, we have become one  of Southeast Asia's leading
+IT companies and continues to be a trustworthy and reliable partner in the financial industry.
