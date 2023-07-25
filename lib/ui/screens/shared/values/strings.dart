@@ -261,7 +261,7 @@ class StringConst {
 
   //Webinars Description
   static const String WEBINARS_DATE = "February 25, 2023";
-  static const String WEBINARS_TITLE_1 = '''FDS ASYA PHILIPPINES INC. Signs MOA with university for OJT Program for IT Students
+  static const String WEBINARS_TITLE_1 = '''FDS ASYA PHILIPPINES INC. Signs MOA with Pamantasan ng Lungsod ng San Pablo for OJT Program for IT Students
   ''';
   static const String WEBINARS_TITLE_2 = " ";
   static const String WEBINARS_TITLE_3 = " ";
@@ -304,7 +304,7 @@ FDS Asya Philippines Inc. Reflects on Years of Success and Innovation on its Fou
 
   //News Info
   static const String NEWS_DESC_TITLE = '''FDS ASYA PHILIPPINES INC.
-Signs MOA with university for OJT Program for IT Students''';
+Signs MOA with Pamantasan ng Lungsod ng San Pablo for OJT Program for IT Students''';
   static const String NEWS_DESC_SUBTITLE1 = 'News';
   static const String NEWS_DESC1 = '''On May 23, 2022, FDS ASYA PHILIPPINES INC. (FDSAP) and Pamantasan ng Lungsod ng San Pablo (PLSP) signed a Memorandum of Agreement (MOA) for an On-the-Job Training program for Information Technology (IT) students. The collaboration aims to provide PLSP students with practical experience in the field of digital banking, microfinancing services, and other Information Technology operations-related services.
 

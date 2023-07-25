@@ -143,6 +143,7 @@ class _InsightSectionState extends State<InsightSection> {
                       ),
                     ),
                   ),
+
                   // SizedBoxH80(),
                 ],
               ),
