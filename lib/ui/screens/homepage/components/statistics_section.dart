@@ -231,6 +231,7 @@ class StatItem extends StatelessWidget {
     return Column(
       children: [
         Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
               "$value",

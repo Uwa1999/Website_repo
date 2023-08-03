@@ -139,7 +139,7 @@ class NimbusInfoSection2 extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Text(
                   title1,
@@ -169,11 +169,11 @@ class NimbusInfoSection2 extends StatelessWidget {
             //         style: title2Style ?? titleStyle,
             //       )
             //     : EmptyContainer(),
-            // SizedBoxH10(),
-            // Text(
-            //   body,
-            //   style: textTheme.bodyMedium?.copyWith(fontSize: fontSize, height: 1.8),
-            // ),
+            SizedBoxH10(),
+            Text(
+              body,
+              style: textTheme.bodySmall?.copyWith(fontSize: fontSize, height: 1.3, color: AppColors.black),
+            ),
             // child != null ? SizedBoxH30() : EmptyContainer(),
             // child ?? EmptyContainer(),
           ],
@@ -483,10 +483,10 @@ class NimbusInfoSection6 extends StatelessWidget {
   Widget build(BuildContext context) {
     TextTheme textTheme = Theme.of(context).textTheme;
     TextStyle? titleStyle = textTheme.headlineMedium?.copyWith(
-      fontSize: responsiveSize(context, 26, 36, md: 32),
+      fontSize: responsiveSize(context, 40, 36, md: 32),
       color: AppColors.black,
     );
-    double fontSize = responsiveSize(context, 16, 18);
+    double fontSize = responsiveSize(context, 15, 18);
     return Container(
       child: IntrinsicHeight(
         child: Row(

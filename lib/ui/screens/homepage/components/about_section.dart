@@ -96,13 +96,13 @@ class _AboutSectionState extends State<AboutSection>
             if (screenWidth < (RefinedBreakpoints().tabletLarge)) {
               return Column(
                 children: [
-                  ContentArea(
-                    width: contentAreaWidthSm,
-                    child: _buildFdsapLogo(
-                      width: contentAreaWidthSm,
-                      height: contentAreaHeightSm,
-                    ),
-                  ),
+                  // ContentArea(
+                  //   width: contentAreaWidthSm,
+                  //   child: _buildFdsapLogo(
+                  //     width: contentAreaWidthSm,
+                  //     height: contentAreaHeightSm,
+                  //   ),
+                  // ),
                   SizedBoxH10(),
                   ContentArea(
                     width: contentAreaWidthSm,

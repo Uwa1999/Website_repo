@@ -210,7 +210,7 @@ class MobileFooter extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: MediaQuery.of(context).size.height * 0.3,
-      decoration: BoxDecoration(color: AppColors.maroon02),
+      decoration: BoxDecoration(color: AppColors.maroon03),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 100),
         child: Column(
@@ -236,7 +236,7 @@ class MobileFooter extends StatelessWidget {
                   text: TextSpan(
                     text: StringConst.ABOUT_FDS_ASYA_FOOTER0,
                     style: GoogleFonts.poppins(
-                      fontSize: 20,
+                      fontSize: 13,
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                     ),

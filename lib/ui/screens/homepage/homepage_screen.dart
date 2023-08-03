@@ -171,7 +171,7 @@ class _HomepageScreenState extends State<HomepageScreen> {
                           children: [
                             Container(
                               key: navItems[2].key,
-                              child: ProductServicesSection(),
+                              child: ProductAndServicesSection(),
                             ),
                           ],
                         ),

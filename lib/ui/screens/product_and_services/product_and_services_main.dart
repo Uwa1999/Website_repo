@@ -39,7 +39,7 @@ class _ProductServicesMainState extends State<ProductServicesMain> {
               controller: _scrollController,
               child: Column(
                 children: [
-                  ProductServicesSection(),
+                  DesktopProductServicesSection(),
                   SizedBoxH100(),
                   FooterSection(),
                 ],
