@@ -18,41 +18,49 @@ class _NewsDescScreenState extends State<NewsDescScreen> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Container(
-          padding: EdgeInsets.only(
-            left: Sizes.PADDING_100,
-            right: Sizes.PADDING_150,
-          ),
-          height: MediaQuery.of(context).size.height * 0.5,
-          width: double.infinity,
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: [
-                AppColors.maroon03.withOpacity(1.0),
-                AppColors.maroon05.withOpacity(0.8),
+        SingleChildScrollView(
+          child: Container(
+            padding: EdgeInsets.only(
+              left: Sizes.PADDING_100,
+              right: Sizes.PADDING_150,
+            ),
+            height: MediaQuery.of(context).size.height * 0.7,
+            width: double.infinity,
+            decoration: BoxDecoration(
+              // image: DecorationImage(
+              //   fit: BoxFit.cover,
+              //   image: AssetImage(ImagePath.SIGNS_MOA),
+              // ),
+              gradient: LinearGradient(
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+                colors: [
+                  AppColors.maroon03.withOpacity(1.0),
+                  AppColors.maroon05.withOpacity(0.8),
+                ],
+              ),
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                SizedBoxH150(),
+                SizedBoxH150(),
+                SizedBoxH40(),
+                NimbusInfoSection3(
+                  title1: StringConst.NEWS_DESC_TITLE,
+                  hasTitle2: false,
+                  body: StringConst.NEWS_DESC_SUBTITLE1,
+                  title1Style: GoogleFonts.poppins(
+                    fontSize: Sizes.TEXT_SIZE_35,
+                    fontWeight: FontWeight.w700,
+                    color: AppColors.white,
+                  ),
+                ),
               ],
             ),
           ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              SizedBoxH100(),
-              NimbusInfoSection3(
-                title1: StringConst.NEWS_DESC_TITLE,
-                hasTitle2: false,
-                body: StringConst.NEWS_DESC_SUBTITLE1,
-                title1Style: GoogleFonts.poppins(
-                  fontSize: Sizes.TEXT_SIZE_35,
-                  fontWeight: FontWeight.w700,
-                  color: AppColors.white,
-                ),
-              ),
-            ],
-          ),
         ),
-        SizedBoxH50(),
+        SizedBoxH30(),
         Container(
           padding: EdgeInsets.only(
             left: Sizes.PADDING_100,

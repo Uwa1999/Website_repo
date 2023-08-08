@@ -2,7 +2,6 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/functions.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/responsive.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/images.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/sizes.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/strings.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/buttons/social_button.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/sizedbox.dart';
@@ -41,24 +40,39 @@ class DesktopFooter extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
+                  //    crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Image.asset(
-                      ImagePath.FDSAP_WHITE_LOGO,
-                      fit: BoxFit.cover,
-                      height: MediaQuery.of(context).size.height * 0.2,
-                    ),
-                    RichText(
-                      textAlign: TextAlign.center,
-                      text: TextSpan(
-                        text: StringConst.ABOUT_FDS_ASYA_FOOTER0,
-                        style: GoogleFonts.poppins(
-                          fontSize: 30,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset(
+                          ImagePath.FDSAP_LOGO_WHITE,
+                          fit: BoxFit.cover,
+                          height: MediaQuery.of(context).size.height * 0.2,
                         ),
-                      ),
+                        RichText(
+                          textAlign: TextAlign.center,
+                          text: TextSpan(
+                            text: StringConst.ABOUT_FDS_ASYA_FOOTER0,
+                            style: GoogleFonts.poppins(
+                              fontSize: 30,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                        // RichText(
+                        //   textAlign: TextAlign.center,
+                        //   text: TextSpan(
+                        //     text: StringConst.FDS_BRANCH_ADDRESS,
+                        //     style: GoogleFonts.poppins(
+                        //       fontSize: 12,
+                        //       color: Colors.white,
+                        //     ),
+                        //   ),
+                        // ),
+                      ],
                     ),
                   ],
                 ),
@@ -212,40 +226,50 @@ class MobileFooter extends StatelessWidget {
       height: MediaQuery.of(context).size.height * 0.3,
       decoration: BoxDecoration(color: AppColors.maroon03),
       child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 100),
+        padding: const EdgeInsets.symmetric(horizontal: 10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
             Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
+              //    crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(
-                    right: Sizes.PADDING_10,
-                  ),
-                  child: Image.asset(
-                    ImagePath.FDSAP_WHITE_LOGO,
-                    fit: BoxFit.cover,
-                    height: MediaQuery.of(context).size.height * 0.1,
-                  ),
-                ),
-                RichText(
-                  textAlign: TextAlign.center,
-                  text: TextSpan(
-                    text: StringConst.ABOUT_FDS_ASYA_FOOTER0,
-                    style: GoogleFonts.poppins(
-                      fontSize: 13,
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset(
+                      ImagePath.FDSAP_LOGO_WHITE,
+                      fit: BoxFit.cover,
+                      height: MediaQuery.of(context).size.height * 0.1,
                     ),
-                  ),
+                    RichText(
+                      textAlign: TextAlign.center,
+                      text: TextSpan(
+                        text: StringConst.ABOUT_FDS_ASYA_FOOTER0,
+                        style: GoogleFonts.poppins(
+                          fontSize: 15,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    // RichText(
+                    //   textAlign: TextAlign.center,
+                    //   text: TextSpan(
+                    //     text: StringConst.FDS_BRANCH_ADDRESS,
+                    //     style: GoogleFonts.poppins(
+                    //       fontSize: 12,
+                    //       color: Colors.white,
+                    //     ),
+                    //   ),
+                    // ),
+                  ],
                 ),
               ],
             ),
             Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 RichText(text: TextSpan(text: StringConst.ABOUT_FDS_ASYA_FOOTER1, style: GoogleFonts.poppins(fontSize: 8, color: Colors.white, fontWeight: FontWeight.normal))),
@@ -254,6 +278,7 @@ class MobileFooter extends StatelessWidget {
                 SizedBoxH10(),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,

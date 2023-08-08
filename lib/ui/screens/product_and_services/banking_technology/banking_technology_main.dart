@@ -1,6 +1,5 @@
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/footer_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/responsive_navigation/nav_section_mobile.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/banking_technology/core_banking/core_banking_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/banking_technology/mobcol/mobcol_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/banking_technology/temenos/temenos_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/banking_technology/web/web_section.dart';
@@ -107,7 +106,7 @@ class _BankingTechnologyMainState extends State<BankingTechnologyMain> with Sing
                   children: [
                     MobColSection(),
                     WebCollectionSection(),
-                    CoreBankingSection(),
+                    //  CoreBankingSection(),
                     TemenosSection(),
                     SizedBoxH100(),
                     FooterSection(),

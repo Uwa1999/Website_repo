@@ -351,6 +351,8 @@ Latest Article & News''';
 
   // Locations
   static const String OUR_LOCATION = "Our Location";
+  static const String FDS_MAIN_ADDRESS = "G/F 1519 D. Oliman St. Village Brgy. Valenzuela Makati City";
+  static const String FDS_BRANCH_ADDRESS = "Hermanos Belen Street Brgy. III-B San Pablo City Laguna";
   static const String OUR_NUMBER = "+63-919-098-6970";
   static const String LINKED_IN = '''FDS ASYA PHILIPPINES INC.''';
   static const String FACEBOOK = '''FDS ASYA PHILIPPINES INC.''';

@@ -1,5 +1,5 @@
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/productservices_section.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/statistics_section.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/leading_partners_section.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/product_services_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/images.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/strings.dart';

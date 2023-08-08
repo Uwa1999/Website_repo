@@ -71,7 +71,7 @@ class _LeadingBankingPartnerSectionState extends State<LeadingBankingPartnerSect
             refinedBreakpoints: RefinedBreakpoints(),
             builder: (context, sizingInformation) {
               double screenWidth = sizingInformation.screenSize.width;
-              if (screenWidth < (RefinedBreakpoints().tabletLarge)) {
+              if (screenWidth < (RefinedBreakpoints().tabletSmall)) {
                 return Container(
                   width: contentAreaWidth,
                   padding: const EdgeInsets.symmetric(vertical: Sizes.PADDING_40),
@@ -79,9 +79,9 @@ class _LeadingBankingPartnerSectionState extends State<LeadingBankingPartnerSect
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      SizedBoxH30(),
+                      // SizedBoxH30(),
                       ..._buildItems(Data.statItemsData),
-                      SizedBoxH30(),
+                      // SizedBoxH50(),
                     ],
                   ),
                 );
@@ -133,21 +133,9 @@ class _LeadingBankingPartnerSectionState extends State<LeadingBankingPartnerSect
                               ],
                             ),
                             SizedBoxH10(),
-                            // Row(
-                            //   mainAxisAlignment: MainAxisAlignment.spaceAround,
-                            //   children: [
-                            //     Spacer(),
-                            //     ..._buildItems(
-                            //       Data.statItemsData2,
-                            //       isHorizontal: true,
-                            //     ),
-                            //     Spacer(),
-                            //   ],
-                            // ),
                           ],
                         ),
                       ),
-                      SizedBoxH80(),
                     ],
                   ),
                 );

@@ -35,13 +35,15 @@ class ImagePath {
   static const String EVENTS_02 = "$imageDir/insight_event.png";
   static const String EVENTS_03 = "$imageDir/insight_event.png";
 
-  // Event Images
+  // News Images
   static const String WEBINARS_01 = "$imageDir/insight_news.png";
   static const String WEBINARS_02 = "$imageDir/insight_news.png";
   static const String WEBINARS_03 = "$imageDir/insight_news.png";
+  static const String SIGNS_MOA = "$imageDir/signs_moa.jpg";
 
   //Footer
   static const String FDSAP_WHITE_LOGO = "$imageDir/fds_logo_white.png";
+  static const String FDSAP_LOGO_WHITE = "$imageDir/logo_fds_white.png";
 
   // Product & Services Images
   static const String KPLUS = "$imageDir/kplus_maroon.png";

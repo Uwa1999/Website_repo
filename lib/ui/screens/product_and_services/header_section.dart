@@ -2,7 +2,7 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/about_main.d
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/about_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/insights_main.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/insights_section.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/productservices_section.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/product_services_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/responsive_navigation/nav_section_web.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/homepage_screen.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/product_and_services_main.dart';
@@ -217,7 +217,7 @@ class _HeaderSectionState extends State<HeaderSection> with SingleTickerProvider
                             NavItem(
                               title: 'Insights',
                               onTap: () {
-                                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => InsightSection()));
+                                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => DesktopInsightSection()));
                                 print("-----INSIGHTS SCREEN----");
                               },
                             ),

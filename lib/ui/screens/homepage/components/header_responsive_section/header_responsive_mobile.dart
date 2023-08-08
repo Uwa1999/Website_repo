@@ -48,12 +48,10 @@ class _HeaderResponsiveMobileState extends State<HeaderResponsiveMobile> with Si
 
   @override
   Widget build(BuildContext context) {
-    double headerIntroTextSize = Sizes.TEXT_SIZE_24;
+    double headerIntroTextSize = Sizes.TEXT_SIZE_18;
     double screenWidth = widthOfScreen(context) - (sidePadding * 2);
-
     double buttonWidth = 80;
     double buttonHeight = 48;
-
     double sizeOfBlobSm = screenWidth * 0.4;
     double sizeOfGoldenGlobe = screenWidth * 0.3;
     double dottedGoldenGlobeOffset = sizeOfBlobSm * 0.4;
@@ -153,7 +151,7 @@ class _HeaderResponsiveMobileState extends State<HeaderResponsiveMobile> with Si
                                 ),
                               ),
                             ),
-                            SizedBoxH70(),
+                            SizedBoxH10(),
                           ],
                         ),
                       ],

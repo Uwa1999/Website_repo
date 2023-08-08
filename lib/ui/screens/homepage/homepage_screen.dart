@@ -3,7 +3,7 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/footer_secti
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/header_responsive_section/header_responsive.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/insights_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/our_location_section.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/productservices_section.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/product_services_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/responsive_navigation/nav_section_mobile.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/responsive_navigation/nav_section_web.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/functions.dart';
@@ -19,7 +19,7 @@ import 'package:flutter/rendering.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
-import 'components/statistics_section.dart';
+import 'components/leading_partners_section.dart';
 
 class HomepageScreen extends StatefulWidget {
   @override

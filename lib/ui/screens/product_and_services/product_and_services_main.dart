@@ -1,5 +1,5 @@
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/footer_section.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/productservices_section.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/product_services_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/responsive_navigation/nav_section_mobile.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/header_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/sizedbox.dart';
@@ -39,7 +39,7 @@ class _ProductServicesMainState extends State<ProductServicesMain> {
               controller: _scrollController,
               child: Column(
                 children: [
-                  DesktopProductServicesSection(),
+                  ProductAndServicesSection(),
                   SizedBoxH100(),
                   FooterSection(),
                 ],

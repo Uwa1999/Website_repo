@@ -154,7 +154,7 @@ class _TemenosSectionState extends State<TemenosSection> with SingleTickerProvid
 
   Widget _buildNimbusInfoSectionSm() {
     return NimbusInfoSection2(
-      title1: StringConst.TEMENOS_TITLE,
+      title1: StringConst.CORE_BANKING_TITLE,
       hasTitle2: false,
       body: StringConst.TEMENOS_DESC,
       child: Column(
@@ -165,7 +165,7 @@ class _TemenosSectionState extends State<TemenosSection> with SingleTickerProvid
 
   Widget _buildNimbusInfoSectionLg() {
     return NimbusInfoSection1(
-      title1: StringConst.TEMENOS_TITLE,
+      title1: StringConst.CORE_BANKING_TITLE,
       hasTitle2: false,
       body: StringConst.TEMENOS_DESC,
       title1Style: GoogleFonts.poppins(

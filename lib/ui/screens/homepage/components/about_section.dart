@@ -103,7 +103,7 @@ class _AboutSectionState extends State<AboutSection>
                   //     height: contentAreaHeightSm,
                   //   ),
                   // ),
-                  SizedBoxH10(),
+                  // SizedBoxH10(),
                   ContentArea(
                     width: contentAreaWidthSm,
                     child: _buildAboutUs(
