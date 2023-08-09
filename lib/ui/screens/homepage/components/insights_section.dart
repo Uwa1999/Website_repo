@@ -270,7 +270,7 @@ class _MobileInsightSectionState extends State<MobileInsightSection> {
                             //title2: StringConst.INSIGHTS_TITLE_2,
                             body: '',
                             title1Style: GoogleFonts.poppins(
-                              fontSize: Sizes.TEXT_SIZE_18,
+                              fontSize: Sizes.TEXT_SIZE_35,
                               fontWeight: FontWeight.w700,
                               color: AppColors.black,
                             ),
@@ -328,7 +328,6 @@ class _MobileInsightSectionState extends State<MobileInsightSection> {
                       ),
                     ),
                   ),
-
                   // SizedBoxH80(),
                 ],
               ),

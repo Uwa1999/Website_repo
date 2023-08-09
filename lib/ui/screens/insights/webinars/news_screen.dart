@@ -1,4 +1,5 @@
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/images.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/sizes.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/strings.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/nimbus_info_section.dart';
@@ -27,10 +28,10 @@ class _NewsDescScreenState extends State<NewsDescScreen> {
             height: MediaQuery.of(context).size.height * 0.7,
             width: double.infinity,
             decoration: BoxDecoration(
-              // image: DecorationImage(
-              //   fit: BoxFit.cover,
-              //   image: AssetImage(ImagePath.SIGNS_MOA),
-              // ),
+              image: DecorationImage(
+                fit: BoxFit.cover,
+                image: AssetImage(ImagePath.WEBINARS_HEADER),
+              ),
               gradient: LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
@@ -45,7 +46,7 @@ class _NewsDescScreenState extends State<NewsDescScreen> {
               children: [
                 SizedBoxH150(),
                 SizedBoxH150(),
-                SizedBoxH40(),
+                SizedBoxH30(),
                 NimbusInfoSection3(
                   title1: StringConst.NEWS_DESC_TITLE,
                   hasTitle2: false,
@@ -60,7 +61,6 @@ class _NewsDescScreenState extends State<NewsDescScreen> {
             ),
           ),
         ),
-        SizedBoxH30(),
         Container(
           padding: EdgeInsets.only(
             left: Sizes.PADDING_100,

@@ -142,7 +142,7 @@ class Data {
       subtitle: StringConst.ARTICLE_SUBTITLE_1,
       date: StringConst.ARTICLE_DATE,
       // buttonText: StringConst.ARTICLE_READ_MORE,
-      imageUrl: ImagePath.ARTICLE_01,
+      imageUrl: ImagePath.ARTICLE_CARD_COVER,
     ),
     InsightsData(
       category: StringConst.INSIGHTS_CATEGORY_2,
@@ -150,7 +150,7 @@ class Data {
       subtitle: StringConst.EVENTS_SUBTITLE_1,
       date: StringConst.EVENTS_DATE,
       //  buttonText: StringConst.EVENTS_READ_MORE,
-      imageUrl: ImagePath.EVENTS_02,
+      imageUrl: ImagePath.EVENTS_CARD_COVER,
     ),
     InsightsData(
       category: StringConst.INSIGHTS_CATEGORY_3,
@@ -158,7 +158,7 @@ class Data {
       subtitle: StringConst.WEBINARS_SUBTITLE_1,
       date: StringConst.WEBINARS_DATE,
       // buttonText: StringConst.WEBINARS_READ_MORE,
-      imageUrl: ImagePath.WEBINARS_01,
+      imageUrl: ImagePath.WEBINARS_CARD_COVER,
     ),
     // InsightsData(
     //   category: StringConst.INSIGHTS_CATEGORY_1,

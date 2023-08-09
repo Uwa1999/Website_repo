@@ -86,7 +86,7 @@ class _InsightsMainState extends State<InsightsMain> with SingleTickerProviderSt
               controller: _scrollController,
               child: Column(
                 children: [
-                  DesktopInsightSection(),
+                  InsightSection(),
                   SizedBoxH100(),
                   FooterSection(),
                 ],

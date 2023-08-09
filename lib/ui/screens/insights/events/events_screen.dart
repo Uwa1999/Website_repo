@@ -1,4 +1,5 @@
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/images.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/sizes.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/strings.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/nimbus_info_section.dart';
@@ -23,9 +24,13 @@ class _EventsDescScreenState extends State<EventsDescScreen> {
             left: Sizes.PADDING_100,
             right: Sizes.PADDING_150,
           ),
-          height: MediaQuery.of(context).size.height * 0.5,
+          height: MediaQuery.of(context).size.height * 0.7,
           width: double.infinity,
           decoration: BoxDecoration(
+            image: DecorationImage(
+              fit: BoxFit.cover,
+              image: AssetImage(ImagePath.EVENTS_HEADER),
+            ),
             gradient: LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
@@ -38,7 +43,9 @@ class _EventsDescScreenState extends State<EventsDescScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              SizedBoxH100(),
+              SizedBoxH150(),
+              SizedBoxH150(),
+              SizedBoxH30(),
               NimbusInfoSection3(
                 title1: StringConst.EVENTS_DESC_TITLE,
                 hasTitle2: false,

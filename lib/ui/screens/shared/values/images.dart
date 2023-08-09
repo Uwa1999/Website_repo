@@ -29,17 +29,20 @@ class ImagePath {
   static const String ARTICLE_01 = "$imageDir/insight_article.png";
   static const String ARTICLE_02 = "$imageDir/insight_article.png";
   static const String ARTICLE_03 = "$imageDir/insight_article.png";
-
+  static const String ARTICLE_CARD_COVER = "$imageDir/insight_article_card_cover.png";
+  static const String ARTICLE_HEADER = "$imageDir/insight_article_header.png";
   // Event Images
   static const String EVENTS_01 = "$imageDir/insight_event.png";
   static const String EVENTS_02 = "$imageDir/insight_event.png";
   static const String EVENTS_03 = "$imageDir/insight_event.png";
-
+  static const String EVENTS_HEADER = "$imageDir/insight_events_header.png";
+  static const String EVENTS_CARD_COVER = "$imageDir/insight_events_card_cover.png";
   // News Images
   static const String WEBINARS_01 = "$imageDir/insight_news.png";
   static const String WEBINARS_02 = "$imageDir/insight_news.png";
   static const String WEBINARS_03 = "$imageDir/insight_news.png";
-  static const String SIGNS_MOA = "$imageDir/signs_moa.jpg";
+  static const String WEBINARS_CARD_COVER = "$imageDir/insight_news_card_cover.png";
+  static const String WEBINARS_HEADER = "$imageDir/insight_news_header.png";
 
   //Footer
   static const String FDSAP_WHITE_LOGO = "$imageDir/fds_logo_white.png";

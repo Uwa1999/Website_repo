@@ -123,7 +123,7 @@ class _InsightsCardState extends State<InsightsCard> {
                               onExit: (e) => _onImageHover(false),
                               cursor: SystemMouseCursors.click,
                               child: AnimatedOpacity(
-                                opacity: _isHoveringOnImage ? 1.0 : 0.90,
+                                opacity: _isHoveringOnImage ? 1.0 : 0.80,
                                 duration: Duration(milliseconds: 300),
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.all(
@@ -367,7 +367,7 @@ class _SmallInsightsCardState extends State<SmallInsightsCard> {
                               onExit: (e) => _onImageHover(false),
                               cursor: SystemMouseCursors.click,
                               child: AnimatedOpacity(
-                                opacity: _isHoveringOnImage ? 1.0 : 0.90,
+                                opacity: _isHoveringOnImage ? 1.0 : 0.85,
                                 duration: Duration(milliseconds: 300),
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.all(
