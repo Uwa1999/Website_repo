@@ -115,6 +115,7 @@ class _HeaderResponsiveWebState extends State<HeaderResponsiveWeb> with SingleTi
                               constraints: BoxConstraints(maxWidth: screenWidth),
                               child: Text(
                                 StringConst.INTRO,
+                                textAlign: TextAlign.start,
                                 style: GoogleFonts.poppins(
                                   fontSize: headerIntroTextSize,
                                   fontWeight: FontWeight.w600,
@@ -126,6 +127,7 @@ class _HeaderResponsiveWebState extends State<HeaderResponsiveWeb> with SingleTi
                               constraints: BoxConstraints(maxWidth: screenWidth),
                               child: Text(
                                 StringConst.INTRO2,
+                                textAlign: TextAlign.start,
                                 style: GoogleFonts.poppins(
                                   fontSize: headerIntroTextSize,
                                   fontWeight: FontWeight.w600,
@@ -139,6 +141,7 @@ class _HeaderResponsiveWebState extends State<HeaderResponsiveWeb> with SingleTi
                                 animatedTexts: [
                                   TypewriterAnimatedText(
                                     StringConst.INTRO3,
+                                    textAlign: TextAlign.start,
                                     speed: Duration(milliseconds: 100),
                                     textStyle: GoogleFonts.poppins(
                                       fontSize: headerIntroTextSize,
@@ -157,6 +160,7 @@ class _HeaderResponsiveWebState extends State<HeaderResponsiveWeb> with SingleTi
                               constraints: BoxConstraints(maxWidth: screenWidth * 0.35),
                               child: SelectableText(
                                 StringConst.ABOUT_DEV,
+                                textAlign: TextAlign.justify,
                                 style: GoogleFonts.poppins(
                                   color: AppColors.white,
                                   fontWeight: FontWeight.w500,

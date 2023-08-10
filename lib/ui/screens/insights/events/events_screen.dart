@@ -1,3 +1,4 @@
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/responsive.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/images.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/sizes.dart';
@@ -17,6 +18,21 @@ class EventsDescScreen extends StatefulWidget {
 class _EventsDescScreenState extends State<EventsDescScreen> {
   @override
   Widget build(BuildContext context) {
+    return (!isMobile(context)) == (!isTab(context)) ? DesktopEventsDescScreen() : MobileEventsDescScreen();
+  }
+}
+
+//Desktop Screen
+class DesktopEventsDescScreen extends StatefulWidget {
+  const DesktopEventsDescScreen({Key? key}) : super(key: key);
+
+  @override
+  State<DesktopEventsDescScreen> createState() => _DesktopEventsDescScreenState();
+}
+
+class _DesktopEventsDescScreenState extends State<DesktopEventsDescScreen> {
+  @override
+  Widget build(BuildContext context) {
     return Column(
       children: [
         Container(
@@ -31,14 +47,14 @@ class _EventsDescScreenState extends State<EventsDescScreen> {
               fit: BoxFit.cover,
               image: AssetImage(ImagePath.EVENTS_HEADER),
             ),
-            gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: [
-                AppColors.maroon03.withOpacity(1.0),
-                AppColors.maroon05.withOpacity(0.8),
-              ],
-            ),
+            // gradient: LinearGradient(
+            //   begin: Alignment.topLeft,
+            //   end: Alignment.bottomRight,
+            //   colors: [
+            //     AppColors.maroon03.withOpacity(1.0),
+            //     AppColors.maroon05.withOpacity(0.8),
+            //   ],
+            // ),
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -197,5 +213,20 @@ class _EventsDescScreenState extends State<EventsDescScreen> {
         ),
       ],
     );
+  }
+}
+
+//Mobile Screen
+class MobileEventsDescScreen extends StatefulWidget {
+  const MobileEventsDescScreen({Key? key}) : super(key: key);
+
+  @override
+  State<MobileEventsDescScreen> createState() => _MobileEventsDescScreenState();
+}
+
+class _MobileEventsDescScreenState extends State<MobileEventsDescScreen> {
+  @override
+  Widget build(BuildContext context) {
+    return Container();
   }
 }

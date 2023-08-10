@@ -80,6 +80,7 @@ class NimbusInfoSection1 extends StatelessWidget {
                   SizedBoxH10(),
                   Text(
                     body,
+                    textAlign: TextAlign.justify,
                     style: textTheme.bodySmall?.copyWith(fontSize: fontSize, height: 1.8, color: AppColors.black),
                   ),
                   child != null ? SizedBoxH30() : EmptyContainer(),
@@ -172,6 +173,7 @@ class NimbusInfoSection2 extends StatelessWidget {
             SizedBoxH10(),
             Text(
               body,
+              textAlign: TextAlign.justify,
               style: textTheme.bodySmall?.copyWith(fontSize: fontSize, height: 1.3, color: AppColors.black),
             ),
             // child != null ? SizedBoxH30() : EmptyContainer(),
@@ -254,6 +256,7 @@ class NimbusInfoSection3 extends StatelessWidget {
                   SizedBoxH20(),
                   Text(
                     body,
+                    textAlign: TextAlign.justify,
                     style: textTheme.bodySmall?.copyWith(fontSize: fontSize, height: 1.8, color: AppColors.white),
                   ),
                   child != null ? SizedBoxH30() : EmptyContainer(),
@@ -339,6 +342,7 @@ class NimbusInfoSection4 extends StatelessWidget {
                   SizedBoxH20(),
                   Text(
                     body,
+                    textAlign: TextAlign.justify,
                     style: textTheme.bodySmall?.copyWith(fontSize: fontSize, height: 1.8, color: AppColors.black),
                   ),
                   // child != null ? SizedBoxH30() : EmptyContainer(),
@@ -424,6 +428,7 @@ class NimbusInfoSection5 extends StatelessWidget {
                   SizedBoxH20(),
                   Text(
                     body,
+                    textAlign: TextAlign.justify,
                     style: textTheme.bodySmall?.copyWith(fontSize: fontSize, height: 1.8, color: AppColors.black),
                   ),
                   // child != null ? SizedBoxH30() : EmptyContainer(),
@@ -502,6 +507,7 @@ class NimbusInfoSection6 extends StatelessWidget {
                   ),
                   SizedBoxH10(),
                   RichText(
+                    textAlign: TextAlign.justify,
                     text: TextSpan(
                       children: [
                         TextSpan(

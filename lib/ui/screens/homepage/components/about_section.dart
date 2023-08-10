@@ -73,9 +73,9 @@ class _AboutSectionState extends State<AboutSection>
 
   @override
   Widget build(BuildContext context) {
-    double screenWidth = widthOfScreen(context) - getSidePadding(context);
+    double screenWidth = widthOfScreen(context) - getSidePadding(context) * 2;
     double screenHeight = heightOfScreen(context);
-    double contentAreaWidthSm = screenWidth * 1.0;
+    double contentAreaWidthSm = screenWidth * 1.1;
     double contentAreaHeightSm = screenHeight * 0.6;
     double contentAreaWidthLg = screenWidth * 0.5;
     double contentAreaWidth = screenWidth;
@@ -104,11 +104,14 @@ class _AboutSectionState extends State<AboutSection>
                   //   ),
                   // ),
                   // SizedBoxH10(),
-                  ContentArea(
-                    width: contentAreaWidthSm,
-                    child: _buildAboutUs(
+                  Padding(
+                    padding: const EdgeInsets.only(right: 20),
+                    child: ContentArea(
                       width: contentAreaWidthSm,
-                      height: screenHeight,
+                      child: _buildAboutUs(
+                        width: contentAreaWidthSm,
+                        height: screenHeight,
+                      ),
                     ),
                   ),
                 ],
@@ -234,21 +237,6 @@ class _AboutSectionState extends State<AboutSection>
                   ),
                 ),
               ),
-              // Expanded(
-              //   child: Container(
-              //     // margin: EdgeInsets.only(left: (sizeOfBlobSm * 0.35)),
-              //     child: Row(
-              //       mainAxisAlignment: MainAxisAlignment.center,
-              //       children: [
-              //         ...buildCardRow(
-              //           context: context,
-              //           data: Data.nimbusCardData,
-              //           width: double.infinity,
-              //         ),
-              //       ],
-              //     ),
-              //   ),
-              // ),
             ],
           ),
         ),

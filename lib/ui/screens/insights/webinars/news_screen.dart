@@ -1,3 +1,4 @@
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/responsive.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/images.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/sizes.dart';
@@ -17,6 +18,21 @@ class NewsDescScreen extends StatefulWidget {
 class _NewsDescScreenState extends State<NewsDescScreen> {
   @override
   Widget build(BuildContext context) {
+    return (!isMobile(context)) == (!isTab(context)) ? DesktopNewsDescScreen() : MobileArticleNewsDescScreen();
+  }
+}
+
+//Desktop Screen
+class DesktopNewsDescScreen extends StatefulWidget {
+  const DesktopNewsDescScreen({Key? key}) : super(key: key);
+
+  @override
+  State<DesktopNewsDescScreen> createState() => _DesktopNewsDescScreenState();
+}
+
+class _DesktopNewsDescScreenState extends State<DesktopNewsDescScreen> {
+  @override
+  Widget build(BuildContext context) {
     return Column(
       children: [
         SingleChildScrollView(
@@ -32,14 +48,14 @@ class _NewsDescScreenState extends State<NewsDescScreen> {
                 fit: BoxFit.cover,
                 image: AssetImage(ImagePath.WEBINARS_HEADER),
               ),
-              gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
-                colors: [
-                  AppColors.maroon03.withOpacity(1.0),
-                  AppColors.maroon05.withOpacity(0.8),
-                ],
-              ),
+              // gradient: LinearGradient(
+              //   begin: Alignment.topLeft,
+              //   end: Alignment.bottomRight,
+              //   colors: [
+              //     AppColors.maroon03.withOpacity(1.0),
+              //     AppColors.maroon05.withOpacity(0.8),
+              //   ],
+              // ),
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -91,5 +107,20 @@ class _NewsDescScreenState extends State<NewsDescScreen> {
         ),
       ],
     );
+  }
+}
+
+//Mobile Screen
+class MobileArticleNewsDescScreen extends StatefulWidget {
+  const MobileArticleNewsDescScreen({Key? key}) : super(key: key);
+
+  @override
+  State<MobileArticleNewsDescScreen> createState() => _MobileArticleNewsDescScreenState();
+}
+
+class _MobileArticleNewsDescScreenState extends State<MobileArticleNewsDescScreen> {
+  @override
+  Widget build(BuildContext context) {
+    return Container();
   }
 }

@@ -91,56 +91,6 @@ class _OurLocationSectionState extends State<OurLocationSection> {
         ),
       ),
     );
-    // return Column(
-    //   children: [
-    //     ContentArea(
-    //       child: NimbusInfoSection2(
-    //         title1: StringConst.OUR_LOCATION,
-    //         hasTitle2: false,
-    //         title1Style: GoogleFonts.poppins(
-    //           fontSize: Sizes.TEXT_SIZE_35,
-    //           fontWeight: FontWeight.w700,
-    //           color: AppColors.black,
-    //         ),
-    //       ),
-    //     ),
-    //     SizedBoxH20(),
-    //     Stack(
-    //       children: [
-    //         Padding(
-    //           padding: EdgeInsets.only(
-    //             left: Sizes.PADDING_80,
-    //             right: Sizes.PADDING_80,
-    //           ),
-    //           child: ContentArea(
-    //             width: double.infinity,
-    //             height: MediaQuery.of(context).size.height * 0.7,
-    //             backgroundColor: AppColors.maroon03,
-    //             borderRadius: const BorderRadius.all(
-    //               Radius.circular(Sizes.RADIUS_8),
-    //             ),
-    //             child: ClipRRect(
-    //               borderRadius: const BorderRadius.all(
-    //                 Radius.circular(Sizes.RADIUS_8),
-    //               ),
-    //               child: Padding(
-    //                 padding: const EdgeInsets.all(5.0),
-    //                 child: InkWell(
-    //                   onTap: _launchURL,
-    //                   child: Image.asset(
-    //                     ImagePath.BOX_COVER_MAP,
-    //                     fit: BoxFit.cover,
-    //                   ),
-    //                 ),
-    //               ),
-    //             ),
-    //           ),
-    //         ),
-    //       ],
-    //     ),
-    //     SizedBoxH50(),
-    //   ],
-    // );
   }
 
   Widget _buildLocationImage({required double width, required double height}) {

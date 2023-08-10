@@ -32,7 +32,13 @@ class DesktopFooter extends StatelessWidget {
       children: [
         Container(
           height: MediaQuery.of(context).size.height * 0.9,
-          decoration: BoxDecoration(color: AppColors.maroon03),
+          decoration: BoxDecoration(
+            // image: DecorationImage(
+            //   fit: BoxFit.cover,
+            //   image: AssetImage(ImagePath.EVENTS_HEADER),
+            // ),
+            color: AppColors.maroon03,
+          ),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 100),
             child: Column(
@@ -80,9 +86,29 @@ class DesktopFooter extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    RichText(text: TextSpan(text: StringConst.ABOUT_FDS_ASYA_FOOTER1, style: GoogleFonts.poppins(fontSize: 16, color: Colors.white, fontWeight: FontWeight.normal))),
+                    RichText(
+                      textAlign: TextAlign.justify,
+                      text: TextSpan(
+                        text: StringConst.ABOUT_FDS_ASYA_FOOTER1,
+                        style: GoogleFonts.poppins(
+                          fontSize: 16,
+                          color: Colors.white,
+                          fontWeight: FontWeight.normal,
+                        ),
+                      ),
+                    ),
                     SizedBoxH10(),
-                    RichText(text: TextSpan(text: StringConst.ABOUT_FDS_ASYA_FOOTER2, style: GoogleFonts.poppins(fontSize: 16, color: Colors.white, fontWeight: FontWeight.normal))),
+                    RichText(
+                      textAlign: TextAlign.justify,
+                      text: TextSpan(
+                        text: StringConst.ABOUT_FDS_ASYA_FOOTER2,
+                        style: GoogleFonts.poppins(
+                          fontSize: 16,
+                          color: Colors.white,
+                          fontWeight: FontWeight.normal,
+                        ),
+                      ),
+                    ),
                     SizedBoxH10(),
                     Column(
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -272,9 +298,29 @@ class MobileFooter extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                RichText(text: TextSpan(text: StringConst.ABOUT_FDS_ASYA_FOOTER1, style: GoogleFonts.poppins(fontSize: 8, color: Colors.white, fontWeight: FontWeight.normal))),
+                RichText(
+                  textAlign: TextAlign.justify,
+                  text: TextSpan(
+                    text: StringConst.ABOUT_FDS_ASYA_FOOTER1,
+                    style: GoogleFonts.poppins(
+                      fontSize: 8,
+                      color: Colors.white,
+                      fontWeight: FontWeight.normal,
+                    ),
+                  ),
+                ),
                 SizedBoxH10(),
-                RichText(text: TextSpan(text: StringConst.ABOUT_FDS_ASYA_FOOTER2, style: GoogleFonts.poppins(fontSize: 8, color: Colors.white, fontWeight: FontWeight.normal))),
+                RichText(
+                  textAlign: TextAlign.justify,
+                  text: TextSpan(
+                    text: StringConst.ABOUT_FDS_ASYA_FOOTER2,
+                    style: GoogleFonts.poppins(
+                      fontSize: 8,
+                      color: Colors.white,
+                      fontWeight: FontWeight.normal,
+                    ),
+                  ),
+                ),
                 SizedBoxH10(),
                 Column(
                   mainAxisAlignment: MainAxisAlignment.start,

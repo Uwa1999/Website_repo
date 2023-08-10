@@ -236,37 +236,34 @@ class StringConst {
   static const String INSIGHTS_CATEGORY_5 = " ";
   static const String INSIGHTS_CATEGORY_6 = " ";
 
-  //Article Description
+  //Article Card Cover Description
   static const String ARTICLE_DATE = "February 4, 2023";
   static const String ARTICLE_TITLE_1 = '''FDS ASYA PHILIPPINES INC. Pioneering Digital Transformations in Banking and Financial Services''';
   static const String ARTICLE_TITLE_2 = ''' ''';
   static const String ARTICLE_TITLE_3 = ''' ''';
-  static const String ARTICLE_SUBTITLE_1 = '''By co-creating value and empowering financial institutions with solutions designed for the digital era, FDS ASYA PHILIPPINES INC. (FDSAP) drives growth, enhances operational efficiency, and delivers exceptional customer experiences. With a commitment to collaboration, harnessing technological advancements, and building lasting partnerships, FDSAP remains at the forefront of regional transformation, playing a crucial role in shaping the future of banking.''';
-  static const String ARTICLE_SUBTITLE_2 = "CARD MRI launched the konek2CARD PLUS, a mobile application that allows the clients of CARD MRI to enjoy a hassle-free banking transaction anytime, anywhere using their smartphones.";
-  static const String ARTICLE_SUBTITLE_3 = "CARD MRI launched the konek2CARD PLUS, a mobile application that allows the clients of CARD MRI to enjoy a hassle-free banking transaction anytime, anywhere using their smartphones.";
+  static const String ARTICLE_SUBTITLE_1 = '''By co-creating value and empowering financial institutions with solutions designed for the digital era, FDS ASYA PHILIPPINES INC. (FDSAP) drives growth, enhances operational efficiency, and delivers exceptional customer experiences.''';
+  static const String ARTICLE_SUBTITLE_2 = " ";
+  static const String ARTICLE_SUBTITLE_3 = " ";
   static const String ARTICLE_READ_MORE = "Read More";
   static const String ARTICLES = "Blogging";
 
-  //Events Description
+  //Events Card Cover Description
   static const String EVENTS_DATE = "February 14, 2023";
-  static const String EVENTS_TITLE_1 = '''FDS Asya Philippines Inc. Reflects on Years of Success and Innovation on its Founding Anniversary''';
+  static const String EVENTS_TITLE_1 = '''FDS ASYA PHILIPPINES INC. Reflects on Years of Success and Innovation on its Founding Anniversary''';
   static const String EVENTS_TITLE_2 = " ";
   static const String EVENTS_TITLE_3 = " ";
-  static const String EVENTS_SUBTITLE_1 = '''FDS ASYA PHILIPPINES INC. (FDSAP) had joyously commemorated a significant milestone as it celebrates its anniversary on August 16,2022 . This auspicious occasion presents an opportunity to reflect upon the remarkable journey that has led the company to this point, express gratitude to its esteemed clients, partners, and dedicated employees, and acknowledge its achievements.
-  ''';
+  static const String EVENTS_SUBTITLE_1 = '''FDS ASYA PHILIPPINES INC. (FDSAP) had joyously commemorated a significant milestone as it celebrates its anniversary on August 16,2022 . This auspicious occasion presents an opportunity to reflect upon the remarkable journey that has led the company.''';
   static const String EVENTS_SUBTITLE_2 = ''' ''';
   static const String EVENTS_SUBTITLE_3 = '''  ''';
   static const String EVENTS_READ_MORE = "Read More";
   static const String EVENTS = "Blogging";
 
-  //Webinars Description
+  //Webinars Card Cover Description
   static const String WEBINARS_DATE = "February 25, 2023";
-  static const String WEBINARS_TITLE_1 = '''FDS ASYA PHILIPPINES INC. Signs MOA with Pamantasan ng Lungsod ng San Pablo for OJT Program for IT Students
-  ''';
+  static const String WEBINARS_TITLE_1 = '''FDS ASYA PHILIPPINES INC. Signs MOA with Pamantasan ng Lungsod ng San Pablo for OJT Program for IT Students''';
   static const String WEBINARS_TITLE_2 = " ";
   static const String WEBINARS_TITLE_3 = " ";
-  static const String WEBINARS_SUBTITLE_1 = '''On May 23, 2022, FDS ASYA PHILIPPINES INC. (FDSAP) and Pamantasan ng Lungsod ng San Pablo (PLSP) signed a Memorandum of Agreement (MOA) for an On-the-Job Training program for Information Technology (IT) students. The collaboration aims to provide PLSP students with practical experience in the field of digital banking, microfinance services, and other Information Technology operations-related services.
-    ''';
+  static const String WEBINARS_SUBTITLE_1 = '''On May 23, 2022, FDS ASYA PHILIPPINES INC. (FDSAP) and Pamantasan ng Lungsod ng San Pablo (PLSP) signed a Memorandum of Agreement (MOA) for an On-the-Job Training program for Information Technology (IT) students.''';
   static const String WEBINARS_SUBTITLE_2 = ''' ''';
   static const String WEBINARS_SUBTITLE_3 = ''' ''';
   static const String WEBINARS_READ_MORE = "Read More";
@@ -290,7 +287,7 @@ FDSAP is a company owned of FDS Asya, Inc. based  in Singapore. It is the result
 
   //Events Info
   static const String EVENTS_DESC_TITLE = '''Celebrating a Milestone:
-FDS Asya Philippines Inc. Reflects on Years of Success and Innovation on its Founding Anniversary''';
+FDS ASYA PHILIPPINES INC. Reflects on Years of Success and Innovation on its Founding Anniversary''';
   static const String EVENTS_DESC_SUBTITLE1 = "Event";
   static const String EVENTS_DESC1 = "FDS ASYA PHILIPPINES INC. (FDSAP) had joyously commemorated a significant milestone as it celebrates its anniversary on August 16, 2022 . This auspicious occasion presents an opportunity to reflect upon the remarkable journey that has led the company to this point, express gratitude to its esteemed clients, partners, and dedicated employees, and acknowledge its achievements. Highlighting its exceptional accomplishments, unwavering commitment to innovation, and future aspirations";
   static const String EVENTS_DESC_SUBTITLE2 = "A Journey of Growth and Success:";

@@ -123,7 +123,7 @@ class _InsightsCardState extends State<InsightsCard> {
                               onExit: (e) => _onImageHover(false),
                               cursor: SystemMouseCursors.click,
                               child: AnimatedOpacity(
-                                opacity: _isHoveringOnImage ? 1.0 : 0.80,
+                                opacity: _isHoveringOnImage ? 1.0 : 0.75,
                                 duration: Duration(milliseconds: 300),
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.all(
@@ -143,6 +143,7 @@ class _InsightsCardState extends State<InsightsCard> {
                                           alignment: Alignment.centerLeft,
                                           child: Text(
                                             widget.title,
+                                            textAlign: TextAlign.justify,
                                             style: widget.dateStyle ??
                                                 textTheme.titleMedium?.copyWith(
                                                   fontSize: Sizes.TEXT_SIZE_18,
@@ -158,6 +159,7 @@ class _InsightsCardState extends State<InsightsCard> {
                                           alignment: Alignment.centerLeft,
                                           child: Text(
                                             widget.subtitle,
+                                            textAlign: TextAlign.justify,
                                             style: widget.titleStyle ?? textTheme.bodyMedium,
                                           ),
                                         ),
@@ -204,7 +206,7 @@ class _InsightsCardState extends State<InsightsCard> {
                       vertical: Sizes.PADDING_8,
                     ),
                     decoration: BoxDecoration(
-                      color: AppColors.maroon03,
+                      color: AppColors.maroon04,
                       borderRadius: BorderRadius.all(
                         Radius.circular(6),
                       ),
@@ -367,7 +369,7 @@ class _SmallInsightsCardState extends State<SmallInsightsCard> {
                               onExit: (e) => _onImageHover(false),
                               cursor: SystemMouseCursors.click,
                               child: AnimatedOpacity(
-                                opacity: _isHoveringOnImage ? 1.0 : 0.85,
+                                opacity: _isHoveringOnImage ? 1.0 : 0.75,
                                 duration: Duration(milliseconds: 300),
                                 child: ClipRRect(
                                   borderRadius: BorderRadius.all(
@@ -381,21 +383,22 @@ class _SmallInsightsCardState extends State<SmallInsightsCard> {
                                         // width: MediaQuery.of(context).size.width * 0.7,
                                         fit: BoxFit.contain,
                                       ),
-                                      // Padding(
-                                      //   padding: const EdgeInsets.only(left: 10.0, top: 10.0, bottom: 10.0, right: 10.0),
-                                      //   child: Align(
-                                      //     alignment: Alignment.centerLeft,
-                                      //     child: Text(
-                                      //       widget.title,
-                                      //       style: widget.dateStyle ??
-                                      //           textTheme.titleSmall?.copyWith(
-                                      //             fontSize: Sizes.TEXT_SIZE_15,
-                                      //             fontWeight: FontWeight.bold,
-                                      //             color: AppColors.black,
-                                      //           ),
-                                      //     ),
-                                      //   ),
-                                      // ),
+                                      Padding(
+                                        padding: const EdgeInsets.only(left: 10.0, top: 10.0, bottom: 10.0, right: 10.0),
+                                        child: Align(
+                                          alignment: Alignment.centerLeft,
+                                          child: Text(
+                                            widget.title,
+                                            // textAlign: TextAlign.justify,
+                                            style: widget.dateStyle ??
+                                                textTheme.titleSmall?.copyWith(
+                                                  fontSize: Sizes.TEXT_SIZE_15,
+                                                  fontWeight: FontWeight.bold,
+                                                  color: AppColors.black,
+                                                ),
+                                          ),
+                                        ),
+                                      ),
                                       // Padding(
                                       //   padding: const EdgeInsets.only(left: 10.0, right: 10.0),
                                       //   child: Align(
@@ -403,7 +406,6 @@ class _SmallInsightsCardState extends State<SmallInsightsCard> {
                                       //     child: Text(
                                       //       widget.subtitle,
                                       //       style: widget.titleStyle ?? textTheme.bodySmall,
-                                      //
                                       //     ),
                                       //   ),
                                       // ),
@@ -449,13 +451,14 @@ class _SmallInsightsCardState extends State<SmallInsightsCard> {
                       vertical: Sizes.PADDING_8,
                     ),
                     decoration: BoxDecoration(
-                      color: AppColors.maroon03,
+                      color: AppColors.maroon04,
                       borderRadius: BorderRadius.all(
                         Radius.circular(6),
                       ),
                     ),
                     child: Text(
                       widget.category,
+                      //   textAlign: TextAlign.justify,
                       style: widget.categoryStyle ??
                           textTheme.headlineSmall?.copyWith(
                             fontSize: Sizes.TEXT_SIZE_15,

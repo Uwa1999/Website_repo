@@ -1,5 +1,6 @@
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/header_responsive_section/widgets.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/responsive.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/sizes.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/strings.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/content_area.dart';
@@ -12,7 +13,7 @@ const double bodyTextSizeLg = 16.0;
 const double bodyTextSizeSm = 14.0;
 const double socialTextSizeLg = 18.0;
 const double socialTextSizeSm = 14.0;
-const double sidePadding = Sizes.PADDING_16;
+const double sidePadding = Sizes.PADDING_26;
 
 class HeaderResponsiveMobile extends StatefulWidget {
   const HeaderResponsiveMobile({Key? key}) : super(key: key);
@@ -94,10 +95,10 @@ class _HeaderResponsiveMobileState extends State<HeaderResponsiveMobile> with Si
                     padding: const EdgeInsets.symmetric(horizontal: sidePadding),
                     margin: EdgeInsets.only(top: heightOfStack * 0.3),
                     child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: [
                         Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             ConstrainedBox(
                               constraints: BoxConstraints(maxWidth: screenWidth),
@@ -105,7 +106,8 @@ class _HeaderResponsiveMobileState extends State<HeaderResponsiveMobile> with Si
                                 StringConst.INTRO,
                                 style: GoogleFonts.poppins(
                                   fontSize: headerIntroTextSize,
-                                  fontWeight: FontWeight.w600,
+                                  fontWeight: FontWeight.w500,
+                                  color: AppColors.black,
                                 ),
                               ),
                             ),
@@ -113,9 +115,11 @@ class _HeaderResponsiveMobileState extends State<HeaderResponsiveMobile> with Si
                               constraints: BoxConstraints(maxWidth: screenWidth),
                               child: Text(
                                 StringConst.INTRO2,
+                                textAlign: TextAlign.start,
                                 style: GoogleFonts.poppins(
                                   fontSize: headerIntroTextSize,
-                                  fontWeight: FontWeight.w600,
+                                  fontWeight: FontWeight.w500,
+                                  color: AppColors.black,
                                 ),
                               ),
                             ),
@@ -125,10 +129,12 @@ class _HeaderResponsiveMobileState extends State<HeaderResponsiveMobile> with Si
                                 animatedTexts: [
                                   TypewriterAnimatedText(
                                     StringConst.INTRO3,
+                                    textAlign: TextAlign.start,
                                     speed: Duration(milliseconds: 100),
                                     textStyle: GoogleFonts.poppins(
                                       fontSize: headerIntroTextSize,
-                                      fontWeight: FontWeight.w600,
+                                      fontWeight: FontWeight.w500,
+                                      color: AppColors.black,
                                     ),
                                   ),
                                 ],
@@ -139,14 +145,14 @@ class _HeaderResponsiveMobileState extends State<HeaderResponsiveMobile> with Si
                             ),
                             SizedBoxH16(),
                             ConstrainedBox(
-                              constraints: BoxConstraints(
-                                maxWidth: screenWidth * 0.60,
-                              ),
+                              constraints: BoxConstraints(maxWidth: screenWidth),
                               child: SelectableText(
                                 StringConst.ABOUT_DEV,
+                                textAlign: TextAlign.justify,
                                 style: GoogleFonts.poppins(
-                                  fontWeight: FontWeight.w500,
-                                  fontSize: 18,
+                                  fontWeight: FontWeight.w400,
+                                  color: AppColors.black,
+                                  fontSize: 15,
                                   height: 1.5,
                                 ),
                               ),

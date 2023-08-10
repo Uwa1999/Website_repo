@@ -1,19 +1,19 @@
 // ignore_for_file: constant_identifier_names
 
 class ImagePath {
-  //images route
+//images route
   static const String imageDir = "assets/images";
   static const String screenshotsDir = "assets/screenshots";
   static const String gifDir = "assets/gif";
 
-  // Background
+// Background GIF
   static const String HOME_BACKGROUND = "$gifDir/fdsap_bg.gif";
 
-  // Logo
+// FDSAP Logo
   static const String LOGO_FDSAP = "$imageDir/logo_fdsap.png";
   static const String LOGO_LIGHT = "$imageDir/logo_fdsap.png";
 
-  // Blobs
+// Blobs
   static const String BLOB_ASH = "$imageDir/blob_ash.png";
   static const String BLOB_BEAN_ASH = "$imageDir/blob_bean_ash.png";
   static const String BLOB_FEMUR_ASH = "$imageDir/blob_femur_ash.png";
@@ -25,30 +25,32 @@ class ImagePath {
   static const String ICON_BOX = "$imageDir/icon_box.jpg";
   static const String BOX_COVER_MAP = "$imageDir/fdsap_location.png";
 
-  // Article Images
+// Article Images
   static const String ARTICLE_01 = "$imageDir/insight_article.png";
   static const String ARTICLE_02 = "$imageDir/insight_article.png";
   static const String ARTICLE_03 = "$imageDir/insight_article.png";
   static const String ARTICLE_CARD_COVER = "$imageDir/insight_article_card_cover.png";
   static const String ARTICLE_HEADER = "$imageDir/insight_article_header.png";
-  // Event Images
+
+// Event Images
   static const String EVENTS_01 = "$imageDir/insight_event.png";
   static const String EVENTS_02 = "$imageDir/insight_event.png";
   static const String EVENTS_03 = "$imageDir/insight_event.png";
   static const String EVENTS_HEADER = "$imageDir/insight_events_header.png";
   static const String EVENTS_CARD_COVER = "$imageDir/insight_events_card_cover.png";
-  // News Images
+
+// News Images
   static const String WEBINARS_01 = "$imageDir/insight_news.png";
   static const String WEBINARS_02 = "$imageDir/insight_news.png";
   static const String WEBINARS_03 = "$imageDir/insight_news.png";
   static const String WEBINARS_CARD_COVER = "$imageDir/insight_news_card_cover.png";
   static const String WEBINARS_HEADER = "$imageDir/insight_news_header.png";
 
-  //Footer
+//Footer Logo
   static const String FDSAP_WHITE_LOGO = "$imageDir/fds_logo_white.png";
   static const String FDSAP_LOGO_WHITE = "$imageDir/logo_fds_white.png";
 
-  // Product & Services Images
+// Product & Services Images
   static const String KPLUS = "$imageDir/kplus_maroon.png";
   static const String KPLUS_WHITEBG = "$imageDir/kplus_maroon_whitebg.png";
   static const String KONEK2CARD = "$imageDir/k2c_green.png";

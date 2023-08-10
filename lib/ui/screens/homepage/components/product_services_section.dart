@@ -660,10 +660,10 @@ class _MobileProductServicesSectionState extends State<MobileProductServicesSect
 
   @override
   Widget build(BuildContext context) {
-    //double screenWidth = widthOfScreen(context) - (getSidePadding(context) * 2);
-    double screenWidth = widthOfScreen(context) - getSidePadding(context);
+    double screenWidth = widthOfScreen(context) - (getSidePadding(context) * 2);
+    // double screenWidth = widthOfScreen(context);
     double screenHeight = heightOfScreen(context);
-    double contentAreaWidthSm = screenWidth * 1.0;
+    double contentAreaWidthSm = screenWidth * 1.1;
     double contentAreaHeightSm = screenHeight * 0.6;
     double contentAreaWidthLg = screenWidth * 0.5;
 
@@ -684,16 +684,19 @@ class _MobileProductServicesSectionState extends State<MobileProductServicesSect
             if (screenWidth < (RefinedBreakpoints().tabletLarge)) {
               return Column(
                 children: [
-                  ContentArea(
-                    width: contentAreaWidthSm,
-                    child: _buildMobileProductServicesInfoSm(
+                  Padding(
+                    padding: const EdgeInsets.only(right: 20),
+                    child: ContentArea(
                       width: contentAreaWidthSm,
-                      height: screenHeight,
+                      child: _buildMobileProductServicesInfoSm(
+                        width: contentAreaWidthSm,
+                        height: contentAreaHeightSm,
+                      ),
                     ),
                   ),
                   SizedBoxH10(),
                   ContentArea(
-                    width: contentAreaWidthSm,
+                    // width: contentAreaWidthSm,
                     child: _buildProductServicesIcon(
                       width: contentAreaWidthSm,
                       height: contentAreaHeightSm,
@@ -712,17 +715,17 @@ class _MobileProductServicesSectionState extends State<MobileProductServicesSect
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       ContentArea(
-                        width: contentAreaWidthLg,
+                        //width: contentAreaWidthSm,
                         child: _buildMobileProductServicesInfoSm(
-                          width: contentAreaWidthLg,
-                          height: screenHeight,
+                          width: contentAreaWidthSm,
+                          height: contentAreaHeightSm,
                         ),
                       ),
                     ],
                   ),
                   SizedBoxH10(),
                   ContentArea(
-                    width: contentAreaWidthSm,
+                    // width: contentAreaWidthSm,
                     child: _buildProductServicesIcon(
                       width: contentAreaWidthSm,
                       height: contentAreaHeightSm,
@@ -791,7 +794,9 @@ class _MobileProductServicesSectionState extends State<MobileProductServicesSect
           builder: (context, sizingInformation) {
             double screenWidth = sizingInformation.screenSize.width;
             if (screenWidth < (RefinedBreakpoints().tabletNormal)) {
-              return _buildProductServicesInfoSm();
+              return _buildProductServicesInfoSm(
+                width: width,
+              );
             } else {
               return Container(
                 width: width * 0.80,
@@ -804,25 +809,22 @@ class _MobileProductServicesSectionState extends State<MobileProductServicesSect
     );
   }
 
-  Widget _buildProductServicesInfoSm() {
+  Widget _buildProductServicesInfoSm({required width}) {
     return Row(
       children: [
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding: EdgeInsets.only(right: !isMobile(context) ? 15 : 0),
-                child: NimbusInfoSection2(
-                  title1: StringConst.PRODUCT_AND_SERVICES,
-                  title1Style: GoogleFonts.poppins(
-                    fontSize: Sizes.TEXT_SIZE_18,
-                    fontWeight: FontWeight.w700,
-                    color: AppColors.black,
-                  ),
-                  hasTitle2: false,
-                  body: StringConst.PRODUCT_AND_SERVICES_DESC,
+              NimbusInfoSection2(
+                title1: StringConst.PRODUCT_AND_SERVICES,
+                title1Style: GoogleFonts.poppins(
+                  fontSize: Sizes.TEXT_SIZE_18,
+                  fontWeight: FontWeight.w700,
+                  color: AppColors.black,
                 ),
+                hasTitle2: false,
+                body: StringConst.PRODUCT_AND_SERVICES_DESC,
               ),
             ],
           ),
@@ -982,6 +984,7 @@ class _MobileProductServicesCategoryState extends State<MobileProductServicesCat
         child: InkWell(
           onTap: widget.onTap,
           child: RichText(
+            textAlign: TextAlign.justify,
             text: TextSpan(
               children: [
                 TextSpan(
