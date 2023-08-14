@@ -52,6 +52,7 @@ class _SbsSectionState extends State<SbsSection> with SingleTickerProviderStateM
   Widget build(BuildContext context) {
     double screenWidth = widthOfScreen(context) - (getSidePadding(context));
     double screenHeight = heightOfScreen(context);
+    double contentAreaWidthSm = screenWidth * 1.1;
     double contentAreaWidth = responsiveSize(
       context,
       screenWidth,
@@ -60,7 +61,7 @@ class _SbsSectionState extends State<SbsSection> with SingleTickerProviderStateM
     );
     double contentAreaHeight = screenHeight * 0.9;
     return VisibilityDetector(
-      key: Key('Smart-Branch-System-section'),
+      key: Key('k2c-section'),
       onVisibilityChanged: (visibilityInfo) {
         double visiblePercentage = visibilityInfo.visibleFraction * 100;
         if (visiblePercentage > 50) {
@@ -86,20 +87,31 @@ class _SbsSectionState extends State<SbsSection> with SingleTickerProviderStateM
                         builder: (context, sizingInformation) {
                           double screenWidth = sizingInformation.screenSize.width;
                           if (screenWidth < (RefinedBreakpoints().tabletSmall)) {
-                            return _buildNimbusInfoSectionSm();
+                            return Padding(
+                              padding: const EdgeInsets.only(right: 20),
+                              child: ContentArea(
+                                width: contentAreaWidthSm,
+                                child: _buildNimbusInfoSectionSm(),
+                              ),
+                            );
                           } else {
-                            return _buildNimbusInfoSectionLg();
+                            return ContentArea(
+                              width: contentAreaWidth * 0.7,
+                              child: _buildNimbusInfoSectionLg(),
+                            );
                           }
                         },
                       ),
-                      SizedBoxH50(),
+                      SizedBoxH100(),
                       ResponsiveBuilder(
                         builder: (context, sizingInformation) {
                           double screenWidth = sizingInformation.screenSize.width;
                           if (screenWidth < (RefinedBreakpoints().tabletSmall)) {
-                            return _buildImage(
-                              width: screenWidth,
-                              height: screenHeight * 0.5,
+                            return Center(
+                              child: _buildImage(
+                                width: screenWidth,
+                                height: screenHeight * 0.4,
+                              ),
                             );
                           } else {
                             return Center(
@@ -156,6 +168,11 @@ class _SbsSectionState extends State<SbsSection> with SingleTickerProviderStateM
       title1: StringConst.SMART_BRANCH_SYSTEM_TITLE,
       hasTitle2: false,
       body: StringConst.SMART_BRANCH_SYSTEM_DESC,
+      title1Style: GoogleFonts.poppins(
+        fontSize: Sizes.TEXT_SIZE_18,
+        fontWeight: FontWeight.w700,
+        color: AppColors.black,
+      ),
       child: Column(
         children: [],
       ),

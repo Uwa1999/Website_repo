@@ -33,183 +33,151 @@ class DesktopEventsDescScreen extends StatefulWidget {
 class _DesktopEventsDescScreenState extends State<DesktopEventsDescScreen> {
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return ListView(
+      shrinkWrap: true,
       children: [
-        Container(
-          padding: EdgeInsets.only(
-            left: Sizes.PADDING_100,
-            right: Sizes.PADDING_150,
-          ),
-          height: MediaQuery.of(context).size.height * 0.7,
-          width: double.infinity,
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              fit: BoxFit.cover,
-              image: AssetImage(ImagePath.EVENTS_HEADER),
-            ),
-            // gradient: LinearGradient(
-            //   begin: Alignment.topLeft,
-            //   end: Alignment.bottomRight,
-            //   colors: [
-            //     AppColors.maroon03.withOpacity(1.0),
-            //     AppColors.maroon05.withOpacity(0.8),
-            //   ],
-            // ),
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              SizedBoxH150(),
-              SizedBoxH150(),
-              SizedBoxH30(),
-              NimbusInfoSection3(
-                title1: StringConst.EVENTS_DESC_TITLE,
-                hasTitle2: false,
-                body: StringConst.EVENTS_DESC_SUBTITLE1,
-                title1Style: GoogleFonts.poppins(
-                  fontSize: Sizes.TEXT_SIZE_35,
-                  fontWeight: FontWeight.w700,
-                  color: AppColors.white,
-                ),
+        Column(
+          children: [
+            Container(
+              padding: EdgeInsets.only(
+                left: Sizes.PADDING_100,
+                right: Sizes.PADDING_150,
               ),
-            ],
-          ),
-        ),
-        SizedBoxH50(),
-        Container(
-          padding: EdgeInsets.only(
-            left: Sizes.PADDING_100,
-            right: Sizes.PADDING_100,
-          ),
-          height: MediaQuery.of(context).size.height * 0.2,
-          width: double.infinity,
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.bottomLeft,
-              end: Alignment.topRight,
-              colors: [
-                AppColors.white.withOpacity(0.9),
-                AppColors.white.withOpacity(0.5),
+              height: MediaQuery.of(context).size.height * 0.7,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  fit: BoxFit.cover,
+                  image: AssetImage(ImagePath.EVENTS_HEADER),
+                ),
+                // gradient: LinearGradient(
+                //   begin: Alignment.topLeft,
+                //   end: Alignment.bottomRight,
+                //   colors: [
+                //     AppColors.maroon03.withOpacity(1.0),
+                //     AppColors.maroon05.withOpacity(0.8),
+                //   ],
+                // ),
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  SizedBoxH150(),
+                  SizedBoxH150(),
+                  SizedBoxH30(),
+                  Flexible(
+                    fit: FlexFit.loose,
+                    child: NimbusInfoSection3(
+                      title1: StringConst.EVENTS_DESC_TITLE,
+                      hasTitle2: false,
+                      body: StringConst.EVENTS_DESC_SUBTITLE1,
+                      title1Style: GoogleFonts.poppins(
+                        fontSize: Sizes.TEXT_SIZE_35,
+                        fontWeight: FontWeight.w700,
+                        color: AppColors.white,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                SizedBoxH50(),
+                Flexible(
+                  fit: FlexFit.loose,
+                  child: Padding(
+                    padding: EdgeInsets.only(
+                      left: Sizes.PADDING_100,
+                      right: Sizes.PADDING_100,
+                    ),
+                    child: NimbusInfoSection4(
+                      title1: '',
+                      hasTitle2: false,
+                      body: StringConst.EVENTS_DESC1,
+                    ),
+                  ),
+                ),
+                Flexible(
+                  fit: FlexFit.loose,
+                  child: Padding(
+                    padding: EdgeInsets.only(
+                      left: Sizes.PADDING_100,
+                      right: Sizes.PADDING_100,
+                    ),
+                    child: NimbusInfoSection5(
+                      title1: StringConst.EVENTS_DESC_SUBTITLE2,
+                      hasTitle2: false,
+                      body: StringConst.EVENTS_DESC2,
+                      title1Style: GoogleFonts.poppins(
+                        fontSize: Sizes.TEXT_SIZE_28,
+                        fontWeight: FontWeight.w700,
+                        color: AppColors.black,
+                      ),
+                    ),
+                  ),
+                ),
+                Flexible(
+                  fit: FlexFit.loose,
+                  child: Padding(
+                    padding: EdgeInsets.only(
+                      left: Sizes.PADDING_100,
+                      right: Sizes.PADDING_100,
+                    ),
+                    child: NimbusInfoSection5(
+                      title1: StringConst.EVENTS_DESC_SUBTITLE3,
+                      hasTitle2: false,
+                      body: StringConst.EVENTS_DESC3,
+                      title1Style: GoogleFonts.poppins(
+                        fontSize: Sizes.TEXT_SIZE_28,
+                        fontWeight: FontWeight.w700,
+                        color: AppColors.black,
+                      ),
+                    ),
+                  ),
+                ),
+                Flexible(
+                  fit: FlexFit.loose,
+                  child: Padding(
+                    padding: EdgeInsets.only(
+                      left: Sizes.PADDING_100,
+                      right: Sizes.PADDING_100,
+                    ),
+                    child: NimbusInfoSection5(
+                      title1: StringConst.EVENTS_DESC_SUBTITLE4,
+                      hasTitle2: false,
+                      body: StringConst.EVENTS_DESC4,
+                      title1Style: GoogleFonts.poppins(
+                        fontSize: Sizes.TEXT_SIZE_28,
+                        fontWeight: FontWeight.w700,
+                        color: AppColors.black,
+                      ),
+                    ),
+                  ),
+                ),
+                Flexible(
+                  fit: FlexFit.loose,
+                  child: Padding(
+                    padding: EdgeInsets.only(
+                      left: Sizes.PADDING_100,
+                      right: Sizes.PADDING_100,
+                    ),
+                    child: NimbusInfoSection5(
+                      title1: StringConst.EVENTS_DESC_SUBTITLE5,
+                      hasTitle2: false,
+                      body: StringConst.EVENTS_DESC5,
+                      title1Style: GoogleFonts.poppins(
+                        fontSize: Sizes.TEXT_SIZE_28,
+                        fontWeight: FontWeight.w700,
+                        color: AppColors.black,
+                      ),
+                    ),
+                  ),
+                ),
               ],
             ),
-          ),
-          child: NimbusInfoSection4(
-            title1: '',
-            hasTitle2: false,
-            body: StringConst.EVENTS_DESC1,
-          ),
-        ),
-        Container(
-          padding: EdgeInsets.only(
-            left: Sizes.PADDING_100,
-            right: Sizes.PADDING_120,
-          ),
-          height: MediaQuery.of(context).size.height * 0.3,
-          width: double.infinity,
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.bottomLeft,
-              end: Alignment.topRight,
-              colors: [
-                AppColors.white.withOpacity(0.9),
-                AppColors.white.withOpacity(0.5),
-              ],
-            ),
-          ),
-          child: NimbusInfoSection5(
-            title1: StringConst.EVENTS_DESC_SUBTITLE2,
-            hasTitle2: false,
-            body: StringConst.EVENTS_DESC2,
-            title1Style: GoogleFonts.poppins(
-              fontSize: Sizes.TEXT_SIZE_28,
-              fontWeight: FontWeight.w700,
-              color: AppColors.black,
-            ),
-          ),
-        ),
-        Container(
-          padding: EdgeInsets.only(
-            left: Sizes.PADDING_100,
-            right: Sizes.PADDING_100,
-          ),
-          height: MediaQuery.of(context).size.height * 0.2,
-          width: double.infinity,
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.bottomLeft,
-              end: Alignment.topRight,
-              colors: [
-                AppColors.white.withOpacity(0.9),
-                AppColors.white.withOpacity(0.5),
-              ],
-            ),
-          ),
-          child: NimbusInfoSection5(
-            title1: StringConst.EVENTS_DESC_SUBTITLE3,
-            hasTitle2: false,
-            body: StringConst.EVENTS_DESC3,
-            title1Style: GoogleFonts.poppins(
-              fontSize: Sizes.TEXT_SIZE_28,
-              fontWeight: FontWeight.w700,
-              color: AppColors.black,
-            ),
-          ),
-        ),
-        Container(
-          padding: EdgeInsets.only(
-            left: Sizes.PADDING_100,
-            right: Sizes.PADDING_100,
-          ),
-          height: MediaQuery.of(context).size.height * 0.3,
-          width: double.infinity,
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.bottomLeft,
-              end: Alignment.topRight,
-              colors: [
-                AppColors.white.withOpacity(0.9),
-                AppColors.white.withOpacity(0.5),
-              ],
-            ),
-          ),
-          child: NimbusInfoSection5(
-            title1: StringConst.EVENTS_DESC_SUBTITLE4,
-            hasTitle2: false,
-            body: StringConst.EVENTS_DESC4,
-            title1Style: GoogleFonts.poppins(
-              fontSize: Sizes.TEXT_SIZE_28,
-              fontWeight: FontWeight.w700,
-              color: AppColors.black,
-            ),
-          ),
-        ),
-        Container(
-          padding: EdgeInsets.only(
-            left: Sizes.PADDING_100,
-            right: Sizes.PADDING_100,
-          ),
-          height: MediaQuery.of(context).size.height * 0.3,
-          width: double.infinity,
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.bottomLeft,
-              end: Alignment.topRight,
-              colors: [
-                AppColors.white.withOpacity(0.9),
-                AppColors.white.withOpacity(0.5),
-              ],
-            ),
-          ),
-          child: NimbusInfoSection5(
-            title1: StringConst.EVENTS_DESC_SUBTITLE5,
-            hasTitle2: false,
-            body: StringConst.EVENTS_DESC5,
-            title1Style: GoogleFonts.poppins(
-              fontSize: Sizes.TEXT_SIZE_28,
-              fontWeight: FontWeight.w700,
-              color: AppColors.black,
-            ),
-          ),
+          ],
         ),
       ],
     );
@@ -227,6 +195,149 @@ class MobileEventsDescScreen extends StatefulWidget {
 class _MobileEventsDescScreenState extends State<MobileEventsDescScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return ListView(
+      shrinkWrap: true,
+      children: [
+        Column(
+          children: [
+            Container(
+              padding: EdgeInsets.only(
+                left: Sizes.PADDING_100,
+                right: Sizes.PADDING_150,
+              ),
+              height: MediaQuery.of(context).size.height * 0.6,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [
+                    AppColors.maroon03.withOpacity(1.0),
+                    AppColors.maroon05.withOpacity(0.8),
+                  ],
+                ),
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  SizedBoxH150(),
+                  SizedBoxH30(),
+                  Flexible(
+                    fit: FlexFit.loose,
+                    child: NimbusInfoSection3(
+                      title1: StringConst.EVENTS_DESC_TITLE,
+                      hasTitle2: false,
+                      body: StringConst.EVENTS_DESC_SUBTITLE1,
+                      title1Style: GoogleFonts.poppins(
+                        fontSize: Sizes.TEXT_SIZE_20,
+                        fontWeight: FontWeight.w700,
+                        color: AppColors.white,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                SizedBoxH50(),
+                Flexible(
+                  fit: FlexFit.loose,
+                  child: Padding(
+                    padding: EdgeInsets.only(
+                      left: Sizes.PADDING_100,
+                      right: Sizes.PADDING_100,
+                    ),
+                    child: NimbusInfoSection4(
+                      title1: '',
+                      hasTitle2: false,
+                      body: StringConst.EVENTS_DESC1,
+                    ),
+                  ),
+                ),
+                Flexible(
+                  fit: FlexFit.loose,
+                  child: Padding(
+                    padding: EdgeInsets.only(
+                      left: Sizes.PADDING_100,
+                      right: Sizes.PADDING_100,
+                    ),
+                    child: NimbusInfoSection5(
+                      title1: StringConst.EVENTS_DESC_SUBTITLE2,
+                      hasTitle2: false,
+                      body: StringConst.EVENTS_DESC2,
+                      title1Style: GoogleFonts.poppins(
+                        fontSize: Sizes.TEXT_SIZE_18,
+                        fontWeight: FontWeight.w700,
+                        color: AppColors.black,
+                      ),
+                    ),
+                  ),
+                ),
+                Flexible(
+                  fit: FlexFit.loose,
+                  child: Padding(
+                    padding: EdgeInsets.only(
+                      left: Sizes.PADDING_100,
+                      right: Sizes.PADDING_100,
+                    ),
+                    child: NimbusInfoSection5(
+                      title1: StringConst.EVENTS_DESC_SUBTITLE3,
+                      hasTitle2: false,
+                      body: StringConst.EVENTS_DESC3,
+                      title1Style: GoogleFonts.poppins(
+                        fontSize: Sizes.TEXT_SIZE_18,
+                        fontWeight: FontWeight.w700,
+                        color: AppColors.black,
+                      ),
+                    ),
+                  ),
+                ),
+                Flexible(
+                  fit: FlexFit.loose,
+                  child: Padding(
+                    padding: EdgeInsets.only(
+                      left: Sizes.PADDING_100,
+                      right: Sizes.PADDING_100,
+                    ),
+                    child: NimbusInfoSection5(
+                      title1: StringConst.EVENTS_DESC_SUBTITLE4,
+                      hasTitle2: false,
+                      body: StringConst.EVENTS_DESC4,
+                      title1Style: GoogleFonts.poppins(
+                        fontSize: Sizes.TEXT_SIZE_18,
+                        fontWeight: FontWeight.w700,
+                        color: AppColors.black,
+                      ),
+                    ),
+                  ),
+                ),
+                Flexible(
+                  fit: FlexFit.loose,
+                  child: Padding(
+                    padding: EdgeInsets.only(
+                      left: Sizes.PADDING_100,
+                      right: Sizes.PADDING_100,
+                    ),
+                    child: NimbusInfoSection5(
+                      title1: StringConst.EVENTS_DESC_SUBTITLE5,
+                      hasTitle2: false,
+                      body: StringConst.EVENTS_DESC5,
+                      title1Style: GoogleFonts.poppins(
+                        fontSize: Sizes.TEXT_SIZE_18,
+                        fontWeight: FontWeight.w700,
+                        color: AppColors.black,
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBoxH50(),
+              ],
+            ),
+          ],
+        ),
+      ],
+    );
   }
 }

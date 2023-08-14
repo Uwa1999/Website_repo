@@ -87,7 +87,7 @@ class _kPlusDescMainState extends State<kPlusDescMain> with SingleTickerProvider
               controller: _scrollController,
               child: Column(
                 children: [
-                  KplusSection(),
+                  KplusSection1(),
                   SizedBoxH10(),
                   FooterSection(),
                 ],
