@@ -103,11 +103,7 @@ class _SoftwareServiceMainState extends State<SoftwareServiceMain> {
                 controller: _scrollController,
                 child: Column(
                   children: [
-                    Stack(
-                      children: [
-                        ApiSection(),
-                      ],
-                    ),
+                    ApiSection(),
                     MinokawaSection(),
                     BakawanSection(),
                     SizedBoxH100(),

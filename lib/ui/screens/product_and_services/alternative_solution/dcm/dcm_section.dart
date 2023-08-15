@@ -90,7 +90,7 @@ class _DcmSectionState extends State<DcmSection> with SingleTickerProviderStateM
                           double screenWidth = sizingInformation.screenSize.width;
                           if (screenWidth < (RefinedBreakpoints().tabletSmall)) {
                             return Padding(
-                              padding: const EdgeInsets.only(right: 20),
+                              padding: const EdgeInsets.only(right: 30),
                               child: ContentArea(
                                 width: contentAreaWidthSm,
                                 child: _buildNimbusInfoSectionSm(),

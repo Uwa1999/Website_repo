@@ -52,6 +52,7 @@ class _FraudDetectionSectionState extends State<FraudDetectionSection> with Sing
   Widget build(BuildContext context) {
     double screenWidth = widthOfScreen(context) - (getSidePadding(context));
     double screenHeight = heightOfScreen(context);
+    double contentAreaWidthSm = screenWidth * 1.1;
     double contentAreaWidth = responsiveSize(
       context,
       screenWidth,
@@ -60,7 +61,7 @@ class _FraudDetectionSectionState extends State<FraudDetectionSection> with Sing
     );
     double contentAreaHeight = screenHeight * 0.9;
     return VisibilityDetector(
-      key: Key('fraud-detection-section'),
+      key: Key('k2c-section'),
       onVisibilityChanged: (visibilityInfo) {
         double visiblePercentage = visibilityInfo.visibleFraction * 100;
         if (visiblePercentage > 50) {
@@ -86,20 +87,31 @@ class _FraudDetectionSectionState extends State<FraudDetectionSection> with Sing
                         builder: (context, sizingInformation) {
                           double screenWidth = sizingInformation.screenSize.width;
                           if (screenWidth < (RefinedBreakpoints().tabletSmall)) {
-                            return _buildNimbusInfoSectionSm();
+                            return Padding(
+                              padding: const EdgeInsets.only(right: 30),
+                              child: ContentArea(
+                                width: contentAreaWidthSm,
+                                child: _buildNimbusInfoSectionSm(),
+                              ),
+                            );
                           } else {
-                            return _buildNimbusInfoSectionLg();
+                            return ContentArea(
+                              width: contentAreaWidth * 0.7,
+                              child: _buildNimbusInfoSectionLg(),
+                            );
                           }
                         },
                       ),
-                      SizedBoxH50(),
+                      SizedBoxH100(),
                       ResponsiveBuilder(
                         builder: (context, sizingInformation) {
                           double screenWidth = sizingInformation.screenSize.width;
                           if (screenWidth < (RefinedBreakpoints().tabletSmall)) {
-                            return _buildImage(
-                              width: screenWidth,
-                              height: screenHeight * 0.5,
+                            return Center(
+                              child: _buildImage(
+                                width: screenWidth,
+                                height: screenHeight * 0.4,
+                              ),
                             );
                           } else {
                             return Center(
@@ -156,7 +168,11 @@ class _FraudDetectionSectionState extends State<FraudDetectionSection> with Sing
       title1: StringConst.FRAUD_DETECTION_TITLE,
       hasTitle2: false,
       body: StringConst.FRAUD_DETECTION_DESC,
-      dividerColor: AppColors.black,
+      title1Style: GoogleFonts.poppins(
+        fontSize: Sizes.TEXT_SIZE_18,
+        fontWeight: FontWeight.w700,
+        color: AppColors.black,
+      ),
       child: Column(
         children: [],
       ),
@@ -190,7 +206,7 @@ class _FraudDetectionSectionState extends State<FraudDetectionSection> with Sing
       Styles.customTextStyle3(
         fontSize: responsiveSize(context, 64, 80, md: 76),
         height: 1.25,
-        color: AppColors.black,
+        color: AppColors.primaryColor,
       ),
     );
     double textPosition = assignWidth(context, 0.1);
