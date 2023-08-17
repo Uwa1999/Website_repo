@@ -99,6 +99,7 @@ class _DesktopEventsDescScreenState extends State<DesktopEventsDescScreen> {
                     ),
                   ),
                 ),
+                SizedBoxH20(),
                 Flexible(
                   fit: FlexFit.loose,
                   child: Padding(
@@ -118,6 +119,7 @@ class _DesktopEventsDescScreenState extends State<DesktopEventsDescScreen> {
                     ),
                   ),
                 ),
+                SizedBoxH20(),
                 Flexible(
                   fit: FlexFit.loose,
                   child: Padding(
@@ -137,6 +139,7 @@ class _DesktopEventsDescScreenState extends State<DesktopEventsDescScreen> {
                     ),
                   ),
                 ),
+                SizedBoxH20(),
                 Flexible(
                   fit: FlexFit.loose,
                   child: Padding(
@@ -156,6 +159,7 @@ class _DesktopEventsDescScreenState extends State<DesktopEventsDescScreen> {
                     ),
                   ),
                 ),
+                SizedBoxH20(),
                 Flexible(
                   fit: FlexFit.loose,
                   child: Padding(
@@ -175,6 +179,7 @@ class _DesktopEventsDescScreenState extends State<DesktopEventsDescScreen> {
                     ),
                   ),
                 ),
+                SizedBoxH50(),
               ],
             ),
           ],

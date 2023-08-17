@@ -27,7 +27,7 @@ class Data {
       url: StringConst.GITHUB_URL,
     ),
     SocialButtonData(
-      tag: StringConst.INSTA,
+      tag: StringConst.INSTAGRAM_URL,
       iconData: FontAwesomeIcons.instagram,
       url: StringConst.INSTAGRAM_URL,
     ),

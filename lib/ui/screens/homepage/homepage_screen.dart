@@ -155,9 +155,17 @@ class _HomepageScreenState extends State<HomepageScreen> {
                                   // _controller.forward();
                                 }
                               },
-                              child: Container(
-                                key: navItems[1].key,
-                                child: AboutSection(),
+                              child: Stack(
+                                children: [
+                                  Column(
+                                    children: [
+                                      Container(
+                                        key: navItems[1].key,
+                                        child: AboutSection(),
+                                      ),
+                                    ],
+                                  ),
+                                ],
                               ),
                             ),
                           ],

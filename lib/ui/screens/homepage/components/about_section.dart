@@ -227,9 +227,9 @@ class _AboutSectionState extends State<AboutSection>
                 padding: EdgeInsets.only(right: !isMobile(context) ? 15 : 0),
                 child: NimbusInfoSection6(
                   title1: StringConst.ABOUT,
-                  body: StringConst.ABOUT_ME_DESC,
-                  body2: StringConst.ABOUT_ME_DESC2,
-                  body3: StringConst.ABOUT_ME_DESC3,
+                  body: StringConst.ABOUT_US_DESC,
+                  body2: StringConst.ABOUT_US_DESC2,
+                  body3: StringConst.ABOUT_US_DESC3,
                   title1Style: GoogleFonts.poppins(
                     fontSize: Sizes.TEXT_SIZE_35,
                     fontWeight: FontWeight.w700,
@@ -256,9 +256,9 @@ class _AboutSectionState extends State<AboutSection>
                 padding: EdgeInsets.only(right: !isMobile(context) ? 15 : 0),
                 child: NimbusInfoSection6(
                   title1: StringConst.ABOUT,
-                  body: StringConst.ABOUT_ME_DESC,
-                  body2: StringConst.ABOUT_ME_DESC2,
-                  body3: StringConst.ABOUT_ME_DESC3,
+                  body: StringConst.ABOUT_US_DESC,
+                  body2: StringConst.ABOUT_US_DESC2,
+                  body3: StringConst.ABOUT_US_DESC3,
                   title1Style: GoogleFonts.poppins(
                     fontSize: Sizes.TEXT_SIZE_18,
                     fontWeight: FontWeight.w700,

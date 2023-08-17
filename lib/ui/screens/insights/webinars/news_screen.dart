@@ -94,6 +94,7 @@ class _DesktopNewsDescScreenState extends State<DesktopNewsDescScreen> {
             ),
           ),
         ),
+        SizedBoxH50(),
       ],
     );
   }
