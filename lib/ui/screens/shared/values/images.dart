@@ -10,6 +10,12 @@ class ImagePath {
   static const String HOME_BACKGROUND = "$gifDir/fdsap_bg.gif";
 
 // FDSAP Logo
+  static const String FDSAP_MISSION = "$imageDir/mission.png";
+  static const String FDSAP_VISION = "$imageDir/vision.png";
+  static const String FDSAP_MISSION_VISION = "$imageDir/mission_vision.png";
+  static const String ORGANIZATION_CHART = "$imageDir/organization_chart.png";
+
+// FDSAP Logo
   static const String LOGO_FDSAP = "$imageDir/logo_fdsap.png";
   static const String LOGO_LIGHT = "$imageDir/logo_fdsap.png";
 

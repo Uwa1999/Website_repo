@@ -664,7 +664,7 @@ class _MobileProductServicesSectionState extends State<MobileProductServicesSect
     // double screenWidth = widthOfScreen(context);
     double screenHeight = heightOfScreen(context);
     double contentAreaWidthSm = screenWidth * 1.1;
-    double contentAreaHeightSm = screenHeight * 0.6;
+    double contentAreaHeightSm = screenHeight * 1.9;
     double contentAreaWidthLg = screenWidth * 0.5;
 
     return VisibilityDetector(
@@ -755,7 +755,7 @@ class _MobileProductServicesSectionState extends State<MobileProductServicesSect
           children: <Widget>[
             Expanded(
               child: SizedBox(
-                height: MediaQuery.of(context).size.height * 0.4,
+                height: MediaQuery.of(context).size.height * 0.5,
                 child: new ListView.builder(
                   shrinkWrap: true,
                   scrollDirection: Axis.horizontal,

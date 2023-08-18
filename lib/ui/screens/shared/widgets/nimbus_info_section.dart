@@ -541,3 +541,83 @@ class NimbusInfoSection6 extends StatelessWidget {
     );
   }
 }
+
+class NimbusInfoSection7 extends StatelessWidget {
+  final String? title1;
+  final String? title2;
+  final bool hasTitle2;
+  final String body;
+  final TextStyle? sectionTitleStyle;
+  final TextStyle? title1Style;
+  final TextStyle? title2Style;
+  final TextStyle? bodyStyle;
+  final Color dividerColor;
+  final double? thickness;
+  final int quarterTurns;
+  // final double dividerHeight;
+  final Widget? child;
+
+  NimbusInfoSection7({
+    this.title1 = "",
+    required this.body,
+    this.title2 = "",
+    this.sectionTitleStyle,
+    this.title1Style,
+    this.hasTitle2 = true,
+    this.title2Style,
+    this.bodyStyle,
+    this.thickness = 1.15,
+    this.quarterTurns = 3,
+    this.dividerColor = AppColors.black,
+    // this.dividerHeight = Sizes.HEIGHT_40,
+    this.child,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    TextTheme textTheme = Theme.of(context).textTheme;
+    TextStyle? titleStyle = textTheme.headlineMedium?.copyWith(
+      fontSize: responsiveSize(context, 26, 36, md: 32),
+      color: AppColors.black,
+    );
+    double fontSize = responsiveSize(context, 16, 18);
+    return Container(
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Expanded(
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Center(
+                  child: Text(
+                    title1!,
+                    style: title1Style ??
+                        titleStyle?.copyWith(
+                          color: AppColors.maroon04,
+                          fontWeight: FontWeight.w900,
+                        ),
+                  ),
+                ),
+                Center(
+                  child: Text(
+                    body,
+                    textAlign: TextAlign.justify,
+                    style: textTheme.bodySmall?.copyWith(
+                      fontSize: fontSize,
+                      color: AppColors.maroon04,
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}

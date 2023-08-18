@@ -3,6 +3,7 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/responsive.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/images.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/sizes.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/strings.dart';
 // import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
@@ -37,7 +38,7 @@ class _AppDrawerState extends State<AppDrawer> {
       md: assignWidth(context, 0.60),
     );
     return Container(
-      width: MediaQuery.of(context).size.width * 0.3,
+      width: MediaQuery.of(context).size.width * 0.7,
       child: Drawer(
         child: Container(
           color: widget.color,
@@ -57,6 +58,12 @@ class _AppDrawerState extends State<AppDrawer> {
                     ImagePath.LOGO_LIGHT,
                     height: Sizes.HEIGHT_150,
                   ),
+                ),
+              ),
+              Center(
+                child: Text(
+                  StringConst.FDSAP_VERSION,
+                  style: TextStyle(fontSize: 10),
                 ),
               ),
               Divider(

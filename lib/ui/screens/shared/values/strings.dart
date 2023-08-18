@@ -49,10 +49,17 @@ class StringConst {
   static const String ABOUT_US_DESC = '''FDS ASYA PHILIPPINES INC. (FDSAP) is a leader in digital services, whose success is also attributed to the support of an international alliance with our holding, ''';
   static const String ABOUT_US_DESC2 = 'FORTRESS DATA SERVICES INDONESIA (FDSI).';
   static const String ABOUT_US_DESC3 = ''' With a deep understanding of local businesses, we have played a vital role since 2015 in facilitating the digitalization journeys of CARD Bank, CARD RBI, and CARD SME. Throughout the years, we have become one of Southeast Asia's leading IT companies and continues to be a trustworthy and reliable partner in the financial industry.''';
-  static const String FDSAP_MISSON = "Product Designer and Digital Creative Director working in design ";
-  static const String FDSAP_VISION = "field for 13 years so far, specialized in UI/UX, Branding and digital";
+  static const String FDSAP_MISSION_TITLE = "Our Mission";
+  static const String FDSAP_MISSION_DESC = '''• Accommodate various market segments with innovative and world class IT solutions to advance the digitalization of financial ecosystem.
+
+ • Provide leading core banking software to improve operational efficiency with short implementation time, various service offerings and redefine the holistic customer experience.
+ 
+ • Provide digital ecosystem interconnectivity that bridges financial services with no-financial institutions to increase the benefits of the players in the ecosystem.''';
+  static const String FDSAP_VISION_TITLE = "Our Vision";
+  static const String FDSAP_VISION_DESC = "To become the largest technology-based service provider in ASEAN region.";
   static const String FDSAP_HISTORY = "Our History";
-  static const String FDSAP_TEAM = "Dribble";
+  static const String FDSAP_TEAM_TITLE = "FDS ASYA PHILIPPINES INC.";
+  static const String FDSAP_TEAM_DESC = "Organizational Chart";
 
   //Skills Section
   static const String MY_SKILLS = "my skills";
@@ -356,4 +363,7 @@ Latest Article & News''';
   static const String GITHUB_URL = "https://github.com/";
   static const String INSTAGRAM_URL = "https://www.instagram.com/";
   static const String TWITTER_URL = "http://twitter.com/";
+
+  //FDSAP Website Version
+  static const String FDSAP_VERSION = 'V1.1.1';
 }

@@ -59,38 +59,24 @@ class _HeaderResponsiveMobileState extends State<HeaderResponsiveMobile> with Si
     double heightOfBlobAndGlobe = computeHeight(dottedGoldenGlobeOffset, sizeOfGoldenGlobe, sizeOfBlobSm);
     double heightOfStack = heightOfBlobAndGlobe * 2;
     return ContentArea(
+      height: MediaQuery.of(context).size.height * 0.5,
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [
+            AppColors.maroon03.withOpacity(1.0),
+            AppColors.maroon05.withOpacity(0.8),
+          ],
+        ),
+      ),
       child: Stack(
         children: [
-          // Container(
-          //   height: heightOfStack,
-          //   child: Stack(
-          //     children: [
-          //        Positioned(
-          //         right: -(sizeOfBlobSm),
-          //          child: HeaderImage(
-          //          controller: _controller,
-          //           globeSize: sizeOfGoldenGlobe,
-          //            imageHeight: heightOfStack,
-          //          ),
-          //       ),
-          //     ],
-          //   ),
-          // ),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Stack(
                 children: [
-                  // Container(
-                  //   margin: EdgeInsets.only(top: heightOfStack * 0.1),
-                  //   child: SelectableText(
-                  //     StringConst.FIRST_NAME,
-                  //     style: textTheme.headlineMedium?.copyWith(
-                  //       color: AppColors.grey50,
-                  //       fontSize: headerIntroTextSize * 2.5,
-                  //     ),
-                  //   ),
-                  // ),
                   Container(
                     padding: const EdgeInsets.symmetric(horizontal: sidePadding),
                     margin: EdgeInsets.only(top: heightOfStack * 0.3),
@@ -107,7 +93,7 @@ class _HeaderResponsiveMobileState extends State<HeaderResponsiveMobile> with Si
                                 style: GoogleFonts.poppins(
                                   fontSize: headerIntroTextSize,
                                   fontWeight: FontWeight.w500,
-                                  color: AppColors.black,
+                                  color: AppColors.white,
                                 ),
                               ),
                             ),
@@ -119,7 +105,7 @@ class _HeaderResponsiveMobileState extends State<HeaderResponsiveMobile> with Si
                                 style: GoogleFonts.poppins(
                                   fontSize: headerIntroTextSize,
                                   fontWeight: FontWeight.w500,
-                                  color: AppColors.black,
+                                  color: AppColors.white,
                                 ),
                               ),
                             ),
@@ -134,7 +120,7 @@ class _HeaderResponsiveMobileState extends State<HeaderResponsiveMobile> with Si
                                     textStyle: GoogleFonts.poppins(
                                       fontSize: headerIntroTextSize,
                                       fontWeight: FontWeight.w500,
-                                      color: AppColors.black,
+                                      color: AppColors.white,
                                     ),
                                   ),
                                 ],
@@ -151,7 +137,7 @@ class _HeaderResponsiveMobileState extends State<HeaderResponsiveMobile> with Si
                                 textAlign: TextAlign.justify,
                                 style: GoogleFonts.poppins(
                                   fontWeight: FontWeight.w400,
-                                  color: AppColors.black,
+                                  color: AppColors.white,
                                   fontSize: 15,
                                   height: 1.5,
                                 ),
