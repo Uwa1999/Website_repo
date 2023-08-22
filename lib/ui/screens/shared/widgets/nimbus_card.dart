@@ -30,10 +30,6 @@ class FdsTagLineCard extends StatefulWidget {
     this.title,
     this.subtitle,
     this.trailing,
-    this.columnMainAxisAlignment = MainAxisAlignment.center,
-    this.columnCrossAxisAlignment = CrossAxisAlignment.center,
-    this.rowMainAxisAlignment = MainAxisAlignment.center,
-    this.rowCrossAxisAlignment = CrossAxisAlignment.center,
     this.width,
     this.height,
     this.offsetY = -40,
@@ -55,10 +51,7 @@ class FdsTagLineCard extends StatefulWidget {
   final double? height;
   final double? elevation;
   final double offsetY;
-  final MainAxisAlignment columnMainAxisAlignment;
-  final CrossAxisAlignment columnCrossAxisAlignment;
-  final CrossAxisAlignment rowCrossAxisAlignment;
-  final MainAxisAlignment rowMainAxisAlignment;
+
   final EdgeInsetsGeometry padding;
   final BorderRadius borderRadius;
   final bool hasAnimation;
@@ -131,15 +124,15 @@ class _FdsTagLineCardState extends State<FdsTagLineCard> {
           child: Padding(
             padding: widget.padding,
             child: Row(
-              mainAxisAlignment: widget.rowMainAxisAlignment,
-              crossAxisAlignment: widget.rowCrossAxisAlignment,
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 // widget.leading != null ? Spacer() : EmptyContainer(),
                 // widget.leading ?? EmptyContainer(),
                 // widget.leading != null ? Spacer() : EmptyContainer(),
                 Column(
-                  mainAxisAlignment: widget.columnMainAxisAlignment,
-                  crossAxisAlignment: widget.columnCrossAxisAlignment,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Spacer(),
                     widget.title ?? EmptyContainer(),

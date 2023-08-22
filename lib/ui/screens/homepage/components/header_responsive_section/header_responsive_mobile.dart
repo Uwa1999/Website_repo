@@ -138,7 +138,7 @@ class _HeaderResponsiveMobileState extends State<HeaderResponsiveMobile> with Si
                                 style: GoogleFonts.poppins(
                                   fontWeight: FontWeight.w400,
                                   color: AppColors.white,
-                                  fontSize: 15,
+                                  fontSize: 14,
                                   height: 1.5,
                                 ),
                               ),

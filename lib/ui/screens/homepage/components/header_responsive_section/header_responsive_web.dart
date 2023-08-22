@@ -157,7 +157,7 @@ class _HeaderResponsiveWebState extends State<HeaderResponsiveWeb> with SingleTi
                             ),
                             SizedBoxH16(),
                             ConstrainedBox(
-                              constraints: BoxConstraints(maxWidth: screenWidth * 0.35),
+                              constraints: BoxConstraints(maxWidth: screenWidth * 0.50),
                               child: SelectableText(
                                 StringConst.ABOUT_DEV,
                                 textAlign: TextAlign.justify,
@@ -165,7 +165,7 @@ class _HeaderResponsiveWebState extends State<HeaderResponsiveWeb> with SingleTi
                                   color: AppColors.white,
                                   fontWeight: FontWeight.w500,
                                   fontSize: 18,
-                                  height: 1.5,
+                                  height: 1.7,
                                 ),
                                 // style: bodyTextStyle?.copyWith(height: 1.5),
                               ),

@@ -1,3 +1,4 @@
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/homepage_screen.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/images.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/sizes.dart';
@@ -40,7 +41,10 @@ class NavSectionMobile extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => HomepageScreen()));
+                print("-----HOMEPAGE SCREEN----");
+              },
               child: Image.asset(
                 ImagePath.LOGO_LIGHT,
                 height: Sizes.HEIGHT_100,

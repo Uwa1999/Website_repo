@@ -243,6 +243,7 @@ class _MobileEventsDescScreenState extends State<MobileEventsDescScreen> {
                 ],
               ),
             ),
+            SizedBoxH50(),
             Column(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -261,6 +262,7 @@ class _MobileEventsDescScreenState extends State<MobileEventsDescScreen> {
                     ),
                   ),
                 ),
+                SizedBoxH20(),
                 Flexible(
                   fit: FlexFit.loose,
                   child: Padding(
@@ -280,6 +282,7 @@ class _MobileEventsDescScreenState extends State<MobileEventsDescScreen> {
                     ),
                   ),
                 ),
+                SizedBoxH20(),
                 Flexible(
                   fit: FlexFit.loose,
                   child: Padding(
@@ -299,6 +302,7 @@ class _MobileEventsDescScreenState extends State<MobileEventsDescScreen> {
                     ),
                   ),
                 ),
+                SizedBoxH20(),
                 Flexible(
                   fit: FlexFit.loose,
                   child: Padding(
@@ -318,6 +322,7 @@ class _MobileEventsDescScreenState extends State<MobileEventsDescScreen> {
                     ),
                   ),
                 ),
+                SizedBoxH20(),
                 Flexible(
                   fit: FlexFit.loose,
                   child: Padding(
@@ -337,6 +342,7 @@ class _MobileEventsDescScreenState extends State<MobileEventsDescScreen> {
                     ),
                   ),
                 ),
+                SizedBoxH20(),
                 SizedBoxH50(),
               ],
             ),
