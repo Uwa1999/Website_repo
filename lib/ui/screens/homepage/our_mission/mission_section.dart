@@ -69,7 +69,7 @@ class _MissionSectionState extends State<MissionSection> with SingleTickerProvid
     double screenHeight = heightOfScreen(context);
     double contentAreaWidthSm = screenWidth * 1.1;
     double contentAreaHeightSm = screenHeight * 0.6;
-    double contentAreaWidthLg = screenWidth * 0.5;
+    double contentAreaWidthLg = screenWidth * 1.0;
     double contentAreaWidth = screenWidth;
     return VisibilityDetector(
       key: Key('about-section'),
@@ -113,18 +113,18 @@ class _MissionSectionState extends State<MissionSection> with SingleTickerProvid
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  SizedBoxH50(),
+                  SizedBoxH80(),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      ContentArea(
-                        width: contentAreaWidthLg,
-                        child: _buildMissionVisionLogo(
-                          width: contentAreaWidthLg,
-                          height: screenHeight,
-                        ),
-                      ),
+                      // ContentArea(
+                      //   width: contentAreaWidthLg,
+                      //   child: _buildMissionVisionLogo(
+                      //     width: contentAreaWidthLg,
+                      //     height: screenHeight,
+                      //   ),
+                      // ),
                       ContentArea(
                         width: contentAreaWidthLg,
                         child: _buildAboutUs(
@@ -134,7 +134,7 @@ class _MissionSectionState extends State<MissionSection> with SingleTickerProvid
                       ),
                     ],
                   ),
-                  SizedBoxH10(),
+                  SizedBoxH80(),
                 ],
               );
             }
@@ -205,7 +205,7 @@ class _MissionSectionState extends State<MissionSection> with SingleTickerProvid
                   ),
                 ),
               ),
-              SizedBoxH20(),
+              SizedBoxH40(),
               Padding(
                 padding: EdgeInsets.only(right: !isMobile(context) ? 15 : 0),
                 child: NimbusInfoSection2(
