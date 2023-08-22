@@ -1,14 +1,9 @@
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/components/product_services_navitem.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/nav_item.dart';
 import 'package:flutter/material.dart';
 
-class ProductAndServicesSideMenu extends StatefulWidget {
-  const ProductAndServicesSideMenu({Key? key}) : super(key: key);
+class HomepageSideMenu extends StatelessWidget {
+  const HomepageSideMenu({Key? key}) : super(key: key);
 
-  @override
-  State<ProductAndServicesSideMenu> createState() => _ProductAndServicesSideMenuState();
-}
-
-class _ProductAndServicesSideMenuState extends State<ProductAndServicesSideMenu> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -21,22 +16,22 @@ class _ProductAndServicesSideMenuState extends State<ProductAndServicesSideMenu>
             children: [
               NavItem(
                 title: 'Home',
-                tapEvent: () {},
+                onTap: () {},
               ),
               const SizedBox(height: 10),
               NavItem(
                 title: 'About Us',
-                tapEvent: () {},
+                onTap: () {},
               ),
               const SizedBox(height: 10),
               NavItem(
                 title: 'Contact Us',
-                tapEvent: () {},
+                onTap: () {},
               ),
               const SizedBox(height: 10),
               NavItem(
                 title: 'Help',
-                tapEvent: () {},
+                onTap: () {},
               ),
             ],
           ),

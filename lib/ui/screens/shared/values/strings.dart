@@ -8,7 +8,7 @@ class StringConst {
   static const String NAME_ABBREV = "CA";
   static const String HOME = "Home";
   static const String ABOUT = "About Us";
-  static const String SERVICES = "Product & Services";
+  static const String SERVICES = "Products & Services";
   static const String INSIGHTS = "Insights";
   static const String PARTNERS = "Partners";
   static const String CONTACT = "Contacts";
@@ -52,9 +52,9 @@ class StringConst {
   static const String FDSAP_MISSION_TITLE = "Our Mission";
   static const String FDSAP_MISSION_DESC = '''• Accommodate various market segments with innovative and world class IT solutions to advance the digitalization of financial ecosystem.
 
- • Provide leading core banking software to improve operational efficiency with short implementation time, various service offerings and redefine the holistic customer experience.
+• Provide leading core banking software to improve operational efficiency with short implementation time, various service offerings and redefine the holistic customer experience.
  
- • Provide digital ecosystem interconnectivity that bridges financial services with no-financial institutions to increase the benefits of the players in the ecosystem.''';
+• Provide digital ecosystem interconnectivity that bridges financial services with no-financial institutions to increase the benefits of the players in the ecosystem.''';
   static const String FDSAP_VISION_TITLE = "Our Vision";
   static const String FDSAP_VISION_DESC = "To become the largest technology-based service provider in ASEAN region.";
   static const String FDSAP_HISTORY = "Our History";

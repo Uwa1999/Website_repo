@@ -221,6 +221,12 @@ class _HeaderSectionState extends State<HeaderSection> with SingleTickerProvider
                                 print("-----INSIGHTS SCREEN----");
                               },
                             ),
+                            NavItem(
+                              title: 'Contact Us',
+                              onTap: () {
+                                print("-----CONTACT US----");
+                              },
+                            ),
                           ],
                         ),
                     if (isMobile(context))

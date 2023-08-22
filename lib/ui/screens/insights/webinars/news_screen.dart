@@ -166,7 +166,6 @@ class _MobileArticleNewsDescScreenState extends State<MobileArticleNewsDescScree
                       right: Sizes.PADDING_100,
                     ),
                     child: NimbusInfoSection4(
-                      title1: '',
                       hasTitle2: false,
                       body: StringConst.NEWS_DESC1,
                     ),

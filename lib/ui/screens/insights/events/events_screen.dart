@@ -256,7 +256,6 @@ class _MobileEventsDescScreenState extends State<MobileEventsDescScreen> {
                       right: Sizes.PADDING_100,
                     ),
                     child: NimbusInfoSection4(
-                      title1: '',
                       hasTitle2: false,
                       body: StringConst.EVENTS_DESC1,
                     ),
