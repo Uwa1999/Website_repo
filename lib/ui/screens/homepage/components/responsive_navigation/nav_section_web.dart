@@ -1,3 +1,4 @@
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/homepage_screen.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/functions.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/responsive.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/images.dart';
@@ -76,7 +77,10 @@ class _NavSectionWebState extends State<NavSectionWeb> {
           children: [
             SizedBox(width: logoSpaceLeft),
             InkWell(
-              onTap: () {},
+              onTap: () {
+                Navigator.of(context).push(MaterialPageRoute(builder: (context) => HomepageScreen()));
+                print("-----HOMEPAGE SCREEN----");
+              },
               child: Image.asset(
                 ImagePath.LOGO_FDSAP,
                 height: Sizes.HEIGHT_100,

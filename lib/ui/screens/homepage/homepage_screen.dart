@@ -6,6 +6,7 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/our_location
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/product_services_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/responsive_navigation/nav_section_mobile.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/responsive_navigation/nav_section_web.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/side_menu.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/our_mission/mission_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/our_team/our_team_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/functions.dart';
@@ -13,7 +14,6 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/responsive.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/sizes.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/strings.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/app_drawer.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/nav_item.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/sizedbox.dart';
 import 'package:flutter/material.dart';
@@ -77,9 +77,7 @@ class _HomepageScreenState extends State<HomepageScreen> {
         builder: (context, sizingInformation) {
           double screenWidth = sizingInformation.screenSize.width;
           if (screenWidth < RefinedBreakpoints().desktopSmall) {
-            return AppDrawer(
-              menuList: navItems,
-            );
+            return SideMenu();
           } else {
             return Container();
           }
