@@ -450,8 +450,8 @@ class MobileFooter extends StatelessWidget {
   }
 }
 
-class NavItem extends StatelessWidget {
-  const NavItem({Key? key, required this.title, required this.tapEvent}) : super(key: key);
+class FooterNavItem extends StatelessWidget {
+  const FooterNavItem({Key? key, required this.title, required this.tapEvent}) : super(key: key);
 
   final String title;
   final GestureTapCallback tapEvent;

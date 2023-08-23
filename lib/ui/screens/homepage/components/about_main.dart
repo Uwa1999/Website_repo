@@ -1,13 +1,15 @@
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/about_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/footer_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/responsive_navigation/nav_section_mobile.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/our_mission/mission_section.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/our_team/our_team_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/header_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/responsive.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/sizes.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/sizedbox.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter/rendering.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 class AboutMain extends StatefulWidget {
@@ -30,7 +32,7 @@ class _AboutMainState extends State<AboutMain> with SingleTickerProviderStateMix
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
 
   final ScrollController _scrollController = ScrollController();
-
+  bool isFabVisible = false;
   @override
   void dispose() {
     _controller.dispose();
@@ -54,46 +56,66 @@ class _AboutMainState extends State<AboutMain> with SingleTickerProviderStateMix
     double spacerHeight = screenHeight * 0.19;
     return Scaffold(
       key: _scaffoldKey,
-      floatingActionButton: ScaleTransition(
-        scale: _animation,
+      floatingActionButton: Visibility(
+        visible: isFabVisible,
         child: FloatingActionButton(
-          onPressed: () {
-            // Scroll to header section
-            //  scrollToSection(navItems[0].key.currentContext!);
-          },
+          backgroundColor: AppColors.maroon08,
           child: Icon(
-            FontAwesomeIcons.arrowUp,
+            Icons.expand_more,
             size: Sizes.ICON_SIZE_18,
             color: AppColors.white,
           ),
+          onPressed: () {},
         ),
       ),
-      body: Column(
-        children: [
-          ResponsiveBuilder(
-            refinedBreakpoints: RefinedBreakpoints(),
-            builder: (context, sizingInformation) {
-              double screenWidth = sizingInformation.screenSize.width;
-              if (screenWidth < RefinedBreakpoints().desktopSmall) {
-                return NavSectionMobile(scaffoldKey: _scaffoldKey);
-              } else {
-                return HeaderSection();
-              }
-            },
-          ),
-          Expanded(
-            child: SingleChildScrollView(
-              controller: _scrollController,
-              child: Column(
-                children: [
-                  AboutSection(),
-                  SizedBoxH100(),
-                  FooterSection(),
-                ],
+      body: NotificationListener<UserScrollNotification>(
+        onNotification: (notification) {
+          if (notification.direction == ScrollDirection.reverse) {
+            if (!isFabVisible) setState(() => isFabVisible = true);
+          } else if (notification.direction == ScrollDirection.forward) {
+            if (isFabVisible) setState(() => isFabVisible = false);
+          }
+          return true;
+        },
+        // floatingActionButton: FloatingActionButton(
+        //   onPressed: () {},
+        //   child: Icon(
+        //     FontAwesomeIcons.arrowDown,
+        //     size: Sizes.ICON_SIZE_18,
+        //     color: AppColors.white,
+        //   ),
+        // ),
+        child: Column(
+          children: [
+            ResponsiveBuilder(
+              refinedBreakpoints: RefinedBreakpoints(),
+              builder: (context, sizingInformation) {
+                double screenWidth = sizingInformation.screenSize.width;
+                if (screenWidth < RefinedBreakpoints().desktopSmall) {
+                  return NavSectionMobile(scaffoldKey: _scaffoldKey);
+                } else {
+                  return HeaderSection();
+                }
+              },
+            ),
+            Expanded(
+              child: SingleChildScrollView(
+                controller: _scrollController,
+                child: Column(
+                  children: [
+                    AboutSection(),
+                    SizedBoxH80(),
+                    MissionSection(),
+                    SizedBoxH80(),
+                    OurTeamSection(),
+                    SizedBoxH100(),
+                    FooterSection(),
+                  ],
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

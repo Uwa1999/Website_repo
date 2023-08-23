@@ -38,36 +38,38 @@ class _DesktopArticleDescScreenState extends State<DesktopArticleDescScreen> {
       children: [
         Column(
           children: [
-            Container(
-              padding: EdgeInsets.only(
-                left: Sizes.PADDING_100,
-                right: Sizes.PADDING_150,
-              ),
-              height: MediaQuery.of(context).size.height * 0.7,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  fit: BoxFit.cover,
-                  image: AssetImage(ImagePath.ARTICLE_HEADER),
+            SingleChildScrollView(
+              child: Container(
+                padding: EdgeInsets.only(
+                  left: Sizes.PADDING_100,
+                  right: Sizes.PADDING_150,
                 ),
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  SizedBoxH150(),
-                  SizedBoxH150(),
-                  SizedBoxH80(),
-                  NimbusInfoSection3(
-                    title1: StringConst.ARTICLE_DESC_TITLE,
-                    hasTitle2: false,
-                    body: StringConst.ARTICLE_DESC_SUBTITLE1,
-                    title1Style: GoogleFonts.poppins(
-                      fontSize: Sizes.TEXT_SIZE_28,
-                      fontWeight: FontWeight.w700,
-                      color: AppColors.white,
-                    ),
+                height: MediaQuery.of(context).size.height * 0.7,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: AssetImage(ImagePath.ARTICLE_HEADER),
                   ),
-                ],
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    SizedBoxH150(),
+                    SizedBoxH150(),
+                    SizedBoxH80(),
+                    NimbusInfoSection3(
+                      title1: StringConst.ARTICLE_DESC_TITLE,
+                      hasTitle2: false,
+                      body: StringConst.ARTICLE_DESC_SUBTITLE1,
+                      title1Style: GoogleFonts.poppins(
+                        fontSize: Sizes.TEXT_SIZE_28,
+                        fontWeight: FontWeight.w700,
+                        color: AppColors.white,
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
             Column(
