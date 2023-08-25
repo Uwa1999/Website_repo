@@ -29,14 +29,6 @@ class HomepageScreen extends StatefulWidget {
 }
 
 class _HomepageScreenState extends State<HomepageScreen> {
-  // late final AnimationController _controller = AnimationController(
-  //   duration: const Duration(milliseconds: 300),
-  //   vsync: this,
-  // );
-  // late final Animation<double> _animation = CurvedAnimation(
-  //   parent: _controller,
-  //   curve: Curves.easeInOut,
-  // );
   bool isFabVisible = false;
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
   final ScrollController _scrollController = ScrollController();
@@ -46,23 +38,6 @@ class _HomepageScreenState extends State<HomepageScreen> {
     NavItemData(name: StringConst.SERVICES, key: GlobalKey()),
     NavItemData(name: StringConst.INSIGHTS, key: GlobalKey()),
   ];
-
-  // @override
-  // void dispose() {
-  //   _controller.dispose();
-  //   _scrollController.dispose();
-  //   super.dispose();
-  // }
-  //
-  // @override
-  // void initState() {
-  //   _scrollController.addListener(() {
-  //     if (_scrollController.position.pixels < 100) {
-  //       _controller.reverse();
-  //     }
-  //   });
-  //   super.initState();
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -83,17 +58,6 @@ class _HomepageScreenState extends State<HomepageScreen> {
           }
         },
       ),
-      // floatingActionButton: FloatingActionButton(
-      //   onPressed: () {
-      //     // Scroll to header section
-      //     scrollToSection(navItems[0].key.currentContext!);
-      //   },
-      //   child: Icon(
-      //     FontAwesomeIcons.arrowUp,
-      //     size: Sizes.ICON_SIZE_18,
-      //     color: AppColors.white,
-      //   ),
-      // ),
       floatingActionButton: Visibility(
         visible: isFabVisible,
         child: FloatingActionButton(
