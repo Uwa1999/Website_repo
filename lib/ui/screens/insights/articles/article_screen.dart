@@ -204,7 +204,7 @@ class _MobileArticleDescScreenState extends State<MobileArticleDescScreen> {
                   left: Sizes.PADDING_20,
                   right: Sizes.PADDING_20,
                 ),
-                height: MediaQuery.of(context).size.height * 0.6,
+                height: MediaQuery.of(context).size.height * 0.5,
                 width: double.infinity,
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
@@ -219,7 +219,7 @@ class _MobileArticleDescScreenState extends State<MobileArticleDescScreen> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    SizedBoxH150(),
+                    SizedBoxH130(),
                     NimbusInfoSection3(
                       title1: StringConst.ARTICLE_DESC_TITLE,
                       hasTitle2: false,
@@ -237,7 +237,7 @@ class _MobileArticleDescScreenState extends State<MobileArticleDescScreen> {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    SizedBoxH50(),
+                    SizedBoxH20(),
                     Flexible(
                       fit: FlexFit.loose,
                       child: Padding(
