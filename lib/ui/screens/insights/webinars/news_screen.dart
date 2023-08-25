@@ -33,13 +33,13 @@ class DesktopNewsDescScreen extends StatefulWidget {
 class _DesktopNewsDescScreenState extends State<DesktopNewsDescScreen> {
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      shrinkWrap: true,
-      children: [
-        Column(
-          children: [
-            SingleChildScrollView(
-              child: Container(
+    return SingleChildScrollView(
+      child: ListView(
+        shrinkWrap: true,
+        children: [
+          Column(
+            children: [
+              Container(
                 padding: EdgeInsets.only(
                   left: Sizes.PADDING_100,
                   right: Sizes.PADDING_150,
@@ -82,26 +82,31 @@ class _DesktopNewsDescScreenState extends State<DesktopNewsDescScreen> {
                   ],
                 ),
               ),
-            ),
-          ],
-        ),
-        SizedBoxH50(),
-        Flexible(
-          fit: FlexFit.loose,
-          child: Padding(
-            padding: EdgeInsets.only(
-              left: Sizes.PADDING_100,
-              right: Sizes.PADDING_100,
-            ),
-            child: NimbusInfoSection4(
-              title1: '',
-              hasTitle2: false,
-              body: StringConst.NEWS_DESC1,
-            ),
+            ],
           ),
-        ),
-        SizedBoxH50(),
-      ],
+          Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              SizedBoxH50(),
+              Flexible(
+                fit: FlexFit.loose,
+                child: Padding(
+                  padding: EdgeInsets.only(
+                    left: Sizes.PADDING_100,
+                    right: Sizes.PADDING_100,
+                  ),
+                  child: NimbusInfoSection4(
+                    title1: '',
+                    hasTitle2: false,
+                    body: StringConst.NEWS_DESC1,
+                  ),
+                ),
+              ),
+              SizedBoxH50(),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
@@ -117,16 +122,16 @@ class MobileArticleNewsDescScreen extends StatefulWidget {
 class _MobileArticleNewsDescScreenState extends State<MobileArticleNewsDescScreen> {
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      shrinkWrap: true,
-      children: [
-        Column(
-          children: [
-            SingleChildScrollView(
-              child: Container(
+    return SingleChildScrollView(
+      child: ListView(
+        shrinkWrap: true,
+        children: [
+          Column(
+            children: [
+              Container(
                 padding: EdgeInsets.only(
-                  left: Sizes.PADDING_100,
-                  right: Sizes.PADDING_150,
+                  left: Sizes.PADDING_20,
+                  right: Sizes.PADDING_20,
                 ),
                 height: MediaQuery.of(context).size.height * 0.6,
                 width: double.infinity,
@@ -147,44 +152,52 @@ class _MobileArticleNewsDescScreenState extends State<MobileArticleNewsDescScree
                     SizedBoxH30(),
                     Flexible(
                       fit: FlexFit.loose,
-                      child: NimbusInfoSection3(
-                        title1: StringConst.NEWS_DESC_TITLE,
-                        hasTitle2: false,
-                        body: StringConst.NEWS_DESC_SUBTITLE1,
-                        title1Style: GoogleFonts.poppins(
-                          fontSize: Sizes.TEXT_SIZE_20,
-                          fontWeight: FontWeight.w700,
-                          color: AppColors.white,
+                      child: Padding(
+                        padding: const EdgeInsets.only(
+                          left: Sizes.PADDING_20,
+                          right: Sizes.PADDING_20,
+                        ),
+                        child: NimbusInfoSection3(
+                          title1: StringConst.NEWS_DESC_TITLE,
+                          hasTitle2: false,
+                          body: StringConst.NEWS_DESC_SUBTITLE1,
+                          title1Style: GoogleFonts.poppins(
+                            fontSize: Sizes.TEXT_SIZE_18,
+                            fontWeight: FontWeight.w700,
+                            color: AppColors.white,
+                          ),
                         ),
                       ),
                     ),
                   ],
                 ),
               ),
-            ),
-            Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                SizedBoxH50(),
-                Flexible(
-                  fit: FlexFit.loose,
-                  child: Padding(
-                    padding: EdgeInsets.only(
-                      left: Sizes.PADDING_100,
-                      right: Sizes.PADDING_100,
+              SingleChildScrollView(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    SizedBoxH50(),
+                    Flexible(
+                      fit: FlexFit.loose,
+                      child: Padding(
+                        padding: const EdgeInsets.only(
+                          left: Sizes.PADDING_20,
+                          right: Sizes.PADDING_20,
+                        ),
+                        child: NimbusInfoSection4(
+                          hasTitle2: false,
+                          body: StringConst.NEWS_DESC1,
+                        ),
+                      ),
                     ),
-                    child: NimbusInfoSection4(
-                      hasTitle2: false,
-                      body: StringConst.NEWS_DESC1,
-                    ),
-                  ),
+                    SizedBoxH50(),
+                  ],
                 ),
-                SizedBoxH50(),
-              ],
-            ),
-          ],
-        ),
-      ],
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }
