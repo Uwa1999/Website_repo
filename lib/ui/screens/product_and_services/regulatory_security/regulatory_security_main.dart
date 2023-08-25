@@ -82,9 +82,13 @@ class _RegulatorySecurityMainState extends State<RegulatorySecurityMain> {
               child: SingleChildScrollView(
                 child: Column(
                   children: [
+                    SizedBoxH80(),
                     AmlaSection(),
+                    SizedBoxH80(),
                     CyberSecuritySection(),
+                    SizedBoxH80(),
                     SecurityOperationSection(),
+                    SizedBoxH80(),
                     FraudDetectionSection(),
                     SizedBoxH100(),
                     FooterSection(),

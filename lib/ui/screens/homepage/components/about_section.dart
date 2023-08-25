@@ -25,44 +25,9 @@ class AboutSection extends StatefulWidget {
   _AboutSectionState createState() => _AboutSectionState();
 }
 
-class _AboutSectionState extends State<AboutSection>
-// with TickerProviderStateMixin
-{
+class _AboutSectionState extends State<AboutSection> {
   late AnimationController _scaleController;
-  late Animation<double> _scaleAnimation;
   late AnimationController _fadeInController;
-  late Animation<double> _fadeInAnimation;
-
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   _scaleController = AnimationController(
-  //     duration: const Duration(milliseconds: 750),
-  //     vsync: this,
-  //   );
-  //   _fadeInController = AnimationController(
-  //     duration: const Duration(seconds: 1),
-  //     vsync: this,
-  //   );
-  //   _scaleAnimation = Tween(begin: 0.0, end: 1.0).animate(
-  //     CurvedAnimation(
-  //       parent: _scaleController,
-  //       curve: Curves.fastOutSlowIn,
-  //     ),
-  //   );
-  //   _fadeInAnimation = Tween(begin: 0.0, end: 1.0).animate(
-  //     CurvedAnimation(
-  //       parent: _fadeInController,
-  //       curve: Curves.fastOutSlowIn,
-  //     ),
-  //   );
-  //
-  //   _scaleController.addStatusListener((status) {
-  //     if (status == AnimationStatus.completed) {
-  //       _fadeInController.forward();
-  //     }
-  //   });
-  // }
 
   @override
   void dispose() {

@@ -81,9 +81,13 @@ class _BankingTechnologyMainState extends State<BankingTechnologyMain> {
               child: SingleChildScrollView(
                 child: Column(
                   children: [
+                    SizedBoxH80(),
                     MobColSection(),
+                    SizedBoxH80(),
                     WebCollectionSection(),
+                    SizedBoxH80(),
                     //  CoreBankingSection(),
+                    //  SizedBoxH80(),
                     TemenosSection(),
                     SizedBoxH100(),
                     FooterSection(),

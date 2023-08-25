@@ -19,213 +19,183 @@ class MobColSection extends StatefulWidget {
   State<MobColSection> createState() => _MobColSectionState();
 }
 
-class _MobColSectionState extends State<MobColSection> with SingleTickerProviderStateMixin {
-  late AnimationController _controller;
-  bool text1InView = false;
-  bool text2InView = false;
-
-  @override
-  void initState() {
-    super.initState();
-
-    _controller = AnimationController(
-      duration: const Duration(seconds: 20),
-      vsync: this,
-    )..repeat();
-
-    _controller.forward();
-    _controller.addListener(() {
-      if (_controller.status == AnimationStatus.completed) {
-        _controller.reset();
-        _controller.forward();
-      }
-    });
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
-
+class _MobColSectionState extends State<MobColSection> {
   @override
   Widget build(BuildContext context) {
-    double screenWidth = widthOfScreen(context) - (getSidePadding(context));
+    double screenWidth = widthOfScreen(context) - getSidePadding(context) * 2;
     double screenHeight = heightOfScreen(context);
     double contentAreaWidthSm = screenWidth * 1.1;
-    double contentAreaWidth = responsiveSize(
-      context,
-      screenWidth,
-      screenWidth * 0.5,
-      md: screenWidth * 0.5,
-    );
-    double contentAreaHeight = screenHeight * 0.9;
+    double contentAreaHeightSm = screenHeight * 0.6;
+    double contentAreaWidthLg = screenWidth * 0.6;
+    double contentAreaWidth = screenWidth;
     return VisibilityDetector(
-      key: Key('k2c-section'),
+      key: Key('mobcol-section'),
       onVisibilityChanged: (visibilityInfo) {
         double visiblePercentage = visibilityInfo.visibleFraction * 100;
-        if (visiblePercentage > 50) {
-          setState(() {
-            text1InView = true;
-          });
-        }
+        if (visiblePercentage > 25) {}
       },
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          SizedBoxH50(),
-          Container(
-            padding: EdgeInsets.only(left: getSidePadding(context)),
-            child: ResponsiveBuilder(
-              refinedBreakpoints: RefinedBreakpoints(),
-              builder: (context, sizingInformation) {
-                double screenWidth = sizingInformation.screenSize.width;
-                if (screenWidth <= 1024) {
-                  return Column(
-                    children: [
-                      ResponsiveBuilder(
-                        builder: (context, sizingInformation) {
-                          double screenWidth = sizingInformation.screenSize.width;
-                          if (screenWidth < (RefinedBreakpoints().tabletSmall)) {
-                            return Padding(
-                              padding: const EdgeInsets.only(right: 30),
-                              child: ContentArea(
-                                width: contentAreaWidthSm,
-                                child: _buildNimbusInfoSectionSm(),
-                              ),
-                            );
-                          } else {
-                            return ContentArea(
-                              width: contentAreaWidth * 0.7,
-                              child: _buildNimbusInfoSectionLg(),
-                            );
-                          }
-                        },
+      child: Container(
+        padding: EdgeInsets.only(left: getSidePadding(context)),
+        child: ResponsiveBuilder(
+          refinedBreakpoints: RefinedBreakpoints(),
+          builder: (context, sizingInformation) {
+            double screenWidth = sizingInformation.screenSize.width;
+            if (screenWidth < (RefinedBreakpoints().tabletLarge)) {
+              return Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(right: 30),
+                    child: Center(
+                      child: _buildMobColDesc(
+                        width: contentAreaWidthSm,
+                        height: screenHeight,
                       ),
-                      SizedBoxH100(),
-                      ResponsiveBuilder(
-                        builder: (context, sizingInformation) {
-                          double screenWidth = sizingInformation.screenSize.width;
-                          if (screenWidth < (RefinedBreakpoints().tabletSmall)) {
-                            return Center(
-                              child: _buildImage(
-                                width: screenWidth,
-                                height: screenHeight * 0.4,
-                              ),
-                            );
-                          } else {
-                            return Center(
-                              child: _buildImage(
-                                width: screenWidth * 0.75,
-                                height: screenHeight * 0.75,
-                              ),
-                            );
-                          }
-                        },
+                    ),
+                  ),
+                  SizedBoxH50(),
+                  Padding(
+                    padding: const EdgeInsets.only(right: 30),
+                    child: Center(
+                      child: _buildMobColGIF(
+                        width: contentAreaWidthSm,
+                        height: contentAreaHeightSm,
                       ),
-                    ],
-                  );
-                } else {
-                  return Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    ),
+                  ),
+                ],
+              );
+            } else {
+              return Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       ContentArea(
-                        width: contentAreaWidth,
-                        height: contentAreaHeight,
-                        child: Container(
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: Column(
-                                  children: [
-                                    Spacer(),
-                                    _buildNimbusInfoSectionLg(),
-                                    Spacer(flex: 2),
-                                  ],
-                                ),
-                              ),
-                            ],
+                        child: _buildMobColDesc(
+                          width: contentAreaWidth * 0.7,
+                          height: screenHeight,
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(right: 30),
+                        child: ContentArea(
+                          child: _buildMobColGIF(
+                            width: contentAreaWidthLg,
+                            height: screenHeight,
                           ),
                         ),
                       ),
-                      _buildImage(
-                        width: contentAreaWidth,
-                        height: contentAreaHeight,
-                      ),
                     ],
-                  );
-                }
-              },
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildNimbusInfoSectionSm() {
-    return NimbusInfoSection2(
-      title1: StringConst.MOBILE_COLLECTION_TITLE,
-      hasTitle2: false,
-      body: StringConst.MOBILE_COLLECTION_DESC,
-      title1Style: GoogleFonts.poppins(
-        fontSize: Sizes.TEXT_SIZE_18,
-        fontWeight: FontWeight.w700,
-        color: AppColors.black,
-      ),
-      child: Column(
-        children: [],
-      ),
-    );
-  }
-
-  Widget _buildNimbusInfoSectionLg() {
-    return NimbusInfoSection1(
-      title1: StringConst.MOBILE_COLLECTION_TITLE,
-      hasTitle2: false,
-      body: StringConst.MOBILE_COLLECTION_DESC,
-      title1Style: GoogleFonts.poppins(
-        fontSize: Sizes.TEXT_SIZE_35,
-        fontWeight: FontWeight.w700,
-        color: AppColors.black,
-      ),
-      child: Container(
-        child: Row(
-          children: [],
+                  ),
+                  SizedBoxH10(),
+                ],
+              );
+            }
+          },
         ),
       ),
     );
   }
 
-  Widget _buildImage({
+  Widget _buildMobColGIF({required double width, required double height}) {
+    TextTheme textTheme = Theme.of(context).textTheme;
+    double fontSize = responsiveSize(context, 60, 72, md: 64);
+    TextStyle? titleStyle = textTheme.bodySmall?.merge(
+      Styles.customTextStyle3(fontSize: fontSize, height: 1.25),
+    );
+
+    return Stack(
+      children: [
+        Image.asset(
+          ImagePath.MOBILE_COLLECTION_GIF,
+          width: width * 0.70,
+        ),
+      ],
+    );
+  }
+
+  Widget _buildMobColDesc({
     required double width,
     required double height,
   }) {
-    TextTheme textTheme = Theme.of(context).textTheme;
-    TextStyle? titleStyle = textTheme.bodyText1?.merge(
-      Styles.customTextStyle3(
-        fontSize: responsiveSize(context, 64, 80, md: 76),
-        height: 1.25,
-        color: AppColors.primaryColor,
-      ),
+    return Stack(
+      children: [
+        ResponsiveBuilder(
+          refinedBreakpoints: RefinedBreakpoints(),
+          builder: (context, sizingInformation) {
+            double screenWidth = sizingInformation.screenSize.width;
+            if (screenWidth < (RefinedBreakpoints().tabletNormal)) {
+              return nimbusInfoSectionSm(width: width);
+            } else {
+              return Container(
+                width: width * 0.80,
+                child: nimbusInfoSectionLg(),
+              );
+            }
+          },
+        ),
+      ],
     );
-    double textPosition = assignWidth(context, 0.1);
-    return ContentArea(
-      padding: EdgeInsets.only(left: 60),
-      width: width,
-      height: height,
-      child: Stack(
-        children: [
-          SizedBoxH50(),
-          Stack(
+  }
+
+  Widget nimbusInfoSectionLg() {
+    TextTheme textTheme = Theme.of(context).textTheme;
+    return Row(
+      children: [
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Image.asset(
-                ImagePath.MOBILE_COLLECTION_GIF,
+              Padding(
+                padding: EdgeInsets.only(right: !isMobile(context) ? 15 : 0),
+                child: NimbusInfoSection1(
+                  title1: StringConst.MOBILE_COLLECTION_TITLE,
+                  hasTitle2: false,
+                  body: StringConst.MOBILE_COLLECTION_DESC,
+                  title1Style: GoogleFonts.poppins(
+                    fontSize: Sizes.TEXT_SIZE_35,
+                    fontWeight: FontWeight.w700,
+                    color: AppColors.black,
+                  ),
+                ),
               ),
             ],
           ),
-        ],
-      ),
+        ),
+      ],
+    );
+  }
+
+  Widget nimbusInfoSectionSm({required double width}) {
+    TextTheme textTheme = Theme.of(context).textTheme;
+    return Row(
+      children: [
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: EdgeInsets.only(right: !isMobile(context) ? 15 : 0),
+                child: NimbusInfoSection2(
+                  title1: StringConst.MOBILE_COLLECTION_TITLE,
+                  hasTitle2: false,
+                  body: StringConst.MOBILE_COLLECTION_DESC,
+                  title1Style: GoogleFonts.poppins(
+                    fontSize: Sizes.TEXT_SIZE_18,
+                    fontWeight: FontWeight.w700,
+                    color: AppColors.black,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ],
     );
   }
 }
