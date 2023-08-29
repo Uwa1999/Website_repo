@@ -4,8 +4,8 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/images.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/strings.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/buttons/social_button.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/fds_tagline_card.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/insights_card.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/nimbus_card.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/project_item.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 

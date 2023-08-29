@@ -190,7 +190,7 @@ class _AboutSectionState extends State<AboutSection> {
             children: [
               Padding(
                 padding: EdgeInsets.only(right: !isMobile(context) ? 15 : 0),
-                child: NimbusInfoSection6(
+                child: NimbusInfoAboutSection(
                   title1: StringConst.ABOUT,
                   body: StringConst.ABOUT_US_DESC,
                   body2: StringConst.ABOUT_US_DESC2,
@@ -219,7 +219,7 @@ class _AboutSectionState extends State<AboutSection> {
             children: [
               Padding(
                 padding: EdgeInsets.only(right: !isMobile(context) ? 15 : 0),
-                child: NimbusInfoSection6(
+                child: NimbusInfoAboutSection(
                   title1: StringConst.ABOUT,
                   body: StringConst.ABOUT_US_DESC,
                   body2: StringConst.ABOUT_US_DESC2,

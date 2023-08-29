@@ -2,6 +2,7 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/footer_secti
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/responsive_navigation/nav_section_mobile.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/side_menu.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/insights/webinars/news_screen.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/insights/webinars/news_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/header_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/sizes.dart';
@@ -79,6 +80,7 @@ class _NewsDescMainState extends State<NewsDescMain> {
               child: SingleChildScrollView(
                 child: Column(
                   children: [
+                    NewsDescSection(),
                     NewsDescScreen(),
                     SizedBoxH10(),
                     FooterSection(),

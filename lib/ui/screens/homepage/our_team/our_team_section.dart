@@ -130,7 +130,7 @@ class _OurTeamSectionState extends State<OurTeamSection> with SingleTickerProvid
                         child: Container(
                           child: _buildNimbusInfoSectionLg(),
                         ),
-                      ),
+                      ),SizedBoxH10(),
                       Center(
                         child: _buildOrgChartImage(),
                       ),
@@ -146,7 +146,7 @@ class _OurTeamSectionState extends State<OurTeamSection> with SingleTickerProvid
   }
 
   Widget _buildNimbusInfoSectionSm() {
-    return NimbusInfoSection7(
+    return NimbusInfoTeamSection(
       title1: StringConst.FDSAP_TEAM_TITLE,
       hasTitle2: false,
       body: StringConst.FDSAP_TEAM_DESC,
@@ -159,7 +159,7 @@ class _OurTeamSectionState extends State<OurTeamSection> with SingleTickerProvid
   }
 
   Widget _buildNimbusInfoSectionLg() {
-    return NimbusInfoSection7(
+    return NimbusInfoTeamSection(
       title1: StringConst.FDSAP_TEAM_TITLE,
       hasTitle2: false,
       body: StringConst.FDSAP_TEAM_DESC,

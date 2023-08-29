@@ -22,7 +22,7 @@ class AlternativeSolutionMain extends StatefulWidget {
   State<AlternativeSolutionMain> createState() => _AlternativeSolutionMainState();
 }
 
-class _AlternativeSolutionMainState extends State<AlternativeSolutionMain> with SingleTickerProviderStateMixin {
+class _AlternativeSolutionMainState extends State<AlternativeSolutionMain> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
   bool isFabVisible = false;
 

@@ -59,7 +59,11 @@ class NimbusInfoSection1 extends StatelessWidget {
                 children: [
                   Text(
                     title1!,
-                    style: title1Style ?? titleStyle?.copyWith(color: AppColors.black, fontWeight: FontWeight.w900),
+                    style: title1Style ??
+                        titleStyle?.copyWith(
+                          color: AppColors.black,
+                          fontWeight: FontWeight.w900,
+                        ),
                   ),
                   // hasTitle2
                   //      ? SizedBox(
@@ -80,8 +84,12 @@ class NimbusInfoSection1 extends StatelessWidget {
                   SizedBoxH10(),
                   Text(
                     body,
-                    textAlign: TextAlign.justify,
-                    style: textTheme.bodySmall?.copyWith(fontSize: fontSize, height: 1.8, color: AppColors.black),
+                    //     textAlign: TextAlign.justify,
+                    style: textTheme.bodySmall?.copyWith(
+                      fontSize: fontSize,
+                      height: 1.8,
+                      color: AppColors.black,
+                    ),
                   ),
                   child != null ? SizedBoxH30() : EmptyContainer(),
                   child ?? EmptyContainer(),
@@ -144,7 +152,11 @@ class NimbusInfoSection2 extends StatelessWidget {
               children: [
                 Text(
                   title1,
-                  style: title1Style ?? titleStyle?.copyWith(color: AppColors.black, fontWeight: FontWeight.w900),
+                  style: title1Style ??
+                      titleStyle?.copyWith(
+                        color: AppColors.black,
+                        fontWeight: FontWeight.w900,
+                      ),
                 ),
                 // AnimatedIcon(
                 //   icon: AnimatedIcons.menu_arrow,
@@ -174,7 +186,11 @@ class NimbusInfoSection2 extends StatelessWidget {
             Text(
               body,
               textAlign: TextAlign.justify,
-              style: textTheme.bodySmall?.copyWith(fontSize: fontSize, height: 1.3, color: AppColors.black),
+              style: textTheme.bodySmall?.copyWith(
+                fontSize: fontSize,
+                height: 1.3,
+                color: AppColors.black,
+              ),
             ),
             // child != null ? SizedBoxH30() : EmptyContainer(),
             // child ?? EmptyContainer(),
@@ -235,7 +251,11 @@ class NimbusInfoSection3 extends StatelessWidget {
                 children: [
                   Text(
                     title1!,
-                    style: title1Style ?? titleStyle?.copyWith(color: AppColors.black, fontWeight: FontWeight.w900),
+                    style: title1Style ??
+                        titleStyle?.copyWith(
+                          color: AppColors.black,
+                          fontWeight: FontWeight.w900,
+                        ),
                   ),
                   // hasTitle2
                   //      ? SizedBox(
@@ -256,8 +276,12 @@ class NimbusInfoSection3 extends StatelessWidget {
                   SizedBoxH20(),
                   Text(
                     body,
-                    textAlign: TextAlign.justify,
-                    style: textTheme.bodySmall?.copyWith(fontSize: fontSize, height: 1.8, color: AppColors.white),
+                    //   textAlign: TextAlign.justify,
+                    style: textTheme.bodySmall?.copyWith(
+                      fontSize: fontSize,
+                      height: 1.8,
+                      color: AppColors.white,
+                    ),
                   ),
                   child != null ? SizedBoxH30() : EmptyContainer(),
                   child ?? EmptyContainer(),
@@ -342,8 +366,12 @@ class NimbusInfoSection4 extends StatelessWidget {
                   SizedBoxH20(),
                   Text(
                     body,
-                    textAlign: TextAlign.justify,
-                    style: textTheme.bodySmall?.copyWith(fontSize: fontSize, height: 1.8, color: AppColors.black),
+                    //      textAlign: TextAlign.justify,
+                    style: textTheme.bodySmall?.copyWith(
+                      fontSize: fontSize,
+                      height: 1.8,
+                      color: AppColors.black,
+                    ),
                   ),
                   // child != null ? SizedBoxH30() : EmptyContainer(),
                   // child ?? EmptyContainer(),
@@ -407,7 +435,12 @@ class NimbusInfoSection5 extends StatelessWidget {
                 children: [
                   Text(
                     title1!,
-                    style: title1Style ?? titleStyle?.copyWith(color: AppColors.black, fontWeight: FontWeight.w700, fontSize: 25),
+                    style: title1Style ??
+                        titleStyle?.copyWith(
+                          color: AppColors.black,
+                          fontWeight: FontWeight.w700,
+                          fontSize: 25,
+                        ),
                   ),
                   // hasTitle2
                   //      ? SizedBox(
@@ -428,8 +461,12 @@ class NimbusInfoSection5 extends StatelessWidget {
                   SizedBoxH20(),
                   Text(
                     body,
-                    textAlign: TextAlign.justify,
-                    style: textTheme.bodySmall?.copyWith(fontSize: fontSize, height: 1.8, color: AppColors.black),
+                    //   textAlign: TextAlign.justify,
+                    style: textTheme.bodySmall?.copyWith(
+                      fontSize: fontSize,
+                      height: 1.8,
+                      color: AppColors.black,
+                    ),
                   ),
                   // child != null ? SizedBoxH30() : EmptyContainer(),
                   // child ?? EmptyContainer(),
@@ -443,7 +480,7 @@ class NimbusInfoSection5 extends StatelessWidget {
   }
 }
 
-class NimbusInfoSection6 extends StatelessWidget {
+class NimbusInfoAboutSection extends StatelessWidget {
   final String? title1;
   final String? title2;
   final bool hasTitle2;
@@ -463,7 +500,7 @@ class NimbusInfoSection6 extends StatelessWidget {
   final LinkTarget linkTarget;
   final bool opensUrl;
 
-  NimbusInfoSection6({
+  NimbusInfoAboutSection({
     this.title1 = "",
     required this.body,
     required this.body2,
@@ -512,11 +549,21 @@ class NimbusInfoSection6 extends StatelessWidget {
                       children: [
                         TextSpan(
                           text: body,
-                          style: textTheme.bodySmall?.copyWith(fontSize: fontSize, height: 1.8, color: AppColors.black, fontWeight: FontWeight.w100),
+                          style: textTheme.bodySmall?.copyWith(
+                            fontSize: fontSize,
+                            height: 1.8,
+                            color: AppColors.black,
+                            fontWeight: FontWeight.w100,
+                          ),
                         ),
                         TextSpan(
                           text: body2,
-                          style: textTheme.bodySmall?.copyWith(fontSize: fontSize, height: 1.8, color: AppColors.blue300, fontWeight: FontWeight.bold),
+                          style: textTheme.bodySmall?.copyWith(
+                            fontSize: fontSize,
+                            height: 1.8,
+                            color: AppColors.blue300,
+                            fontWeight: FontWeight.bold,
+                          ),
                           recognizer: TapGestureRecognizer()
                             ..onTap = () {
                               print('-----FDSI WEBPAGE-----');
@@ -525,7 +572,12 @@ class NimbusInfoSection6 extends StatelessWidget {
                         ),
                         TextSpan(
                           text: body3,
-                          style: textTheme.bodySmall?.copyWith(fontSize: fontSize, height: 1.8, color: AppColors.black, fontWeight: FontWeight.w100),
+                          style: textTheme.bodySmall?.copyWith(
+                            fontSize: fontSize,
+                            height: 1.8,
+                            color: AppColors.black,
+                            fontWeight: FontWeight.w100,
+                          ),
                         ),
                       ],
                     ),
@@ -542,7 +594,7 @@ class NimbusInfoSection6 extends StatelessWidget {
   }
 }
 
-class NimbusInfoSection7 extends StatelessWidget {
+class NimbusInfoTeamSection extends StatelessWidget {
   final String? title1;
   final String? title2;
   final bool hasTitle2;
@@ -557,7 +609,7 @@ class NimbusInfoSection7 extends StatelessWidget {
   // final double dividerHeight;
   final Widget? child;
 
-  NimbusInfoSection7({
+  NimbusInfoTeamSection({
     this.title1 = "",
     required this.body,
     this.title2 = "",
@@ -605,7 +657,7 @@ class NimbusInfoSection7 extends StatelessWidget {
                 Center(
                   child: Text(
                     body,
-                    textAlign: TextAlign.justify,
+                    //  textAlign: TextAlign.justify,
                     style: textTheme.bodySmall?.copyWith(
                       fontSize: fontSize,
                       color: AppColors.maroon04,
@@ -617,6 +669,251 @@ class NimbusInfoSection7 extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class NimbusInfoMissionSection extends StatelessWidget {
+  final String title1;
+  final String title2;
+  final bool hasTitle2;
+  final String body;
+  final TextStyle? sectionTitleStyle;
+  final TextStyle? title1Style;
+  final TextStyle? title2Style;
+  final TextStyle? bodyStyle;
+  final Color dividerColor;
+  final double? thickness;
+  final double dividerWidth;
+  final Widget? child;
+
+  NimbusInfoMissionSection({
+    this.title1 = "",
+    this.body = "",
+    this.title2 = "",
+    this.sectionTitleStyle,
+    this.title1Style,
+    this.hasTitle2 = true,
+    this.title2Style,
+    this.bodyStyle,
+    this.thickness = 1.15,
+    this.dividerColor = AppColors.black,
+    this.dividerWidth = Sizes.HEIGHT_64,
+    this.child,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    TextTheme textTheme = Theme.of(context).textTheme;
+    TextStyle? titleStyle = textTheme.headlineMedium?.copyWith(
+      fontSize: responsiveSize(context, 26, 48, md: 32),
+      color: AppColors.black,
+    );
+    double fontSize = responsiveSize(context, 16, 18);
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        Column(
+          mainAxisSize: MainAxisSize.max,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Text(
+                  title1,
+                  style: title1Style ??
+                      titleStyle?.copyWith(
+                        color: AppColors.black,
+                        fontWeight: FontWeight.w900,
+                      ),
+                ),
+              ],
+            ),
+            SizedBoxH10(),
+            Text(
+              body,
+              // textAlign: TextAlign.justify,
+              style: textTheme.bodySmall?.copyWith(
+                fontSize: fontSize,
+                height: 1.3,
+                color: AppColors.black,
+              ),
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+}
+
+class NimbusInfoInsightSection extends StatelessWidget {
+  final String? title1;
+  final String? title2;
+  final bool hasTitle2;
+  final String body;
+  final TextStyle? sectionTitleStyle;
+  final TextStyle? title1Style;
+  final TextStyle? title2Style;
+  final TextStyle? bodyStyle;
+  final Color dividerColor;
+  final double? thickness;
+  final int quarterTurns;
+  // final double dividerHeight;
+  final Widget? child;
+
+  NimbusInfoInsightSection({
+    this.title1 = "",
+    required this.body,
+    this.title2 = "",
+    this.sectionTitleStyle,
+    this.title1Style,
+    this.hasTitle2 = true,
+    this.title2Style,
+    this.bodyStyle,
+    this.thickness = 1.15,
+    this.quarterTurns = 3,
+    this.dividerColor = AppColors.black,
+    // this.dividerHeight = Sizes.HEIGHT_40,
+    this.child,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    TextTheme textTheme = Theme.of(context).textTheme;
+    TextStyle? titleStyle = textTheme.headlineMedium?.copyWith(
+      fontSize: responsiveSize(context, 26, 26, md: 32),
+      color: AppColors.black,
+    );
+    double fontSize = responsiveSize(context, 16, 18);
+    return Container(
+      child: IntrinsicHeight(
+        child: Row(
+          children: [
+            Expanded(
+              child: Column(
+                //   mainAxisSize: MainAxisSize.max,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    title1!,
+                    style: title1Style ??
+                        titleStyle?.copyWith(
+                          color: AppColors.black,
+                          fontWeight: FontWeight.w700,
+                          fontSize: 25,
+                        ),
+                  ),
+                  SizedBoxH20(),
+                  Text(
+                    body,
+                    textAlign: TextAlign.justify,
+                    style: textTheme.bodySmall?.copyWith(
+                      fontSize: fontSize,
+                      height: 1.8,
+                      color: AppColors.black,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class NimbusInfoInsightTitle extends StatelessWidget {
+  final String? title1;
+  final String? title2;
+  final bool hasTitle2;
+  final String body;
+  final TextStyle? sectionTitleStyle;
+  final TextStyle? title1Style;
+  final TextStyle? title2Style;
+  final TextStyle? bodyStyle;
+  final Color dividerColor;
+  final double? thickness;
+  final int quarterTurns;
+  // final double dividerHeight;
+  final Widget? child;
+
+  NimbusInfoInsightTitle({
+    this.title1 = "",
+    required this.body,
+    this.title2 = "",
+    this.sectionTitleStyle,
+    this.title1Style,
+    this.hasTitle2 = true,
+    this.title2Style,
+    this.bodyStyle,
+    this.thickness = 1.15,
+    this.quarterTurns = 3,
+    this.dividerColor = AppColors.white,
+    // this.dividerHeight = Sizes.HEIGHT_40,
+    this.child,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    TextTheme textTheme = Theme.of(context).textTheme;
+    TextStyle? titleStyle = textTheme.headlineMedium?.copyWith(
+      fontSize: responsiveSize(context, 26, 36, md: 32),
+      color: AppColors.white,
+    );
+    double fontSize = responsiveSize(context, 16, 18);
+    return Container(
+      child: IntrinsicHeight(
+        child: Row(
+          children: [
+            Expanded(
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    title1!,
+                    style: title1Style ??
+                        titleStyle?.copyWith(
+                          color: AppColors.black,
+                          fontWeight: FontWeight.w900,
+                        ),
+                  ),
+                  // hasTitle2
+                  //      ? SizedBox(
+                  //          height: responsiveSize(
+                  //            context,
+                  //            Sizes.HEIGHT_4,
+                  //            Sizes.HEIGHT_16,
+                  //            md: Sizes.HEIGHT_8,
+                  //          ),
+                  //        )
+                  //      : EmptyContainer(),
+                  //  hasTitle2
+                  //      ? Text(
+                  //  title2!,
+                  //     style: title2Style ?? titleStyle,
+                  //   )
+                  // : EmptyContainer(),
+                  SizedBoxH20(),
+                  Text(
+                    body,
+                    //   textAlign: TextAlign.justify,
+                    style: textTheme.bodySmall?.copyWith(
+                      fontSize: fontSize,
+                      height: 1.8,
+                      color: AppColors.white,
+                    ),
+                  ),
+                  child != null ? SizedBoxH30() : EmptyContainer(),
+                  child ?? EmptyContainer(),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
