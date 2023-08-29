@@ -5,6 +5,7 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/sizes.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/strings.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/styles.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/content_area.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/empty.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/nimbus_info_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/sizedbox.dart';
 import 'package:flutter/material.dart';
@@ -53,6 +54,8 @@ class _OurTeamSectionState extends State<OurTeamSection> with SingleTickerProvid
     double screenWidth = widthOfScreen(context) - (getSidePadding(context));
     double screenHeight = heightOfScreen(context);
     double contentAreaWidthSm = screenWidth * 1.1;
+    double screenWidthLg = screenWidth * 1.1;
+    double screenHeightLg = screenWidth * 1.1;
     double contentAreaWidth = responsiveSize(
       context,
       screenWidth,
@@ -90,13 +93,12 @@ class _OurTeamSectionState extends State<OurTeamSection> with SingleTickerProvid
                           if (screenWidth < (RefinedBreakpoints().tabletSmall)) {
                             return ContentArea(
                               // width: contentAreaWidthSm,
-                              child: _buildNimbusInfoSectionSm(),
+                              child: EmptyContainer(),
                             );
                           } else {
                             return ContentArea(
-                              // width: contentAreaWidth * 0.7,
-                              child: _buildNimbusInfoSectionLg(),
-                            );
+                                // width: contentAreaWidth * 0.7,
+                                child: EmptyContainer());
                           }
                         },
                       ),
@@ -112,10 +114,7 @@ class _OurTeamSectionState extends State<OurTeamSection> with SingleTickerProvid
                             );
                           } else {
                             return Center(
-                              child: _buildOrgChartImage(
-                                  // width: screenWidth * 0.75,
-                                  // height: screenHeight * 0.75,
-                                  ),
+                              child: _buildOrgChartImage(),
                             );
                           }
                         },
@@ -124,13 +123,14 @@ class _OurTeamSectionState extends State<OurTeamSection> with SingleTickerProvid
                   );
                 } else {
                   return Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      Center(
-                        child: Container(
-                          child: _buildNimbusInfoSectionLg(),
-                        ),
-                      ),SizedBoxH10(),
+                      // Center(
+                      //   child: Container(
+                      //     child: _buildNimbusInfoSectionLg(),
+                      //   ),
+                      // ),
+                      // SizedBoxH10(),
                       Center(
                         child: _buildOrgChartImage(),
                       ),
@@ -182,7 +182,9 @@ class _OurTeamSectionState extends State<OurTeamSection> with SingleTickerProvid
     );
     double textPosition = assignWidth(context, 0.1);
     return ContentArea(
-      padding: EdgeInsets.only(right: Sizes.PADDING_20),
+      padding: EdgeInsets.only(
+        right: Sizes.PADDING_60,
+      ),
       child: Stack(
         children: [
           Image.asset(

@@ -808,7 +808,7 @@ class NimbusInfoInsightSection extends StatelessWidget {
                   SizedBoxH20(),
                   Text(
                     body,
-                    textAlign: TextAlign.justify,
+                    //  textAlign: TextAlign.justify,
                     style: textTheme.bodySmall?.copyWith(
                       fontSize: fontSize,
                       height: 1.8,
