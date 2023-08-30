@@ -65,11 +65,14 @@ class _MissionSectionState extends State<MissionSection> {
                   // SizedBoxH10(),
                   Padding(
                     padding: const EdgeInsets.only(right: 20),
-                    child: ContentArea(
-                      width: contentAreaWidthSm,
-                      child: _buildAboutUs(
+                    child: Padding(
+                      padding: const EdgeInsets.only(right: 20),
+                      child: ContentArea(
                         width: contentAreaWidthSm,
-                        height: screenHeight,
+                        child: _buildMissionVision(
+                          width: contentAreaWidthSm,
+                          height: screenHeight,
+                        ),
                       ),
                     ),
                   ),
@@ -94,7 +97,7 @@ class _MissionSectionState extends State<MissionSection> {
                       // ),
                       ContentArea(
                         width: contentAreaWidthLg,
-                        child: _buildAboutUs(
+                        child: _buildMissionVision(
                           width: contentAreaWidthLg,
                           height: screenHeight,
                         ),
@@ -128,7 +131,7 @@ class _MissionSectionState extends State<MissionSection> {
     );
   }
 
-  Widget _buildAboutUs({
+  Widget _buildMissionVision({
     required double width,
     required double height,
   }) {
