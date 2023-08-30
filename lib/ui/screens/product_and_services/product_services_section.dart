@@ -160,135 +160,6 @@ class _DesktopProductServicesSectionState extends State<DesktopProductServicesSe
           SizedBoxW5(),
         ],
       ),
-      // ResponsiveLayout(
-      //   desktopBody:
-      //
-      //
-      //   mobileBody: ContentArea(
-      //     width: contentAreaWidth,
-      //     child: Row(
-      //       mainAxisSize: MainAxisSize.min,
-      //       crossAxisAlignment: CrossAxisAlignment.start,
-      //       children: [
-      //         _buildProductServicesInfoSm(),
-      //         SizedBoxH40(),
-      //         Wrap(
-      //           spacing: kSpacing,
-      //           runSpacing: kRunSpacing,
-      //           children: _buildProductServices(selectedProductServices, context: context),
-      //         ),
-      //         SizedBoxH40(),
-      //         Wrap(
-      //           runSpacing: assignHeight(context, 0.05),
-      //           children: _buildProductServices(selectedProductServices, isMobile: true),
-      //         ),
-      //       ],
-      //     ),
-      //   ),
-      // ),
-
-      // ResponsiveBuilder(
-      //   refinedBreakpoints: RefinedBreakpoints(),
-      //   builder: (context, sizingInformation) {
-      //     double screenWidth = sizingInformation.screenSize.width;
-      //     if (screenWidth < (RefinedBreakpoints().tabletLarge)) {
-      //       return Container(
-      //         padding: EdgeInsets.symmetric(horizontal: getSidePadding(context)),
-      //         child: ContentArea(
-      //           width: contentAreaWidth,
-      //           child: Row(
-      //             mainAxisSize: MainAxisSize.min,
-      //             crossAxisAlignment: CrossAxisAlignment.start,
-      //             children: [
-      //               _buildProductServicesInfoSm(),
-      //               SizedBoxH40(),
-      //               Wrap(
-      //                 spacing: kSpacing,
-      //                 runSpacing: kRunSpacing,
-      //                 children: _buildProductServices(selectedProductServices, context: context),
-      //               ),
-      //               SizedBoxH40(),
-      //               Wrap(
-      //                 runSpacing: assignHeight(context, 0.05),
-      //                 children: _buildProductServices(selectedProductServices, isMobile: true),
-      //               ),
-      //             ],
-      //           ),
-      //         ),
-      //       );
-      //     } else {
-      //       return VisibilityDetector(
-      //         key: Key('project-section_lg'),
-      //         onVisibilityChanged: (visibilityInfo) {
-      //           double visiblePercentage = visibilityInfo.visibleFraction * 100;
-      //           if (visiblePercentage > 40) {
-      //             _playProjectAnimation();
-      //           }
-      //         },
-      //         child: Column(
-      //           crossAxisAlignment: CrossAxisAlignment.center,
-      //           mainAxisAlignment: MainAxisAlignment.center,
-      //           children: [
-      //             SizedBoxH80(),
-      //             Container(
-      //               padding: EdgeInsets.symmetric(
-      //                 horizontal: getSidePadding(context),
-      //               ),
-      //               child: ContentArea(
-      //                 width: contentAreaWidth,
-      //                 child: Row(
-      //                   mainAxisSize: MainAxisSize.min,
-      //                   crossAxisAlignment: CrossAxisAlignment.start,
-      //                   children: [
-      //                     ContentArea(
-      //                       width: contentAreaWidth * 0.7,
-      //                       child: _buildProductServicesInfoLg(),
-      //                     ),
-      //                     SizedBoxW100(),
-      //                     SizedBoxW100(),
-      //                   ],
-      //                 ),
-      //               ),
-      //             ),
-      //             SizedBoxH40(),
-      //             SizedBoxW5(),
-      //             Row(
-      //               crossAxisAlignment: CrossAxisAlignment.center,
-      //               mainAxisAlignment: MainAxisAlignment.center,
-      //               children: <Widget>[
-      //                 Expanded(
-      //                   child: SizedBox(
-      //                     height: MediaQuery.of(context).size.height * 0.4,
-      //                     child: new ListView.builder(
-      //                       shrinkWrap: true,
-      //                       scrollDirection: Axis.horizontal,
-      //                       physics: NeverScrollableScrollPhysics(),
-      //                       itemBuilder: (context, index) {
-      //                         return new Container(
-      //                           padding: EdgeInsets.symmetric(
-      //                             horizontal: getSidePadding(context),
-      //                           ),
-      //                           alignment: Alignment.center,
-      //                           width: widthOfScreen(context),
-      //                           child: ListView(
-      //                             scrollDirection: Axis.horizontal,
-      //                             children: _buildProductServices(selectedProductServices, context: context),
-      //                           ),
-      //                         );
-      //                       },
-      //                     ),
-      //                   ),
-      //                 ),
-      //                 SizedBoxH40(),
-      //               ],
-      //             ),
-      //             SizedBoxW5(),
-      //           ],
-      //         ),
-      //       );
-      //     }
-      //   },
-      // ),
     );
   }
 
@@ -302,41 +173,6 @@ class _DesktopProductServicesSectionState extends State<DesktopProductServicesSe
         fontWeight: FontWeight.w700,
         color: AppColors.black,
       ),
-      // child: Row(
-      //   crossAxisAlignment: CrossAxisAlignment.center,
-      //   mainAxisAlignment: MainAxisAlignment.center,
-      //   children: <Widget>[
-      //     Expanded(
-      //       child: SizedBox(
-      //         height: MediaQuery.of(context).size.height * 0.4,
-      //         child: new ListView.builder(
-      //           shrinkWrap: true,
-      //           scrollDirection: Axis.horizontal,
-      //           physics: NeverScrollableScrollPhysics(),
-      //           itemBuilder: (context, index) {
-      //             return new Container(
-      //               padding: EdgeInsets.symmetric(
-      //                 horizontal: getSidePadding(context),
-      //               ),
-      //               alignment: Alignment.center,
-      //               width: widthOfScreen(context),
-      //               child: ListView(
-      //                 scrollDirection: Axis.horizontal,
-      //                 children: _buildProductServices(selectedProductServices, context: context),
-      //               ),
-      //             );
-      //           },
-      //         ),
-      //       ),
-      //     ),
-      //     SizedBoxH40(),
-      //   ],
-      // ),
-      // child: Wrap(
-      //   spacing: kSpacing,
-      //   runSpacing: kRunSpacing,
-      //   children: _buildProductServices(selectedProductServices, context: context),
-      // ),
     );
   }
 
@@ -350,58 +186,8 @@ class _DesktopProductServicesSectionState extends State<DesktopProductServicesSe
         fontWeight: FontWeight.w700,
         color: AppColors.black,
       ),
-      // child: Row(
-      //   crossAxisAlignment: CrossAxisAlignment.center,
-      //   mainAxisAlignment: MainAxisAlignment.center,
-      //   children: <Widget>[
-      //     Expanded(
-      //       child: SizedBox(
-      //         height: MediaQuery.of(context).size.height * 0.4,
-      //         child: new ListView.builder(
-      //           shrinkWrap: true,
-      //           scrollDirection: Axis.horizontal,
-      //           physics: NeverScrollableScrollPhysics(),
-      //           itemBuilder: (context, index) {
-      //             return new Container(
-      //               padding: EdgeInsets.symmetric(
-      //                 horizontal: getSidePadding(context),
-      //               ),
-      //               alignment: Alignment.center,
-      //               width: widthOfScreen(context),
-      //               child: ListView(
-      //                 scrollDirection: Axis.horizontal,
-      //                 children: _buildProductServices(selectedProductServices, context: context),
-      //               ),
-      //             );
-      //           },
-      //         ),
-      //       ),
-      //     ),
-      //     SizedBoxH40(),
-      //   ],
-      // ),
-      // child: Wrap(
-      //   spacing: kSpacing,
-      //   runSpacing: kRunSpacing,
-      //   children: _buildProductServices(selectedProductServices, context: context),
-      // ),
     );
   }
-
-  // List<Widget> _buildProductServicesCategories(List<ProductServicesCategoryData> categories) {
-  //   List<Widget> items = [];
-  //   for (int index = 0; index < categories.length; index++) {
-  //     items.add(
-  //       ProductServicesCategory(
-  //         title: categories[index].title,
-  //         number: categories[index].number,
-  //         isSelected: categories[index].isSelected,
-  //         onTap: () => onProductServicesCategoryTap(index),
-  //       ),
-  //     );
-  //   }
-  //   return items;
-  // }
 
   List<Widget> _buildDesktopProductServices(List<DesktopProductServicesData> data, {bool isMobile = false, context}) {
     List<Widget> items = [];
@@ -710,33 +496,38 @@ class _MobileProductServicesSectionState extends State<MobileProductServicesSect
                     ],
                   );
                 } else {
-                  return Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      SizedBoxH50(),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          ContentArea(
-                            //width: contentAreaWidthSm,
-                            child: _buildMobileProductServicesInfoSm(
-                              width: contentAreaWidthSm,
-                              height: contentAreaHeightSm,
+                  return Padding(
+                    padding: EdgeInsets.symmetric(
+                      horizontal: getSidePadding(context),
+                    ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        SizedBoxH50(),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            ContentArea(
+                              //width: contentAreaWidthSm,
+                              child: _buildMobileProductServicesInfoSm(
+                                width: contentAreaWidthSm,
+                                height: contentAreaHeightSm,
+                              ),
                             ),
-                          ),
-                        ],
-                      ),
-                      SizedBoxH10(),
-                      ContentArea(
-                        // width: contentAreaWidthSm,
-                        child: _buildTabProductServicesIcon(
-                          width: contentAreaWidthSm,
-                          height: contentAreaHeightSm,
+                          ],
                         ),
-                      ),
-                    ],
+                        SizedBoxH10(),
+                        ContentArea(
+                          // width: contentAreaWidthSm,
+                          child: _buildTabProductServicesIcon(
+                            width: contentAreaWidthSm,
+                            height: contentAreaHeightSm,
+                          ),
+                        ),
+                      ],
+                    ),
                   );
                 }
               },
