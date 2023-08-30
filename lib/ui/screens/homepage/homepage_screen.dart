@@ -2,11 +2,11 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/about/about_
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/footer_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/header_responsive_section/header_responsive.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/our_location_section.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/our_team_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/responsive_navigation/nav_section_mobile.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/responsive_navigation/nav_section_web.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/side_menu.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/our_mission/mission_section.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/our_team/our_team_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/insights/insights_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/product_services_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/functions.dart';
@@ -158,7 +158,7 @@ class _HomepageScreenState extends State<HomepageScreen> {
                       children: [
                         Column(
                           children: [
-                            SizedBoxH50(),
+                            SizedBoxH30(),
                             LeadingBankingPartnerSection(),
                             SizedBoxH80(),
                             Container(

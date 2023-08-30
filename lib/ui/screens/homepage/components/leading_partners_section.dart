@@ -48,7 +48,7 @@ class _LeadingBankingPartnerSectionState extends State<LeadingBankingPartnerSect
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: getSidePadding(context)),
         child: Card(
-          elevation: Sizes.ELEVATION_4,
+          // elevation: Sizes.ELEVATION_4,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(
               Radius.circular(Sizes.RADIUS_10),
@@ -62,14 +62,13 @@ class _LeadingBankingPartnerSectionState extends State<LeadingBankingPartnerSect
               if (screenWidth < (RefinedBreakpoints().tabletSmall)) {
                 return Container(
                   width: contentAreaWidth,
-                  padding: const EdgeInsets.symmetric(vertical: Sizes.PADDING_40),
+                  padding: const EdgeInsets.symmetric(
+                    vertical: Sizes.PADDING_40,
+                  ),
                   child: Column(
-                    mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      // SizedBoxH30(),
-                      ..._buildItems(Data.statItemsData),
-                      // SizedBoxH50(),
+                      ..._buildItems(Data.LeadingBankingPartnerItemsData),
                     ],
                   ),
                 );
@@ -98,7 +97,9 @@ class _LeadingBankingPartnerSectionState extends State<LeadingBankingPartnerSect
                       //   ),
                       // ),
                       Padding(
-                        padding: const EdgeInsets.symmetric(vertical: Sizes.PADDING_40),
+                        padding: const EdgeInsets.symmetric(
+                          vertical: Sizes.PADDING_40,
+                        ),
                         child: Column(
                           children: [
                             // Text(
@@ -108,13 +109,13 @@ class _LeadingBankingPartnerSectionState extends State<LeadingBankingPartnerSect
                             //     fontSize: 40,
                             //   ),
                             // ),
-                            SizedBoxH50(),
+
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
                                 Spacer(),
                                 ..._buildItems(
-                                  Data.statItemsData,
+                                  Data.LeadingBankingPartnerItemsData,
                                   isHorizontal: true,
                                 ),
                                 Spacer(),
@@ -152,9 +153,9 @@ class _LeadingBankingPartnerSectionState extends State<LeadingBankingPartnerSect
 
       if (index < data.length - 1) {
         if (isHorizontal) {
-          items.add(Spacer(flex: 2));
+          items.add(Spacer());
         } else {
-          items.add(SizedBoxH40());
+          items.add(SizedBoxH10());
         }
       }
     }

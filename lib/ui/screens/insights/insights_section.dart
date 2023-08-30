@@ -421,13 +421,13 @@ class _MobileInsightSectionState extends State<MobileInsightSection> {
           builder: (context, sizingInformation) {
             double screenWidth = sizingInformation.screenSize.width;
             if (screenWidth < (RefinedBreakpoints().tabletNormal)) {
-              return _buildProductServicesInfoSm(
+              return _buildInsightsInfoSm(
                 width: width,
               );
             } else {
               return Container(
                 width: width * 0.80,
-                child: _buildProductServicesInfoLg(),
+                child: _buildInsightsInfoLg(),
               );
             }
           },
@@ -436,7 +436,7 @@ class _MobileInsightSectionState extends State<MobileInsightSection> {
     );
   }
 
-  Widget _buildProductServicesInfoSm({required width}) {
+  Widget _buildInsightsInfoSm({required width}) {
     return Row(
       children: [
         Expanded(
@@ -460,7 +460,7 @@ class _MobileInsightSectionState extends State<MobileInsightSection> {
     );
   }
 
-  Widget _buildProductServicesInfoLg() {
+  Widget _buildInsightsInfoLg() {
     return NimbusInfoSection1(
       title1: StringConst.INSIGHTS_TITLE_1,
       hasTitle2: false,

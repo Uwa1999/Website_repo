@@ -6,7 +6,7 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/buttons/social_bu
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/fds_tagline_card.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/insights_data.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/leading_partner_data.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/project_item.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/project_data.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Data {
@@ -52,7 +52,7 @@ class Data {
     ),
   ];
 
-  static List<LeadingBankingPartnerData> statItemsData = [
+  static List<LeadingBankingPartnerData> LeadingBankingPartnerItemsData = [
     LeadingBankingPartnerData(
       value: 8,
       values: "M+",
@@ -207,23 +207,23 @@ class Data {
     ),
   ];
 
-  static List<ProductServicesData> allProductServices = [
-    ProductServicesData(
+  static List<DesktopProductServicesData> allProductServices = [
+    DesktopProductServicesData(
       category: StringConst.WEB_DESIGN,
       productServicesCoverUrl: ImagePath.BANKING_TECHNOLOGY_GIF,
       width: 0.225,
     ),
-    ProductServicesData(
+    DesktopProductServicesData(
       productServicesCoverUrl: ImagePath.ALTERNATIVE_SOLUTION_GIF,
       width: 0.220,
       mobileHeight: 0.3,
     ),
-    ProductServicesData(
+    DesktopProductServicesData(
       productServicesCoverUrl: ImagePath.REGULATORY_SECURITY_GIF,
       width: 0.220,
       mobileHeight: 0.3,
     ),
-    ProductServicesData(
+    DesktopProductServicesData(
       category: StringConst.WEB,
       productServicesCoverUrl: ImagePath.SOFTWARE_SERVICE_GIF,
       width: 0.225,

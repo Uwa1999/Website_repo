@@ -76,7 +76,6 @@ class _OurTeamSectionState extends State<OurTeamSection> with SingleTickerProvid
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SizedBoxH50(),
           Container(
             padding: EdgeInsets.only(left: getSidePadding(context)),
             child: ResponsiveBuilder(
@@ -86,7 +85,6 @@ class _OurTeamSectionState extends State<OurTeamSection> with SingleTickerProvid
                 if (screenWidth <= 1024) {
                   return Column(
                     children: [
-                      SizedBoxH50(),
                       ResponsiveBuilder(
                         builder: (context, sizingInformation) {
                           double screenWidth = sizingInformation.screenSize.width;
@@ -106,11 +104,14 @@ class _OurTeamSectionState extends State<OurTeamSection> with SingleTickerProvid
                         builder: (context, sizingInformation) {
                           double screenWidth = sizingInformation.screenSize.width;
                           if (screenWidth < (RefinedBreakpoints().tabletSmall)) {
-                            return Center(
-                              child: _buildOrgChartImage(
-                                  // width: screenWidth,
-                                  // height: screenHeight * 0.4,
-                                  ),
+                            return Padding(
+                              padding: const EdgeInsets.only(left: 20),
+                              child: Center(
+                                child: _buildOrgChartImage(
+                                    // width: screenWidth,
+                                    // height: screenHeight * 0.4,
+                                    ),
+                              ),
                             );
                           } else {
                             return Center(
@@ -125,6 +126,7 @@ class _OurTeamSectionState extends State<OurTeamSection> with SingleTickerProvid
                   return Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
+                      SizedBoxH80(),
                       // Center(
                       //   child: Container(
                       //     child: _buildNimbusInfoSectionLg(),

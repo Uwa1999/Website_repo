@@ -143,7 +143,6 @@ class _HeaderResponsiveMobileState extends State<HeaderResponsiveMobile> with Si
                                 ),
                               ),
                             ),
-                            SizedBoxH10(),
                           ],
                         ),
                       ],

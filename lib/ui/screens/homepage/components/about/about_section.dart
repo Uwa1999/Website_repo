@@ -86,7 +86,7 @@ class _AboutSectionState extends State<AboutSection> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  SizedBoxH50(),
+                  SizedBoxH80(),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -170,7 +170,7 @@ class _AboutSectionState extends State<AboutSection> {
               return nimbusInfoSectionSm(width: width);
             } else {
               return Container(
-                width: width * 0.80,
+                width: width * 0.85,
                 child: nimbusInfoSectionLg(),
               );
             }

@@ -80,7 +80,7 @@ class _MissionSectionState extends State<MissionSection> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  SizedBoxH80(),
+                  SizedBoxH100(),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -101,7 +101,7 @@ class _MissionSectionState extends State<MissionSection> {
                       ),
                     ],
                   ),
-                  SizedBoxH80(),
+                  SizedBoxH20(),
                 ],
               );
             }
@@ -142,7 +142,7 @@ class _MissionSectionState extends State<MissionSection> {
               return nimbusInfoSectionSm(width: width);
             } else {
               return Container(
-                width: width * 0.80,
+                width: width * 0.95,
                 child: nimbusInfoSectionLg(),
               );
             }
