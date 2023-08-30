@@ -1,11 +1,11 @@
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/leading_partners_section.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/product_services_section.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/product_services_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/images.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/strings.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/buttons/social_button.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/fds_tagline_card.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/insights_card.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/insights_data.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/leading_partner_data.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/project_item.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -52,18 +52,18 @@ class Data {
     ),
   ];
 
-  static List<StatItemData> statItemsData = [
-    StatItemData(
+  static List<LeadingBankingPartnerData> statItemsData = [
+    LeadingBankingPartnerData(
       value: 8,
       values: "M+",
       subtitle: StringConst.CLIENTS,
     ),
-    StatItemData(
+    LeadingBankingPartnerData(
       value: 10,
       values: "",
       subtitle: StringConst.YEARS_OF_EXPERIENCE,
     ),
-    StatItemData(
+    LeadingBankingPartnerData(
       value: 4,
       values: "",
       subtitle: StringConst.COUNTRIES,
@@ -74,20 +74,20 @@ class Data {
     // ),
   ];
 
-  static List<StatItemData> statItemsData2 = [
-    StatItemData(
+  static List<LeadingBankingPartnerData> statItemsData2 = [
+    LeadingBankingPartnerData(
       value: 1000,
       subtitle: StringConst.API_CALLS_PER_DAY,
     ),
-    StatItemData(
+    LeadingBankingPartnerData(
       value: 65,
       subtitle: StringConst.COUNTRIES,
     ),
-    StatItemData(
+    LeadingBankingPartnerData(
       value: 230,
       subtitle: StringConst.INCREDIBLE_PROJECTS,
     ),
-    StatItemData(
+    LeadingBankingPartnerData(
       value: 18,
       subtitle: StringConst.AWARD_WINNING,
     ),
@@ -135,8 +135,8 @@ class Data {
     StringConst.AWARDS_9,
     StringConst.AWARDS_10,
   ];
-  static List<InsightsData> insightsData = [
-    InsightsData(
+  static List<DesktopInsightsData> insightsData = [
+    DesktopInsightsData(
       category: StringConst.INSIGHTS_CATEGORY_1,
       title: StringConst.ARTICLE_TITLE_1,
       subtitle: StringConst.ARTICLE_SUBTITLE_1,
@@ -144,7 +144,7 @@ class Data {
       // buttonText: StringConst.ARTICLE_READ_MORE,
       imageUrl: ImagePath.ARTICLE_CARD_COVER,
     ),
-    InsightsData(
+    DesktopInsightsData(
       category: StringConst.INSIGHTS_CATEGORY_2,
       title: StringConst.EVENTS_TITLE_1,
       subtitle: StringConst.EVENTS_SUBTITLE_1,
@@ -152,7 +152,7 @@ class Data {
       //  buttonText: StringConst.EVENTS_READ_MORE,
       imageUrl: ImagePath.EVENTS_CARD_COVER,
     ),
-    InsightsData(
+    DesktopInsightsData(
       category: StringConst.INSIGHTS_CATEGORY_3,
       title: StringConst.WEBINARS_TITLE_1,
       subtitle: StringConst.WEBINARS_SUBTITLE_1,

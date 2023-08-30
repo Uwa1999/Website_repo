@@ -2,20 +2,20 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/footer_secti
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/header_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/responsive_navigation/nav_section_mobile.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/side_menu.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/product_services_section.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/insights/insights_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/sizedbox.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
-class ProductServicesMain extends StatefulWidget {
-  const ProductServicesMain({Key? key}) : super(key: key);
+class InsightsMain extends StatefulWidget {
+  const InsightsMain({Key? key}) : super(key: key);
 
   @override
-  State<ProductServicesMain> createState() => _ProductServicesMainState();
+  State<InsightsMain> createState() => _InsightsMainState();
 }
 
-class _ProductServicesMainState extends State<ProductServicesMain> {
+class _InsightsMainState extends State<InsightsMain> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
 
   @override
@@ -54,7 +54,7 @@ class _ProductServicesMainState extends State<ProductServicesMain> {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  ProductAndServicesSection(),
+                  InsightSection(),
                   SizedBoxH100(),
                   FooterSection(),
                 ],

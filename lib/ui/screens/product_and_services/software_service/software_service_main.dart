@@ -1,7 +1,7 @@
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/footer_section.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/header_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/responsive_navigation/nav_section_mobile.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/side_menu.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/header_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/software_service/api/api_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/software_service/bakawan/bakawan_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/software_service/minokawa/minokawa_section.dart';

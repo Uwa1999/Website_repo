@@ -84,7 +84,7 @@ class NimbusInfoSection1 extends StatelessWidget {
                   SizedBoxH10(),
                   Text(
                     body,
-                    //     textAlign: TextAlign.justify,
+                    textAlign: TextAlign.justify,
                     style: textTheme.bodySmall?.copyWith(
                       fontSize: fontSize,
                       height: 1.8,
@@ -276,7 +276,7 @@ class NimbusInfoSection3 extends StatelessWidget {
                   SizedBoxH20(),
                   Text(
                     body,
-                    //   textAlign: TextAlign.justify,
+                    textAlign: TextAlign.justify,
                     style: textTheme.bodySmall?.copyWith(
                       fontSize: fontSize,
                       height: 1.8,
@@ -366,15 +366,13 @@ class NimbusInfoSection4 extends StatelessWidget {
                   SizedBoxH20(),
                   Text(
                     body,
-                    //      textAlign: TextAlign.justify,
+                    textAlign: TextAlign.justify,
                     style: textTheme.bodySmall?.copyWith(
                       fontSize: fontSize,
                       height: 1.8,
                       color: AppColors.black,
                     ),
                   ),
-                  // child != null ? SizedBoxH30() : EmptyContainer(),
-                  // child ?? EmptyContainer(),
                 ],
               ),
             ),
@@ -430,7 +428,6 @@ class NimbusInfoSection5 extends StatelessWidget {
           children: [
             Expanded(
               child: Column(
-                //   mainAxisSize: MainAxisSize.max,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
@@ -442,34 +439,16 @@ class NimbusInfoSection5 extends StatelessWidget {
                           fontSize: 25,
                         ),
                   ),
-                  // hasTitle2
-                  //      ? SizedBox(
-                  //          height: responsiveSize(
-                  //            context,
-                  //            Sizes.HEIGHT_4,
-                  //            Sizes.HEIGHT_16,
-                  //            md: Sizes.HEIGHT_8,
-                  //          ),
-                  //        )
-                  //      : EmptyContainer(),
-                  //  hasTitle2
-                  //      ? Text(
-                  //  title2!,
-                  //     style: title2Style ?? titleStyle,
-                  //   )
-                  // : EmptyContainer(),
                   SizedBoxH20(),
                   Text(
                     body,
-                    //   textAlign: TextAlign.justify,
+                    textAlign: TextAlign.justify,
                     style: textTheme.bodySmall?.copyWith(
                       fontSize: fontSize,
                       height: 1.8,
                       color: AppColors.black,
                     ),
                   ),
-                  // child != null ? SizedBoxH30() : EmptyContainer(),
-                  // child ?? EmptyContainer(),
                 ],
               ),
             ),
@@ -657,7 +636,7 @@ class NimbusInfoTeamSection extends StatelessWidget {
                 Center(
                   child: Text(
                     body,
-                    //  textAlign: TextAlign.justify,
+                    textAlign: TextAlign.justify,
                     style: textTheme.bodySmall?.copyWith(
                       fontSize: fontSize,
                       color: AppColors.maroon04,
@@ -734,7 +713,7 @@ class NimbusInfoMissionSection extends StatelessWidget {
             SizedBoxH10(),
             Text(
               body,
-              // textAlign: TextAlign.justify,
+              textAlign: TextAlign.justify,
               style: textTheme.bodySmall?.copyWith(
                 fontSize: fontSize,
                 height: 1.3,
@@ -808,7 +787,7 @@ class NimbusInfoInsightSection extends StatelessWidget {
                   SizedBoxH20(),
                   Text(
                     body,
-                    //  textAlign: TextAlign.justify,
+                    textAlign: TextAlign.justify,
                     style: textTheme.bodySmall?.copyWith(
                       fontSize: fontSize,
                       height: 1.8,
@@ -881,22 +860,6 @@ class NimbusInfoInsightTitle extends StatelessWidget {
                           fontWeight: FontWeight.w900,
                         ),
                   ),
-                  // hasTitle2
-                  //      ? SizedBox(
-                  //          height: responsiveSize(
-                  //            context,
-                  //            Sizes.HEIGHT_4,
-                  //            Sizes.HEIGHT_16,
-                  //            md: Sizes.HEIGHT_8,
-                  //          ),
-                  //        )
-                  //      : EmptyContainer(),
-                  //  hasTitle2
-                  //      ? Text(
-                  //  title2!,
-                  //     style: title2Style ?? titleStyle,
-                  //   )
-                  // : EmptyContainer(),
                   SizedBoxH20(),
                   Text(
                     body,

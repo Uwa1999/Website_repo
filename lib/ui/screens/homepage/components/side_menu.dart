@@ -1,6 +1,6 @@
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/about_main.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/insights_main.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/about/about_main.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/homepage_screen.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/insights/insights_main.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/product_and_services_main.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/images.dart';
@@ -42,12 +42,6 @@ class _SideMenuState extends State<SideMenu> with SingleTickerProviderStateMixin
                     ImagePath.LOGO_LIGHT,
                     height: Sizes.HEIGHT_150,
                   ),
-                ),
-              ),
-              Center(
-                child: Text(
-                  StringConst.FDSAP_VERSION,
-                  style: TextStyle(fontSize: 10),
                 ),
               ),
               Divider(

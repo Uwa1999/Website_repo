@@ -198,6 +198,19 @@ class SizedBoxH190 extends StatelessWidget {
   }
 }
 
+class SizedBoxH300 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return const SizedBox(height: 300.0);
+  }
+}
+
+class SizedBoxH550 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return const SizedBox(height: 550.0);
+  }
+}
 //Widths
 
 class SizedBoxW0 extends StatelessWidget {

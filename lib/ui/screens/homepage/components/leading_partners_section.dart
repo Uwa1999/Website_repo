@@ -3,23 +3,11 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/data.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/images.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/sizes.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/leading_partner_data.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/sizedbox.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:visibility_detector/visibility_detector.dart';
-
-class StatItemData {
-  final int? value;
-  final String subtitle;
-  final String? values;
-
-  StatItemData({
-    this.value,
-    required this.subtitle,
-    this.values,
-  });
-}
 
 class LeadingBankingPartnerSection extends StatefulWidget {
   LeadingBankingPartnerSection({Key? key});
@@ -148,13 +136,13 @@ class _LeadingBankingPartnerSectionState extends State<LeadingBankingPartnerSect
   }
 
   List<Widget> _buildItems(
-    List<StatItemData> data, {
+    List<LeadingBankingPartnerData> data, {
     bool isHorizontal = false,
   }) {
     List<Widget> items = [];
     for (int index = 0; index < data.length; index++) {
       items.add(
-        StatItem(
+        LeadingBankingPartnerItem(
           title: data[index].value!,
           subnum: data[index].values!,
           subtitle: data[index].subtitle,
@@ -171,75 +159,5 @@ class _LeadingBankingPartnerSectionState extends State<LeadingBankingPartnerSect
       }
     }
     return items;
-  }
-}
-
-class StatItem extends StatelessWidget {
-  StatItem({
-    required this.title,
-    required this.subtitle,
-    required this.controller,
-    this.titleColor = AppColors.white,
-    this.subtitleColor = AppColors.grey150,
-    this.titleStyle,
-    this.subtitleStyle,
-    this.subnum,
-    this.curve = Curves.easeIn,
-  });
-
-  final int title;
-  final String subtitle;
-  final String? subnum;
-  final Color titleColor;
-  final Color subtitleColor;
-  final TextStyle? titleStyle;
-  final TextStyle? subtitleStyle;
-  final AnimationController controller;
-  final Curve curve;
-
-  late Animation<int> animation = IntTween(begin: 0, end: title).animate(
-    CurvedAnimation(
-      parent: controller,
-      curve: curve,
-    ),
-  );
-
-  @override
-  Widget build(BuildContext context) {
-    return AnimatedBuilder(
-      animation: animation,
-      builder: (context, child) {
-        return _buildChild(context: context, value: animation.value, values: subnum);
-      },
-    );
-  }
-
-  Widget _buildChild({required BuildContext context, required int value, String? values}) {
-    TextTheme textTheme = Theme.of(context).textTheme;
-    return Column(
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              "$value",
-              style: GoogleFonts.poppins(color: titleColor, fontSize: 100),
-            ),
-            Text(
-              "$values",
-              style: GoogleFonts.poppins(color: titleColor, fontSize: 100),
-            ),
-          ],
-        ),
-        SizedBoxH12(),
-        Text(
-          subtitle,
-          style: GoogleFonts.poppins(
-            color: subtitleColor,
-            fontSize: 25,
-          ),
-        ),
-      ],
-    );
   }
 }

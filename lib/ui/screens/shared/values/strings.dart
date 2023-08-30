@@ -366,4 +366,5 @@ Latest Article & News''';
 
   //FDSAP Website Version
   static const String FDSAP_VERSION = 'V1.1.1';
+  static const String FDSAP_ALL_RIGHTS_RESERVED = "© FDSAP 2023";
 }

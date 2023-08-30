@@ -64,15 +64,6 @@ class _FdsTagLineCardState extends State<FdsTagLineCard> {
   bool _hovering = false;
   late AnimationController _controller;
   late Animation<double> animation;
-  //
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   _controller = AnimationController(vsync: this, duration: Duration(milliseconds: 300));
-  //   animation = Tween(begin: 0.0, end: widget.offsetY).animate(
-  //     CurvedAnimation(parent: _controller, curve: Curves.easeInOutQuart),
-  //   );
-  // }
 
   Future<void> _animateCard() async {
     if (_hovering) {
@@ -121,41 +112,31 @@ class _FdsTagLineCardState extends State<FdsTagLineCard> {
         borderRadius: widget.borderRadius,
         child: Card(
           elevation: widget.elevation,
-          child: Padding(
-            padding: widget.padding,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                // widget.leading != null ? Spacer() : EmptyContainer(),
-                // widget.leading ?? EmptyContainer(),
-                // widget.leading != null ? Spacer() : EmptyContainer(),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Spacer(),
-                    widget.title ?? EmptyContainer(),
-                    widget.title != null ? SizedBoxH4() : EmptyContainer(),
-                    widget.subtitle ?? EmptyContainer(),
-                    Spacer(),
-                  ],
-                ),
-                // widget.trailing != null ? Spacer() : EmptyContainer(),
-                // widget.trailing ?? EmptyContainer(),
-                // widget.trailing != null ? Spacer() : EmptyContainer(),
-              ],
-            ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              // widget.leading != null ? Spacer() : EmptyContainer(),
+              // widget.leading ?? EmptyContainer(),
+              // widget.leading != null ? Spacer() : EmptyContainer(),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Spacer(),
+                  widget.title ?? EmptyContainer(),
+                  widget.title != null ? SizedBoxH5() : EmptyContainer(),
+                  widget.subtitle ?? EmptyContainer(),
+                  Spacer(),
+                ],
+              ),
+              // widget.trailing != null ? Spacer() : EmptyContainer(),
+              // widget.trailing ?? EmptyContainer(),
+              // widget.trailing != null ? Spacer() : EmptyContainer(),
+            ],
           ),
         ),
       ),
     );
-  }
-
-  void _mouseEnter(bool hovering) {
-    setState(() {
-      _hovering = hovering;
-    });
-    _animateCard();
   }
 }

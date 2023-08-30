@@ -160,7 +160,16 @@ class Sizes {
   static const double MARGIN_400 = 400.0;
   static const double MARGIN_350 = 350.0;
   static const double MARGIN_210 = 210.0;
+  static const double MARGIN_205 = 205.0;
   static const double MARGIN_200 = 200.0;
+  static const double MARGIN_195 = 195.0;
+  static const double MARGIN_190 = 190.0;
+  static const double MARGIN_185 = 185.0;
+  static const double MARGIN_180 = 180.0;
+
+  static const double MARGIN_175 = 175.0;
+  static const double MARGIN_170 = 170.0;
+  static const double MARGIN_150 = 150.0;
   static const double MARGIN_100 = 100.0;
   static const double MARGIN_90 = 90.0;
   static const double MARGIN_80 = 80.0;

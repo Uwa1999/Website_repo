@@ -1,7 +1,7 @@
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/footer_section.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/header_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/responsive_navigation/nav_section_mobile.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/side_menu.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/header_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/regulatory_security/amla/amla_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/regulatory_security/cyber_security/cyber_security_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/regulatory_security/fraud_detection/fraud_detection_section.dart';

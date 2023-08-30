@@ -1,8 +1,8 @@
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/about_main.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/insights_main.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/insights_section.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/about/about_main.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/responsive_navigation/nav_section_web.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/homepage_screen.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/insights/insights_main.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/insights/insights_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/product_and_services_main.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/responsive.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';

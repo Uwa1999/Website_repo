@@ -189,14 +189,27 @@ class DesktopFooter extends StatelessWidget {
                     SizedBoxH20(),
                   ],
                 ),
-                Row(
+                Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      "© FDSAP 2023",
-                      style: TextStyle(color: Colors.white, fontSize: 16, letterSpacing: 0.5),
+                      StringConst.FDSAP_ALL_RIGHTS_RESERVED,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                        letterSpacing: 0.5,
+                      ),
                     ),
-                    //    ..._buildSocialIcons(Data.socialfooterData),
+                    Center(
+                      child: Text(
+                        StringConst.FDSAP_VERSION,
+                        style: TextStyle(
+                          fontSize: 15,
+                          color: Colors.white,
+                          letterSpacing: 0.5,
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ],
@@ -400,14 +413,27 @@ class MobileFooter extends StatelessWidget {
                 SizedBoxH20(),
               ],
             ),
-            Row(
+            Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "© FDSAP 2023",
-                  style: TextStyle(color: Colors.white, fontSize: 8, letterSpacing: 0.5),
+                  StringConst.FDSAP_ALL_RIGHTS_RESERVED,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 8,
+                    letterSpacing: 0.5,
+                  ),
                 ),
-                // ..._buildSocialIcons(Data.socialfooterData),
+                Center(
+                  child: Text(
+                    StringConst.FDSAP_VERSION,
+                    style: TextStyle(
+                      fontSize: 8,
+                      color: Colors.white,
+                      letterSpacing: 0.5,
+                    ),
+                  ),
+                ),
               ],
             ),
           ],

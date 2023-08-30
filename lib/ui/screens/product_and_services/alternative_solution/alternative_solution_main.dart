@@ -1,4 +1,5 @@
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/footer_section.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/header_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/responsive_navigation/nav_section_mobile.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/side_menu.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/alternative_solution/atm_switch/atm_section.dart';
@@ -7,7 +8,6 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/alternative
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/alternative_solution/k2c/k2c_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/alternative_solution/kplus/kplus_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/alternative_solution/sbs/sbs_section.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/header_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/sizes.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/sizedbox.dart';

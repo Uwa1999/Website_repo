@@ -1,21 +1,23 @@
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/about/about_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/footer_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/header_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/responsive_navigation/nav_section_mobile.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/side_menu.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/product_services_section.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/our_mission/mission_section.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/our_team/our_team_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/sizedbox.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
-class ProductServicesMain extends StatefulWidget {
-  const ProductServicesMain({Key? key}) : super(key: key);
+class AboutMain extends StatefulWidget {
+  const AboutMain({Key? key}) : super(key: key);
 
   @override
-  State<ProductServicesMain> createState() => _ProductServicesMainState();
+  State<AboutMain> createState() => _AboutMainState();
 }
 
-class _ProductServicesMainState extends State<ProductServicesMain> {
+class _AboutMainState extends State<AboutMain> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
 
   @override
@@ -54,7 +56,11 @@ class _ProductServicesMainState extends State<ProductServicesMain> {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  ProductAndServicesSection(),
+                  AboutSection(),
+                  SizedBoxH80(),
+                  MissionSection(),
+                  SizedBoxH80(),
+                  OurTeamSection(),
                   SizedBoxH100(),
                   FooterSection(),
                 ],

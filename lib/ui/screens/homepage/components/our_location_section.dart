@@ -104,7 +104,7 @@ class _OurLocationSectionState extends State<OurLocationSection> {
       children: [
         Padding(
           padding: EdgeInsets.only(
-            right: Sizes.PADDING_70,
+            right: Sizes.PADDING_30,
           ),
           child: ContentArea(
             width: double.infinity,

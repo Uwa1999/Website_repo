@@ -7,7 +7,7 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/data.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/sizes.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/strings.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/content_area.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/insights_card.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/insights_data.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/nimbus_info_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/sizedbox.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -137,7 +137,7 @@ class _DesktopInsightSectionState extends State<DesktopInsightSection> {
     );
   }
 
-  List<Widget> _buildInsightCards({required List<InsightsData> insightsData, required double width, required context}) {
+  List<Widget> _buildInsightCards({required List<DesktopInsightsData> insightsData, required double width, required context}) {
     double cardWidth = ((width - (kSpacing * 2)) / 5);
     List<Widget> items = [];
     List<VoidCallback> function = [
@@ -156,7 +156,7 @@ class _DesktopInsightSectionState extends State<DesktopInsightSection> {
     ];
     for (int index = 0; index < insightsData.length; index++) {
       items.add(
-        InsightsCard(
+        DesktopInsightsCard(
           width: cardWidth,
           imageWidth: cardWidth,
           imageHeight: cardWidth,
@@ -233,7 +233,7 @@ class _MobileInsightSectionState extends State<MobileInsightSection> {
                   ),
                   SizedBoxH10(),
                   Padding(
-                    padding: padding,
+                    padding: const EdgeInsets.only(right: 20),
                     child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -241,43 +241,30 @@ class _MobileInsightSectionState extends State<MobileInsightSection> {
                         Expanded(
                           child: SizedBox(
                             height: MediaQuery.of(context).size.height * 0.7,
-                            child: new ListView.builder(
+                            child: GridView.count(
+                              physics: const NeverScrollableScrollPhysics(),
+                              childAspectRatio: 0.80,
                               shrinkWrap: true,
-                              scrollDirection: Axis.horizontal,
-                              itemCount: 1,
-                              itemBuilder: (context, index) {
-                                return new Container(
-                                  alignment: Alignment.center,
-                                  width: widthOfScreen(context),
-                                  child: ListView(
-                                    scrollDirection: Axis.horizontal,
-                                    children: [
-                                      Align(
-                                        alignment: Alignment.centerLeft,
-                                        child: Column(
-                                          children: [
-                                            Wrap(
-                                              spacing: kSpacing,
-                                              runSpacing: kRunSpacing,
-                                              children: _buildInsightCards(
-                                                context: context,
-                                                insightsData: Data.insightsData,
-                                                width: screenWidth,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ],
+                              crossAxisCount: 1,
+                              children: [
+                                Wrap(
+                                  spacing: kSpacing,
+                                  runSpacing: kRunSpacing,
+                                  children: _buildMobileInsightCards(
+                                    context: context,
+                                    insightsData: Data.insightsData,
+                                    width: screenWidth,
                                   ),
-                                );
-                              },
+                                ),
+                              ],
                             ),
                           ),
                         ),
                       ],
                     ),
                   ),
+                  SizedBoxH300(),
+                  SizedBoxH300(),
                 ],
               );
             } else {
@@ -321,19 +308,15 @@ class _MobileInsightSectionState extends State<MobileInsightSection> {
                                     scrollDirection: Axis.horizontal,
                                     children: [
                                       Align(
-                                        alignment: Alignment.centerLeft,
-                                        child: Column(
-                                          children: [
-                                            Wrap(
-                                              spacing: kSpacing,
-                                              runSpacing: kRunSpacing,
-                                              children: _buildInsightCards(
-                                                context: context,
-                                                insightsData: Data.insightsData,
-                                                width: screenWidth,
-                                              ),
-                                            ),
-                                          ],
+                                        alignment: Alignment.center,
+                                        child: Wrap(
+                                          spacing: kSpacing,
+                                          runSpacing: kRunSpacing,
+                                          children: _buildTabInsightCard(
+                                            context: context,
+                                            insightsData: Data.insightsData,
+                                            width: screenWidth,
+                                          ),
                                         ),
                                       ),
                                     ],
@@ -355,7 +338,7 @@ class _MobileInsightSectionState extends State<MobileInsightSection> {
     );
   }
 
-  List<Widget> _buildInsightCards({required List<InsightsData> insightsData, required double width, required context}) {
+  List<Widget> _buildMobileInsightCards({required List<DesktopInsightsData> insightsData, required double width, required context}) {
     double cardWidth = ((width - (kSpacing * 2)) / 5);
     List<Widget> items = [];
     List<VoidCallback> function = [
@@ -374,7 +357,7 @@ class _MobileInsightSectionState extends State<MobileInsightSection> {
     ];
     for (int index = 0; index < insightsData.length; index++) {
       items.add(
-        SmallInsightsCard(
+        MobileInsightsCard(
           width: cardWidth,
           imageWidth: cardWidth,
           imageHeight: cardWidth,
@@ -383,6 +366,42 @@ class _MobileInsightSectionState extends State<MobileInsightSection> {
           subtitle: insightsData[index].subtitle,
           date: insightsData[index].date,
           //  buttonText: insightsData[index].buttonText,
+          imageUrl: insightsData[index].imageUrl,
+          onPressed: function[index],
+        ),
+      );
+    }
+    return items;
+  }
+
+  List<Widget> _buildTabInsightCard({required List<DesktopInsightsData> insightsData, required double width, required context}) {
+    double cardWidth = ((width - (kSpacing * 2)) / 5);
+    List<Widget> items = [];
+    List<VoidCallback> function = [
+      () {
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) => ArticleDescMain()));
+        print('-----ARTICLE SCREEN-----');
+      },
+      () {
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) => EventDescMain()));
+        print('-----EVENTS SCREEN-----');
+      },
+      () {
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) => NewsDescMain()));
+        print('-----NEWS SCREEN-----');
+      },
+    ];
+    for (int index = 0; index < insightsData.length; index++) {
+      items.add(
+        TabInsightsCard(
+          width: cardWidth,
+          imageWidth: cardWidth,
+          imageHeight: cardWidth,
+          category: insightsData[index].category,
+          title: Data.insightsData[index].title,
+          subtitle: insightsData[index].subtitle,
+          date: insightsData[index].date,
+//  buttonText: insightsData[index].buttonText,
           imageUrl: insightsData[index].imageUrl,
           onPressed: function[index],
         ),
