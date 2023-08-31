@@ -116,7 +116,7 @@ class _DesktopProductServicesSectionState extends State<DesktopProductServicesSe
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   ContentArea(
-                    width: contentAreaWidth * 0.7,
+                    width: contentAreaWidth * 0.8,
                     child: _buildProductServicesInfoLg(),
                   ),
                   SizedBoxW100(),
@@ -147,7 +147,10 @@ class _DesktopProductServicesSectionState extends State<DesktopProductServicesSe
                         width: widthOfScreen(context),
                         child: ListView(
                           scrollDirection: Axis.horizontal,
-                          children: _buildDesktopProductServices(selectedProductServices, context: context),
+                          children: _buildDesktopProductServices(
+                            selectedProductServices,
+                            context: context,
+                          ),
                         ),
                       );
                     },
@@ -327,14 +330,6 @@ class _ProductServicesCategoryState extends State<ProductServicesCategory> with 
                         color: colorOfCategory(),
                       ),
                 ),
-                // WidgetSpan(
-                //   child: widget.isSelected
-                //       ? numberOfProductServicesItems()
-                //       : FadeTransition(
-                //           opacity: _controller.view,
-                //           child: numberOfProductServicesItems(),
-                //         ),
-                // ),
               ],
             ),
           ),
@@ -342,24 +337,6 @@ class _ProductServicesCategoryState extends State<ProductServicesCategory> with 
       ),
     );
   }
-
-  // Widget numberOfProductServicesItems() {
-  //   TextTheme textTheme = Theme.of(context).textTheme;
-  //   return Transform.translate(
-  //     offset: const Offset(2, -8),
-  //     child: Text(
-  //       "(${widget.number})",
-  //       textScaleFactor: 0.7,
-  //       style: widget.numberStyle?.copyWith(
-  //             color: widget.hoverColor,
-  //           ) ??
-  //           textTheme.titleMedium?.copyWith(
-  //             fontSize: Sizes.TEXT_SIZE_16,
-  //             color: widget.hoverColor,
-  //           ),
-  //     ),
-  //   );
-  // }
 
   void _mouseEnter(bool hovering) {
     setState(() {

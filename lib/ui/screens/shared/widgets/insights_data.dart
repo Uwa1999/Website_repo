@@ -645,44 +645,11 @@ class _TabInsightsCardState extends State<TabInsightsCard> {
                                           ),
                                         ),
                                       ),
-                                      // Padding(
-                                      //   padding: const EdgeInsets.only(left: 10.0, right: 10.0),
-                                      //   child: Align(
-                                      //     alignment: Alignment.centerLeft,
-                                      //     child: Text(
-                                      //       widget.subtitle,
-                                      //       style: widget.titleStyle ?? textTheme.bodySmall,
-                                      //     ),
-                                      //   ),
-                                      // ),
                                     ],
                                   ),
                                 ),
                               ),
                             ),
-                            // Image.asset(
-                            //   widget.imageUrl,
-                            //   height: MediaQuery.of(context).size.height * 0.3,
-                            //   // width: MediaQuery.of(context).size.width * 0.7,
-                            //   fit: BoxFit.fitHeight,
-                            // ),
-                            // Padding(
-                            //   padding: const EdgeInsets.only(left: 10.0, top: 10.0),
-                            //   child: Row(
-                            //     mainAxisAlignment: MainAxisAlignment.start,
-                            //     children: [
-                            //       Icon(
-                            //         widget.dateIcon,
-                            //         color: AppColors.maroon04,
-                            //       ),
-                            //       SizedBoxW8(),
-                            //       Text(
-                            //         widget.date,
-                            //         style: widget.dateStyle ?? textTheme.titleLarge,
-                            //       )
-                            //     ],
-                            //   ),
-                            // ),
                             SizedBoxH10(),
                           ],
                         ),
