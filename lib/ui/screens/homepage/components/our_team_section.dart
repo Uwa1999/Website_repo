@@ -127,12 +127,12 @@ class _OurTeamSectionState extends State<OurTeamSection> with SingleTickerProvid
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       SizedBoxH80(),
-                      // Center(
-                      //   child: Container(
-                      //     child: _buildNimbusInfoSectionLg(),
-                      //   ),
-                      // ),
-                      // SizedBoxH10(),
+                      Center(
+                        child: Container(
+                          child: _buildNimbusInfoSectionLg(),
+                        ),
+                      ),
+                      SizedBoxH20(),
                       Center(
                         child: _buildOrgChartImage(),
                       ),

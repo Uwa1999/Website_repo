@@ -146,7 +146,7 @@ class _DesktopInsightSectionState extends State<DesktopInsightSection> {
         print('-----ARTICLE SCREEN-----');
       },
       () {
-        Navigator.of(context).push(MaterialPageRoute(builder: (context) => EventDescMain()));
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) => EventsDescMain()));
         print('-----EVENTS SCREEN-----');
       },
       () {
@@ -347,7 +347,7 @@ class _MobileInsightSectionState extends State<MobileInsightSection> {
         print('-----ARTICLE SCREEN-----');
       },
       () {
-        Navigator.of(context).push(MaterialPageRoute(builder: (context) => EventDescMain()));
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) => EventsDescMain()));
         print('-----EVENTS SCREEN-----');
       },
       () {
@@ -383,7 +383,7 @@ class _MobileInsightSectionState extends State<MobileInsightSection> {
         print('-----ARTICLE SCREEN-----');
       },
       () {
-        Navigator.of(context).push(MaterialPageRoute(builder: (context) => EventDescMain()));
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) => EventsDescMain()));
         print('-----EVENTS SCREEN-----');
       },
       () {

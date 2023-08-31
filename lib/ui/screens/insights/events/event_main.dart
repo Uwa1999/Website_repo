@@ -11,14 +11,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
-class EventDescMain extends StatefulWidget {
-  const EventDescMain({Key? key}) : super(key: key);
+class EventsDescMain extends StatefulWidget {
+  const EventsDescMain({Key? key}) : super(key: key);
 
   @override
-  State<EventDescMain> createState() => _EventDescMainState();
+  State<EventsDescMain> createState() => _EventsDescMainState();
 }
 
-class _EventDescMainState extends State<EventDescMain> {
+class _EventsDescMainState extends State<EventsDescMain> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
   bool isFabVisible = false;
 
