@@ -145,7 +145,7 @@ class _MobileEventsDescSectionState extends State<MobileEventsDescSection> {
             child: NimbusInfoInsightSection(
               title1: '',
               hasTitle2: false,
-              body: StringConst.ARTICLE_DESC1,
+              body: StringConst.EVENTS_DESC1,
             ),
           ),
           SizedBoxH30(),
@@ -155,9 +155,9 @@ class _MobileEventsDescSectionState extends State<MobileEventsDescSection> {
               right: Sizes.PADDING_20,
             ),
             child: NimbusInfoInsightSection(
-              title1: StringConst.ARTICLE_DESC_SUBTITLE2,
+              title1: StringConst.EVENTS_DESC_SUBTITLE2,
               hasTitle2: false,
-              body: StringConst.ARTICLE_DESC2,
+              body: StringConst.EVENTS_DESC2,
               title1Style: GoogleFonts.poppins(
                 fontSize: Sizes.TEXT_SIZE_18,
                 fontWeight: FontWeight.w700,
@@ -172,9 +172,9 @@ class _MobileEventsDescSectionState extends State<MobileEventsDescSection> {
               right: Sizes.PADDING_20,
             ),
             child: NimbusInfoInsightSection(
-              title1: StringConst.ARTICLE_DESC_SUBTITLE3,
+              title1: StringConst.EVENTS_DESC_SUBTITLE3,
               hasTitle2: false,
-              body: StringConst.ARTICLE_DESC3,
+              body: StringConst.EVENTS_DESC3,
               title1Style: GoogleFonts.poppins(
                 fontSize: Sizes.TEXT_SIZE_18,
                 fontWeight: FontWeight.w700,
@@ -189,9 +189,9 @@ class _MobileEventsDescSectionState extends State<MobileEventsDescSection> {
               right: Sizes.PADDING_20,
             ),
             child: NimbusInfoInsightSection(
-              title1: StringConst.ARTICLE_DESC_SUBTITLE4,
+              title1: StringConst.EVENTS_DESC_SUBTITLE4,
               hasTitle2: false,
-              body: StringConst.ARTICLE_DESC4,
+              body: StringConst.EVENTS_DESC4,
               title1Style: GoogleFonts.poppins(
                 fontSize: Sizes.TEXT_SIZE_18,
                 fontWeight: FontWeight.w700,
@@ -206,9 +206,9 @@ class _MobileEventsDescSectionState extends State<MobileEventsDescSection> {
               right: Sizes.PADDING_20,
             ),
             child: NimbusInfoInsightSection(
-              title1: StringConst.ARTICLE_DESC_SUBTITLE5,
+              title1: StringConst.EVENTS_DESC_SUBTITLE5,
               hasTitle2: false,
-              body: StringConst.ARTICLE_DESC5,
+              body: StringConst.EVENTS_DESC5,
               title1Style: GoogleFonts.poppins(
                 fontSize: Sizes.TEXT_SIZE_18,
                 fontWeight: FontWeight.w700,

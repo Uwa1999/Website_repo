@@ -881,3 +881,72 @@ class NimbusInfoInsightTitle extends StatelessWidget {
     );
   }
 }
+
+class FDSTaglineInfoSection extends StatelessWidget {
+  final String? title1;
+  final String? title2;
+  final bool hasTitle2;
+  final String body;
+  final TextStyle? sectionTitleStyle;
+  final TextStyle? title1Style;
+  final TextStyle? title2Style;
+  final TextStyle? bodyStyle;
+  final Color dividerColor;
+  final double? thickness;
+  final int quarterTurns;
+  // final double dividerHeight;
+  final Widget? child;
+
+  FDSTaglineInfoSection({
+    this.title1 = "",
+    required this.body,
+    this.title2 = "",
+    this.sectionTitleStyle,
+    this.title1Style,
+    this.hasTitle2 = true,
+    this.title2Style,
+    this.bodyStyle,
+    this.thickness = 1.15,
+    this.quarterTurns = 3,
+    this.dividerColor = AppColors.black,
+    // this.dividerHeight = Sizes.HEIGHT_40,
+    this.child,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    TextTheme textTheme = Theme.of(context).textTheme;
+    TextStyle? titleStyle = textTheme.headlineMedium?.copyWith(
+      fontSize: responsiveSize(context, 26, 36, md: 32),
+      color: AppColors.black,
+    );
+    double fontSize = responsiveSize(context, 16, 18);
+    return Container(
+      child: IntrinsicHeight(
+        child: Row(
+          children: [
+            Expanded(
+              child: Column(
+                // mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  child ?? EmptyContainer(),
+                  Text(
+                    title1!,
+                    style: title1Style ??
+                        titleStyle?.copyWith(
+                          color: AppColors.black,
+                          fontWeight: FontWeight.w900,
+                        ),
+                  ),
+                  child ?? EmptyContainer(),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

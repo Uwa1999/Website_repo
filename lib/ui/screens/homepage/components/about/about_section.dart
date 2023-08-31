@@ -1,12 +1,11 @@
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/header_responsive_section/widgets.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/responsive.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/data.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/images.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/sizes.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/strings.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/styles.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/content_area.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/fds_tagline_card.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/nimbus_info_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/sizedbox.dart';
 import 'package:flutter/material.dart';
@@ -107,20 +106,21 @@ class _AboutSectionState extends State<AboutSection> {
                       ),
                     ],
                   ),
-                  SizedBoxH10(),
-                  ContentArea(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        ...buildCardRow(
-                          context: context,
-                          data: Data.fdsTagLineCardData,
-                          width: contentAreaWidth / 3.8,
-                        ),
-                      ],
-                    ),
-                  ),
+                  SizedBoxH20(),
+                  FDSTaglineSection(),
+                  // ContentArea(
+                  //   child: Row(
+                  //     mainAxisAlignment: MainAxisAlignment.center,
+                  //     crossAxisAlignment: CrossAxisAlignment.center,
+                  //     children: [
+                  //       ...buildCardRow(
+                  //         context: context,
+                  //         data: Data.fdsTagLineCardData,
+                  //         width: contentAreaWidth / 3.8,
+                  //       ),
+                  //     ],
+                  //   ),
+                  // ),
                 ],
               );
             }

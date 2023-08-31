@@ -1,6 +1,7 @@
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/header_responsive_section/widgets.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/responsive.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/images.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/sizes.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/strings.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/content_area.dart';
@@ -61,14 +62,20 @@ class _HeaderResponsiveMobileState extends State<HeaderResponsiveMobile> with Si
     return ContentArea(
       height: MediaQuery.of(context).size.height * 0.5,
       decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [
-            AppColors.maroon03.withOpacity(1.0),
-            AppColors.maroon05.withOpacity(0.8),
-          ],
+        image: DecorationImage(
+          fit: BoxFit.cover,
+          image: AssetImage(
+            ImagePath.HOME_BACKGROUND,
+          ),
         ),
+        // gradient: LinearGradient(
+        //   begin: Alignment.topLeft,
+        //   end: Alignment.bottomRight,
+        //   colors: [
+        //     AppColors.maroon03.withOpacity(1.0),
+        //     AppColors.maroon05.withOpacity(0.8),
+        //   ],
+        // ),
       ),
       child: Stack(
         children: [

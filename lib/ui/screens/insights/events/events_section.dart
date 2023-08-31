@@ -45,7 +45,9 @@ class _DesktopEventsDescScreenState extends State<DesktopEventsDescScreen> {
           decoration: BoxDecoration(
             image: DecorationImage(
               fit: BoxFit.cover,
-              image: AssetImage(ImagePath.EVENTS_HEADER),
+              image: AssetImage(
+                ImagePath.EVENTS_HEADER,
+              ),
             ),
           ),
           child: Column(
@@ -96,19 +98,25 @@ class _MobileEventsDescScreenState extends State<MobileEventsDescScreen> {
           height: MediaQuery.of(context).size.height * 0.5,
           width: double.infinity,
           decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: [
-                AppColors.maroon03.withOpacity(1.0),
-                AppColors.maroon05.withOpacity(0.8),
-              ],
+            image: DecorationImage(
+              fit: BoxFit.cover,
+              image: AssetImage(
+                ImagePath.EVENTS_HEADER,
+              ),
             ),
+            // gradient: LinearGradient(
+            //   begin: Alignment.topLeft,
+            //   end: Alignment.bottomRight,
+            //   colors: [
+            //     AppColors.maroon03.withOpacity(1.0),
+            //     AppColors.maroon05.withOpacity(0.8),
+            //   ],
+            // ),
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              SizedBoxH130(),
+              SizedBoxH190(),
               Flexible(
                 fit: FlexFit.loose,
                 child: Padding(
