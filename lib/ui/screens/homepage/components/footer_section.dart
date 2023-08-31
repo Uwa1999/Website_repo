@@ -293,16 +293,6 @@ class MobileFooter extends StatelessWidget {
                         ),
                       ),
                     ),
-                    // RichText(
-                    //   textAlign: TextAlign.center,
-                    //   text: TextSpan(
-                    //     text: StringConst.FDS_BRANCH_ADDRESS,
-                    //     style: GoogleFonts.poppins(
-                    //       fontSize: 12,
-                    //       color: Colors.white,
-                    //     ),
-                    //   ),
-                    // ),
                   ],
                 ),
               ],

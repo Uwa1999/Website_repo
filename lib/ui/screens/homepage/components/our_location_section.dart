@@ -30,12 +30,10 @@ class _OurLocationSectionState extends State<OurLocationSection> {
     double contentAreaWidthLg = screenWidth * 1.2;
     double contentAreaWidth = screenWidth;
     return VisibilityDetector(
-      key: Key('about-section'),
+      key: Key('location-section'),
       onVisibilityChanged: (visibilityInfo) {
         double visiblePercentage = visibilityInfo.visibleFraction * 100;
-        if (visiblePercentage > 25) {
-          // _scaleController.forward();
-        }
+        if (visiblePercentage > 25) {}
       },
       child: Container(
         padding: EdgeInsets.only(left: getSidePadding(context)),
@@ -140,8 +138,6 @@ class _OurLocationSectionState extends State<OurLocationSection> {
   }) {
     return Stack(
       children: [
-        //positions blob on the far right of the section
-        //based on the calculation only 10% of blob is showing
         ResponsiveBuilder(
           refinedBreakpoints: RefinedBreakpoints(),
           builder: (context, sizingInformation) {

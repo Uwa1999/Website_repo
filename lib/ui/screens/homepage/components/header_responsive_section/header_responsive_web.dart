@@ -22,26 +22,7 @@ class HeaderResponsiveWeb extends StatefulWidget {
   _HeaderResponsiveWebState createState() => _HeaderResponsiveWebState();
 }
 
-class _HeaderResponsiveWebState extends State<HeaderResponsiveWeb> with SingleTickerProviderStateMixin {
-  late AnimationController _controller;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = AnimationController(
-      duration: const Duration(seconds: 20),
-      vsync: this,
-    )..repeat();
-
-    _controller.forward();
-    _controller.addListener(() {
-      if (_controller.status == AnimationStatus.completed) {
-        _controller.reset();
-        _controller.forward();
-      }
-    });
-  }
-
+class _HeaderResponsiveWebState extends State<HeaderResponsiveWeb> {
   @override
   void dispose() {
     super.dispose();
@@ -98,12 +79,13 @@ class _HeaderResponsiveWebState extends State<HeaderResponsiveWeb> with SingleTi
                   Container(
                     child: Image.asset(
                       ImagePath.HOME_BACKGROUND,
-                      // color: AppColors.accentColor100.withOpacity(0.9),
-                      // colorBlendMode: BlendMode.modulate,
                     ),
                   ),
                   Container(
-                    margin: EdgeInsets.only(top: heightOfStack * 0.15, left: (sizeOfBlobSm * 0.35)),
+                    margin: EdgeInsets.only(
+                      top: heightOfStack * 0.15,
+                      left: (sizeOfBlobSm * 0.35),
+                    ),
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
@@ -167,25 +149,9 @@ class _HeaderResponsiveWebState extends State<HeaderResponsiveWeb> with SingleTi
                                   fontSize: 18,
                                   height: 1.7,
                                 ),
-                                // style: bodyTextStyle?.copyWith(height: 1.5),
                               ),
                             ),
                             SizedBoxH70(),
-                            // Row(
-                            //   children: [
-                            //     ContactUsButton(
-                            //       width: buttonWidth,
-                            //       height: buttonHeight,
-                            //       buttonTitle: StringConst.DOWNLOAD_CV,
-                            //       opensUrl: true,
-                            //       url: StringConst.EMAIL_URL,
-                            //       titleStyle: GoogleFonts.poppins(
-                            //         color: Colors.white,
-                            //         fontWeight: FontWeight.w600,
-                            //       ),
-                            //     ),
-                            //   ],
-                            // ),
                           ],
                         ),
                       ],
@@ -193,20 +159,6 @@ class _HeaderResponsiveWebState extends State<HeaderResponsiveWeb> with SingleTi
                   ),
                 ],
               ),
-              // SizedBoxH10(),
-              // Container(
-              //   // margin: EdgeInsets.only(left: (sizeOfBlobSm * 0.35)),
-              //   child: Row(
-              //     mainAxisAlignment: MainAxisAlignment.center,
-              //     children: [
-              //       ...buildCardRow(
-              //         context: context,
-              //         data: Data.nimbusCardData,
-              //         width: contentAreaWidth / 3.8,
-              //       ),
-              //     ],
-              //   ),
-              // ),
             ],
           ),
         ],

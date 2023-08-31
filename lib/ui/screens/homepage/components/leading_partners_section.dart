@@ -109,7 +109,6 @@ class _LeadingBankingPartnerSectionState extends State<LeadingBankingPartnerSect
                             //     fontSize: 40,
                             //   ),
                             // ),
-
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
@@ -153,9 +152,9 @@ class _LeadingBankingPartnerSectionState extends State<LeadingBankingPartnerSect
 
       if (index < data.length - 1) {
         if (isHorizontal) {
-          items.add(Spacer());
+          items.add(Spacer(flex: 2));
         } else {
-          items.add(SizedBoxH10());
+          items.add(SizedBoxH40());
         }
       }
     }

@@ -225,7 +225,7 @@ class _MobileInsightSectionState extends State<MobileInsightSection> {
                     padding: const EdgeInsets.only(right: 20),
                     child: ContentArea(
                       width: contentAreaWidthSm,
-                      child: _buildMobileProductServicesInfoSm(
+                      child: _buildMobileInsightInfoSm(
                         width: contentAreaWidthSm,
                         height: contentAreaHeightSm,
                       ),
@@ -279,7 +279,7 @@ class _MobileInsightSectionState extends State<MobileInsightSection> {
                     children: [
                       ContentArea(
                         //width: contentAreaWidthSm,
-                        child: _buildMobileProductServicesInfoSm(
+                        child: _buildMobileInsightInfoSm(
                           width: contentAreaWidthSm,
                           height: contentAreaHeightSm,
                         ),
@@ -312,7 +312,7 @@ class _MobileInsightSectionState extends State<MobileInsightSection> {
                                         child: Wrap(
                                           spacing: kSpacing,
                                           runSpacing: kRunSpacing,
-                                          children: _buildTabInsightCard(
+                                          children: _buildTabInsightCards(
                                             context: context,
                                             insightsData: Data.insightsData,
                                             width: screenWidth,
@@ -365,7 +365,7 @@ class _MobileInsightSectionState extends State<MobileInsightSection> {
           title: Data.insightsData[index].title,
           subtitle: insightsData[index].subtitle,
           date: insightsData[index].date,
-          //  buttonText: insightsData[index].buttonText,
+//  buttonText: insightsData[index].buttonText,
           imageUrl: insightsData[index].imageUrl,
           onPressed: function[index],
         ),
@@ -374,7 +374,7 @@ class _MobileInsightSectionState extends State<MobileInsightSection> {
     return items;
   }
 
-  List<Widget> _buildTabInsightCard({required List<DesktopInsightsData> insightsData, required double width, required context}) {
+  List<Widget> _buildTabInsightCards({required List<DesktopInsightsData> insightsData, required double width, required context}) {
     double cardWidth = ((width - (kSpacing * 2)) / 5);
     List<Widget> items = [];
     List<VoidCallback> function = [
@@ -410,7 +410,7 @@ class _MobileInsightSectionState extends State<MobileInsightSection> {
     return items;
   }
 
-  Widget _buildMobileProductServicesInfoSm({
+  Widget _buildMobileInsightInfoSm({
     required double width,
     required double height,
   }) {

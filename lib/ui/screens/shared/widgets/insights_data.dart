@@ -105,8 +105,14 @@ class _DesktopInsightsCardState extends State<DesktopInsightsCard> {
                   HoverContainer(
                     transform: Matrix4.identity()..translate(0, -8, 0),
                     hoverMargin: EdgeInsets.all(8),
-                    decoration: BoxDecoration(color: AppColors.white, borderRadius: BorderRadius.circular(16)),
-                    hoverDecoration: BoxDecoration(color: AppColors.grey350, borderRadius: BorderRadius.circular(16)),
+                    decoration: BoxDecoration(
+                      color: AppColors.white,
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                    hoverDecoration: BoxDecoration(
+                      color: AppColors.grey350,
+                      borderRadius: BorderRadius.circular(16),
+                    ),
                     child: Card(
                       // shadowColor: AppColors.black,
                       //   margin: const EdgeInsets.only(left: Sizes.MARGIN_18),
@@ -138,7 +144,12 @@ class _DesktopInsightsCardState extends State<DesktopInsightsCard> {
                                         fit: BoxFit.contain,
                                       ),
                                       Padding(
-                                        padding: const EdgeInsets.only(left: 10.0, top: 10.0, bottom: 10.0, right: 10.0),
+                                        padding: const EdgeInsets.only(
+                                          left: 10.0,
+                                          top: 10.0,
+                                          bottom: 10.0,
+                                          right: 10.0,
+                                        ),
                                         child: Align(
                                           alignment: Alignment.centerLeft,
                                           child: Text(
@@ -351,8 +362,14 @@ class _MobileInsightsCardState extends State<MobileInsightsCard> {
                   HoverContainer(
                     transform: Matrix4.identity()..translate(0, -8, 0),
                     hoverMargin: EdgeInsets.all(8),
-                    decoration: BoxDecoration(color: AppColors.white, borderRadius: BorderRadius.circular(16)),
-                    hoverDecoration: BoxDecoration(color: AppColors.grey350, borderRadius: BorderRadius.circular(16)),
+                    decoration: BoxDecoration(
+                      color: AppColors.white,
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                    hoverDecoration: BoxDecoration(
+                      color: AppColors.grey350,
+                      borderRadius: BorderRadius.circular(16),
+                    ),
                     child: Card(
                       // shadowColor: AppColors.black,
                       //   margin: const EdgeInsets.only(left: Sizes.MARGIN_18),
@@ -384,7 +401,12 @@ class _MobileInsightsCardState extends State<MobileInsightsCard> {
                                         fit: BoxFit.cover,
                                       ),
                                       Padding(
-                                        padding: const EdgeInsets.only(left: 10.0, top: 10.0, bottom: 10.0, right: 10.0),
+                                        padding: const EdgeInsets.only(
+                                          left: 10.0,
+                                          top: 10.0,
+                                          bottom: 10.0,
+                                          right: 10.0,
+                                        ),
                                         child: Align(
                                           alignment: Alignment.centerLeft,
                                           child: Text(
@@ -564,8 +586,14 @@ class _TabInsightsCardState extends State<TabInsightsCard> {
                   HoverContainer(
                     transform: Matrix4.identity()..translate(0, -8, 0),
                     hoverMargin: EdgeInsets.all(8),
-                    decoration: BoxDecoration(color: AppColors.white, borderRadius: BorderRadius.circular(16)),
-                    hoverDecoration: BoxDecoration(color: AppColors.grey350, borderRadius: BorderRadius.circular(16)),
+                    decoration: BoxDecoration(
+                      color: AppColors.white,
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                    hoverDecoration: BoxDecoration(
+                      color: AppColors.grey350,
+                      borderRadius: BorderRadius.circular(16),
+                    ),
                     child: Card(
                       // shadowColor: AppColors.black,
                       //   margin: const EdgeInsets.only(left: Sizes.MARGIN_18),
@@ -597,7 +625,12 @@ class _TabInsightsCardState extends State<TabInsightsCard> {
                                         fit: BoxFit.cover,
                                       ),
                                       Padding(
-                                        padding: const EdgeInsets.only(left: 10.0, top: 10.0, bottom: 10.0, right: 10.0),
+                                        padding: const EdgeInsets.only(
+                                          left: 10.0,
+                                          top: 10.0,
+                                          bottom: 10.0,
+                                          right: 10.0,
+                                        ),
                                         child: Align(
                                           alignment: Alignment.centerLeft,
                                           child: Text(

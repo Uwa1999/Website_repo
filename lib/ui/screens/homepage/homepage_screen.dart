@@ -153,7 +153,7 @@ class _HomepageScreenState extends State<HomepageScreen> {
                         ),
                       ],
                     ),
-                    SizedBox(height: spacerHeight),
+                      SizedBox(height: spacerHeight),
                     Stack(
                       children: [
                         Column(

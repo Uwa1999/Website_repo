@@ -18,7 +18,7 @@ class NewsDescSection extends StatefulWidget {
 class _NewsDescSectionState extends State<NewsDescSection> {
   @override
   Widget build(BuildContext context) {
-    return (!isMobile(context)) == (!isTab(context)) ? DesktopNewsDescScreen() : MobileArticleNewsDescScreen();
+    return (!isMobile(context)) == (!isTab(context)) ? DesktopNewsDescScreen() : MobileNewsDescScreen();
   }
 }
 
@@ -75,14 +75,14 @@ class _DesktopNewsDescScreenState extends State<DesktopNewsDescScreen> {
 }
 
 //Mobile Screen
-class MobileArticleNewsDescScreen extends StatefulWidget {
-  const MobileArticleNewsDescScreen({Key? key}) : super(key: key);
+class MobileNewsDescScreen extends StatefulWidget {
+  const MobileNewsDescScreen({Key? key}) : super(key: key);
 
   @override
-  State<MobileArticleNewsDescScreen> createState() => _MobileArticleNewsDescScreenState();
+  State<MobileNewsDescScreen> createState() => _MobileNewsDescScreenState();
 }
 
-class _MobileArticleNewsDescScreenState extends State<MobileArticleNewsDescScreen> {
+class _MobileNewsDescScreenState extends State<MobileNewsDescScreen> {
   @override
   Widget build(BuildContext context) {
     return Column(
