@@ -5,6 +5,7 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/software_se
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/responsive.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/data.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/images.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/sizes.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/strings.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/styles.dart';
@@ -461,16 +462,19 @@ class _MobileProductServicesSectionState extends State<MobileProductServicesSect
                           ),
                         ),
                       ),
-                      SizedBoxH10(),
-                      Padding(
-                        padding: const EdgeInsets.only(right: 20, left: 10),
-                        child: ContentArea(
-                          child: _buildMobileProductServicesIcon(
-                            width: contentAreaWidthSm,
-                            height: contentAreaHeightSm,
-                          ),
-                        ),
-                      ),
+                      SizedBoxH20(),
+                      _buildMobileProductServicesIcon(),
+                      SizedBoxH50(),
+                      // Padding(
+                      //   padding: const EdgeInsets.only(right: 20, left: 10),
+                      //   child: ContentArea(
+                      //     child:
+                      //     _buildMobileProductServicesIcon(
+                      //       width: contentAreaWidthSm,
+                      //       height: contentAreaHeightSm,
+                      //     ),
+                      //   ),
+                      // ),
                     ],
                   );
                 } else {
@@ -516,50 +520,102 @@ class _MobileProductServicesSectionState extends State<MobileProductServicesSect
     );
   }
 
-  Widget _buildMobileProductServicesIcon({required double width, required double height}) {
+  Widget _buildMobileProductServicesIcon() {
     TextTheme textTheme = Theme.of(context).textTheme;
     double fontSize = responsiveSize(context, 60, 72, md: 64);
     TextStyle? titleStyle = textTheme.bodySmall?.merge(
       Styles.customTextStyle3(fontSize: fontSize, height: 1.25),
     );
 
-    return Stack(
-      children: [
-        Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Expanded(
-              child: SizedBox(
-                height: MediaQuery.of(context).size.height * 0.4,
-                child: new ListView.builder(
-                  shrinkWrap: true,
-                  scrollDirection: Axis.horizontal,
-                  physics: NeverScrollableScrollPhysics(),
-                  itemBuilder: (context, index) {
-                    return new Container(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: getSidePadding(context),
-                      ),
-                      alignment: Alignment.center,
-                      width: widthOfScreen(context),
-                      child: ListView(
-                        scrollDirection: Axis.horizontal,
-                        children: _buildMobileProductServices(
-                          selectedProductServices,
-                          context: context,
-                        ),
-                      ),
-                    );
-                  },
-                ),
-              ),
+    return Padding(
+      padding: const EdgeInsets.only(right: 20, left: 10),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          InkWell(
+            child: Image.asset(
+              ImagePath.BANKING_TECHNOLOGY_GIF,
+              width: MediaQuery.of(context).size.width * 0.2,
+              height: MediaQuery.of(context).size.height * 0.1,
             ),
-            //    SizedBoxH40(),
-          ],
-        ),
-      ],
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) => BankingTechnologyMain()));
+              print('-----BANKING TECHNOLOGY SCREEN-----');
+            },
+          ),
+          InkWell(
+            child: Image.asset(
+              ImagePath.ALTERNATIVE_SOLUTION_GIF,
+              width: MediaQuery.of(context).size.width * 0.2,
+              height: MediaQuery.of(context).size.height * 0.1,
+            ),
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) => AlternativeSolutionMain()));
+              print('-----ALTERNATIVE DELIVERIES SOLUTION SCREEN-----');
+            },
+          ),
+          InkWell(
+            child: Image.asset(
+              ImagePath.REGULATORY_SECURITY_GIF,
+              width: MediaQuery.of(context).size.width * 0.2,
+              height: MediaQuery.of(context).size.height * 0.1,
+            ),
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) => RegulatorySecurityMain()));
+              print('-----REGULATORY AND SECURITY SCREEN-----');
+            },
+          ),
+          InkWell(
+            child: Image.asset(
+              ImagePath.SOFTWARE_SERVICE_GIF,
+              width: MediaQuery.of(context).size.width * 0.2,
+              height: MediaQuery.of(context).size.height * 0.1,
+            ),
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (context) => SoftwareServiceMain()));
+              print('-----SOFTWARE AS A SERVICE SCREEN-----');
+            },
+          ),
+        ],
+      ),
     );
+    //   Stack(
+    //   children: [
+    //     Row(
+    //       crossAxisAlignment: CrossAxisAlignment.center,
+    //       mainAxisAlignment: MainAxisAlignment.center,
+    //       children: <Widget>[
+    //         Expanded(
+    //           child: SizedBox(
+    //             height: MediaQuery.of(context).size.height * 0.4,
+    //             child: new ListView.builder(
+    //               shrinkWrap: true,
+    //               scrollDirection: Axis.horizontal,
+    //               physics: NeverScrollableScrollPhysics(),
+    //               itemBuilder: (context, index) {
+    //                 return new Container(
+    //                   padding: EdgeInsets.symmetric(
+    //                     horizontal: getSidePadding(context),
+    //                   ),
+    //                   alignment: Alignment.center,
+    //                   width: widthOfScreen(context),
+    //                   child: ListView(
+    //                     scrollDirection: Axis.horizontal,
+    //                     children: _buildMobileProductServices(
+    //                       selectedProductServices,
+    //                       context: context,
+    //                     ),
+    //                   ),
+    //                 );
+    //               },
+    //             ),
+    //           ),
+    //         ),
+    //         //    SizedBoxH40(),
+    //       ],
+    //     ),
+    //   ],
+    // );
   }
 
   Widget _buildTabProductServicesIcon({required double width, required double height}) {
