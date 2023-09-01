@@ -178,7 +178,7 @@ class _FDSTaglineSectionState extends State<FDSTaglineSection> {
                   hasTitle2: false,
                   body: '',
                   title1Style: GoogleFonts.poppins(
-                    fontSize: Sizes.TEXT_SIZE_25,
+                    fontSize: Sizes.TEXT_SIZE_20,
                     fontWeight: FontWeight.w700,
                     color: AppColors.black,
                   ),
@@ -207,7 +207,7 @@ class _FDSTaglineSectionState extends State<FDSTaglineSection> {
                   hasTitle2: false,
                   body: '',
                   title1Style: GoogleFonts.poppins(
-                    fontSize: Sizes.TEXT_SIZE_25,
+                    fontSize: Sizes.TEXT_SIZE_20,
                     fontWeight: FontWeight.w700,
                     color: AppColors.black,
                   ),
@@ -236,7 +236,7 @@ class _FDSTaglineSectionState extends State<FDSTaglineSection> {
                   hasTitle2: false,
                   body: '',
                   title1Style: GoogleFonts.poppins(
-                    fontSize: Sizes.TEXT_SIZE_25,
+                    fontSize: Sizes.TEXT_SIZE_20,
                     fontWeight: FontWeight.w700,
                     color: AppColors.black,
                   ),
