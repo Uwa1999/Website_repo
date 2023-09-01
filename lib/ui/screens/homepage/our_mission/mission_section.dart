@@ -64,18 +64,16 @@ class _MissionSectionState extends State<MissionSection> {
                   // ),
                   // SizedBoxH10(),
                   Padding(
-                    padding: const EdgeInsets.only(right: 20),
-                    child: Padding(
-                      padding: const EdgeInsets.only(right: 20),
-                      child: ContentArea(
+                    padding: const EdgeInsets.only(right: 30),
+                    child: ContentArea(
+                      width: contentAreaWidthSm,
+                      child: _buildMissionVision(
                         width: contentAreaWidthSm,
-                        child: _buildMissionVision(
-                          width: contentAreaWidthSm,
-                          height: screenHeight,
-                        ),
+                        height: screenHeight,
                       ),
                     ),
                   ),
+                  SizedBoxH50(),
                 ],
               );
             } else {

@@ -221,6 +221,7 @@ class _MobileInsightSectionState extends State<MobileInsightSection> {
             if (screenWidth < (RefinedBreakpoints().tabletLarge)) {
               return Column(
                 children: [
+                  SizedBoxH50(),
                   Padding(
                     padding: const EdgeInsets.only(right: 20),
                     child: ContentArea(
@@ -240,10 +241,10 @@ class _MobileInsightSectionState extends State<MobileInsightSection> {
                       children: <Widget>[
                         Expanded(
                           child: SizedBox(
-                            height: MediaQuery.of(context).size.height * 0.7,
+                            height: MediaQuery.of(context).size.height * 1.4,
                             child: GridView.count(
                               physics: const NeverScrollableScrollPhysics(),
-                              childAspectRatio: 0.80,
+                              childAspectRatio: 1.80,
                               shrinkWrap: true,
                               crossAxisCount: 1,
                               children: [
@@ -263,8 +264,7 @@ class _MobileInsightSectionState extends State<MobileInsightSection> {
                       ],
                     ),
                   ),
-                  SizedBoxH300(),
-                  SizedBoxH300(),
+                  SizedBoxH40(),
                 ],
               );
             } else {
@@ -272,7 +272,6 @@ class _MobileInsightSectionState extends State<MobileInsightSection> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  SizedBoxH50(),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,

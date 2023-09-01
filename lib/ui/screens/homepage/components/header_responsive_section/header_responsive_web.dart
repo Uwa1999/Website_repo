@@ -151,7 +151,7 @@ class _HeaderResponsiveWebState extends State<HeaderResponsiveWeb> {
                                 ),
                               ),
                             ),
-                            SizedBoxH70(),
+                            //    SizedBoxH70(),
                           ],
                         ),
                       ],

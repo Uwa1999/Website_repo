@@ -211,22 +211,22 @@ class Data {
     DesktopProductServicesData(
       category: StringConst.WEB_DESIGN,
       productServicesCoverUrl: ImagePath.BANKING_TECHNOLOGY_GIF,
-      width: 0.225,
+      width: 0.220,
     ),
     DesktopProductServicesData(
       productServicesCoverUrl: ImagePath.ALTERNATIVE_SOLUTION_GIF,
       width: 0.220,
-      mobileHeight: 0.3,
+      // mobileHeight: 0.3,
     ),
     DesktopProductServicesData(
       productServicesCoverUrl: ImagePath.REGULATORY_SECURITY_GIF,
       width: 0.220,
-      mobileHeight: 0.3,
+      //  mobileHeight: 0.3,
     ),
     DesktopProductServicesData(
       category: StringConst.WEB,
       productServicesCoverUrl: ImagePath.SOFTWARE_SERVICE_GIF,
-      width: 0.225,
+      width: 0.220,
     ),
   ];
   // static List<ProductServicesData> mobileProductServices = [

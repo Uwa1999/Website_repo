@@ -117,23 +117,19 @@ class _DesktopProductServicesItemState extends State<DesktopProductServicesItem>
       child: GestureDetector(
         onTap: widget.onTap,
         child: Container(
-          child: Stack(
-            children: [
-              HoverContainer(
-                transform: Matrix4.identity()..translate(0, -8, 0),
-                hoverMargin: EdgeInsets.all(8),
-                child: Stack(
-                  children: [
-                    Image.asset(
-                      widget.imageUrl,
-                      width: widget.width,
-                      height: widget.height,
-                      fit: BoxFit.fill,
-                    ),
-                  ],
+          child: HoverContainer(
+            transform: Matrix4.identity()..translate(0, -8, 0),
+            hoverMargin: EdgeInsets.all(8),
+            child: Stack(
+              children: [
+                Image.asset(
+                  widget.imageUrl,
+                  width: widget.width,
+                  height: widget.height,
+                  fit: BoxFit.fill,
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
@@ -267,23 +263,19 @@ class _MobileProductServicesItemState extends State<MobileProductServicesItem> w
       child: GestureDetector(
         onTap: widget.onTap,
         child: Container(
-          child: Stack(
-            children: [
-              HoverContainer(
-                transform: Matrix4.identity()..translate(0, -8, 0),
-                hoverMargin: EdgeInsets.all(8),
-                child: Stack(
-                  children: [
-                    Image.asset(
-                      widget.imageUrl,
-                      width: widget.width,
-                      height: widget.height,
-                      fit: BoxFit.fill,
-                    ),
-                  ],
+          child: HoverContainer(
+            transform: Matrix4.identity()..translate(0, -8, 0),
+            hoverMargin: EdgeInsets.all(8),
+            child: Stack(
+              children: [
+                Image.asset(
+                  widget.imageUrl,
+                  width: widget.width,
+                  height: widget.height,
+                  fit: BoxFit.fill,
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

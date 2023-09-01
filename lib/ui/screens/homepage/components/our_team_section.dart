@@ -119,16 +119,26 @@ class _OurTeamSectionState extends State<OurTeamSection> with SingleTickerProvid
                           if (screenWidth < (RefinedBreakpoints().tabletSmall)) {
                             return Padding(
                               padding: const EdgeInsets.only(left: 20),
-                              child: Center(
-                                child: _buildOrgChartImage(
-                                    // width: screenWidth,
-                                    // height: screenHeight * 0.4,
-                                    ),
+                              child: Column(
+                                children: [
+                                  Center(
+                                    child: _buildOrgChartImage(
+                                        // width: screenWidth,
+                                        // height: screenHeight * 0.4,
+                                        ),
+                                  ),
+                                  SizedBoxH50(),
+                                ],
                               ),
                             );
                           } else {
-                            return Center(
-                              child: _buildOrgChartImage(),
+                            return Column(
+                              children: [
+                                Center(
+                                  child: _buildOrgChartImage(),
+                                ),
+                                SizedBoxH40(),
+                              ],
                             );
                           }
                         },

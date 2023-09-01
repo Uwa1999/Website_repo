@@ -58,7 +58,7 @@ class _OurLocationSectionState extends State<OurLocationSection> {
                       height: contentAreaHeightSm,
                     ),
                   ),
-                  SizedBoxH30(),
+                  SizedBoxH50(),
                 ],
               );
             } else {

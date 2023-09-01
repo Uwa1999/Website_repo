@@ -15,7 +15,6 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/sizes.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/strings.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/nav_item.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/sizedbox.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:responsive_builder/responsive_builder.dart';
@@ -100,7 +99,7 @@ class _HomepageScreenState extends State<HomepageScreen> {
             ),
             Expanded(
               child: SingleChildScrollView(
-                controller: _scrollController,
+                //             controller: _scrollController,
                 child: Column(
                   children: [
                     Stack(
@@ -127,9 +126,9 @@ class _HomepageScreenState extends State<HomepageScreen> {
                                         key: navItems[1].key,
                                         child: AboutSection(),
                                       ),
-                                      SizedBoxH80(),
+                                      // SizedBoxH80(),
                                       MissionSection(),
-                                      SizedBoxH100(),
+                                      // SizedBoxH100(),
                                       OurTeamSection(),
                                     ],
                                   ),
@@ -140,7 +139,7 @@ class _HomepageScreenState extends State<HomepageScreen> {
                         ),
                       ],
                     ),
-                    SizedBox(height: spacerHeight),
+                    //   SizedBox(height: spacerHeight),
                     Stack(
                       children: [
                         Column(
@@ -153,14 +152,14 @@ class _HomepageScreenState extends State<HomepageScreen> {
                         ),
                       ],
                     ),
-                      SizedBox(height: spacerHeight),
+                    // SizedBox(height: spacerHeight),
                     Stack(
                       children: [
                         Column(
                           children: [
-                            SizedBoxH30(),
+                            // SizedBoxH80(),
                             LeadingBankingPartnerSection(),
-                            SizedBoxH80(),
+                            // SizedBoxH80(),
                             Container(
                               key: navItems[3].key,
                               child: InsightSection(),

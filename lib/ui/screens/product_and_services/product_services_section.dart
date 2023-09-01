@@ -157,10 +157,8 @@ class _DesktopProductServicesSectionState extends State<DesktopProductServicesSe
                   ),
                 ),
               ),
-              SizedBoxH40(),
             ],
           ),
-          SizedBoxW5(),
         ],
       ),
     );
@@ -451,7 +449,7 @@ class _MobileProductServicesSectionState extends State<MobileProductServicesSect
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.only(right: 20, left: 20),
+                        padding: const EdgeInsets.only(right: 30, left: 20),
                         child: ContentArea(
                           width: contentAreaWidthSm,
                           child: _buildMobileProductServicesInfoSm(
@@ -554,7 +552,7 @@ class _MobileProductServicesSectionState extends State<MobileProductServicesSect
                 ),
               ),
             ),
-            SizedBoxH40(),
+            //    SizedBoxH40(),
           ],
         ),
       ],

@@ -69,7 +69,7 @@ class _AboutSectionState extends State<AboutSection> {
                   // ),
                   // SizedBoxH10(),
                   Padding(
-                    padding: const EdgeInsets.only(right: 20),
+                    padding: const EdgeInsets.only(right: 30),
                     child: ContentArea(
                       width: contentAreaWidthSm,
                       child: _buildAboutUs(
@@ -78,6 +78,7 @@ class _AboutSectionState extends State<AboutSection> {
                       ),
                     ),
                   ),
+                  SizedBoxH50(),
                 ],
               );
             } else {
