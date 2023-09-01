@@ -92,6 +92,8 @@ class _DesktopProductServicesSectionState extends State<DesktopProductServicesSe
   Widget build(BuildContext context) {
     double screenWidth = widthOfScreen(context) - (getSidePadding(context) * 2);
     double contentAreaWidth = screenWidth;
+    double screenHeight = heightOfScreen(context);
+    double spacerHeight = screenHeight * 0.19;
     return VisibilityDetector(
       key: Key('project-section-sm'),
       onVisibilityChanged: (visibilityInfo) {
@@ -159,6 +161,7 @@ class _DesktopProductServicesSectionState extends State<DesktopProductServicesSe
               ),
             ],
           ),
+          SizedBox(height: spacerHeight),
         ],
       ),
     );

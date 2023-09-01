@@ -99,7 +99,7 @@ class _HomepageScreenState extends State<HomepageScreen> {
             ),
             Expanded(
               child: SingleChildScrollView(
-                //             controller: _scrollController,
+                controller: _scrollController,
                 child: Column(
                   children: [
                     Stack(
@@ -126,9 +126,7 @@ class _HomepageScreenState extends State<HomepageScreen> {
                                         key: navItems[1].key,
                                         child: AboutSection(),
                                       ),
-                                      // SizedBoxH80(),
                                       MissionSection(),
-                                      // SizedBoxH100(),
                                       OurTeamSection(),
                                     ],
                                   ),
@@ -139,7 +137,7 @@ class _HomepageScreenState extends State<HomepageScreen> {
                         ),
                       ],
                     ),
-                    //   SizedBox(height: spacerHeight),
+                    //       SizedBox(height: spacerHeight),
                     Stack(
                       children: [
                         Column(
@@ -152,14 +150,12 @@ class _HomepageScreenState extends State<HomepageScreen> {
                         ),
                       ],
                     ),
-                    // SizedBox(height: spacerHeight),
+
                     Stack(
                       children: [
                         Column(
                           children: [
-                            // SizedBoxH80(),
                             LeadingBankingPartnerSection(),
-                            // SizedBoxH80(),
                             Container(
                               key: navItems[3].key,
                               child: InsightSection(),
