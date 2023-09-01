@@ -579,43 +579,6 @@ class _MobileProductServicesSectionState extends State<MobileProductServicesSect
         ],
       ),
     );
-    //   Stack(
-    //   children: [
-    //     Row(
-    //       crossAxisAlignment: CrossAxisAlignment.center,
-    //       mainAxisAlignment: MainAxisAlignment.center,
-    //       children: <Widget>[
-    //         Expanded(
-    //           child: SizedBox(
-    //             height: MediaQuery.of(context).size.height * 0.4,
-    //             child: new ListView.builder(
-    //               shrinkWrap: true,
-    //               scrollDirection: Axis.horizontal,
-    //               physics: NeverScrollableScrollPhysics(),
-    //               itemBuilder: (context, index) {
-    //                 return new Container(
-    //                   padding: EdgeInsets.symmetric(
-    //                     horizontal: getSidePadding(context),
-    //                   ),
-    //                   alignment: Alignment.center,
-    //                   width: widthOfScreen(context),
-    //                   child: ListView(
-    //                     scrollDirection: Axis.horizontal,
-    //                     children: _buildMobileProductServices(
-    //                       selectedProductServices,
-    //                       context: context,
-    //                     ),
-    //                   ),
-    //                 );
-    //               },
-    //             ),
-    //           ),
-    //         ),
-    //         //    SizedBoxH40(),
-    //       ],
-    //     ),
-    //   ],
-    // );
   }
 
   Widget _buildTabProductServicesIcon({required double width, required double height}) {
@@ -735,42 +698,6 @@ class _MobileProductServicesSectionState extends State<MobileProductServicesSect
           number: categories[index].number,
           isSelected: categories[index].isSelected,
           onTap: () => onMobileProductServicesCategoryTap(index),
-        ),
-      );
-    }
-    return items;
-  }
-
-  List<Widget> _buildMobileProductServices(List<DesktopProductServicesData> data, {bool isMobile = false, context}) {
-    List<Widget> items = [];
-    List<VoidCallback> functions = [
-      () {
-        Navigator.of(context).push(MaterialPageRoute(builder: (context) => BankingTechnologyMain()));
-        print('-----BANKING TECHNOLOGY SCREEN-----');
-      },
-      () {
-        Navigator.of(context).push(MaterialPageRoute(builder: (context) => AlternativeSolutionMain()));
-        print('-----ALTERNATIVE DELIVERIES SOLUTION SCREEN-----');
-      },
-      () {
-        Navigator.of(context).push(MaterialPageRoute(builder: (context) => RegulatorySecurityMain()));
-        print('-----REGULATORY AND SECURITY SCREEN-----');
-      },
-      () {
-        Navigator.of(context).push(MaterialPageRoute(builder: (context) => SoftwareServiceMain()));
-        print('-----SOFTWARE AS A SERVICE SCREEN-----');
-      },
-    ];
-    for (int index = 0; index < data.length; index++) {
-      items.add(
-        MobileProductServicesItem(
-          width: MediaQuery.of(context).size.width * 0.2,
-          height: MediaQuery.of(context).size.height * 0.1,
-          bannerHeight: MediaQuery.of(context).size.height * 0.2,
-          imageUrl: data[index].productServicesCoverUrl,
-          onTap: functions[index],
-          // title: data[index].title,
-          //  subtitle: data[index].category,
         ),
       );
     }
