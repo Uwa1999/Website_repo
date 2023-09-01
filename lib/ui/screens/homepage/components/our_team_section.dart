@@ -5,7 +5,6 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/sizes.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/strings.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/styles.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/content_area.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/empty.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/nimbus_info_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/sizedbox.dart';
 import 'package:flutter/material.dart';
@@ -89,14 +88,28 @@ class _OurTeamSectionState extends State<OurTeamSection> with SingleTickerProvid
                         builder: (context, sizingInformation) {
                           double screenWidth = sizingInformation.screenSize.width;
                           if (screenWidth < (RefinedBreakpoints().tabletSmall)) {
-                            return ContentArea(
-                              // width: contentAreaWidthSm,
-                              child: EmptyContainer(),
+                            return Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Container(
+                                  padding: const EdgeInsets.only(right: 30),
+                                  child: _buildNimbusInfoSectionSm(),
+                                ),
+                                SizedBoxH20(),
+                              ],
                             );
                           } else {
-                            return ContentArea(
-                                // width: contentAreaWidth * 0.7,
-                                child: EmptyContainer());
+                            return Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Container(
+                                  child: _buildNimbusInfoSectionSm(),
+                                ),
+                                SizedBoxH20(),
+                              ],
+                            );
                           }
                         },
                       ),

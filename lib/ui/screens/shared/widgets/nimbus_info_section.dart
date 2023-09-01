@@ -608,10 +608,10 @@ class NimbusInfoTeamSection extends StatelessWidget {
   Widget build(BuildContext context) {
     TextTheme textTheme = Theme.of(context).textTheme;
     TextStyle? titleStyle = textTheme.headlineMedium?.copyWith(
-      fontSize: responsiveSize(context, 26, 36, md: 32),
+      fontSize: responsiveSize(context, 18, 36, md: 32),
       color: AppColors.black,
     );
-    double fontSize = responsiveSize(context, 16, 18);
+    double fontSize = responsiveSize(context, 15, 18);
     return Container(
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
