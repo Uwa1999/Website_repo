@@ -57,9 +57,9 @@ class _AboutMainState extends State<AboutMain> {
               child: Column(
                 children: [
                   AboutSection(),
-                  SizedBoxH40(),
+                  SizedBoxH50(),
                   MissionSection(),
-                  SizedBoxH40(),
+                  SizedBoxH80(),
                   OurTeamSection(),
                   SizedBoxH100(),
                   FooterSection(),
