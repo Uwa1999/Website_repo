@@ -185,7 +185,10 @@ class MobileInsightSection extends StatefulWidget {
 class _MobileInsightSectionState extends State<MobileInsightSection> {
   final int insightsLength = Data.insightsData.length;
   double currentPageIndex = 1;
-  CarouselController _carouselController = CarouselController();
+  bool _isHoveringOnImage = false;
+  bool _isHovered = false;
+  Color startValue = Colors.black.withOpacity(0.5);
+  Color targetValue = Colors.black.withOpacity(0);
 
   @override
   Widget build(BuildContext context) {
@@ -234,36 +237,40 @@ class _MobileInsightSectionState extends State<MobileInsightSection> {
                   ),
                   SizedBoxH10(),
                   Padding(
-                    padding: const EdgeInsets.only(right: 20),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Expanded(
-                          child: SizedBox(
-                            height: MediaQuery.of(context).size.height * 1.4,
-                            child: GridView.count(
-                              physics: const NeverScrollableScrollPhysics(),
-                              childAspectRatio: 1.80,
-                              shrinkWrap: true,
-                              crossAxisCount: 1,
-                              children: [
-                                Wrap(
-                                  spacing: kSpacing,
-                                  runSpacing: kRunSpacing,
-                                  children: _buildMobileInsightCards(
-                                    context: context,
-                                    insightsData: Data.insightsData,
-                                    width: screenWidth,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
+                    padding: const EdgeInsets.only(right: 30),
+                    child: MobileInsightsCard(),
                   ),
+                  // Padding(
+                  //   padding: const EdgeInsets.only(right: 20),
+                  //   child: Row(
+                  //     crossAxisAlignment: CrossAxisAlignment.center,
+                  //     mainAxisAlignment: MainAxisAlignment.center,
+                  //     children: <Widget>[
+                  //       Expanded(
+                  //         child: SizedBox(
+                  //           height: MediaQuery.of(context).size.height * 1.4,
+                  //           child: GridView.count(
+                  //             physics: const NeverScrollableScrollPhysics(),
+                  //             childAspectRatio: 1.80,
+                  //             shrinkWrap: true,
+                  //             crossAxisCount: 1,
+                  //             children: [
+                  //               Wrap(
+                  //                 spacing: kSpacing,
+                  //                 runSpacing: kRunSpacing,
+                  //                 children: _buildMobileInsightCards(
+                  //                   context: context,
+                  //                   insightsData: Data.insightsData,
+                  //                   width: screenWidth,
+                  //                 ),
+                  //               ),
+                  //             ],
+                  //           ),
+                  //         ),
+                  //       ),
+                  //     ],
+                  //   ),
+                  // ),
                   SizedBoxH40(),
                 ],
               );
@@ -272,6 +279,7 @@ class _MobileInsightSectionState extends State<MobileInsightSection> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
+                  SizedBoxH40(),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -337,41 +345,41 @@ class _MobileInsightSectionState extends State<MobileInsightSection> {
     );
   }
 
-  List<Widget> _buildMobileInsightCards({required List<DesktopInsightsData> insightsData, required double width, required context}) {
-    double cardWidth = ((width - (kSpacing * 2)) / 5);
-    List<Widget> items = [];
-    List<VoidCallback> function = [
-      () {
-        Navigator.of(context).push(MaterialPageRoute(builder: (context) => ArticleDescMain()));
-        print('-----ARTICLE SCREEN-----');
-      },
-      () {
-        Navigator.of(context).push(MaterialPageRoute(builder: (context) => EventsDescMain()));
-        print('-----EVENTS SCREEN-----');
-      },
-      () {
-        Navigator.of(context).push(MaterialPageRoute(builder: (context) => NewsDescMain()));
-        print('-----NEWS SCREEN-----');
-      },
-    ];
-    for (int index = 0; index < insightsData.length; index++) {
-      items.add(
-        MobileInsightsCard(
-          width: cardWidth,
-          imageWidth: cardWidth,
-          imageHeight: cardWidth,
-          category: insightsData[index].category,
-          title: Data.insightsData[index].title,
-          subtitle: insightsData[index].subtitle,
-          date: insightsData[index].date,
-//  buttonText: insightsData[index].buttonText,
-          imageUrl: insightsData[index].imageUrl,
-          onPressed: function[index],
-        ),
-      );
-    }
-    return items;
-  }
+//   List<Widget> _buildMobileInsightCards({required List<DesktopInsightsData> insightsData, required double width, required context}) {
+//     double cardWidth = ((width - (kSpacing * 2)) / 5);
+//     List<Widget> items = [];
+//     List<VoidCallback> function = [
+//       () {
+//         Navigator.of(context).push(MaterialPageRoute(builder: (context) => ArticleDescMain()));
+//         print('-----ARTICLE SCREEN-----');
+//       },
+//       () {
+//         Navigator.of(context).push(MaterialPageRoute(builder: (context) => EventsDescMain()));
+//         print('-----EVENTS SCREEN-----');
+//       },
+//       () {
+//         Navigator.of(context).push(MaterialPageRoute(builder: (context) => NewsDescMain()));
+//         print('-----NEWS SCREEN-----');
+//       },
+//     ];
+//     for (int index = 0; index < insightsData.length; index++) {
+//       items.add(
+//         MobileInsightsCard(
+//           width: cardWidth,
+//           imageWidth: cardWidth,
+//           imageHeight: cardWidth,
+//           category: insightsData[index].category,
+//           title: Data.insightsData[index].title,
+//           subtitle: insightsData[index].subtitle,
+//           date: insightsData[index].date,
+// //  buttonText: insightsData[index].buttonText,
+//           imageUrl: insightsData[index].imageUrl,
+//           onPressed: function[index],
+//         ),
+//       );
+//     }
+//     return items;
+//   }
 
   List<Widget> _buildTabInsightCards({required List<DesktopInsightsData> insightsData, required double width, required context}) {
     double cardWidth = ((width - (kSpacing * 2)) / 5);

@@ -69,8 +69,8 @@ class _MobileNewsDescSectionState extends State<MobileNewsDescSection> {
           SizedBoxH10(),
           Padding(
             padding: const EdgeInsets.only(
-              left: Sizes.PADDING_20,
-              right: Sizes.PADDING_20,
+              left: Sizes.PADDING_30,
+              right: Sizes.PADDING_30,
             ),
             child: NimbusInfoInsightSection(
               title1: '',

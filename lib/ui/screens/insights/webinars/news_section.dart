@@ -95,25 +95,25 @@ class _MobileNewsDescScreenState extends State<MobileNewsDescScreen> {
           height: MediaQuery.of(context).size.height * 0.5,
           width: double.infinity,
           decoration: BoxDecoration(
-            image: DecorationImage(
-              fit: BoxFit.cover,
-              image: AssetImage(
-                ImagePath.WEBINARS_HEADER,
-              ),
-            ),
-            // gradient: LinearGradient(
-            //   begin: Alignment.topLeft,
-            //   end: Alignment.bottomRight,
-            //   colors: [
-            //     AppColors.maroon03.withOpacity(1.0),
-            //     AppColors.maroon05.withOpacity(0.8),
-            //   ],
+            // image: DecorationImage(
+            //   fit: BoxFit.cover,
+            //   image: AssetImage(
+            //     ImagePath.WEBINARS_HEADER,
+            //   ),
             // ),
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [
+                AppColors.maroon03.withOpacity(1.0),
+                AppColors.maroon05.withOpacity(0.8),
+              ],
+            ),
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              SizedBoxH200(),
+              SizedBoxH130(),
               Padding(
                 padding: const EdgeInsets.only(
                   left: Sizes.PADDING_20,

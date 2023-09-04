@@ -102,7 +102,7 @@ class _MissionSectionState extends State<MissionSection> {
                       ),
                     ],
                   ),
-                  SizedBoxH20(),
+                  SizedBoxH40(),
                 ],
               );
             }

@@ -139,8 +139,8 @@ class _MobileArticleDescSectionState extends State<MobileArticleDescSection> {
           SizedBoxH10(),
           Padding(
             padding: const EdgeInsets.only(
-              left: Sizes.PADDING_20,
-              right: Sizes.PADDING_20,
+              left: Sizes.PADDING_30,
+              right: Sizes.PADDING_30,
             ),
             child: NimbusInfoInsightSection(
               title1: '',
@@ -151,8 +151,8 @@ class _MobileArticleDescSectionState extends State<MobileArticleDescSection> {
           SizedBoxH30(),
           Padding(
             padding: const EdgeInsets.only(
-              left: Sizes.PADDING_20,
-              right: Sizes.PADDING_20,
+              left: Sizes.PADDING_30,
+              right: Sizes.PADDING_30,
             ),
             child: NimbusInfoInsightSection(
               title1: StringConst.ARTICLE_DESC_SUBTITLE2,
@@ -168,8 +168,8 @@ class _MobileArticleDescSectionState extends State<MobileArticleDescSection> {
           SizedBoxH30(),
           Padding(
             padding: const EdgeInsets.only(
-              left: Sizes.PADDING_20,
-              right: Sizes.PADDING_20,
+              left: Sizes.PADDING_30,
+              right: Sizes.PADDING_30,
             ),
             child: NimbusInfoInsightSection(
               title1: StringConst.ARTICLE_DESC_SUBTITLE3,
@@ -185,8 +185,8 @@ class _MobileArticleDescSectionState extends State<MobileArticleDescSection> {
           SizedBoxH30(),
           Padding(
             padding: const EdgeInsets.only(
-              left: Sizes.PADDING_20,
-              right: Sizes.PADDING_20,
+              left: Sizes.PADDING_30,
+              right: Sizes.PADDING_30,
             ),
             child: NimbusInfoInsightSection(
               title1: StringConst.ARTICLE_DESC_SUBTITLE4,
@@ -202,8 +202,8 @@ class _MobileArticleDescSectionState extends State<MobileArticleDescSection> {
           SizedBoxH30(),
           Padding(
             padding: const EdgeInsets.only(
-              left: Sizes.PADDING_20,
-              right: Sizes.PADDING_20,
+              left: Sizes.PADDING_30,
+              right: Sizes.PADDING_30,
             ),
             child: NimbusInfoInsightSection(
               title1: StringConst.ARTICLE_DESC_SUBTITLE5,
