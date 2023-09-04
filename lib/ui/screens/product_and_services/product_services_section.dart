@@ -109,6 +109,7 @@ class _DesktopProductServicesSectionState extends State<DesktopProductServicesSe
         children: [
           SizedBoxH80(),
           Container(
+            color: AppColors.white,
             padding: EdgeInsets.symmetric(
               horizontal: getSidePadding(context),
             ),
@@ -642,7 +643,7 @@ class _MobileProductServicesSectionState extends State<MobileProductServicesSect
               );
             } else {
               return Container(
-                width: width * 0.80,
+                width: width * 0.85,
                 child: _buildProductServicesInfoLg(),
               );
             }

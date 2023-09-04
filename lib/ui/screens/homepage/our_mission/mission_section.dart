@@ -143,7 +143,7 @@ class _MissionSectionState extends State<MissionSection> {
               return nimbusInfoSectionSm(width: width);
             } else {
               return Container(
-                width: width * 0.95,
+                width: width * 0.90,
                 child: nimbusInfoSectionLg(),
               );
             }
@@ -201,28 +201,22 @@ class _MissionSectionState extends State<MissionSection> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding: EdgeInsets.only(right: !isMobile(context) ? 15 : 0),
-                child: NimbusInfoSection2(
-                  title1: StringConst.FDSAP_VISION_TITLE,
-                  body: StringConst.FDSAP_VISION_DESC,
-                  title1Style: GoogleFonts.poppins(
-                    fontSize: Sizes.TEXT_SIZE_18,
-                    fontWeight: FontWeight.w700,
-                    color: AppColors.black,
-                  ),
+              NimbusInfoSection2(
+                title1: StringConst.FDSAP_VISION_TITLE,
+                body: StringConst.FDSAP_VISION_DESC,
+                title1Style: GoogleFonts.poppins(
+                  fontSize: Sizes.TEXT_SIZE_18,
+                  fontWeight: FontWeight.w700,
+                  color: AppColors.black,
                 ),
               ),
-              Padding(
-                padding: EdgeInsets.only(right: !isMobile(context) ? 15 : 0),
-                child: NimbusInfoSection2(
-                  title1: StringConst.FDSAP_MISSION_TITLE,
-                  body: StringConst.FDSAP_MISSION_DESC,
-                  title1Style: GoogleFonts.poppins(
-                    fontSize: Sizes.TEXT_SIZE_18,
-                    fontWeight: FontWeight.w700,
-                    color: AppColors.black,
-                  ),
+              NimbusInfoSection2(
+                title1: StringConst.FDSAP_MISSION_TITLE,
+                body: StringConst.FDSAP_MISSION_DESC,
+                title1Style: GoogleFonts.poppins(
+                  fontSize: Sizes.TEXT_SIZE_18,
+                  fontWeight: FontWeight.w700,
+                  color: AppColors.black,
                 ),
               ),
             ],

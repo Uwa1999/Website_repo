@@ -84,17 +84,17 @@ class _AlternativeSolutionMainState extends State<AlternativeSolutionMain> {
               child: SingleChildScrollView(
                 child: Column(
                   children: [
-                    SizedBoxH80(),
+                    SizedBoxH40(),
                     KplusSection(),
-                    SizedBoxH80(),
+                    SizedBoxH40(),
                     ChatbotSection(),
-                    SizedBoxH80(),
+                    SizedBoxH40(),
                     K2cSection(),
-                    SizedBoxH80(),
+                    SizedBoxH40(),
                     DcmSection(),
-                    SizedBoxH80(),
+                    SizedBoxH40(),
                     SbsSection(),
-                    SizedBoxH80(),
+                    SizedBoxH40(),
                     AtmSection(),
                     SizedBoxH100(),
                     FooterSection(),

@@ -81,11 +81,11 @@ class _SoftwareServiceMainState extends State<SoftwareServiceMain> {
               child: SingleChildScrollView(
                 child: Column(
                   children: [
-                    SizedBoxH80(),
+                    SizedBoxH40(),
                     ApiSection(),
-                    SizedBoxH80(),
+                    SizedBoxH40(),
                     MinokawaSection(),
-                    SizedBoxH80(),
+                    SizedBoxH40(),
                     BakawanSection(),
                     SizedBoxH100(),
                     FooterSection(),

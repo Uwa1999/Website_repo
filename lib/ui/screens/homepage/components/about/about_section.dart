@@ -171,7 +171,7 @@ class _AboutSectionState extends State<AboutSection> {
               return nimbusInfoSectionSm(width: width);
             } else {
               return Container(
-                width: width * 0.85,
+                width: width * 0.90,
                 child: nimbusInfoSectionLg(),
               );
             }
@@ -189,18 +189,15 @@ class _AboutSectionState extends State<AboutSection> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding: EdgeInsets.only(right: !isMobile(context) ? 15 : 0),
-                child: NimbusInfoAboutSection(
-                  title1: StringConst.ABOUT,
-                  body: StringConst.ABOUT_US_DESC,
-                  body2: StringConst.ABOUT_US_DESC2,
-                  body3: StringConst.ABOUT_US_DESC3,
-                  title1Style: GoogleFonts.poppins(
-                    fontSize: Sizes.TEXT_SIZE_35,
-                    fontWeight: FontWeight.w700,
-                    color: AppColors.black,
-                  ),
+              NimbusInfoAboutSection(
+                title1: StringConst.ABOUT,
+                body: StringConst.ABOUT_US_DESC,
+                body2: StringConst.ABOUT_US_DESC2,
+                body3: StringConst.ABOUT_US_DESC3,
+                title1Style: GoogleFonts.poppins(
+                  fontSize: Sizes.TEXT_SIZE_35,
+                  fontWeight: FontWeight.w700,
+                  color: AppColors.black,
                 ),
               ),
             ],
@@ -218,18 +215,15 @@ class _AboutSectionState extends State<AboutSection> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding: EdgeInsets.only(right: !isMobile(context) ? 15 : 0),
-                child: NimbusInfoAboutSection(
-                  title1: StringConst.ABOUT,
-                  body: StringConst.ABOUT_US_DESC,
-                  body2: StringConst.ABOUT_US_DESC2,
-                  body3: StringConst.ABOUT_US_DESC3,
-                  title1Style: GoogleFonts.poppins(
-                    fontSize: Sizes.TEXT_SIZE_18,
-                    fontWeight: FontWeight.w700,
-                    color: AppColors.black,
-                  ),
+              NimbusInfoAboutSection(
+                title1: StringConst.ABOUT,
+                body: StringConst.ABOUT_US_DESC,
+                body2: StringConst.ABOUT_US_DESC2,
+                body3: StringConst.ABOUT_US_DESC3,
+                title1Style: GoogleFonts.poppins(
+                  fontSize: Sizes.TEXT_SIZE_18,
+                  fontWeight: FontWeight.w700,
+                  color: AppColors.black,
                 ),
               ),
             ],
