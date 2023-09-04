@@ -161,29 +161,23 @@ class _MissionSectionState extends State<MissionSection> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
-                padding: EdgeInsets.only(right: !isMobile(context) ? 15 : 0),
-                child: NimbusInfoMissionSection(
-                  title1: StringConst.FDSAP_VISION_TITLE,
-                  body: StringConst.FDSAP_VISION_DESC,
-                  title1Style: GoogleFonts.poppins(
-                    fontSize: Sizes.TEXT_SIZE_35,
-                    fontWeight: FontWeight.w700,
-                    color: AppColors.black,
-                  ),
+              NimbusInfoMissionSection(
+                title1: StringConst.FDSAP_VISION_TITLE,
+                body: StringConst.FDSAP_VISION_DESC,
+                title1Style: GoogleFonts.poppins(
+                  fontSize: Sizes.TEXT_SIZE_35,
+                  fontWeight: FontWeight.w700,
+                  color: AppColors.black,
                 ),
               ),
               SizedBoxH40(),
-              Padding(
-                padding: EdgeInsets.only(right: !isMobile(context) ? 15 : 0),
-                child: NimbusInfoMissionSection(
-                  title1: StringConst.FDSAP_MISSION_TITLE,
-                  body: StringConst.FDSAP_MISSION_DESC,
-                  title1Style: GoogleFonts.poppins(
-                    fontSize: Sizes.TEXT_SIZE_35,
-                    fontWeight: FontWeight.w700,
-                    color: AppColors.black,
-                  ),
+              NimbusInfoMissionSection(
+                title1: StringConst.FDSAP_MISSION_TITLE,
+                body: StringConst.FDSAP_MISSION_DESC,
+                title1Style: GoogleFonts.poppins(
+                  fontSize: Sizes.TEXT_SIZE_35,
+                  fontWeight: FontWeight.w700,
+                  color: AppColors.black,
                 ),
               ),
             ],
