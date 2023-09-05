@@ -78,7 +78,7 @@ class _AboutSectionState extends State<AboutSection> {
                       ),
                     ),
                   ),
-                  SizedBoxH50(),
+                  SizedBoxH40(),
                 ],
               );
             } else {
@@ -86,7 +86,7 @@ class _AboutSectionState extends State<AboutSection> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  SizedBoxH80(),
+                  SizedBoxH50(),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -122,6 +122,7 @@ class _AboutSectionState extends State<AboutSection> {
                   //     ],
                   //   ),
                   // ),
+                  SizedBoxH150(),
                 ],
               );
             }

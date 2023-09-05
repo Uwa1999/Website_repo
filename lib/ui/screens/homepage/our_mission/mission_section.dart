@@ -81,7 +81,7 @@ class _MissionSectionState extends State<MissionSection> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  SizedBoxH100(),
+                  SizedBoxH50(),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -102,7 +102,7 @@ class _MissionSectionState extends State<MissionSection> {
                       ),
                     ],
                   ),
-                  SizedBoxH40(),
+                  SizedBoxH80(),
                 ],
               );
             }
