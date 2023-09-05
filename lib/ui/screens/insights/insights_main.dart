@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 class InsightsMain extends StatefulWidget {
+  static const String route = '/Insights';
   const InsightsMain({Key? key}) : super(key: key);
 
   @override

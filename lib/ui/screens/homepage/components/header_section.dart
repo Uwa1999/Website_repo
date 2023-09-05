@@ -2,7 +2,6 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/about/about_
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/responsive_navigation/nav_section_web.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/homepage_screen.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/insights/insights_main.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/insights/insights_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/product_and_services_main.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/responsive.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
@@ -69,7 +68,7 @@ class _HeaderSectionState extends State<HeaderSection> with SingleTickerProvider
                     SizedBox(width: logoSpaceLeft),
                     InkWell(
                       onTap: () {
-                        Navigator.of(context).push(MaterialPageRoute(builder: (context) => HomepageScreen()));
+                        Navigator.of(context).pushNamed(HomepageScreen.route);
                         print("-----HOMEPAGE SCREEN----");
                       },
                       child: Padding(
@@ -91,7 +90,7 @@ class _HeaderSectionState extends State<HeaderSection> with SingleTickerProvider
                         NavItem(
                           title: 'Home',
                           onTap: () {
-                            Navigator.of(context).push(MaterialPageRoute(builder: (context) => HomepageScreen()));
+                            Navigator.of(context).pushNamed(HomepageScreen.route);
                             print("-----HOMEPAGE SCREEN----");
                           },
                         ),
@@ -99,7 +98,7 @@ class _HeaderSectionState extends State<HeaderSection> with SingleTickerProvider
                         NavItem(
                           title: 'About Us',
                           onTap: () {
-                            Navigator.of(context).push(MaterialPageRoute(builder: (context) => AboutMain()));
+                            Navigator.of(context).pushNamed(AboutMain.route);
                             print("-----ABOUT US SCREEN----");
                           },
                         ),
@@ -107,7 +106,7 @@ class _HeaderSectionState extends State<HeaderSection> with SingleTickerProvider
                         NavItem(
                           title: 'Product & Services',
                           onTap: () {
-                            Navigator.of(context).push(MaterialPageRoute(builder: (context) => ProductServicesMain()));
+                            Navigator.of(context).pushNamed(ProductServicesMain.route);
                             print("-----PRODUCT & SERVICES SCREEN----");
                           },
                         ),
@@ -115,7 +114,7 @@ class _HeaderSectionState extends State<HeaderSection> with SingleTickerProvider
                         NavItem(
                           title: 'Insights',
                           onTap: () {
-                            Navigator.of(context).push(MaterialPageRoute(builder: (context) => InsightsMain()));
+                            Navigator.of(context).pushNamed(InsightsMain.route);
                             print("-----INSIGHTS SCREEN----");
                           },
                         ),
@@ -156,10 +155,7 @@ class _HeaderSectionState extends State<HeaderSection> with SingleTickerProvider
                   children: <Widget>[
                     InkWell(
                       onTap: () {
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(builder: (context) => HomepageScreen()),
-                        );
+                        Navigator.of(context).pushNamed(HomepageScreen.route);
                       },
                       child: Padding(
                         padding: const EdgeInsets.only(
@@ -172,16 +168,6 @@ class _HeaderSectionState extends State<HeaderSection> with SingleTickerProvider
                       ),
                     ),
                     SizedBox(width: 10),
-                    // Text(
-                    //   "FDS ASYA PHILIPPINES INC.",
-                    //   style: TextStyle(
-                    //     color: AppColors.black400,
-                    //     letterSpacing: 0.5,
-                    //     fontWeight: FontWeight.w600,
-                    //     fontSize: 20,
-                    //   ),
-                    // ),
-                    // SizedBox(width: 10),
                     if (!isMobile(context))
                       if (!isTab(context))
                         Row(
@@ -191,7 +177,7 @@ class _HeaderSectionState extends State<HeaderSection> with SingleTickerProvider
                             NavItem(
                               title: 'Home',
                               onTap: () {
-                                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomepageScreen()));
+                                Navigator.of(context).pushNamed(HomepageScreen.route);
                                 print("-----HOMEPAGE SCREEN----");
                               },
                             ),
@@ -199,7 +185,7 @@ class _HeaderSectionState extends State<HeaderSection> with SingleTickerProvider
                             NavItem(
                               title: 'About Us',
                               onTap: () {
-                                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => AboutMain()));
+                                Navigator.of(context).pushNamed(AboutMain.route);
                                 print("-----ABOUT US SCREEN----");
                               },
                             ),
@@ -207,7 +193,7 @@ class _HeaderSectionState extends State<HeaderSection> with SingleTickerProvider
                             NavItem(
                               title: 'Product & Services',
                               onTap: () {
-                                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => ProductServicesMain()));
+                                Navigator.of(context).pushNamed(ProductServicesMain.route);
                                 print("-----PRODUCT & SERVICES SCREEN----");
                               },
                             ),
@@ -215,7 +201,7 @@ class _HeaderSectionState extends State<HeaderSection> with SingleTickerProvider
                             NavItem(
                               title: 'Insights',
                               onTap: () {
-                                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => InsightSection()));
+                                Navigator.of(context).pushNamed(InsightsMain.route);
                                 print("-----INSIGHTS SCREEN----");
                               },
                             ),

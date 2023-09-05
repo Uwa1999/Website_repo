@@ -365,6 +365,6 @@ Latest Article & News''';
   static const String TWITTER_URL = "http://twitter.com/";
 
   //FDSAP Website Version
-  static const String FDSAP_VERSION = 'V1.0.1';
+  static const String FDSAP_VERSION = 'V1.1.7';
   static const String FDSAP_ALL_RIGHTS_RESERVED = "© FDSAP 2023";
 }

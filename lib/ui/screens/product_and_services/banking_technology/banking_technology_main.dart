@@ -13,6 +13,7 @@ import 'package:flutter/rendering.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 class BankingTechnologyMain extends StatefulWidget {
+  static const String route = '/BankingTechnology';
   const BankingTechnologyMain({Key? key}) : super(key: key);
 
   @override
@@ -81,7 +82,7 @@ class _BankingTechnologyMainState extends State<BankingTechnologyMain> {
               child: SingleChildScrollView(
                 child: Column(
                   children: [
-                    SizedBoxH40(),
+                    SizedBoxH50(),
                     MobColSection(),
                     SizedBoxH40(),
                     WebCollectionSection(),

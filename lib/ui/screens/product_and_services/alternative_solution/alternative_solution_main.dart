@@ -16,6 +16,7 @@ import 'package:flutter/rendering.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 class AlternativeSolutionMain extends StatefulWidget {
+  static const String route = '/AlternativeSolution';
   const AlternativeSolutionMain({Key? key}) : super(key: key);
 
   @override
@@ -84,9 +85,9 @@ class _AlternativeSolutionMainState extends State<AlternativeSolutionMain> {
               child: SingleChildScrollView(
                 child: Column(
                   children: [
-                    SizedBoxH40(),
+                    SizedBoxH60(),
                     KplusSection(),
-                    SizedBoxH40(),
+                    SizedBoxH50(),
                     ChatbotSection(),
                     SizedBoxH40(),
                     K2cSection(),

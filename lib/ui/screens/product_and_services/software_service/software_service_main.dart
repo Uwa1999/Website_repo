@@ -13,6 +13,7 @@ import 'package:flutter/rendering.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 class SoftwareServiceMain extends StatefulWidget {
+  static const String route = '/SoftwareServices';
   const SoftwareServiceMain({Key? key}) : super(key: key);
 
   @override
@@ -81,7 +82,7 @@ class _SoftwareServiceMainState extends State<SoftwareServiceMain> {
               child: SingleChildScrollView(
                 child: Column(
                   children: [
-                    SizedBoxH40(),
+                    SizedBoxH50(),
                     ApiSection(),
                     SizedBoxH40(),
                     MinokawaSection(),

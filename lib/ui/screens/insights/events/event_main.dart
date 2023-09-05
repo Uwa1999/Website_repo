@@ -12,6 +12,7 @@ import 'package:flutter/rendering.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 class EventsDescMain extends StatefulWidget {
+  static const String route = '/Events';
   const EventsDescMain({Key? key}) : super(key: key);
 
   @override

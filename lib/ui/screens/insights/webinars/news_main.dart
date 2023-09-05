@@ -12,6 +12,7 @@ import 'package:flutter/rendering.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 class NewsDescMain extends StatefulWidget {
+  static const String route = '/News';
   const NewsDescMain({Key? key}) : super(key: key);
 
   @override

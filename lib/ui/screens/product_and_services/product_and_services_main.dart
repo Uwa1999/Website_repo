@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 class ProductServicesMain extends StatefulWidget {
+  static const String route = '/ProductsAndServices';
   const ProductServicesMain({Key? key}) : super(key: key);
 
   @override

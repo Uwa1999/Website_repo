@@ -14,6 +14,8 @@ import 'package:flutter/rendering.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 class RegulatorySecurityMain extends StatefulWidget {
+  static const String route = '/RegulatoryAndSecurity';
+
   const RegulatorySecurityMain({Key? key}) : super(key: key);
 
   @override
@@ -82,7 +84,7 @@ class _RegulatorySecurityMainState extends State<RegulatorySecurityMain> {
               child: SingleChildScrollView(
                 child: Column(
                   children: [
-                    SizedBoxH40(),
+                    SizedBoxH50(),
                     AmlaSection(),
                     SizedBoxH40(),
                     CyberSecuritySection(),

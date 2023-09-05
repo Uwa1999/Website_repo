@@ -199,19 +199,19 @@ class _DesktopProductServicesSectionState extends State<DesktopProductServicesSe
     List<Widget> items = [];
     List<VoidCallback> functions = [
       () {
-        Navigator.of(context).push(MaterialPageRoute(builder: (context) => BankingTechnologyMain()));
+        Navigator.of(context).pushNamed(BankingTechnologyMain.route);
         print('-----BANKING TECHNOLOGY SCREEN-----');
       },
       () {
-        Navigator.of(context).push(MaterialPageRoute(builder: (context) => AlternativeSolutionMain()));
+        Navigator.of(context).pushNamed(AlternativeSolutionMain.route);
         print('-----ALTERNATIVE DELIVERIES SOLUTION SCREEN-----');
       },
       () {
-        Navigator.of(context).push(MaterialPageRoute(builder: (context) => RegulatorySecurityMain()));
+        Navigator.of(context).pushNamed(RegulatorySecurityMain.route);
         print('-----REGULATORY AND SECURITY SCREEN-----');
       },
       () {
-        Navigator.of(context).push(MaterialPageRoute(builder: (context) => SoftwareServiceMain()));
+        Navigator.of(context).pushNamed(SoftwareServiceMain.route);
         print('-----SOFTWARE AS A SERVICE SCREEN-----');
       },
     ];
@@ -540,7 +540,7 @@ class _MobileProductServicesSectionState extends State<MobileProductServicesSect
               height: MediaQuery.of(context).size.height * 0.1,
             ),
             onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) => BankingTechnologyMain()));
+              Navigator.of(context).pushNamed(BankingTechnologyMain.route);
               print('-----BANKING TECHNOLOGY SCREEN-----');
             },
           ),
@@ -551,7 +551,7 @@ class _MobileProductServicesSectionState extends State<MobileProductServicesSect
               height: MediaQuery.of(context).size.height * 0.1,
             ),
             onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) => AlternativeSolutionMain()));
+              Navigator.of(context).pushNamed(AlternativeSolutionMain.route);
               print('-----ALTERNATIVE DELIVERIES SOLUTION SCREEN-----');
             },
           ),
@@ -562,7 +562,7 @@ class _MobileProductServicesSectionState extends State<MobileProductServicesSect
               height: MediaQuery.of(context).size.height * 0.1,
             ),
             onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) => RegulatorySecurityMain()));
+              Navigator.of(context).pushNamed(RegulatorySecurityMain.route);
               print('-----REGULATORY AND SECURITY SCREEN-----');
             },
           ),
@@ -573,7 +573,7 @@ class _MobileProductServicesSectionState extends State<MobileProductServicesSect
               height: MediaQuery.of(context).size.height * 0.1,
             ),
             onTap: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context) => SoftwareServiceMain()));
+              Navigator.of(context).pushNamed(SoftwareServiceMain.route);
               print('-----SOFTWARE AS A SERVICE SCREEN-----');
             },
           ),
@@ -709,19 +709,19 @@ class _MobileProductServicesSectionState extends State<MobileProductServicesSect
     List<Widget> items = [];
     List<VoidCallback> functions = [
       () {
-        Navigator.of(context).push(MaterialPageRoute(builder: (context) => BankingTechnologyMain()));
+        Navigator.of(context).pushNamed(BankingTechnologyMain.route);
         print('-----BANKING TECHNOLOGY SCREEN-----');
       },
       () {
-        Navigator.of(context).push(MaterialPageRoute(builder: (context) => AlternativeSolutionMain()));
+        Navigator.of(context).pushNamed(AlternativeSolutionMain.route);
         print('-----ALTERNATIVE DELIVERIES SOLUTION SCREEN-----');
       },
       () {
-        Navigator.of(context).push(MaterialPageRoute(builder: (context) => RegulatorySecurityMain()));
+        Navigator.of(context).pushNamed(RegulatorySecurityMain.route);
         print('-----REGULATORY AND SECURITY SCREEN-----');
       },
       () {
-        Navigator.of(context).push(MaterialPageRoute(builder: (context) => SoftwareServiceMain()));
+        Navigator.of(context).pushNamed(SoftwareServiceMain.route);
         print('-----SOFTWARE AS A SERVICE SCREEN-----');
       },
     ];

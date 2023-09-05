@@ -34,7 +34,7 @@ class _SideMenuState extends State<SideMenu> with SingleTickerProviderStateMixin
             children: [
               InkWell(
                 onTap: () {
-                  Navigator.of(context).push(MaterialPageRoute(builder: (context) => HomepageScreen()));
+                  Navigator.of(context).pushNamed(HomepageScreen.route);
                   print("-----HOMEPAGE SCREEN----");
                 },
                 child: Center(
@@ -51,7 +51,7 @@ class _SideMenuState extends State<SideMenu> with SingleTickerProviderStateMixin
               NavItem(
                 title: 'Home',
                 onTap: () {
-                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomepageScreen()));
+                  Navigator.of(context).pushNamed(HomepageScreen.route);
                   print("-----HOMEPAGE SCREEN----");
                 },
               ),
@@ -59,7 +59,7 @@ class _SideMenuState extends State<SideMenu> with SingleTickerProviderStateMixin
               NavItem(
                 title: 'About Us',
                 onTap: () {
-                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => AboutMain()));
+                  Navigator.of(context).pushNamed(AboutMain.route);
                   print("-----ABOUT US SCREEN----");
                 },
               ),
@@ -67,7 +67,7 @@ class _SideMenuState extends State<SideMenu> with SingleTickerProviderStateMixin
               NavItem(
                 title: 'Product & Services',
                 onTap: () {
-                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => ProductServicesMain()));
+                  Navigator.of(context).pushNamed(ProductServicesMain.route);
                   print("-----PRODUCT & SERVICES SCREEN----");
                 },
               ),
@@ -75,14 +75,14 @@ class _SideMenuState extends State<SideMenu> with SingleTickerProviderStateMixin
               NavItem(
                 title: 'Insights',
                 onTap: () {
-                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => InsightsMain()));
+                  Navigator.of(context).pushNamed(InsightsMain.route);
                   print("-----INSIGHTS SCREEN----");
                 },
               ),
               SizedBoxH30(),
               NavItem(
                 title: 'Contact Us',
-                onTap: _launchURL,
+                onTap: _launchContactUsURL,
               ),
             ],
           ),
@@ -92,7 +92,7 @@ class _SideMenuState extends State<SideMenu> with SingleTickerProviderStateMixin
   }
 }
 
-_launchURL() async {
+_launchContactUsURL() async {
   print('-----FDSAP GMAIL-----');
   final Uri url = Uri.parse(StringConst.EMAIL_URL);
   if (!await launchUrl(url)) {

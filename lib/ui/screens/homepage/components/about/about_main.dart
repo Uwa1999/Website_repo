@@ -11,6 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 class AboutMain extends StatefulWidget {
+  static const String route = '/AboutUs';
   const AboutMain({Key? key}) : super(key: key);
 
   @override

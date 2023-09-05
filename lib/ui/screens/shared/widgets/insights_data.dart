@@ -375,7 +375,7 @@ class _MobileInsightsCardState extends State<MobileInsightsCard> {
                 ),
                 child: GestureDetector(
                   onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => ArticleDescMain()));
+                    Navigator.of(context).pushNamed(ArticleDescMain.route);
                     print('-----ARTICLE SCREEN-----');
                   },
                   child: Card(
@@ -485,7 +485,7 @@ class _MobileInsightsCardState extends State<MobileInsightsCard> {
                 ),
                 child: GestureDetector(
                   onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => EventsDescMain()));
+                    Navigator.of(context).pushNamed(EventsDescMain.route);
                     print('-----EVENTS SCREEN-----');
                   },
                   child: Card(
@@ -595,7 +595,7 @@ class _MobileInsightsCardState extends State<MobileInsightsCard> {
                 ),
                 child: GestureDetector(
                   onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(builder: (context) => NewsDescMain()));
+                    Navigator.of(context).pushNamed(NewsDescMain.route);
                     print('-----NEWS SCREEN-----');
                   },
                   child: Card(

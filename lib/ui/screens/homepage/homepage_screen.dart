@@ -23,6 +23,7 @@ import 'package:visibility_detector/visibility_detector.dart';
 import 'components/leading_partners_section.dart';
 
 class HomepageScreen extends StatefulWidget {
+  static const String route = '/Homepage';
   @override
   _HomepageScreenState createState() => _HomepageScreenState();
 }

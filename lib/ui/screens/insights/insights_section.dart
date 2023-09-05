@@ -126,7 +126,6 @@ class _DesktopInsightSectionState extends State<DesktopInsightSection> {
                       ),
                     ),
                   ),
-
                   // SizedBoxH80(),
                 ],
               ),
@@ -142,15 +141,15 @@ class _DesktopInsightSectionState extends State<DesktopInsightSection> {
     List<Widget> items = [];
     List<VoidCallback> function = [
       () {
-        Navigator.of(context).push(MaterialPageRoute(builder: (context) => ArticleDescMain()));
+        Navigator.of(context).pushNamed(ArticleDescMain.route);
         print('-----ARTICLE SCREEN-----');
       },
       () {
-        Navigator.of(context).push(MaterialPageRoute(builder: (context) => EventsDescMain()));
+        Navigator.of(context).pushNamed(EventsDescMain.route);
         print('-----EVENTS SCREEN-----');
       },
       () {
-        Navigator.of(context).push(MaterialPageRoute(builder: (context) => NewsDescMain()));
+        Navigator.of(context).pushNamed(NewsDescMain.route);
         print('-----NEWS SCREEN-----');
       },
     ];
@@ -240,37 +239,6 @@ class _MobileInsightSectionState extends State<MobileInsightSection> {
                     padding: const EdgeInsets.only(right: 30),
                     child: MobileInsightsCard(),
                   ),
-                  // Padding(
-                  //   padding: const EdgeInsets.only(right: 20),
-                  //   child: Row(
-                  //     crossAxisAlignment: CrossAxisAlignment.center,
-                  //     mainAxisAlignment: MainAxisAlignment.center,
-                  //     children: <Widget>[
-                  //       Expanded(
-                  //         child: SizedBox(
-                  //           height: MediaQuery.of(context).size.height * 1.4,
-                  //           child: GridView.count(
-                  //             physics: const NeverScrollableScrollPhysics(),
-                  //             childAspectRatio: 1.80,
-                  //             shrinkWrap: true,
-                  //             crossAxisCount: 1,
-                  //             children: [
-                  //               Wrap(
-                  //                 spacing: kSpacing,
-                  //                 runSpacing: kRunSpacing,
-                  //                 children: _buildMobileInsightCards(
-                  //                   context: context,
-                  //                   insightsData: Data.insightsData,
-                  //                   width: screenWidth,
-                  //                 ),
-                  //               ),
-                  //             ],
-                  //           ),
-                  //         ),
-                  //       ),
-                  //     ],
-                  //   ),
-                  // ),
                   SizedBoxH40(),
                 ],
               );
@@ -345,56 +313,20 @@ class _MobileInsightSectionState extends State<MobileInsightSection> {
     );
   }
 
-//   List<Widget> _buildMobileInsightCards({required List<DesktopInsightsData> insightsData, required double width, required context}) {
-//     double cardWidth = ((width - (kSpacing * 2)) / 5);
-//     List<Widget> items = [];
-//     List<VoidCallback> function = [
-//       () {
-//         Navigator.of(context).push(MaterialPageRoute(builder: (context) => ArticleDescMain()));
-//         print('-----ARTICLE SCREEN-----');
-//       },
-//       () {
-//         Navigator.of(context).push(MaterialPageRoute(builder: (context) => EventsDescMain()));
-//         print('-----EVENTS SCREEN-----');
-//       },
-//       () {
-//         Navigator.of(context).push(MaterialPageRoute(builder: (context) => NewsDescMain()));
-//         print('-----NEWS SCREEN-----');
-//       },
-//     ];
-//     for (int index = 0; index < insightsData.length; index++) {
-//       items.add(
-//         MobileInsightsCard(
-//           width: cardWidth,
-//           imageWidth: cardWidth,
-//           imageHeight: cardWidth,
-//           category: insightsData[index].category,
-//           title: Data.insightsData[index].title,
-//           subtitle: insightsData[index].subtitle,
-//           date: insightsData[index].date,
-// //  buttonText: insightsData[index].buttonText,
-//           imageUrl: insightsData[index].imageUrl,
-//           onPressed: function[index],
-//         ),
-//       );
-//     }
-//     return items;
-//   }
-
   List<Widget> _buildTabInsightCards({required List<DesktopInsightsData> insightsData, required double width, required context}) {
     double cardWidth = ((width - (kSpacing * 2)) / 5);
     List<Widget> items = [];
     List<VoidCallback> function = [
       () {
-        Navigator.of(context).push(MaterialPageRoute(builder: (context) => ArticleDescMain()));
+        Navigator.of(context).pushNamed(ArticleDescMain.route);
         print('-----ARTICLE SCREEN-----');
       },
       () {
-        Navigator.of(context).push(MaterialPageRoute(builder: (context) => EventsDescMain()));
+        Navigator.of(context).pushNamed(EventsDescMain.route);
         print('-----EVENTS SCREEN-----');
       },
       () {
-        Navigator.of(context).push(MaterialPageRoute(builder: (context) => NewsDescMain()));
+        Navigator.of(context).pushNamed(NewsDescMain.route);
         print('-----NEWS SCREEN-----');
       },
     ];
