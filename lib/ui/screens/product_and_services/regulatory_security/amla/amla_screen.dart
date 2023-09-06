@@ -70,7 +70,6 @@ class _AmlaDescScreenState extends State<AmlaDescScreen> {
                   ),
                   child: Text(
                     StringConst.AML_DESC,
-                    style: textTheme.headline6,
                   ),
                 ),
               ),

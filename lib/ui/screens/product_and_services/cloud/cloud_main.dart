@@ -31,8 +31,6 @@ class _CloudDescMainState extends State<CloudDescMain> with SingleTickerProvider
   bool isFabVisible = false;
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-
     return Scaffold(
       backgroundColor: AppColors.white,
       key: _scaffoldKey,

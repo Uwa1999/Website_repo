@@ -2,7 +2,6 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/footer_secti
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/header_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/responsive_navigation/nav_section_mobile.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/banking_technology/temenos/temenos_section.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/responsive.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/sizes.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/sizedbox.dart';
@@ -50,8 +49,6 @@ class _TemenosDecsMainState extends State<TemenosDecsMain> with SingleTickerProv
 
   @override
   Widget build(BuildContext context) {
-    double screenHeight = heightOfScreen(context);
-    double spacerHeight = screenHeight * 0.19;
     return Scaffold(
       backgroundColor: AppColors.white,
       key: _scaffoldKey,

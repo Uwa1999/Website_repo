@@ -51,7 +51,6 @@ class _K2cDescMainState extends State<K2cDescMain> with SingleTickerProviderStat
   @override
   Widget build(BuildContext context) {
     double screenHeight = heightOfScreen(context);
-    double spacerHeight = screenHeight * 0.19;
     return Scaffold(
       backgroundColor: AppColors.white,
       key: _scaffoldKey,

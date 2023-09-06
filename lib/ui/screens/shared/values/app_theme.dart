@@ -45,73 +45,73 @@ class AppTheme {
   static const _light = FontWeight.w300;
 
   static final TextTheme _textTheme = TextTheme(
-    headline1: GoogleFonts.poppins(
+    displayLarge: GoogleFonts.poppins(
       fontSize: Sizes.TEXT_SIZE_96,
       color: AppColors.black,
       fontWeight: _bold,
       fontStyle: FontStyle.normal,
     ),
-    headline2: GoogleFonts.poppins(
+    displayMedium: GoogleFonts.poppins(
       fontSize: Sizes.TEXT_SIZE_60,
       color: AppColors.black,
       fontWeight: _bold,
       fontStyle: FontStyle.normal,
     ),
-    headline3: GoogleFonts.poppins(
+    displaySmall: GoogleFonts.poppins(
       fontSize: Sizes.TEXT_SIZE_48,
       color: AppColors.black,
       fontWeight: _bold,
       fontStyle: FontStyle.normal,
     ),
-    headline4: GoogleFonts.poppins(
+    headlineMedium: GoogleFonts.poppins(
       fontSize: Sizes.TEXT_SIZE_34,
       color: AppColors.black,
       fontWeight: _bold,
       fontStyle: FontStyle.normal,
     ),
-    headline5: GoogleFonts.poppins(
+    headlineSmall: GoogleFonts.poppins(
       fontSize: Sizes.TEXT_SIZE_24,
       color: AppColors.black,
       fontWeight: _bold,
       fontStyle: FontStyle.normal,
     ),
-    headline6: GoogleFonts.poppins(
+    titleLarge: GoogleFonts.poppins(
       fontSize: Sizes.TEXT_SIZE_20,
       color: AppColors.black,
       fontWeight: _bold,
       fontStyle: FontStyle.normal,
     ),
-    subtitle1: GoogleFonts.poppins(
+    titleMedium: GoogleFonts.poppins(
       fontSize: Sizes.TEXT_SIZE_18,
       color: AppColors.black,
       fontWeight: _bold,
       fontStyle: FontStyle.normal,
     ),
-    subtitle2: GoogleFonts.poppins(
+    titleSmall: GoogleFonts.poppins(
       fontSize: Sizes.TEXT_SIZE_14,
       color: AppColors.black,
       fontWeight: _bold,
       fontStyle: FontStyle.normal,
     ),
-    bodyText1: GoogleFonts.poppins(
+    bodyLarge: GoogleFonts.poppins(
       fontSize: Sizes.TEXT_SIZE_16,
       color: AppColors.primaryText2,
       fontWeight: _regular,
       fontStyle: FontStyle.normal,
     ),
-    bodyText2: GoogleFonts.poppins(
+    bodyMedium: GoogleFonts.poppins(
       fontSize: Sizes.TEXT_SIZE_14,
       color: AppColors.black,
       fontWeight: _light,
       fontStyle: FontStyle.normal,
     ),
-    button: GoogleFonts.poppins(
+    labelLarge: GoogleFonts.poppins(
       fontSize: Sizes.TEXT_SIZE_16,
       color: AppColors.black,
       fontStyle: FontStyle.normal,
       fontWeight: _regular,
     ),
-    caption: GoogleFonts.poppins(
+    bodySmall: GoogleFonts.poppins(
       fontSize: Sizes.TEXT_SIZE_12,
       color: AppColors.primaryText1,
       fontWeight: _regular,

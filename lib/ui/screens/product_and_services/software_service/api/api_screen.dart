@@ -70,7 +70,6 @@ class _ApiDescScreenState extends State<ApiDescScreen> {
                   ),
                   child: Text(
                     StringConst.OPEN_API_DESC,
-                    style: textTheme.headline6,
                   ),
                 ),
               ),

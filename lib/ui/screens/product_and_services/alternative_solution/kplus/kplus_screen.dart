@@ -70,7 +70,6 @@ class _kPlusDescScreenState extends State<kPlusDescScreen> {
                   ),
                   child: Text(
                     StringConst.KPLUS_DESC,
-                    style: textTheme.headline6,
                   ),
                 ),
               ),

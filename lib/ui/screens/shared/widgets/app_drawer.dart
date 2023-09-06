@@ -1,5 +1,4 @@
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/functions.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/responsive.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/images.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/sizes.dart';
@@ -30,12 +29,6 @@ class AppDrawer extends StatefulWidget {
 class _AppDrawerState extends State<AppDrawer> {
   @override
   Widget build(BuildContext context) {
-    double defaultWidthOfDrawer = responsiveSize(
-      context,
-      assignWidth(context, 0.85),
-      assignWidth(context, 0.60),
-      md: assignWidth(context, 0.60),
-    );
     return Container(
       width: MediaQuery.of(context).size.width * 0.7,
       child: Drawer(
@@ -98,7 +91,7 @@ class _AppDrawerState extends State<AppDrawer> {
           title: menuList[i].name,
           isMobile: true,
           isSelected: menuList[i].isSelected,
-          titleStyle: textTheme.bodyText1?.copyWith(
+          titleStyle: textTheme.bodyLarge?.copyWith(
             color: menuList[i].isSelected ? AppColors.maroon450 : AppColors.black,
             fontSize: Sizes.TEXT_SIZE_16,
             fontWeight: menuList[i].isSelected ? FontWeight.bold : FontWeight.normal,

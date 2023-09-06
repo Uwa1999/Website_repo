@@ -70,7 +70,6 @@ class _AtmDescScreenState extends State<AtmDescScreen> {
                   ),
                   child: Text(
                     StringConst.ATM_SWITCH_DESC,
-                    style: textTheme.headline6,
                   ),
                 ),
               ),

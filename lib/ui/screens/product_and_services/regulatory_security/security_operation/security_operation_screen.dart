@@ -70,7 +70,6 @@ class _SecurityOperationDecsScreenState extends State<SecurityOperationDecsScree
                   ),
                   child: Text(
                     StringConst.SECURITY_OPERATION_DESC,
-                    style: textTheme.headline6,
                   ),
                 ),
               ),

@@ -1,7 +1,6 @@
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/header_responsive_section/widgets.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/responsive.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/data.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/images.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/sizes.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/strings.dart';
@@ -15,7 +14,6 @@ const double bodyTextSizeLg = 16.0;
 const double bodyTextSizeSm = 14.0;
 const double socialTextSizeLg = 18.0;
 const double socialTextSizeSm = 14.0;
-// const double sidePadding = Sizes.PADDING_16;
 
 class HeaderResponsiveWeb extends StatefulWidget {
   @override
@@ -30,44 +28,18 @@ class _HeaderResponsiveWebState extends State<HeaderResponsiveWeb> {
 
   @override
   Widget build(BuildContext context) {
-    TextTheme textTheme = Theme.of(context).textTheme;
     double headerIntroTextSize = responsiveSize(
       context,
       Sizes.TEXT_SIZE_24,
       Sizes.TEXT_SIZE_48,
       md: Sizes.TEXT_SIZE_36,
     );
-    double bodyTextSize = responsiveSize(context, bodyTextSizeSm, bodyTextSizeLg);
-    double socialTextSize = responsiveSize(context, socialTextSizeSm, socialTextSizeLg);
     double screenWidth = widthOfScreen(context);
-    double contentAreaWidth = screenWidth;
-    TextStyle? bodyTextStyle = textTheme.bodySmall?.copyWith(fontSize: bodyTextSize);
-    TextStyle? socialTitleStyle = textTheme.bodySmall?.copyWith(fontSize: socialTextSize);
-
-    List<Widget> cardsForTabletView = buildCardRow(
-      context: context,
-      data: Data.fdsTagLineCardData,
-      width: contentAreaWidth * 0.4,
-      isWrap: true,
-    );
-    double buttonWidth = responsiveSize(
-      context,
-      80,
-      150,
-    );
-    double buttonHeight = responsiveSize(
-      context,
-      48,
-      60,
-      md: 54,
-    );
-
     double sizeOfBlobSm = screenWidth * 0.3;
     double sizeOfGoldenGlobe = screenWidth * 0.2;
     double dottedGoldenGlobeOffset = sizeOfBlobSm * 0.4;
     double heightOfBlobAndGlobe = computeHeight(dottedGoldenGlobeOffset, sizeOfGoldenGlobe, sizeOfBlobSm);
     double heightOfStack = heightOfBlobAndGlobe * 2;
-    double blobOffset = heightOfStack * 0.3;
     return ContentArea(
       child: Stack(
         children: [
@@ -151,7 +123,6 @@ class _HeaderResponsiveWebState extends State<HeaderResponsiveWeb> {
                                 ),
                               ),
                             ),
-                            //    SizedBoxH70(),
                           ],
                         ),
                       ],

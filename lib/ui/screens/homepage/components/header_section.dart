@@ -41,12 +41,6 @@ class _HeaderSectionState extends State<HeaderSection> with SingleTickerProvider
       contactBtnWidthSm,
       contactBtnWidthLg,
     );
-    int menuSpacerRight = responsiveSizeInt(
-      context,
-      menuSpacerRightSm,
-      menuSpacerRightLg,
-      md: menuSpacerRightMd,
-    );
     return Column(
       children: [
         Container(

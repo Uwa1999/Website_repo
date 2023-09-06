@@ -71,7 +71,6 @@ class _WebCollectionDescScreenState extends State<WebCollectionDescScreen> {
                   ),
                   child: Text(
                     StringConst.WEB_COLLECTION_DESC,
-                    style: textTheme.headline6,
                   ),
                 ),
               ),

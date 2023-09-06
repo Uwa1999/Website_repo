@@ -10,7 +10,6 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/content_area.dart
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/insights_data.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/nimbus_info_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/sizedbox.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_builder/responsive_builder.dart';
@@ -38,20 +37,11 @@ class DesktopInsightSection extends StatefulWidget {
 class _DesktopInsightSectionState extends State<DesktopInsightSection> {
   final int insightsLength = Data.insightsData.length;
   double currentPageIndex = 1;
-  CarouselController _carouselController = CarouselController();
 
   @override
   Widget build(BuildContext context) {
-    TextTheme textTheme = Theme.of(context).textTheme;
     EdgeInsetsGeometry padding = EdgeInsets.symmetric(horizontal: getSidePadding(context));
-    double headerIntroTextSize = responsiveSize(
-      context,
-      Sizes.TEXT_SIZE_36,
-      Sizes.TEXT_SIZE_56,
-      md: Sizes.TEXT_SIZE_36,
-    );
     double screenWidth = widthOfScreen(context) - (getSidePadding(context) * 2);
-    double contentAreaWidth = responsiveSize(context, screenWidth, screenWidth * 0.6);
 
     return Stack(
       children: [
@@ -184,35 +174,22 @@ class MobileInsightSection extends StatefulWidget {
 class _MobileInsightSectionState extends State<MobileInsightSection> {
   final int insightsLength = Data.insightsData.length;
   double currentPageIndex = 1;
-  bool _isHoveringOnImage = false;
-  bool _isHovered = false;
   Color startValue = Colors.black.withOpacity(0.5);
   Color targetValue = Colors.black.withOpacity(0);
 
   @override
   Widget build(BuildContext context) {
     double screenWidth = widthOfScreen(context) - (getSidePadding(context) * 2);
-    // double screenWidth = widthOfScreen(context);
     double screenHeight = heightOfScreen(context);
     double contentAreaWidthSm = screenWidth * 1.1;
     double contentAreaHeightSm = screenHeight * 0.6;
-    double contentAreaWidthLg = screenWidth * 0.5;
-    TextTheme textTheme = Theme.of(context).textTheme;
     EdgeInsetsGeometry padding = EdgeInsets.symmetric(horizontal: getSidePadding(context));
-    double headerIntroTextSize = responsiveSize(
-      context,
-      Sizes.TEXT_SIZE_36,
-      Sizes.TEXT_SIZE_56,
-      md: Sizes.TEXT_SIZE_36,
-    );
-    double contentAreaWidth = responsiveSize(context, screenWidth, screenWidth * 0.6);
+
     return VisibilityDetector(
       key: Key('about-section'),
       onVisibilityChanged: (visibilityInfo) {
         double visiblePercentage = visibilityInfo.visibleFraction * 100;
-        if (visiblePercentage > 25) {
-          // _scaleController.forward();
-        }
+        if (visiblePercentage > 25) {}
       },
       child: Container(
         padding: EdgeInsets.only(left: getSidePadding(context)),

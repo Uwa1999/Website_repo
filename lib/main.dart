@@ -22,14 +22,11 @@ class Fdsap extends StatelessWidget {
   Widget build(BuildContext context) {
     return Layout(
       child: MaterialApp(
-        debugShowCheckedModeBanner: false,
         title: 'FDS ASYA PHILIPPINES INC.',
-        theme: ThemeData(
-          textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme).apply(
-            bodyColor: Colors.black54,
-          ),
-        ),
         home: HomepageScreen(),
+        theme: ThemeData(
+          textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme).apply(bodyColor: Colors.black54),
+        ),
         initialRoute: HomepageScreen.route,
         routes: {
           HomepageScreen.route: (context) => HomepageScreen(),
@@ -44,6 +41,7 @@ class Fdsap extends StatelessWidget {
           EventsDescMain.route: (context) => EventsDescMain(),
           NewsDescMain.route: (context) => NewsDescMain(),
         },
+        debugShowCheckedModeBanner: false,
       ),
     );
   }

@@ -70,7 +70,6 @@ class _K2cDescScreenState extends State<K2cDescScreen> with SingleTickerProvider
                   ),
                   child: Text(
                     StringConst.KONEK2CARD_DESC,
-                    style: textTheme.headline6,
                   ),
                 ),
               ),

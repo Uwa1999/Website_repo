@@ -3,7 +3,6 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/images.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/sizes.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/strings.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/styles.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/content_area.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/fds_tagline_card.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/nimbus_info_section.dart';
@@ -40,16 +39,12 @@ class _AboutSectionState extends State<AboutSection> {
     double screenWidth = widthOfScreen(context) - getSidePadding(context) * 2;
     double screenHeight = heightOfScreen(context);
     double contentAreaWidthSm = screenWidth * 1.1;
-    double contentAreaHeightSm = screenHeight * 0.6;
     double contentAreaWidthLg = screenWidth * 0.5;
-    double contentAreaWidth = screenWidth;
     return VisibilityDetector(
       key: Key('about-section'),
       onVisibilityChanged: (visibilityInfo) {
         double visiblePercentage = visibilityInfo.visibleFraction * 100;
-        if (visiblePercentage > 25) {
-          // _scaleController.forward();
-        }
+        if (visiblePercentage > 25) {}
       },
       child: Container(
         padding: EdgeInsets.only(left: getSidePadding(context)),
@@ -60,14 +55,6 @@ class _AboutSectionState extends State<AboutSection> {
             if (screenWidth < (RefinedBreakpoints().tabletLarge)) {
               return Column(
                 children: [
-                  // ContentArea(
-                  //   width: contentAreaWidthSm,
-                  //   child: _buildFdsapLogo(
-                  //     width: contentAreaWidthSm,
-                  //     height: contentAreaHeightSm,
-                  //   ),
-                  // ),
-                  // SizedBoxH10(),
                   Padding(
                     padding: const EdgeInsets.only(right: 30),
                     child: ContentArea(
@@ -109,19 +96,6 @@ class _AboutSectionState extends State<AboutSection> {
                   ),
                   SizedBoxH20(),
                   FDSTaglineSection(),
-                  // ContentArea(
-                  //   child: Row(
-                  //     mainAxisAlignment: MainAxisAlignment.center,
-                  //     crossAxisAlignment: CrossAxisAlignment.center,
-                  //     children: [
-                  //       ...buildCardRow(
-                  //         context: context,
-                  //         data: Data.fdsTagLineCardData,
-                  //         width: contentAreaWidth / 3.8,
-                  //       ),
-                  //     ],
-                  //   ),
-                  // ),
                   SizedBoxH150(),
                 ],
               );
@@ -133,25 +107,12 @@ class _AboutSectionState extends State<AboutSection> {
   }
 
   Widget _buildFdsapLogo({required double width, required double height}) {
-    TextTheme textTheme = Theme.of(context).textTheme;
-    double fontSize = responsiveSize(context, 60, 72, md: 64);
-    TextStyle? titleStyle = textTheme.bodySmall?.merge(
-      Styles.customTextStyle3(fontSize: fontSize, height: 1.25),
-    );
-
     return Stack(
       children: [
         Image.asset(
           ImagePath.LOGO_FDSAP,
           width: width * 0.70,
         ),
-        // ScaleTransition(
-        //   scale: _scaleAnimation,
-        //   child: Image.asset(
-        //     ImagePath.LOGO_FDSAP,
-        //     width: width * 0.70,
-        //   ),
-        // ),
       ],
     );
   }
@@ -162,8 +123,6 @@ class _AboutSectionState extends State<AboutSection> {
   }) {
     return Stack(
       children: [
-        //positions blob on the far right of the section
-        //based on the calculation only 10% of blob is showing
         ResponsiveBuilder(
           refinedBreakpoints: RefinedBreakpoints(),
           builder: (context, sizingInformation) {
@@ -183,7 +142,6 @@ class _AboutSectionState extends State<AboutSection> {
   }
 
   Widget nimbusInfoSectionLg() {
-    TextTheme textTheme = Theme.of(context).textTheme;
     return Row(
       children: [
         Expanded(
@@ -209,7 +167,6 @@ class _AboutSectionState extends State<AboutSection> {
   }
 
   Widget nimbusInfoSectionSm({required double width}) {
-    TextTheme textTheme = Theme.of(context).textTheme;
     return Row(
       children: [
         Expanded(

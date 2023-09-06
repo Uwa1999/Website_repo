@@ -70,7 +70,6 @@ class _CloudDescScreenState extends State<CloudDescScreen> {
                   ),
                   child: Text(
                     StringConst.CLOUD_TEST_ENVIRONMENT_DESC,
-                    style: textTheme.headline6,
                   ),
                 ),
               ),

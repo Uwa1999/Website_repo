@@ -70,7 +70,6 @@ class _BakawanDescScreenState extends State<BakawanDescScreen> {
                   ),
                   child: Text(
                     StringConst.BAKAWAN_DESC,
-                    style: textTheme.headline6,
                   ),
                 ),
               ),

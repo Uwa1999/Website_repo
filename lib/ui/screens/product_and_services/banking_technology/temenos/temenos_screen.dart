@@ -71,7 +71,6 @@ class _TemenosDescScreenState extends State<TemenosDescScreen> {
                   ),
                   child: Text(
                     StringConst.TEMENOS_DESC,
-                    style: textTheme.headline6,
                   ),
                 ),
               ),

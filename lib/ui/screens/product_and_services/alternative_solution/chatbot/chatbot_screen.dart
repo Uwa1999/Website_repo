@@ -70,7 +70,6 @@ class _ChatbotDescScreenState extends State<ChatbotDescScreen> {
                   ),
                   child: Text(
                     StringConst.CHATBOT_DESC,
-                    style: textTheme.headline6,
                   ),
                 ),
               ),

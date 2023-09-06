@@ -79,9 +79,6 @@ class _DesktopInsightsCardState extends State<DesktopInsightsCard> {
   bool _isHovered = false;
   Color startValue = Colors.black.withOpacity(0.5);
   Color targetValue = Colors.black.withOpacity(0);
-  late AnimationController _slideFadeController;
-  late AnimationController _indicatorController;
-  bool _hovering = false;
 
   @override
   void initState() {
@@ -91,9 +88,6 @@ class _DesktopInsightsCardState extends State<DesktopInsightsCard> {
   @override
   Widget build(BuildContext context) {
     TextTheme textTheme = Theme.of(context).textTheme;
-    final hoveredTransform = Matrix4.identity()..translate(0, -8, 0);
-    final transform = _isHovered ? hoveredTransform : Matrix4.identity();
-
     return MouseRegion(
       onEnter: (e) => _onEntered(true),
       onExit: (e) => _onEntered(false),
@@ -119,8 +113,6 @@ class _DesktopInsightsCardState extends State<DesktopInsightsCard> {
                       borderRadius: BorderRadius.circular(16),
                     ),
                     child: Card(
-                      // shadowColor: AppColors.black,
-                      //   margin: const EdgeInsets.only(left: Sizes.MARGIN_18),
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
                       child: ClipRRect(
                         borderRadius: BorderRadius.all(
@@ -145,7 +137,6 @@ class _DesktopInsightsCardState extends State<DesktopInsightsCard> {
                                       Image.asset(
                                         widget.imageUrl,
                                         height: MediaQuery.of(context).size.height * 0.3,
-                                        // width: MediaQuery.of(context).size.width * 0.7,
                                         fit: BoxFit.contain,
                                       ),
                                       Padding(
@@ -185,29 +176,6 @@ class _DesktopInsightsCardState extends State<DesktopInsightsCard> {
                                 ),
                               ),
                             ),
-                            // Image.asset(
-                            //   widget.imageUrl,
-                            //   height: MediaQuery.of(context).size.height * 0.3,
-                            //   // width: MediaQuery.of(context).size.width * 0.7,
-                            //   fit: BoxFit.fitHeight,
-                            // ),
-                            // Padding(
-                            //   padding: const EdgeInsets.only(left: 10.0, top: 10.0),
-                            //   child: Row(
-                            //     mainAxisAlignment: MainAxisAlignment.start,
-                            //     children: [
-                            //       Icon(
-                            //         widget.dateIcon,
-                            //         color: AppColors.maroon04,
-                            //       ),
-                            //       SizedBoxW8(),
-                            //       Text(
-                            //         widget.date,
-                            //         style: widget.dateStyle ?? textTheme.titleLarge,
-                            //       )
-                            //     ],
-                            //   ),
-                            // ),
                             SizedBoxH10(),
                           ],
                         ),
@@ -338,9 +306,6 @@ class _MobileInsightsCardState extends State<MobileInsightsCard> {
   bool _isHovered = false;
   Color startValue = Colors.black.withOpacity(0.5);
   Color targetValue = Colors.black.withOpacity(0);
-  late AnimationController _slideFadeController;
-  late AnimationController _indicatorController;
-  bool _hovering = false;
 
   @override
   void initState() {
@@ -350,8 +315,6 @@ class _MobileInsightsCardState extends State<MobileInsightsCard> {
   @override
   Widget build(BuildContext context) {
     TextTheme textTheme = Theme.of(context).textTheme;
-    final hoveredTransform = Matrix4.identity()..translate(0, -8, 0);
-    final transform = _isHovered ? hoveredTransform : Matrix4.identity();
 
     return MouseRegion(
       onEnter: (e) => _onEntered(true),
@@ -379,8 +342,6 @@ class _MobileInsightsCardState extends State<MobileInsightsCard> {
                     print('-----ARTICLE SCREEN-----');
                   },
                   child: Card(
-                    // shadowColor: AppColors.black,
-                    //   margin: const EdgeInsets.only(left: Sizes.MARGIN_18),
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
                     child: ClipRRect(
                       borderRadius: BorderRadius.all(
@@ -405,7 +366,6 @@ class _MobileInsightsCardState extends State<MobileInsightsCard> {
                                     Image.asset(
                                       ImagePath.ARTICLE_CARD_COVER,
                                       height: MediaQuery.of(context).size.height * 0.3,
-                                      // width: MediaQuery.of(context).size.width * 1.9,
                                       fit: BoxFit.cover,
                                     ),
                                     Padding(
@@ -419,8 +379,6 @@ class _MobileInsightsCardState extends State<MobileInsightsCard> {
                                         alignment: Alignment.centerLeft,
                                         child: Text(
                                           StringConst.ARTICLE_TITLE_1,
-                                          // widget.title,
-                                          // // textAlign: TextAlign.justify,
                                           style: widget.dateStyle ??
                                               textTheme.titleSmall?.copyWith(
                                                 fontSize: Sizes.TEXT_SIZE_15,
@@ -457,8 +415,6 @@ class _MobileInsightsCardState extends State<MobileInsightsCard> {
                 ),
                 child: Text(
                   StringConst.INSIGHTS_CATEGORY_1,
-                  //widget.category,
-                  //   textAlign: TextAlign.justify,
                   style: widget.categoryStyle ??
                       textTheme.headlineSmall?.copyWith(
                         fontSize: Sizes.TEXT_SIZE_15,
@@ -489,8 +445,6 @@ class _MobileInsightsCardState extends State<MobileInsightsCard> {
                     print('-----EVENTS SCREEN-----');
                   },
                   child: Card(
-                    // shadowColor: AppColors.black,
-                    //   margin: const EdgeInsets.only(left: Sizes.MARGIN_18),
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
                     child: ClipRRect(
                       borderRadius: BorderRadius.all(
@@ -515,7 +469,6 @@ class _MobileInsightsCardState extends State<MobileInsightsCard> {
                                     Image.asset(
                                       ImagePath.EVENTS_CARD_COVER,
                                       height: MediaQuery.of(context).size.height * 0.3,
-                                      // width: MediaQuery.of(context).size.width * 1.9,
                                       fit: BoxFit.cover,
                                     ),
                                     Padding(
@@ -529,8 +482,6 @@ class _MobileInsightsCardState extends State<MobileInsightsCard> {
                                         alignment: Alignment.centerLeft,
                                         child: Text(
                                           StringConst.EVENTS_TITLE_1,
-                                          // widget.title,
-                                          // // textAlign: TextAlign.justify,
                                           style: widget.dateStyle ??
                                               textTheme.titleSmall?.copyWith(
                                                 fontSize: Sizes.TEXT_SIZE_15,
@@ -567,8 +518,6 @@ class _MobileInsightsCardState extends State<MobileInsightsCard> {
                 ),
                 child: Text(
                   StringConst.INSIGHTS_CATEGORY_2,
-                  //widget.category,
-                  //   textAlign: TextAlign.justify,
                   style: widget.categoryStyle ??
                       textTheme.headlineSmall?.copyWith(
                         fontSize: Sizes.TEXT_SIZE_15,
@@ -599,8 +548,6 @@ class _MobileInsightsCardState extends State<MobileInsightsCard> {
                     print('-----NEWS SCREEN-----');
                   },
                   child: Card(
-                    // shadowColor: AppColors.black,
-                    //   margin: const EdgeInsets.only(left: Sizes.MARGIN_18),
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
                     child: ClipRRect(
                       borderRadius: BorderRadius.all(
@@ -639,8 +586,6 @@ class _MobileInsightsCardState extends State<MobileInsightsCard> {
                                         alignment: Alignment.centerLeft,
                                         child: Text(
                                           StringConst.WEBINARS_TITLE_1,
-                                          // widget.title,
-                                          // // textAlign: TextAlign.justify,
                                           style: widget.dateStyle ??
                                               textTheme.titleSmall?.copyWith(
                                                 fontSize: Sizes.TEXT_SIZE_15,
@@ -796,9 +741,6 @@ class _TabInsightsCardState extends State<TabInsightsCard> {
   bool _isHovered = false;
   Color startValue = Colors.black.withOpacity(0.5);
   Color targetValue = Colors.black.withOpacity(0);
-  late AnimationController _slideFadeController;
-  late AnimationController _indicatorController;
-  bool _hovering = false;
 
   @override
   void initState() {
@@ -808,9 +750,6 @@ class _TabInsightsCardState extends State<TabInsightsCard> {
   @override
   Widget build(BuildContext context) {
     TextTheme textTheme = Theme.of(context).textTheme;
-    final hoveredTransform = Matrix4.identity()..translate(0, -8, 0);
-    final transform = _isHovered ? hoveredTransform : Matrix4.identity();
-
     return MouseRegion(
       onEnter: (e) => _onEntered(true),
       onExit: (e) => _onEntered(false),
@@ -836,8 +775,6 @@ class _TabInsightsCardState extends State<TabInsightsCard> {
                       borderRadius: BorderRadius.circular(16),
                     ),
                     child: Card(
-                      // shadowColor: AppColors.black,
-                      //   margin: const EdgeInsets.only(left: Sizes.MARGIN_18),
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
                       child: ClipRRect(
                         borderRadius: BorderRadius.all(
@@ -862,7 +799,6 @@ class _TabInsightsCardState extends State<TabInsightsCard> {
                                       Image.asset(
                                         widget.imageUrl,
                                         height: MediaQuery.of(context).size.height * 0.3,
-                                        // width: MediaQuery.of(context).size.width * 1.9,
                                         fit: BoxFit.cover,
                                       ),
                                       Padding(
@@ -876,7 +812,6 @@ class _TabInsightsCardState extends State<TabInsightsCard> {
                                           alignment: Alignment.centerLeft,
                                           child: Text(
                                             widget.title,
-                                            // textAlign: TextAlign.justify,
                                             style: widget.dateStyle ??
                                                 textTheme.titleSmall?.copyWith(
                                                   fontSize: Sizes.TEXT_SIZE_15,
@@ -912,7 +847,6 @@ class _TabInsightsCardState extends State<TabInsightsCard> {
                     ),
                     child: Text(
                       widget.category,
-                      //   textAlign: TextAlign.justify,
                       style: widget.categoryStyle ??
                           textTheme.headlineSmall?.copyWith(
                             fontSize: Sizes.TEXT_SIZE_15,

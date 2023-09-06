@@ -1,9 +1,7 @@
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/functions.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/responsive.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/images.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/strings.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/buttons/social_button.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/sizedbox.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -33,10 +31,6 @@ class DesktopFooter extends StatelessWidget {
         Container(
           height: MediaQuery.of(context).size.height * 0.9,
           decoration: BoxDecoration(
-            // image: DecorationImage(
-            //   fit: BoxFit.cover,
-            //   image: AssetImage(ImagePath.EVENTS_HEADER),
-            // ),
             color: AppColors.maroon03,
           ),
           child: Padding(
@@ -46,7 +40,6 @@ class DesktopFooter extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: <Widget>[
                 Row(
-                  //    crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Column(
@@ -234,23 +227,6 @@ class DesktopFooter extends StatelessWidget {
     if (!await launchUrl(url)) {
       throw Exception('Could not launch');
     }
-  }
-
-  List<Widget> _buildSocialIcons(List<FooterSocialButtonData> socialItems) {
-    List<Widget> items = [];
-    for (int index = 0; index < socialItems.length; index++) {
-      items.add(
-        FooterSocialButton(
-          iconSize: 18,
-          tag: socialItems[index].tag,
-          iconData: socialItems[index].iconData,
-          //  iconColor: socialItems[index].iconColor,
-          onPressed: () => openUrlLink(socialItems[index].url),
-        ),
-      );
-      items.add(SizedBoxW16());
-    }
-    return items;
   }
 }
 
@@ -446,23 +422,6 @@ class MobileFooter extends StatelessWidget {
     if (!await launchUrl(url)) {
       throw Exception('Could not launch');
     }
-  }
-
-  List<Widget> _buildSocialIcons(List<FooterSocialButtonData> socialItems) {
-    List<Widget> items = [];
-    for (int index = 0; index < socialItems.length; index++) {
-      items.add(
-        FooterSocialButton(
-          iconSize: 10,
-          tag: socialItems[index].tag,
-          iconData: socialItems[index].iconData,
-          //  iconColor: socialItems[index].iconColor,
-          onPressed: () => openUrlLink(socialItems[index].url),
-        ),
-      );
-      items.add(SizedBoxW16());
-    }
-    return items;
   }
 }
 

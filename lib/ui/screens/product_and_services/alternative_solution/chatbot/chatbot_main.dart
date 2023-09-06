@@ -2,7 +2,6 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/footer_secti
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/header_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/responsive_navigation/nav_section_mobile.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/alternative_solution/chatbot/chatbot_section.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/responsive.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/sizes.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/sizedbox.dart';
@@ -50,18 +49,13 @@ class _ChatbotDescMainState extends State<ChatbotDescMain> with SingleTickerProv
 
   @override
   Widget build(BuildContext context) {
-    double screenHeight = heightOfScreen(context);
-    double spacerHeight = screenHeight * 0.19;
     return Scaffold(
       backgroundColor: AppColors.white,
       key: _scaffoldKey,
       floatingActionButton: ScaleTransition(
         scale: _animation,
         child: FloatingActionButton(
-          onPressed: () {
-            // Scroll to header section
-            //  scrollToSection(navItems[0].key.currentContext!);
-          },
+          onPressed: () {},
           child: Icon(
             FontAwesomeIcons.arrowUp,
             size: Sizes.ICON_SIZE_18,

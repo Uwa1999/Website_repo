@@ -1,6 +1,7 @@
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/footer_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/header_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/responsive_navigation/nav_section_mobile.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/alternative_solution/kplus/kplus_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/responsive.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/sizes.dart';
@@ -86,7 +87,7 @@ class _kPlusDescMainState extends State<kPlusDescMain> with SingleTickerProvider
               controller: _scrollController,
               child: Column(
                 children: [
-                  KplusSection1(),
+                  KplusSection(),
                   SizedBoxH10(),
                   FooterSection(),
                 ],

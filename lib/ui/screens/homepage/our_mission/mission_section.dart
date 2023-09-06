@@ -1,9 +1,7 @@
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/responsive.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/images.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/sizes.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/strings.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/styles.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/content_area.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/nimbus_info_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/sizedbox.dart';
@@ -35,16 +33,12 @@ class _MissionSectionState extends State<MissionSection> {
     double screenWidth = widthOfScreen(context) - getSidePadding(context) * 2;
     double screenHeight = heightOfScreen(context);
     double contentAreaWidthSm = screenWidth * 1.1;
-    double contentAreaHeightSm = screenHeight * 0.6;
     double contentAreaWidthLg = screenWidth * 1.0;
-    double contentAreaWidth = screenWidth;
     return VisibilityDetector(
       key: Key('Mission-section'),
       onVisibilityChanged: (visibilityInfo) {
         double visiblePercentage = visibilityInfo.visibleFraction * 100;
-        if (visiblePercentage > 25) {
-          // _scaleController.forward();
-        }
+        if (visiblePercentage > 25) {}
       },
       child: Container(
         padding: EdgeInsets.only(left: getSidePadding(context)),
@@ -55,14 +49,6 @@ class _MissionSectionState extends State<MissionSection> {
             if (screenWidth < (RefinedBreakpoints().tabletLarge)) {
               return Column(
                 children: [
-                  // ContentArea(
-                  //   width: contentAreaWidthSm,
-                  //   child: _buildFdsapLogo(
-                  //     width: contentAreaWidthSm,
-                  //     height: contentAreaHeightSm,
-                  //   ),
-                  // ),
-                  // SizedBoxH10(),
                   Padding(
                     padding: const EdgeInsets.only(right: 30),
                     child: ContentArea(
@@ -86,13 +72,6 @@ class _MissionSectionState extends State<MissionSection> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      // ContentArea(
-                      //   width: contentAreaWidthLg,
-                      //   child: _buildMissionVisionLogo(
-                      //     width: contentAreaWidthLg,
-                      //     height: screenHeight,
-                      //   ),
-                      // ),
                       ContentArea(
                         width: contentAreaWidthLg,
                         child: _buildMissionVision(
@@ -109,23 +88,6 @@ class _MissionSectionState extends State<MissionSection> {
           },
         ),
       ),
-    );
-  }
-
-  Widget _buildMissionVisionLogo({required double width, required double height}) {
-    TextTheme textTheme = Theme.of(context).textTheme;
-    double fontSize = responsiveSize(context, 60, 72, md: 64);
-    TextStyle? titleStyle = textTheme.bodySmall?.merge(
-      Styles.customTextStyle3(fontSize: fontSize, height: 1.25),
-    );
-
-    return Stack(
-      children: [
-        Image.asset(
-          ImagePath.FDSAP_MISSION_VISION,
-          width: width * 0.70,
-        ),
-      ],
     );
   }
 
@@ -154,7 +116,6 @@ class _MissionSectionState extends State<MissionSection> {
   }
 
   Widget nimbusInfoSectionLg() {
-    TextTheme textTheme = Theme.of(context).textTheme;
     return Row(
       children: [
         Expanded(
@@ -188,7 +149,6 @@ class _MissionSectionState extends State<MissionSection> {
   }
 
   Widget nimbusInfoSectionSm({required double width}) {
-    TextTheme textTheme = Theme.of(context).textTheme;
     return Row(
       children: [
         Expanded(

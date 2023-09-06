@@ -3,7 +3,6 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/images.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/sizes.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/strings.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/styles.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/content_area.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/nimbus_info_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/sizedbox.dart';
@@ -50,20 +49,8 @@ class _OurTeamSectionState extends State<OurTeamSection> with SingleTickerProvid
 
   @override
   Widget build(BuildContext context) {
-    double screenWidth = widthOfScreen(context) - (getSidePadding(context));
-    double screenHeight = heightOfScreen(context);
-    double contentAreaWidthSm = screenWidth * 1.1;
-    double screenWidthLg = screenWidth * 1.1;
-    double screenHeightLg = screenWidth * 1.1;
-    double contentAreaWidth = responsiveSize(
-      context,
-      screenWidth,
-      screenWidth * 0.5,
-      md: screenWidth * 0.5,
-    );
-    double contentAreaHeight = screenHeight * 0.9;
     return VisibilityDetector(
-      key: Key('k2c-section'),
+      key: Key('our-team-section'),
       onVisibilityChanged: (visibilityInfo) {
         double visiblePercentage = visibilityInfo.visibleFraction * 100;
         if (visiblePercentage > 50) {
@@ -122,10 +109,7 @@ class _OurTeamSectionState extends State<OurTeamSection> with SingleTickerProvid
                               child: Column(
                                 children: [
                                   Center(
-                                    child: _buildOrgChartImage(
-                                        // width: screenWidth,
-                                        // height: screenHeight * 0.4,
-                                        ),
+                                    child: _buildOrgChartImage(),
                                   ),
                                   SizedBoxH50(),
                                 ],
@@ -197,15 +181,6 @@ class _OurTeamSectionState extends State<OurTeamSection> with SingleTickerProvid
   }
 
   Widget _buildOrgChartImage() {
-    TextTheme textTheme = Theme.of(context).textTheme;
-    TextStyle? titleStyle = textTheme.bodyText1?.merge(
-      Styles.customTextStyle3(
-        fontSize: responsiveSize(context, 64, 80, md: 76),
-        height: 1.25,
-        color: AppColors.primaryColor,
-      ),
-    );
-    double textPosition = assignWidth(context, 0.1);
     return ContentArea(
       padding: EdgeInsets.only(
         right: Sizes.PADDING_60,

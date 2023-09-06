@@ -70,7 +70,6 @@ class _CyberSecurityDecsScreenState extends State<CyberSecurityDecsScreen> {
                   ),
                   child: Text(
                     StringConst.CYBER_SECURITY_DESC,
-                    style: textTheme.headline6,
                   ),
                 ),
               ),

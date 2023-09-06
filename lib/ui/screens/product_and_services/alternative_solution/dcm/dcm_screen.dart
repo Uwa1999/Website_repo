@@ -70,7 +70,6 @@ class _DcmDescScreenState extends State<DcmDescScreen> {
                   ),
                   child: Text(
                     StringConst.DCM_DESC,
-                    style: textTheme.headline6,
                   ),
                 ),
               ),

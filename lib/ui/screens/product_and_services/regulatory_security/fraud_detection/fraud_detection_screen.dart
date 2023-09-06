@@ -70,7 +70,6 @@ class _FraudDetectionDescScreenState extends State<FraudDetectionDescScreen> {
                   ),
                   child: Text(
                     StringConst.FRAUD_DETECTION_DESC,
-                    style: textTheme.headline6,
                   ),
                 ),
               ),

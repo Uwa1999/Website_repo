@@ -21,7 +21,6 @@ class NimbusInfoSection1 extends StatelessWidget {
   final Color dividerColor;
   final double? thickness;
   final int quarterTurns;
-  // final double dividerHeight;
   final Widget? child;
 
   NimbusInfoSection1({
@@ -36,7 +35,6 @@ class NimbusInfoSection1 extends StatelessWidget {
     this.thickness = 1.15,
     this.quarterTurns = 3,
     this.dividerColor = AppColors.black,
-    // this.dividerHeight = Sizes.HEIGHT_40,
     this.child,
   });
 
@@ -65,22 +63,6 @@ class NimbusInfoSection1 extends StatelessWidget {
                           fontWeight: FontWeight.w900,
                         ),
                   ),
-                  // hasTitle2
-                  //      ? SizedBox(
-                  //          height: responsiveSize(
-                  //            context,
-                  //            Sizes.HEIGHT_4,
-                  //            Sizes.HEIGHT_16,
-                  //            md: Sizes.HEIGHT_8,
-                  //          ),
-                  //        )
-                  //      : EmptyContainer(),
-                  //  hasTitle2
-                  //      ? Text(
-                  //  title2!,
-                  //     style: title2Style ?? titleStyle,
-                  //   )
-                  // : EmptyContainer(),
                   SizedBoxH10(),
                   Text(
                     body,
@@ -158,30 +140,8 @@ class NimbusInfoSection2 extends StatelessWidget {
                         fontWeight: FontWeight.w900,
                       ),
                 ),
-                // AnimatedIcon(
-                //   icon: AnimatedIcons.menu_arrow,
-                //   progress: animation,
-                //   size: 72.0,
-                //   semanticLabel: 'Show menu',
-                // ),
               ],
             ),
-            // hasTitle2
-            //     ? SizedBox(
-            //         height: responsiveSize(
-            //           context,
-            //           Sizes.HEIGHT_4,
-            //           Sizes.HEIGHT_16,
-            //           md: Sizes.HEIGHT_8,
-            //         ),
-            //       )
-            //     : EmptyContainer(),
-            // hasTitle2
-            //     ? Text(
-            //         title2,
-            //         style: title2Style ?? titleStyle,
-            //       )
-            //     : EmptyContainer(),
             SizedBoxH10(),
             Text(
               body,
@@ -192,8 +152,6 @@ class NimbusInfoSection2 extends StatelessWidget {
                 color: AppColors.black,
               ),
             ),
-            // child != null ? SizedBoxH30() : EmptyContainer(),
-            // child ?? EmptyContainer(),
           ],
         ),
       ],
@@ -213,7 +171,6 @@ class NimbusInfoSection3 extends StatelessWidget {
   final Color dividerColor;
   final double? thickness;
   final int quarterTurns;
-  // final double dividerHeight;
   final Widget? child;
 
   NimbusInfoSection3({
@@ -228,7 +185,6 @@ class NimbusInfoSection3 extends StatelessWidget {
     this.thickness = 1.15,
     this.quarterTurns = 3,
     this.dividerColor = AppColors.white,
-    // this.dividerHeight = Sizes.HEIGHT_40,
     this.child,
   });
 
@@ -257,22 +213,6 @@ class NimbusInfoSection3 extends StatelessWidget {
                           fontWeight: FontWeight.w900,
                         ),
                   ),
-                  // hasTitle2
-                  //      ? SizedBox(
-                  //          height: responsiveSize(
-                  //            context,
-                  //            Sizes.HEIGHT_4,
-                  //            Sizes.HEIGHT_16,
-                  //            md: Sizes.HEIGHT_8,
-                  //          ),
-                  //        )
-                  //      : EmptyContainer(),
-                  //  hasTitle2
-                  //      ? Text(
-                  //  title2!,
-                  //     style: title2Style ?? titleStyle,
-                  //   )
-                  // : EmptyContainer(),
                   SizedBoxH20(),
                   Text(
                     body,
@@ -307,7 +247,6 @@ class NimbusInfoSection4 extends StatelessWidget {
   final Color dividerColor;
   final double? thickness;
   final int quarterTurns;
-  // final double dividerHeight;
   final Widget? child;
 
   NimbusInfoSection4({
@@ -322,17 +261,12 @@ class NimbusInfoSection4 extends StatelessWidget {
     this.thickness = 1.15,
     this.quarterTurns = 3,
     this.dividerColor = AppColors.black,
-    // this.dividerHeight = Sizes.HEIGHT_40,
     this.child,
   });
 
   @override
   Widget build(BuildContext context) {
     TextTheme textTheme = Theme.of(context).textTheme;
-    TextStyle? titleStyle = textTheme.headlineMedium?.copyWith(
-      fontSize: responsiveSize(context, 26, 36, md: 32),
-      color: AppColors.black,
-    );
     double fontSize = responsiveSize(context, 16, 18);
     return Container(
       child: IntrinsicHeight(
@@ -343,27 +277,6 @@ class NimbusInfoSection4 extends StatelessWidget {
                 mainAxisSize: MainAxisSize.max,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // Text(
-                  //   title1!,
-                  //   style: title1Style ?? titleStyle,
-                  // ),
-                  // hasTitle2
-                  //      ? SizedBox(
-                  //          height: responsiveSize(
-                  //            context,
-                  //            Sizes.HEIGHT_4,
-                  //            Sizes.HEIGHT_16,
-                  //            md: Sizes.HEIGHT_8,
-                  //          ),
-                  //        )
-                  //      : EmptyContainer(),
-                  //  hasTitle2
-                  //      ? Text(
-                  //  title2!,
-                  //     style: title2Style ?? titleStyle,
-                  //   )
-                  // : EmptyContainer(),
-                  SizedBoxH20(),
                   Text(
                     body,
                     textAlign: TextAlign.justify,
@@ -395,7 +308,6 @@ class NimbusInfoSection5 extends StatelessWidget {
   final Color dividerColor;
   final double? thickness;
   final int quarterTurns;
-  // final double dividerHeight;
   final Widget? child;
 
   NimbusInfoSection5({
@@ -410,7 +322,6 @@ class NimbusInfoSection5 extends StatelessWidget {
     this.thickness = 1.15,
     this.quarterTurns = 3,
     this.dividerColor = AppColors.black,
-    // this.dividerHeight = Sizes.HEIGHT_40,
     this.child,
   });
 
@@ -473,7 +384,6 @@ class NimbusInfoAboutSection extends StatelessWidget {
   final Color dividerColor;
   final double? thickness;
   final int quarterTurns;
-  // final double dividerHeight;
   final Widget? child;
   final String url;
   final LinkTarget linkTarget;
@@ -493,7 +403,6 @@ class NimbusInfoAboutSection extends StatelessWidget {
     this.thickness = 1.15,
     this.quarterTurns = 3,
     this.dividerColor = AppColors.black,
-    // this.dividerHeight = Sizes.HEIGHT_40,
     this.child,
     this.opensUrl = false,
     this.url = "",
@@ -585,7 +494,6 @@ class NimbusInfoTeamSection extends StatelessWidget {
   final Color dividerColor;
   final double? thickness;
   final int quarterTurns;
-  // final double dividerHeight;
   final Widget? child;
 
   NimbusInfoTeamSection({
@@ -600,7 +508,6 @@ class NimbusInfoTeamSection extends StatelessWidget {
     this.thickness = 1.15,
     this.quarterTurns = 3,
     this.dividerColor = AppColors.black,
-    // this.dividerHeight = Sizes.HEIGHT_40,
     this.child,
   });
 
@@ -739,7 +646,6 @@ class NimbusInfoInsightSection extends StatelessWidget {
   final Color dividerColor;
   final double? thickness;
   final int quarterTurns;
-  // final double dividerHeight;
   final Widget? child;
 
   NimbusInfoInsightSection({
@@ -754,7 +660,6 @@ class NimbusInfoInsightSection extends StatelessWidget {
     this.thickness = 1.15,
     this.quarterTurns = 3,
     this.dividerColor = AppColors.black,
-    // this.dividerHeight = Sizes.HEIGHT_40,
     this.child,
   });
 
@@ -772,7 +677,6 @@ class NimbusInfoInsightSection extends StatelessWidget {
           children: [
             Expanded(
               child: Column(
-                //   mainAxisSize: MainAxisSize.max,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
@@ -816,7 +720,6 @@ class NimbusInfoInsightTitle extends StatelessWidget {
   final Color dividerColor;
   final double? thickness;
   final int quarterTurns;
-  // final double dividerHeight;
   final Widget? child;
 
   NimbusInfoInsightTitle({
@@ -831,7 +734,6 @@ class NimbusInfoInsightTitle extends StatelessWidget {
     this.thickness = 1.15,
     this.quarterTurns = 3,
     this.dividerColor = AppColors.white,
-    // this.dividerHeight = Sizes.HEIGHT_40,
     this.child,
   });
 
@@ -863,7 +765,6 @@ class NimbusInfoInsightTitle extends StatelessWidget {
                   SizedBoxH20(),
                   Text(
                     body,
-                    //   textAlign: TextAlign.justify,
                     style: textTheme.bodySmall?.copyWith(
                       fontSize: fontSize,
                       height: 1.8,
@@ -894,7 +795,6 @@ class FDSTaglineInfoSection extends StatelessWidget {
   final Color dividerColor;
   final double? thickness;
   final int quarterTurns;
-  // final double dividerHeight;
   final Widget? child;
 
   FDSTaglineInfoSection({
@@ -909,7 +809,6 @@ class FDSTaglineInfoSection extends StatelessWidget {
     this.thickness = 1.15,
     this.quarterTurns = 3,
     this.dividerColor = AppColors.black,
-    // this.dividerHeight = Sizes.HEIGHT_40,
     this.child,
   });
 
@@ -920,14 +819,12 @@ class FDSTaglineInfoSection extends StatelessWidget {
       fontSize: responsiveSize(context, 26, 36, md: 32),
       color: AppColors.black,
     );
-    double fontSize = responsiveSize(context, 16, 18);
     return Container(
       child: IntrinsicHeight(
         child: Row(
           children: [
             Expanded(
               child: Column(
-                // mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [

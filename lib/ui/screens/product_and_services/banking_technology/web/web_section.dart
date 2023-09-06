@@ -3,7 +3,6 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/images.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/sizes.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/strings.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/styles.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/content_area.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/nimbus_info_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/sizedbox.dart';
@@ -103,12 +102,6 @@ class _WebCollectionSectionState extends State<WebCollectionSection> {
   }
 
   Widget _buildWebColGIF({required double width, required double height}) {
-    TextTheme textTheme = Theme.of(context).textTheme;
-    double fontSize = responsiveSize(context, 60, 72, md: 64);
-    TextStyle? titleStyle = textTheme.bodySmall?.merge(
-      Styles.customTextStyle3(fontSize: fontSize, height: 1.25),
-    );
-
     return Stack(
       children: [
         Image.asset(

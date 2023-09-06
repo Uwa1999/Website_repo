@@ -79,7 +79,7 @@ class _NavSectionWebState extends State<NavSectionWeb> {
             SizedBox(width: logoSpaceLeft),
             InkWell(
               onTap: () {
-                Navigator.of(context).push(MaterialPageRoute(builder: (context) => HomepageScreen()));
+                Navigator.of(context).pushNamed(HomepageScreen.route);
                 print("-----HOMEPAGE SCREEN----");
               },
               child: Image.asset(

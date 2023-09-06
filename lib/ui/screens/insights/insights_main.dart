@@ -21,7 +21,6 @@ class _InsightsMainState extends State<InsightsMain> {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: AppColors.white,
       key: _scaffoldKey,

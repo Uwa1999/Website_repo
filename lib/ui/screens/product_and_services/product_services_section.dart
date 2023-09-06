@@ -8,7 +8,6 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/data.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/images.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/sizes.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/strings.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/styles.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/content_area.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/nimbus_info_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/project_data.dart';
@@ -165,19 +164,6 @@ class _DesktopProductServicesSectionState extends State<DesktopProductServicesSe
           ),
           SizedBox(height: spacerHeight),
         ],
-      ),
-    );
-  }
-
-  Widget _buildProductServicesInfoSm() {
-    return NimbusInfoSection2(
-      title1: StringConst.PRODUCT_AND_SERVICES,
-      hasTitle2: false,
-      body: StringConst.PRODUCT_AND_SERVICES_DESC,
-      title1Style: GoogleFonts.poppins(
-        fontSize: Sizes.TEXT_SIZE_18,
-        fontWeight: FontWeight.w700,
-        color: AppColors.black,
       ),
     );
   }
@@ -383,7 +369,7 @@ class MobileProductServicesSection extends StatefulWidget {
 
 class _MobileProductServicesSectionState extends State<MobileProductServicesSection> with SingleTickerProviderStateMixin {
   late AnimationController _productController;
-  late Animation<double> _projectScaleAnimation;
+
   List<List<DesktopProductServicesData>> productServices = [
     Data.allProductServices,
   ];
@@ -398,15 +384,6 @@ class _MobileProductServicesSectionState extends State<MobileProductServicesSect
     _productController = AnimationController(
       duration: const Duration(milliseconds: 500),
       vsync: this,
-    );
-    _projectScaleAnimation = Tween<double>(
-      begin: 0,
-      end: 1,
-    ).animate(
-      CurvedAnimation(
-        parent: _productController,
-        curve: Curves.fastOutSlowIn,
-      ),
     );
   }
 
@@ -427,19 +404,15 @@ class _MobileProductServicesSectionState extends State<MobileProductServicesSect
   @override
   Widget build(BuildContext context) {
     double screenWidth = widthOfScreen(context) - (getSidePadding(context) * 2);
-    // double screenWidth = widthOfScreen(context);
     double screenHeight = heightOfScreen(context);
     double contentAreaWidthSm = screenWidth * 1.1;
     double contentAreaHeightSm = screenHeight * 0.6;
-    double contentAreaWidthLg = screenWidth * 0.5;
 
     return VisibilityDetector(
-      key: Key('about-section'),
+      key: Key('products-and-services-section'),
       onVisibilityChanged: (visibilityInfo) {
         double visiblePercentage = visibilityInfo.visibleFraction * 100;
-        if (visiblePercentage > 25) {
-          // _scaleController.forward();
-        }
+        if (visiblePercentage > 25) {}
       },
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -522,12 +495,6 @@ class _MobileProductServicesSectionState extends State<MobileProductServicesSect
   }
 
   Widget _buildMobileProductServicesIcon() {
-    TextTheme textTheme = Theme.of(context).textTheme;
-    double fontSize = responsiveSize(context, 60, 72, md: 64);
-    TextStyle? titleStyle = textTheme.bodySmall?.merge(
-      Styles.customTextStyle3(fontSize: fontSize, height: 1.25),
-    );
-
     return Padding(
       padding: const EdgeInsets.only(right: 20, left: 10),
       child: Row(
@@ -583,12 +550,6 @@ class _MobileProductServicesSectionState extends State<MobileProductServicesSect
   }
 
   Widget _buildTabProductServicesIcon({required double width, required double height}) {
-    TextTheme textTheme = Theme.of(context).textTheme;
-    double fontSize = responsiveSize(context, 60, 72, md: 64);
-    TextStyle? titleStyle = textTheme.bodySmall?.merge(
-      Styles.customTextStyle3(fontSize: fontSize, height: 1.25),
-    );
-
     return Stack(
       children: [
         Row(
@@ -690,22 +651,7 @@ class _MobileProductServicesSectionState extends State<MobileProductServicesSect
     );
   }
 
-  List<Widget> _buildMobileProductServicesCategories(List<ProductServicesCategoryData> categories) {
-    List<Widget> items = [];
-    for (int index = 0; index < categories.length; index++) {
-      items.add(
-        ProductServicesCategory(
-          title: categories[index].title,
-          number: categories[index].number,
-          isSelected: categories[index].isSelected,
-          onTap: () => onMobileProductServicesCategoryTap(index),
-        ),
-      );
-    }
-    return items;
-  }
-
-  List<Widget> _buildTabProductServices(List<DesktopProductServicesData> data, {bool isMobile = false, context}) {
+  List<Widget> _buildTabProductServices(List<DesktopProductServicesData> data, {context}) {
     List<Widget> items = [];
     List<VoidCallback> functions = [
       () {

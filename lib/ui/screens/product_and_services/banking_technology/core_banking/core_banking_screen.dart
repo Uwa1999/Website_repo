@@ -70,7 +70,6 @@ class _CoreBankingDescScreenState extends State<CoreBankingDescScreen> {
                   ),
                   child: Text(
                     StringConst.CORE_BANKING_DESC,
-                    style: textTheme.headline6,
                   ),
                 ),
               ),

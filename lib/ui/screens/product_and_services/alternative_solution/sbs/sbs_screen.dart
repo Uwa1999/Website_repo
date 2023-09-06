@@ -70,7 +70,6 @@ class _SbsDescScreenState extends State<SbsDescScreen> {
                   ),
                   child: Text(
                     StringConst.SMART_BRANCH_SYSTEM_DESC,
-                    style: textTheme.headline6,
                   ),
                 ),
               ),

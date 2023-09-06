@@ -71,7 +71,6 @@ class _MobColDescScreenState extends State<MobColDescScreen> {
                   ),
                   child: Text(
                     StringConst.MOBILE_COLLECTION_DESC,
-                    style: textTheme.headline6,
                   ),
                 ),
               ),

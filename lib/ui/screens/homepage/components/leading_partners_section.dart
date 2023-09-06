@@ -35,7 +35,6 @@ class _LeadingBankingPartnerSectionState extends State<LeadingBankingPartnerSect
 
   @override
   Widget build(BuildContext context) {
-    TextTheme textTheme = Theme.of(context).textTheme;
     double contentAreaWidth = widthOfScreen(context) - (getSidePadding(context) * 2);
     return VisibilityDetector(
       key: Key('statistics-section'),
@@ -48,7 +47,6 @@ class _LeadingBankingPartnerSectionState extends State<LeadingBankingPartnerSect
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: getSidePadding(context)),
         child: Card(
-          // elevation: Sizes.ELEVATION_4,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(
               Radius.circular(Sizes.RADIUS_10),

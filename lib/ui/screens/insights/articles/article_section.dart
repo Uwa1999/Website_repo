@@ -95,12 +95,6 @@ class _MobileArticleDescScreenState extends State<MobileArticleDescScreen> {
           height: MediaQuery.of(context).size.height * 0.5,
           width: double.infinity,
           decoration: BoxDecoration(
-            // image: DecorationImage(
-            //   fit: BoxFit.cover,
-            //   image: AssetImage(
-            //     ImagePath.ARTICLE_HEADER,
-            //   ),
-            // ),
             gradient: LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,

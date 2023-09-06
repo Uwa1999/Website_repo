@@ -70,7 +70,6 @@ class _MinokawaDecsScreenState extends State<MinokawaDecsScreen> {
                   ),
                   child: Text(
                     StringConst.MINOKAWA_DESC,
-                    style: textTheme.headline6,
                   ),
                 ),
               ),

@@ -3,7 +3,6 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/images.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/strings.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/buttons/social_button.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/fds_tagline_card.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/insights_data.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/leading_partner_data.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/project_data.dart';
@@ -68,10 +67,6 @@ class Data {
       values: "",
       subtitle: StringConst.COUNTRIES,
     ),
-    // StatItemData(
-    //   value: 18,
-    //   subtitle: StringConst.AWARD_WINNING,
-    // ),
   ];
 
   static List<LeadingBankingPartnerData> statItemsData2 = [
@@ -99,26 +94,6 @@ class Data {
       number: 13,
       isSelected: true,
     ),
-    // ProductServicesCategoryData(
-    //   title: StringConst.MOBILE_APP,
-    //   number: 2,
-    //   isSelected: true,
-    // ),
-    // ProductServicesCategoryData(
-    //   title: StringConst.WEB,
-    //   number: 1,
-    //   isSelected: true,
-    // ),
-    // ProductServicesCategoryData(
-    //   title: StringConst.ATM,
-    //   number: 2,
-    //   isSelected: true,
-    // ),
-    // ProductServicesCategoryData(
-    //   title: StringConst.WEB_DESIGN,
-    //   number: 3,
-    //   isSelected: true,
-    // ),
   ];
 
   static List<String> awards1 = [
@@ -141,7 +116,6 @@ class Data {
       title: StringConst.ARTICLE_TITLE_1,
       subtitle: StringConst.ARTICLE_SUBTITLE_1,
       date: StringConst.ARTICLE_DATE,
-      // buttonText: StringConst.ARTICLE_READ_MORE,
       imageUrl: ImagePath.ARTICLE_CARD_COVER,
     ),
     DesktopInsightsData(
@@ -149,7 +123,6 @@ class Data {
       title: StringConst.EVENTS_TITLE_1,
       subtitle: StringConst.EVENTS_SUBTITLE_1,
       date: StringConst.EVENTS_DATE,
-      //  buttonText: StringConst.EVENTS_READ_MORE,
       imageUrl: ImagePath.EVENTS_CARD_COVER,
     ),
     DesktopInsightsData(
@@ -157,53 +130,7 @@ class Data {
       title: StringConst.WEBINARS_TITLE_1,
       subtitle: StringConst.WEBINARS_SUBTITLE_1,
       date: StringConst.WEBINARS_DATE,
-      // buttonText: StringConst.WEBINARS_READ_MORE,
       imageUrl: ImagePath.WEBINARS_CARD_COVER,
-    ),
-    // InsightsData(
-    //   category: StringConst.INSIGHTS_CATEGORY_1,
-    //   title: StringConst.ARTICLE_TITLE_1,
-    //   subtitle: StringConst.ARTICLE_SUBTITLE_1,
-    //   date: StringConst.ARTICLE_DATE,
-    //   // buttonText: StringConst.ARTICLE_READ_MORE,
-    //   imageUrl: ImagePath.ARTICLE_01,
-    // ),
-    // InsightsData(
-    //   category: StringConst.INSIGHTS_CATEGORY_2,
-    //   title: StringConst.EVENTS_TITLE_1,
-    //   subtitle: StringConst.EVENTS_SUBTITLE_2,
-    //   date: StringConst.EVENTS_DATE,
-    //   // buttonText: StringConst.EVENTS_READ_MORE,
-    //   imageUrl: ImagePath.EVENTS_02,
-    // ),
-    // InsightsData(
-    //   category: StringConst.INSIGHTS_CATEGORY_3,
-    //   title: StringConst.WEBINARS_TITLE_1,
-    //   subtitle: StringConst.WEBINARS_SUBTITLE_3,
-    //   date: StringConst.WEBINARS_DATE,
-    //   // buttonText: StringConst.WEBINARS_READ_MORE,
-    //   imageUrl: ImagePath.WEBINARS_01,
-    // ),
-  ];
-
-  static List<FdsTagLineCardData> fdsTagLineCardData = [
-    FdsTagLineCardData(
-      title: StringConst.WE_LISTEN,
-      titleColor: AppColors.maroon03,
-      // leadingIcon: Icons.done,
-      // trailingIcon: Icons.chevron_right,
-    ),
-    FdsTagLineCardData(
-      title: StringConst.WE_ANTICIPATE,
-      titleColor: AppColors.maroon03,
-      // leadingIcon: Icons.done,
-      // trailingIcon: Icons.chevron_right,
-    ),
-    FdsTagLineCardData(
-      title: StringConst.WE_DELIVER,
-      titleColor: AppColors.maroon03,
-      // leadingIcon: Icons.done,
-      // trailingIcon: Icons.chevron_right,
     ),
   ];
 
@@ -229,64 +156,4 @@ class Data {
       width: 0.220,
     ),
   ];
-  // static List<ProductServicesData> mobileProductServices = [
-  //   ProductServicesData(
-  //     productServicesCoverUrl: ImagePath.KPLUS_MAROON_WHITEBG,
-  //     width: 0.220,
-  //     mobileHeight: 0.3,
-  //   ),
-  //   ProductServicesData(
-  //     category: StringConst.MOBILE_APP,
-  //     productServicesCoverUrl: ImagePath.CHATBOT_MAROON,
-  //     width: 0.220,
-  //   ),
-  //   ProductServicesData(
-  //     category: StringConst.MOBILE_APP,
-  //     productServicesCoverUrl: ImagePath.MOBILE_COLLECTION_MAROON,
-  //     width: 0.225,
-  //   ),
-  // ];
-  // static List<ProductServicesData> webProductServices = [
-  //   ProductServicesData(
-  //     category: StringConst.WEB,
-  //     productServicesCoverUrl: ImagePath.DCM_MAROON,
-  //     width: 0.220,
-  //   ),
-  // ];
-  // static List<ProductServicesData> atmProductServices = [
-  //   ProductServicesData(
-  //     category: StringConst.ATM,
-  //     productServicesCoverUrl: ImagePath.KPLUS_GREEN_WHITEBG,
-  //     width: 0.220,
-  //     mobileHeight: 0.3,
-  //   ),
-  //   ProductServicesData(
-  //     category: StringConst.ATM,
-  //     productServicesCoverUrl: ImagePath.WEB_COLLECTION_MAROON,
-  //     width: 0.220,
-  //     mobileHeight: 0.3,
-  //   ),
-  //   ProductServicesData(
-  //     category: StringConst.ATM,
-  //     productServicesCoverUrl: ImagePath.ATM_SWITCH_MAROON,
-  //     width: 0.225,
-  //   ),
-  // ];
-  // static List<ProductServicesData> dcmProductServices = [
-  //   ProductServicesData(
-  //     category: StringConst.WEB_DESIGN,
-  //     productServicesCoverUrl: ImagePath.CHATBOT_MAROON,
-  //     width: 0.220,
-  //   ),
-  //   ProductServicesData(
-  //     category: StringConst.WEB_DESIGN,
-  //     productServicesCoverUrl: ImagePath.OPEN_API_MAROON,
-  //     width: 0.220,
-  //   ),
-  //   ProductServicesData(
-  //     category: StringConst.WEB,
-  //     productServicesCoverUrl: ImagePath.DCM_MAROON,
-  //     width: 0.220,
-  //   ),
-  // ];
 }

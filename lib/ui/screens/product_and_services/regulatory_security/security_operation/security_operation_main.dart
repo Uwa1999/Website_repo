@@ -2,7 +2,6 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/footer_secti
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/header_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/responsive_navigation/nav_section_mobile.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/regulatory_security/security_operation/security_operation_section.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/responsive.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/sizes.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/sizedbox.dart';
@@ -50,8 +49,6 @@ class _SecurityOperationDecsMainState extends State<SecurityOperationDecsMain> w
 
   @override
   Widget build(BuildContext context) {
-    double screenHeight = heightOfScreen(context);
-    double spacerHeight = screenHeight * 0.19;
     return Scaffold(
       key: _scaffoldKey,
       floatingActionButton: ScaleTransition(
