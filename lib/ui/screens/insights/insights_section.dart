@@ -340,7 +340,7 @@ class _MobileInsightSectionState extends State<MobileInsightSection> {
           title: Data.insightsData[index].title,
           subtitle: insightsData[index].subtitle,
           date: insightsData[index].date,
-//  buttonText: insightsData[index].buttonText,
+          //  buttonText: insightsData[index].buttonText,
           imageUrl: insightsData[index].imageUrl,
           onPressed: function[index],
         ),
