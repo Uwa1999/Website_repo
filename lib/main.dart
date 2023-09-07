@@ -23,7 +23,6 @@ class Fdsap extends StatelessWidget {
     return Layout(
       child: MaterialApp(
         title: 'FDS ASYA PHILIPPINES INC.',
-        home: HomepageScreen(),
         theme: ThemeData(
           textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme).apply(bodyColor: Colors.black54),
         ),
