@@ -76,7 +76,7 @@ class _HeaderResponsiveMobileState extends State<HeaderResponsiveMobile> with Si
                 children: [
                   Container(
                     padding: const EdgeInsets.symmetric(horizontal: sidePadding),
-                    margin: EdgeInsets.only(top: heightOfStack * 0.4),
+                    margin: EdgeInsets.only(top: heightOfStack * 0.3),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
