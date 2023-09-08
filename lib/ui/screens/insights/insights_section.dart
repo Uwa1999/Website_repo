@@ -58,7 +58,6 @@ class _DesktopInsightSectionState extends State<DesktopInsightSection> {
                     width: screenWidth * 0.9,
                     child: NimbusInfoSection1(
                       title1: StringConst.INSIGHTS_TITLE_1,
-                      //title2: StringConst.INSIGHTS_TITLE_2,
                       body: '',
                       title1Style: GoogleFonts.poppins(
                         fontSize: Sizes.TEXT_SIZE_35,
@@ -200,7 +199,6 @@ class _MobileInsightSectionState extends State<MobileInsightSection> {
             if (screenWidth < (RefinedBreakpoints().tabletLarge)) {
               return Column(
                 children: [
-                  SizedBoxH50(),
                   Padding(
                     padding: const EdgeInsets.only(right: 20),
                     child: ContentArea(

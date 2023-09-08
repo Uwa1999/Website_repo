@@ -24,7 +24,7 @@ class _FDSTaglineSectionState extends State<FDSTaglineSection> {
             elevation: 0,
             shape: RoundedRectangleBorder(
               side: BorderSide(
-                color: AppColors.maroon06.withOpacity(0.5),
+                color: AppColors.maroon03.withOpacity(0.5),
               ),
               borderRadius: const BorderRadius.all(
                 Radius.circular(12),
@@ -53,7 +53,7 @@ class _FDSTaglineSectionState extends State<FDSTaglineSection> {
             elevation: 0,
             shape: RoundedRectangleBorder(
               side: BorderSide(
-                color: AppColors.maroon06.withOpacity(0.5),
+                color: AppColors.maroon03.withOpacity(0.5),
               ),
               borderRadius: const BorderRadius.all(
                 Radius.circular(12),
@@ -82,7 +82,7 @@ class _FDSTaglineSectionState extends State<FDSTaglineSection> {
             elevation: 0,
             shape: RoundedRectangleBorder(
               side: BorderSide(
-                color: AppColors.maroon06.withOpacity(0.5),
+                color: AppColors.maroon03.withOpacity(0.5),
               ),
               borderRadius: const BorderRadius.all(
                 Radius.circular(12),

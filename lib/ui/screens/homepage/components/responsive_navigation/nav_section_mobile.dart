@@ -46,7 +46,7 @@ class NavSectionMobile extends StatelessWidget {
                 print("-----HOMEPAGE SCREEN----");
               },
               child: Image.asset(
-                ImagePath.LOGO_LIGHT,
+                ImagePath.FDSAP_LOGO_MAROON,
                 height: Sizes.HEIGHT_100,
               ),
             ),

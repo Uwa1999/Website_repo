@@ -83,7 +83,7 @@ class _NavSectionWebState extends State<NavSectionWeb> {
                 print("-----HOMEPAGE SCREEN----");
               },
               child: Image.asset(
-                ImagePath.LOGO_FDSAP,
+                ImagePath.FDSAP_LOGO_MAROON,
                 height: Sizes.HEIGHT_100,
               ),
             ),

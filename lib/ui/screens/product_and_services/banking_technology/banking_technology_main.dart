@@ -85,8 +85,6 @@ class _BankingTechnologyMainState extends State<BankingTechnologyMain> {
                     SizedBoxH40(),
                     WebCollectionSection(),
                     SizedBoxH40(),
-                    //  CoreBankingSection(),
-                    //  SizedBoxH80(),
                     TemenosSection(),
                     SizedBoxH100(),
                     FooterSection(),

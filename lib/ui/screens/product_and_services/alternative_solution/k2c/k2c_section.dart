@@ -105,7 +105,7 @@ class _K2cSectionState extends State<K2cSection> {
     return Stack(
       children: [
         Image.asset(
-          ImagePath.K2C_GIF,
+          ImagePath.KONEK2CARD_GIF,
           width: width * 0.70,
         ),
       ],

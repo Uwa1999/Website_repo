@@ -47,7 +47,7 @@ class _AppDrawerState extends State<AppDrawer> {
                 },
                 child: Center(
                   child: Image.asset(
-                    ImagePath.LOGO_LIGHT,
+                    ImagePath.FDSAP_LOGO_MAROON,
                     height: Sizes.HEIGHT_150,
                   ),
                 ),

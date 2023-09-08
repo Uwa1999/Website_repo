@@ -15,6 +15,7 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/sizes.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/strings.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/nav_item.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/sizedbox.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:responsive_builder/responsive_builder.dart';
@@ -110,7 +111,7 @@ class _HomepageScreenState extends State<HomepageScreen> {
                             HeaderResponsive(
                               key: navItems[0].key,
                             ),
-                            SizedBox(height: spacerHeight),
+                            SizedBoxH50(),
                             VisibilityDetector(
                               key: Key("about"),
                               onVisibilityChanged: (visibilityInfo) {

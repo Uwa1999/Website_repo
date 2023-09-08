@@ -162,7 +162,8 @@ class _DesktopProductServicesSectionState extends State<DesktopProductServicesSe
               ),
             ],
           ),
-          SizedBox(height: spacerHeight),
+          SizedBoxH190(),
+          SizedBoxH80(),
         ],
       ),
     );
@@ -439,16 +440,6 @@ class _MobileProductServicesSectionState extends State<MobileProductServicesSect
                       SizedBoxH20(),
                       _buildMobileProductServicesIcon(),
                       SizedBoxH50(),
-                      // Padding(
-                      //   padding: const EdgeInsets.only(right: 20, left: 10),
-                      //   child: ContentArea(
-                      //     child:
-                      //     _buildMobileProductServicesIcon(
-                      //       width: contentAreaWidthSm,
-                      //       height: contentAreaHeightSm,
-                      //     ),
-                      //   ),
-                      // ),
                     ],
                   );
                 } else {
@@ -466,7 +457,6 @@ class _MobileProductServicesSectionState extends State<MobileProductServicesSect
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             ContentArea(
-                              //width: contentAreaWidthSm,
                               child: _buildMobileProductServicesInfoSm(
                                 width: contentAreaWidthSm,
                                 height: contentAreaHeightSm,
@@ -476,7 +466,6 @@ class _MobileProductServicesSectionState extends State<MobileProductServicesSect
                         ),
                         SizedBoxH10(),
                         ContentArea(
-                          // width: contentAreaWidthSm,
                           child: _buildTabProductServicesIcon(
                             width: contentAreaWidthSm,
                             height: contentAreaHeightSm,

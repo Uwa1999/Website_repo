@@ -105,7 +105,7 @@ class _ApiSectionState extends State<ApiSection> {
     return Stack(
       children: [
         Image.asset(
-          ImagePath.API_GIF,
+          ImagePath.OPEN_API_GIF,
           width: width * 0.70,
         ),
       ],

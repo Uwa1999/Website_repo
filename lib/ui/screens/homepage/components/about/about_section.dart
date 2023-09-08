@@ -61,7 +61,6 @@ class _AboutSectionState extends State<AboutSection> {
                       width: contentAreaWidthSm,
                       child: _buildAboutUs(
                         width: contentAreaWidthSm,
-                        height: screenHeight,
                       ),
                     ),
                   ),
@@ -89,7 +88,6 @@ class _AboutSectionState extends State<AboutSection> {
                         width: contentAreaWidthLg,
                         child: _buildAboutUs(
                           width: contentAreaWidthLg,
-                          height: screenHeight,
                         ),
                       ),
                     ],
@@ -110,7 +108,7 @@ class _AboutSectionState extends State<AboutSection> {
     return Stack(
       children: [
         Image.asset(
-          ImagePath.LOGO_FDSAP,
+          ImagePath.FDSAP_LOGO_MAROON,
           width: width * 0.70,
         ),
       ],
@@ -119,7 +117,6 @@ class _AboutSectionState extends State<AboutSection> {
 
   Widget _buildAboutUs({
     required double width,
-    required double height,
   }) {
     return Stack(
       children: [
@@ -128,7 +125,9 @@ class _AboutSectionState extends State<AboutSection> {
           builder: (context, sizingInformation) {
             double screenWidth = sizingInformation.screenSize.width;
             if (screenWidth < (RefinedBreakpoints().tabletNormal)) {
-              return nimbusInfoSectionSm(width: width);
+              return nimbusInfoSectionSm(
+                width: width,
+              );
             } else {
               return Container(
                 width: width * 0.90,
@@ -142,52 +141,30 @@ class _AboutSectionState extends State<AboutSection> {
   }
 
   Widget nimbusInfoSectionLg() {
-    return Row(
-      children: [
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              NimbusInfoAboutSection(
-                title1: StringConst.ABOUT,
-                body: StringConst.ABOUT_US_DESC,
-                body2: StringConst.ABOUT_US_DESC2,
-                body3: StringConst.ABOUT_US_DESC3,
-                title1Style: GoogleFonts.poppins(
-                  fontSize: Sizes.TEXT_SIZE_35,
-                  fontWeight: FontWeight.w700,
-                  color: AppColors.black,
-                ),
-              ),
-            ],
-          ),
-        ),
-      ],
+    return NimbusInfoAboutSection(
+      title1: StringConst.ABOUT,
+      body: StringConst.ABOUT_US_DESC,
+      body2: StringConst.ABOUT_US_DESC2,
+      body3: StringConst.ABOUT_US_DESC3,
+      title1Style: GoogleFonts.poppins(
+        fontSize: Sizes.TEXT_SIZE_35,
+        fontWeight: FontWeight.w700,
+        color: AppColors.black,
+      ),
     );
   }
 
   Widget nimbusInfoSectionSm({required double width}) {
-    return Row(
-      children: [
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              NimbusInfoAboutSection(
-                title1: StringConst.ABOUT,
-                body: StringConst.ABOUT_US_DESC,
-                body2: StringConst.ABOUT_US_DESC2,
-                body3: StringConst.ABOUT_US_DESC3,
-                title1Style: GoogleFonts.poppins(
-                  fontSize: Sizes.TEXT_SIZE_18,
-                  fontWeight: FontWeight.w700,
-                  color: AppColors.black,
-                ),
-              ),
-            ],
-          ),
-        ),
-      ],
+    return NimbusInfoAboutSection(
+      title1: StringConst.ABOUT,
+      body: StringConst.ABOUT_US_DESC,
+      body2: StringConst.ABOUT_US_DESC2,
+      body3: StringConst.ABOUT_US_DESC3,
+      title1Style: GoogleFonts.poppins(
+        fontSize: Sizes.TEXT_SIZE_18,
+        fontWeight: FontWeight.w700,
+        color: AppColors.black,
+      ),
     );
   }
 }

@@ -53,9 +53,8 @@ class _DesktopArticleDescScreenState extends State<DesktopArticleDescScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              SizedBoxH150(),
-              SizedBoxH150(),
-              SizedBoxH80(),
+              SizedBoxH190(),
+              SizedBoxH190(),
               NimbusInfoInsightTitle(
                 title1: StringConst.ARTICLE_DESC_TITLE,
                 hasTitle2: false,

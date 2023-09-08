@@ -39,7 +39,7 @@ class _SideMenuState extends State<SideMenu> with SingleTickerProviderStateMixin
                 },
                 child: Center(
                   child: Image.asset(
-                    ImagePath.LOGO_LIGHT,
+                    ImagePath.FDSAP_LOGO_MAROON,
                     height: Sizes.HEIGHT_150,
                   ),
                 ),

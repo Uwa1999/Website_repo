@@ -53,9 +53,8 @@ class _DesktopEventsDescScreenState extends State<DesktopEventsDescScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              SizedBoxH150(),
-              SizedBoxH150(),
-              SizedBoxH30(),
+              SizedBoxH160(),
+              SizedBoxH160(),
               Flexible(
                 fit: FlexFit.loose,
                 child: NimbusInfoInsightTitle(

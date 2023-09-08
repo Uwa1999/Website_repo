@@ -570,7 +570,7 @@ class _MobileInsightsCardState extends State<MobileInsightsCard> {
                                 child: Column(
                                   children: [
                                     Image.asset(
-                                      ImagePath.WEBINARS_CARD_COVER,
+                                      ImagePath.NEWS_CARD_COVER,
                                       height: MediaQuery.of(context).size.height * 0.3,
                                       // width: MediaQuery.of(context).size.width * 1.9,
                                       fit: BoxFit.cover,

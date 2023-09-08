@@ -46,16 +46,15 @@ class _DesktopNewsDescScreenState extends State<DesktopNewsDescScreen> {
             image: DecorationImage(
               fit: BoxFit.cover,
               image: AssetImage(
-                ImagePath.WEBINARS_HEADER,
+                ImagePath.NEWS_HEADER,
               ),
             ),
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              SizedBoxH150(),
-              SizedBoxH150(),
-              SizedBoxH30(),
+              SizedBoxH160(),
+              SizedBoxH160(),
               NimbusInfoInsightTitle(
                 title1: StringConst.NEWS_DESC_TITLE,
                 hasTitle2: false,

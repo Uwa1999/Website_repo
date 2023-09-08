@@ -105,7 +105,7 @@ class _AtmSectionState extends State<AtmSection> {
     return Stack(
       children: [
         Image.asset(
-          ImagePath.ATM_GIF,
+          ImagePath.ATM_SWITCH_GIF,
           width: width * 0.70,
         ),
       ],

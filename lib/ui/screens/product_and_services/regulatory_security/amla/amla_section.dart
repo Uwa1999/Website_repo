@@ -105,7 +105,7 @@ class _AmlaSectionState extends State<AmlaSection> {
     return Stack(
       children: [
         Image.asset(
-          ImagePath.AML_GIF,
+          ImagePath.AMLA_GIF,
           width: width * 0.70,
         ),
       ],

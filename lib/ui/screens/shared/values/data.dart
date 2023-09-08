@@ -69,24 +69,24 @@ class Data {
     ),
   ];
 
-  static List<LeadingBankingPartnerData> statItemsData2 = [
-    LeadingBankingPartnerData(
-      value: 1000,
-      subtitle: StringConst.API_CALLS_PER_DAY,
-    ),
-    LeadingBankingPartnerData(
-      value: 65,
-      subtitle: StringConst.COUNTRIES,
-    ),
-    LeadingBankingPartnerData(
-      value: 230,
-      subtitle: StringConst.INCREDIBLE_PROJECTS,
-    ),
-    LeadingBankingPartnerData(
-      value: 18,
-      subtitle: StringConst.AWARD_WINNING,
-    ),
-  ];
+  // static List<LeadingBankingPartnerData> statItemsData2 = [
+  //   LeadingBankingPartnerData(
+  //     value: 1000,
+  //     subtitle: StringConst.API_CALLS_PER_DAY,
+  //   ),
+  //   LeadingBankingPartnerData(
+  //     value: 65,
+  //     subtitle: StringConst.COUNTRIES,
+  //   ),
+  //   LeadingBankingPartnerData(
+  //     value: 230,
+  //     subtitle: StringConst.INCREDIBLE_PROJECTS,
+  //   ),
+  //   LeadingBankingPartnerData(
+  //     value: 18,
+  //     subtitle: StringConst.AWARD_WINNING,
+  //   ),
+  // ];
 
   static List<ProductServicesCategoryData> productServicesCategories = [
     ProductServicesCategoryData(
@@ -130,7 +130,7 @@ class Data {
       title: StringConst.WEBINARS_TITLE_1,
       subtitle: StringConst.WEBINARS_SUBTITLE_1,
       date: StringConst.WEBINARS_DATE,
-      imageUrl: ImagePath.WEBINARS_CARD_COVER,
+      imageUrl: ImagePath.NEWS_CARD_COVER,
     ),
   ];
 

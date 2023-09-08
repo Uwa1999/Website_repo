@@ -70,7 +70,7 @@ class _HeaderSectionState extends State<HeaderSection> with SingleTickerProvider
                           top: Sizes.PADDING_10,
                         ),
                         child: Image.asset(
-                          ImagePath.LOGO_FDSAP,
+                          ImagePath.FDSAP_LOGO_MAROON,
                           height: Sizes.HEIGHT_100,
                         ),
                       ),
@@ -156,7 +156,7 @@ class _HeaderSectionState extends State<HeaderSection> with SingleTickerProvider
                           top: Sizes.PADDING_10,
                         ),
                         child: Image.asset(
-                          ImagePath.LOGO_FDSAP,
+                          ImagePath.FDSAP_LOGO_MAROON,
                           height: Sizes.HEIGHT_100,
                         ),
                       ),

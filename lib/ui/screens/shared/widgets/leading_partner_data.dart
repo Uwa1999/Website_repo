@@ -90,3 +90,94 @@ class LeadingBankingPartnerItem extends StatelessWidget {
     );
   }
 }
+
+class MobileLeadingBankingPartnerData {
+  final int? value;
+  final String subtitle;
+  final String? values;
+
+  MobileLeadingBankingPartnerData({
+    this.value,
+    required this.subtitle,
+    this.values,
+  });
+}
+
+class MobileLeadingBankingPartnerItem extends StatelessWidget {
+  MobileLeadingBankingPartnerItem({
+    required this.title,
+    required this.subtitle,
+    required this.controller,
+    this.titleColor = AppColors.white,
+    this.subtitleColor = AppColors.grey150,
+    this.titleStyle,
+    this.subtitleStyle,
+    this.subnum,
+    this.curve = Curves.easeIn,
+  });
+
+  final int title;
+  final String subtitle;
+  final String? subnum;
+  final Color titleColor;
+  final Color subtitleColor;
+  final TextStyle? titleStyle;
+  final TextStyle? subtitleStyle;
+  final AnimationController controller;
+  final Curve curve;
+
+  late Animation<int> animation = IntTween(begin: 0, end: title).animate(
+    CurvedAnimation(
+      parent: controller,
+      curve: curve,
+    ),
+  );
+
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedBuilder(
+      animation: animation,
+      builder: (context, child) {
+        return _buildChild(context: context, value: animation.value, values: subnum);
+      },
+    );
+  }
+
+  Widget _buildChild({required BuildContext context, required int value, String? values}) {
+    TextTheme textTheme = Theme.of(context).textTheme;
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Text(
+              "$value",
+              style: GoogleFonts.poppins(
+                color: titleColor,
+                fontSize: 25,
+              ),
+            ),
+            Text(
+              "$values",
+              style: GoogleFonts.poppins(
+                color: titleColor,
+                fontSize: 25,
+              ),
+            ),
+          ],
+        ),
+        SizedBoxH8(),
+        Text(
+          subtitle,
+          style: GoogleFonts.poppins(
+            color: subtitleColor,
+            fontSize: 12,
+          ),
+        ),
+      ],
+    );
+  }
+}
