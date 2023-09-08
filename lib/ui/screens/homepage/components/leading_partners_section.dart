@@ -283,7 +283,7 @@ class _MobileLeadingPartnersState extends State<MobileLeadingPartners> with Sing
     List<Widget> items = [];
     for (int index = 0; index < data.length; index++) {
       items.add(
-        MobileLeadingBankingPartnerItem(
+        LeadingBankingPartnerItem(
           title: data[index].value!,
           subnum: data[index].values!,
           subtitle: data[index].subtitle,
