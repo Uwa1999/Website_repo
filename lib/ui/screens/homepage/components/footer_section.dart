@@ -127,54 +127,48 @@ class DesktopFooter extends StatelessWidget {
                             ),
                           ],
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 5),
-                          child: InkWell(
-                            onTap: _launchLinkInURL,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Icon(
-                                  FontAwesomeIcons.linkedin,
-                                  size: 17,
-                                  color: AppColors.white,
+                        InkWell(
+                          onTap: _launchLinkInURL,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Icon(
+                                FontAwesomeIcons.linkedin,
+                                size: 17,
+                                color: AppColors.white,
+                              ),
+                              SizedBoxW12(),
+                              Text(
+                                StringConst.LINKED_IN,
+                                style: GoogleFonts.poppins(
+                                  fontSize: 16,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.normal,
                                 ),
-                                SizedBoxW12(),
-                                Text(
-                                  StringConst.LINKED_IN,
-                                  style: GoogleFonts.poppins(
-                                    fontSize: 16,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.normal,
-                                  ),
-                                ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 5),
-                          child: InkWell(
-                            onTap: _launchFacebookURL,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              children: [
-                                Icon(
-                                  FontAwesomeIcons.facebook,
-                                  size: 17,
-                                  color: AppColors.white,
+                        InkWell(
+                          onTap: _launchFacebookURL,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Icon(
+                                FontAwesomeIcons.facebook,
+                                size: 17,
+                                color: AppColors.white,
+                              ),
+                              SizedBoxW12(),
+                              Text(
+                                StringConst.FACEBOOK,
+                                style: GoogleFonts.poppins(
+                                  fontSize: 16,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.normal,
                                 ),
-                                SizedBoxW12(),
-                                Text(
-                                  StringConst.FACEBOOK,
-                                  style: GoogleFonts.poppins(
-                                    fontSize: 16,
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.normal,
-                                  ),
-                                ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
                         ),
                       ],
