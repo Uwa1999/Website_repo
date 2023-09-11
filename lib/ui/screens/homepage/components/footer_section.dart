@@ -233,7 +233,9 @@ class MobileFooter extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: MediaQuery.of(context).size.height * 0.3,
-      decoration: BoxDecoration(color: AppColors.maroon03),
+      decoration: BoxDecoration(
+        color: AppColors.maroon03,
+      ),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 10),
         child: Column(

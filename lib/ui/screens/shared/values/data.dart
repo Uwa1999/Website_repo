@@ -69,25 +69,6 @@ class Data {
     ),
   ];
 
-  // static List<LeadingBankingPartnerData> statItemsData2 = [
-  //   LeadingBankingPartnerData(
-  //     value: 1000,
-  //     subtitle: StringConst.API_CALLS_PER_DAY,
-  //   ),
-  //   LeadingBankingPartnerData(
-  //     value: 65,
-  //     subtitle: StringConst.COUNTRIES,
-  //   ),
-  //   LeadingBankingPartnerData(
-  //     value: 230,
-  //     subtitle: StringConst.INCREDIBLE_PROJECTS,
-  //   ),
-  //   LeadingBankingPartnerData(
-  //     value: 18,
-  //     subtitle: StringConst.AWARD_WINNING,
-  //   ),
-  // ];
-
   static List<ProductServicesCategoryData> productServicesCategories = [
     ProductServicesCategoryData(
       title: StringConst.ALL,
@@ -96,20 +77,6 @@ class Data {
     ),
   ];
 
-  static List<String> awards1 = [
-    StringConst.AWARDS_1,
-    StringConst.AWARDS_2,
-    StringConst.AWARDS_3,
-    StringConst.AWARDS_4,
-    StringConst.AWARDS_5,
-  ];
-  static List<String> awards2 = [
-    StringConst.AWARDS_6,
-    StringConst.AWARDS_7,
-    StringConst.AWARDS_8,
-    StringConst.AWARDS_9,
-    StringConst.AWARDS_10,
-  ];
   static List<DesktopInsightsData> insightsData = [
     DesktopInsightsData(
       category: StringConst.INSIGHTS_CATEGORY_1,
@@ -127,31 +94,27 @@ class Data {
     ),
     DesktopInsightsData(
       category: StringConst.INSIGHTS_CATEGORY_3,
-      title: StringConst.WEBINARS_TITLE_1,
-      subtitle: StringConst.WEBINARS_SUBTITLE_1,
-      date: StringConst.WEBINARS_DATE,
+      title: StringConst.NEWS_TITLE_1,
+      subtitle: StringConst.NEWS_SUBTITLE_1,
+      date: StringConst.NEWS_DATE,
       imageUrl: ImagePath.NEWS_CARD_COVER,
     ),
   ];
 
   static List<DesktopProductServicesData> allProductServices = [
     DesktopProductServicesData(
-      category: StringConst.WEB_DESIGN,
       productServicesCoverUrl: ImagePath.BANKING_TECHNOLOGY_GIF,
       width: 0.220,
     ),
     DesktopProductServicesData(
       productServicesCoverUrl: ImagePath.ALTERNATIVE_SOLUTION_GIF,
       width: 0.220,
-      // mobileHeight: 0.3,
     ),
     DesktopProductServicesData(
       productServicesCoverUrl: ImagePath.REGULATORY_SECURITY_GIF,
       width: 0.220,
-      //  mobileHeight: 0.3,
     ),
     DesktopProductServicesData(
-      category: StringConst.WEB,
       productServicesCoverUrl: ImagePath.SOFTWARE_SERVICE_GIF,
       width: 0.220,
     ),

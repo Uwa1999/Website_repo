@@ -5,7 +5,6 @@ class StringConst {
   static const String APP_NAME = "FDS Asya Philippines Inc.";
 
   //Nav Section
-  static const String NAME_ABBREV = "CA";
   static const String HOME = "Home";
   static const String ABOUT = "About Us";
   static const String SERVICES = "Products & Services";
@@ -22,28 +21,11 @@ class StringConst {
   static const String INTRO2 = "Service Provider in the";
   static const String INTRO3 = "ASEAN Region";
   static const String ABOUT_DEV = "Providing world class core banking software in the regional economy and community with short implementation time, tailor-made services, and redefining the holistic customer experiences.";
-  static const String ABOUT_ME_1 = "Product Designer and Digital Creative Director working in design field for";
-  static const String ABOUT_ME_2 = "13 years so far, specialized in UI/UX, Branding and digital designs.";
-  static const String DOWNLOAD_CV = "Download Company Profile";
-  static const String LEARN_MORE = "LEARN MORE";
-  static const String EMAIL = "Email";
-  static const String BEHANCE = "Behance";
 
-  //FDS Tag Line
+  //FDS Tagline
   static const String WE_LISTEN = "WE LISTEN";
-  static const String WE_LISTEN_DESC = " ";
   static const String WE_ANTICIPATE = "WE ANTICIPATE";
-  static const String WE_ANTICIPATE_DESC = " ";
   static const String WE_DELIVER = "WE DELIVER";
-  static const String WE_DELIVER_DESC = " ";
-
-  //Programming Language
-  static const String PYTHON = "Python";
-  static const String JAVA = "Java";
-  static const String C_PLUS_PLUS = "C++";
-  static const String JAVASCRIPT = "Javascript";
-  static const String HTML = "HTML";
-  static const String CSS = "CSS";
 
   //About Us Section
   static const String ABOUT_US_DESC = '''FDS ASYA PHILIPPINES INC. (FDSAP) is a leader in digital services, whose success is also attributed to the support of an international alliance with our holding, ''';
@@ -57,71 +39,27 @@ class StringConst {
 • Provide digital ecosystem interconnectivity that bridges financial services with no-financial institutions to increase the benefits of the players in the ecosystem.''';
   static const String FDSAP_VISION_TITLE = "Our Vision";
   static const String FDSAP_VISION_DESC = "To become the largest technology-based service provider in ASEAN region.";
-  static const String FDSAP_HISTORY = "Our History";
   static const String FDSAP_TEAM_TITLE = "FDS ASYA PHILIPPINES INC.";
   static const String FDSAP_TEAM_DESC = "Organizational Chart";
 
-  //Skills Section
-  static const String MY_SKILLS = "my skills";
-  static const String SKILLS_TITLE_1 = "Our Partners";
-  static const String SKILLS_DESC = "These are the words we live by in everything we do. Every story we tell, every brand we build, and every interaction we create must not only look beautiful.";
-  static const String TOOLS_1_NAME = "Photoshop";
-  static const String TOOLS_1_PROFICIENCY = "80%";
-  static const String TOOLS_2_NAME = "Illustrator";
-  static const String TOOLS_2_PROFICIENCY = "90%";
-  static const String TOOLS_3_NAME = "Sketch";
-  static const String TOOLS_3_PROFICIENCY = "70%";
-  static const String SKILLS_1 = "UI/UX Design";
-  static const String SKILLS_1_DESC = "We believe direct collaboration with our clients is essential to bringing unique";
-  static const String SKILLS_2 = "Graphic Design";
-  static const String SKILLS_2_DESC = "We believe direct collaboration with our clients is essential to bringing unique";
-  static const String SKILLS_3 = "Motion Design";
-  static const String SKILLS_3_DESC = "We believe direct collaboration with our clients is essential to bringing unique";
-  static const String SKILLS_4 = "Photo Retouch";
-  static const String SKILLS_4_DESC = "We believe direct collaboration with our clients is essential to bringing unique";
-
   //Leading Banking Partner Section
-  static const String TITLE_STATS = " ";
   static const String CLIENTS = "Clients";
   static const String YEARS_OF_EXPERIENCE = "Years of Experience";
   static const String COUNTRIES = "Countries";
-  static const String INCREDIBLE_PROJECTS = " ";
-  static const String AWARD_WINNING = " ";
-  static const String API_CALLS_PER_DAY = " ";
 
   //Leading Banking Partner Section Numbers
   static const String CLIENTS_NUM = "8M+";
   static const String YEARS_OF_EXPERIENCE_NUM = "10";
   static const String COUNTRIES_NUM = "4";
-  static const String INCREDIBLE_PROJECTS_NUM = " ";
-  static const String AWARD_WINNING_NUM = " ";
-  static const String API_CALLS_PER_DAY_NUM = " ";
 
   //Products & Services Section
   static const String PRODUCT_AND_SERVICES = "Products & Services";
-  static const String MY_WORKS = "my works";
   static const String PRODUCT_AND_SERVICES_DESC = '''FDSAP is a one-stop solution to provide IT Operations Software as a Service, providing businesses with Kplus, Chatbot, OpenAPI, ATM Switch K2C, CBS, MobCol, DCM, AMLA, and many other innovative and disruptive solutions.''';
   static const String ALL = "All Products & Services";
-  static const String MOBILE_APP = "Mobile App";
-  static const String WEB = "Web";
-  static const String ATM = "ATM";
-  static const String WEB_DESIGN = "DCM";
-  static const String PORTFOLIO_1_TITLE = "";
-  static const String PORTFOLIO_2_TITLE = "";
-  static const String PORTFOLIO_3_TITLE = "";
-  static const String PORTFOLIO_4_TITLE = "";
-  static const String PORTFOLIO_5_TITLE = "";
-  static const String PORTFOLIO_6_TITLE = "";
-
-  //Products & Services Section
   static const String BANKING_TECHNOLOGY = "Banking Technology";
   static const String ALTERNATIVE_SOLUTION = "Alternative Deliveries Solution";
   static const String REGULATORY_SECURITY = "Regulatory and Security";
   static const String SOFTWARE_SERVICE = "Software as a Service";
-
-  //Core Banking Section
-  static const String CORE_BANKING_TITLE = "Core Banking System";
-  static const String CORE_BANKING_DESC = '''Core Banking System of FDSAP, it was developed to let banks scale quickly using traditional infrastructure and cloud platforms.''';
 
   //DCM Section
   static const String DCM_TITLE = "Digital Cash Machine";
@@ -147,7 +85,6 @@ class StringConst {
 
   //CLOUD Section
   static const String CLOUD_TEST_ENVIRONMENT_TITLE = "Cloud Test Environment";
-
   static const String CLOUD_TEST_ENVIRONMENT_DESC = '''Cloud test environment server is testing environment that provide businesses with an easy, on-demand means of testing an application’s reliability, scalability, and performance. This testing phase, in which all application and system servers are tested prior to implementation in production.''';
 
   //KPLUS Section
@@ -179,7 +116,7 @@ class StringConst {
   static const String SMART_BRANCH_SYSTEM_DESC = '''The used of smart branch system is to improve branch and teller efficiency to deliver a positive consumer experience through engaging self-service.''';
 
   //TEMENOS Section
-  static const String TEMENOS_TITLE = "Temenos";
+  static const String TEMENOS_TITLE = "Core Banking System";
   static const String TEMENOS_DESC = '''Temenos, also known as T24 is the core banking system of FDSAP, it was developed to let banks scale quickly using traditional infrastructure and cloud platforms.''';
 
   //Minokawa Section
@@ -206,25 +143,6 @@ class StringConst {
   static const String FRAUD_DETECTION_TITLE = "Fraud Detection";
   static const String FRAUD_DETECTION_DESC = '''Process of identifying and preventing fraudulent activities or transactions to protect individuals, businesses, and financial institutions from financial losses and reputational damage. Fraud can take many forms, such as identity theft, credit card fraud, insurance fraud, online scams, and more. The goal of fraud detection is to identify suspicious patterns, behaviors, or anomalies that may indicate fraudulent behavior and take appropriate actions to mitigate or stop the fraud before it causes harm.''';
 
-  //Awards & Section
-  static const String MY = "My";
-  static const String CV = "CV";
-  static const String MY_AWARDS = "my awards";
-  static const String AWARDS_TITLE = "Honours & Awards";
-  static const String AWARDS_DESC = "Since 2015 I have been a visionary and a reliable software engineering partner for world-class brands.";
-  static const String AWARDS_TYPE_TITLE_1 = "In Press";
-  static const String AWARDS_TYPE_TITLE_2 = "Awards";
-  static const String AWARDS_1 = "Forbes";
-  static const String AWARDS_2 = "New York Times";
-  static const String AWARDS_3 = "Smashing Magazine";
-  static const String AWARDS_4 = "Entrepreneur";
-  static const String AWARDS_5 = "First Magazine";
-  static const String AWARDS_6 = "The Type Direction Club 60";
-  static const String AWARDS_7 = "ClassiCon-Brochure 2017";
-  static const String AWARDS_8 = "The Good Design Awards 2017";
-  static const String AWARDS_9 = "For Print Only-Under consideration";
-  static const String AWARDS_10 = "CI Magazine 2017";
-
   //Insights Section
   static const String INSIGHTS_TITLE_1 = "Insights";
   static const String INSIGHTS_TITLE_2 = "Articles & Events";
@@ -233,44 +151,11 @@ class StringConst {
   static const String INSIGHTS_CATEGORY_1 = "Article";
   static const String INSIGHTS_CATEGORY_2 = "Event";
   static const String INSIGHTS_CATEGORY_3 = "News";
-  static const String INSIGHTS_CATEGORY_4 = " ";
-  static const String INSIGHTS_CATEGORY_5 = " ";
-  static const String INSIGHTS_CATEGORY_6 = " ";
-
-  //Article Card Cover Description
-  static const String ARTICLE_DATE = "February 4, 2023";
-  static const String ARTICLE_TITLE_1 = '''FDS ASYA PHILIPPINES INC. Pioneering Digital Transformations in Banking and Financial Services''';
-  static const String ARTICLE_TITLE_2 = ''' ''';
-  static const String ARTICLE_TITLE_3 = ''' ''';
-  static const String ARTICLE_SUBTITLE_1 = '''By co-creating value and empowering financial institutions with solutions designed for the digital era, FDS ASYA PHILIPPINES INC. (FDSAP) drives growth, enhances operational efficiency, and delivers exceptional customer experiences.''';
-  static const String ARTICLE_SUBTITLE_2 = " ";
-  static const String ARTICLE_SUBTITLE_3 = " ";
-  static const String ARTICLE_READ_MORE = "Read More";
-  static const String ARTICLES = "Blogging";
-
-  //Events Card Cover Description
-  static const String EVENTS_DATE = "February 14, 2023";
-  static const String EVENTS_TITLE_1 = '''FDS ASYA PHILIPPINES INC. Reflects on Years of Success and Innovation on its Founding Anniversary''';
-  static const String EVENTS_TITLE_2 = " ";
-  static const String EVENTS_TITLE_3 = " ";
-  static const String EVENTS_SUBTITLE_1 = '''FDS ASYA PHILIPPINES INC. (FDSAP) had joyously commemorated a significant milestone as it celebrates its anniversary on August 16,2022 . This auspicious occasion presents an opportunity to reflect upon the remarkable journey that has led the company.''';
-  static const String EVENTS_SUBTITLE_2 = ''' ''';
-  static const String EVENTS_SUBTITLE_3 = '''  ''';
-  static const String EVENTS_READ_MORE = "Read More";
-  static const String EVENTS = "Blogging";
-
-  //Webinars Card Cover Description
-  static const String WEBINARS_DATE = "February 25, 2023";
-  static const String WEBINARS_TITLE_1 = '''FDS ASYA PHILIPPINES INC. Signs MOA with Pamantasan ng Lungsod ng San Pablo for OJT Program for IT Students''';
-  static const String WEBINARS_TITLE_2 = " ";
-  static const String WEBINARS_TITLE_3 = " ";
-  static const String WEBINARS_SUBTITLE_1 = '''On May 23, 2022, FDS ASYA PHILIPPINES INC. (FDSAP) and Pamantasan ng Lungsod ng San Pablo (PLSP) signed a Memorandum of Agreement (MOA) for an On-the-Job Training program for Information Technology (IT) students.''';
-  static const String WEBINARS_SUBTITLE_2 = ''' ''';
-  static const String WEBINARS_SUBTITLE_3 = ''' ''';
-  static const String WEBINARS_READ_MORE = "Read More";
-  static const String WEBINARS = "Blogging";
 
   //Article Info
+  static const String ARTICLE_DATE = "February 4, 2023";
+  static const String ARTICLE_TITLE_1 = '''FDS ASYA PHILIPPINES INC. Pioneering Digital Transformations in Banking and Financial Services''';
+  static const String ARTICLE_SUBTITLE_1 = '''By co-creating value and empowering financial institutions with solutions designed for the digital era, FDS ASYA PHILIPPINES INC. (FDSAP) drives growth, enhances operational efficiency, and delivers exceptional customer experiences.''';
   static const String ARTICLE_DESC_TITLE = '''FDS ASYA PHILIPPINES INC.
 Pioneering Digital Transformations in Banking and Financial Services''';
   static const String ARTICLE_DESC_SUBTITLE1 = 'Article';
@@ -287,6 +172,9 @@ FDSAP is a company owned of FDS Asya, Inc. based  in Singapore. It is the result
   static const String ARTICLE_DESC5 = '''Throughout its journey, FDSAP has built a reputation as a trusted and reliable partner for financial institutions.. With its deep industry knowledge, extensive experience, and a track record of successful implementations, FDSAP has garnered the trust of its clients. Financial institutions recognize FDSAP as a partner that understands their unique challenges and provides tailored solutions to address their specific needs, ultimately positioning them for long-term success in the digital era.''';
 
   //Events Info
+  static const String EVENTS_DATE = "February 14, 2023";
+  static const String EVENTS_TITLE_1 = '''FDS ASYA PHILIPPINES INC. Reflects on Years of Success and Innovation on its Founding Anniversary''';
+  static const String EVENTS_SUBTITLE_1 = '''FDS ASYA PHILIPPINES INC. (FDSAP) had joyously commemorated a significant milestone as it celebrates its anniversary on August 16,2022 . This auspicious occasion presents an opportunity to reflect upon the remarkable journey that has led the company.''';
   static const String EVENTS_DESC_TITLE = '''Celebrating a Milestone:
 FDS ASYA PHILIPPINES INC. Reflects on Years of Success and Innovation on its Founding Anniversary''';
   static const String EVENTS_DESC_SUBTITLE1 = "Event";
@@ -301,6 +189,9 @@ FDS ASYA PHILIPPINES INC. Reflects on Years of Success and Innovation on its Fou
   static const String EVENTS_DESC5 = "FDSAP extends its heartfelt gratitude to its esteemed clients, partners, and stakeholders. Their unwavering trust, support, and collaboration have been instrumental in the company's success. FDSAP considers it a privilege to have had the opportunity to work alongside these individuals and organizations, contributing to their journey. Additionally, the company expresses deep appreciation to its dedicated employees for their unwavering commitment and hard work, recognizing that their efforts have been integral to FDSAP’s achievements.";
 
   //News Info
+  static const String NEWS_DATE = "February 25, 2023";
+  static const String NEWS_TITLE_1 = '''FDS ASYA PHILIPPINES INC. Signs MOA with Pamantasan ng Lungsod ng San Pablo for OJT Program for IT Students''';
+  static const String NEWS_SUBTITLE_1 = '''On May 23, 2022, FDS ASYA PHILIPPINES INC. (FDSAP) and Pamantasan ng Lungsod ng San Pablo (PLSP) signed a Memorandum of Agreement (MOA) for an On-the-Job Training program for Information Technology (IT) students.''';
   static const String NEWS_DESC_TITLE = '''FDS ASYA PHILIPPINES INC.
 Signs MOA with Pamantasan ng Lungsod ng San Pablo for OJT Program for IT Students''';
   static const String NEWS_DESC_SUBTITLE1 = 'News';
@@ -314,14 +205,6 @@ In response, Engr. Almario expressed, "This collaboration with FDSAP will help o
 
 Moreover, CARD MRI envisions extending the On-the-Job training program to include not only IT students but also students from other professional fields such as business administration and accountancy. This initial partnership paves the way for further opportunities for fresh graduates to undergo fruitful training and secure employment prospects.
 ''';
-  static const String NEWS_DESC_SUBTITLE2 = '';
-  static const String NEWS_DESC2 = '';
-  static const String NEWS_DESC_SUBTITLE3 = '';
-  static const String NEWS_DESC3 = '';
-  static const String NEWS_DESC_SUBTITLE4 = '';
-  static const String NEWS_DESC4 = '';
-  static const String NEWS_DESC_SUBTITLE5 = '';
-  static const String NEWS_DESC5 = '';
 
   //Footer Section
   static const String ABOUT_FDS_ASYA_FOOTER0 = "FDS ASYA PHILIPPINES INC.";
@@ -337,15 +220,6 @@ Digipay''';
 Contact
 Our Approach
 Latest Article & News''';
-  static const String ABOUT_FDS_ASYA_FOOTER4 = " ";
-  static const String ABOUT_FDS_ASYA_FOOTER5 = " ";
-  static const String ABOUT_FDS_ASYA_FOOTER6 = " ";
-  static const String ABOUT_FDS_ASYA_FOOTER7 = " ";
-  static const String ABOUT_FDS_ASYA_FOOTER8 = " ";
-  static const String ABOUT_FDS_ASYA_FOOTER9 = " ";
-  static const String ABOUT_FDS_ASYA_FOOTER10 = " ";
-  static const String ABOUT_FDS_ASYA_FOOTER11 = " ";
-  static const String ABOUT_FDS_ASYA_FOOTER12 = " ";
 
   // Locations
   static const String OUR_LOCATION = "Our Location";

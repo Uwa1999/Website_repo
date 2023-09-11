@@ -585,7 +585,7 @@ class _MobileInsightsCardState extends State<MobileInsightsCard> {
                                       child: Align(
                                         alignment: Alignment.centerLeft,
                                         child: Text(
-                                          StringConst.WEBINARS_TITLE_1,
+                                          StringConst.NEWS_TITLE_1,
                                           style: widget.dateStyle ??
                                               textTheme.titleSmall?.copyWith(
                                                 fontSize: Sizes.TEXT_SIZE_15,

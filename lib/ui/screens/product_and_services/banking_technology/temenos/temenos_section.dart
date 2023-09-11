@@ -146,7 +146,7 @@ class _TemenosSectionState extends State<TemenosSection> {
               Padding(
                 padding: EdgeInsets.only(right: !isMobile(context) ? 15 : 0),
                 child: NimbusInfoSection1(
-                  title1: StringConst.CORE_BANKING_TITLE,
+                  title1: StringConst.TEMENOS_TITLE,
                   hasTitle2: false,
                   body: StringConst.TEMENOS_DESC,
                   title1Style: GoogleFonts.poppins(
@@ -173,7 +173,7 @@ class _TemenosSectionState extends State<TemenosSection> {
               Padding(
                 padding: EdgeInsets.only(right: !isMobile(context) ? 15 : 0),
                 child: NimbusInfoSection2(
-                  title1: StringConst.CORE_BANKING_TITLE,
+                  title1: StringConst.TEMENOS_TITLE,
                   hasTitle2: false,
                   body: StringConst.TEMENOS_DESC,
                   title1Style: GoogleFonts.poppins(
