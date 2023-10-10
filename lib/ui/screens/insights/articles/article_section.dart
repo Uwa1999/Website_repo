@@ -22,7 +22,7 @@ class _ArticleDescSectionState extends State<ArticleDescSection> {
   }
 }
 
-//Desktop Screen
+//Desktop Scree
 class DesktopArticleDescScreen extends StatefulWidget {
   const DesktopArticleDescScreen({Key? key}) : super(key: key);
 

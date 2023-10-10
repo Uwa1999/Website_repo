@@ -49,7 +49,7 @@ class _SideMenuState extends State<SideMenu> with SingleTickerProviderStateMixin
               ),
               SizedBoxH80(),
               NavItem(
-                title: 'Home',
+                title: StringConst.HOME,
                 onTap: () {
                   Navigator.of(context).pushNamed(HomepageScreen.route);
                   print("-----HOMEPAGE SCREEN----");
@@ -57,7 +57,7 @@ class _SideMenuState extends State<SideMenu> with SingleTickerProviderStateMixin
               ),
               SizedBoxH30(),
               NavItem(
-                title: 'About Us',
+                title: StringConst.ABOUT,
                 onTap: () {
                   Navigator.of(context).pushNamed(AboutMain.route);
                   print("-----ABOUT US SCREEN----");
@@ -65,7 +65,7 @@ class _SideMenuState extends State<SideMenu> with SingleTickerProviderStateMixin
               ),
               SizedBoxH30(),
               NavItem(
-                title: 'Product & Services',
+                title: StringConst.SERVICES,
                 onTap: () {
                   Navigator.of(context).pushNamed(ProductServicesMain.route);
                   print("-----PRODUCT & SERVICES SCREEN----");
@@ -73,7 +73,7 @@ class _SideMenuState extends State<SideMenu> with SingleTickerProviderStateMixin
               ),
               SizedBoxH30(),
               NavItem(
-                title: 'Insights',
+                title: StringConst.INSIGHTS,
                 onTap: () {
                   Navigator.of(context).pushNamed(InsightsMain.route);
                   print("-----INSIGHTS SCREEN----");
@@ -81,7 +81,7 @@ class _SideMenuState extends State<SideMenu> with SingleTickerProviderStateMixin
               ),
               SizedBoxH30(),
               NavItem(
-                title: 'Contact Us',
+                title: StringConst.CONTACT_US,
                 onTap: _launchContactUsURL,
               ),
             ],

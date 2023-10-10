@@ -52,7 +52,6 @@ class AppColors {
   static const Color red = Color(0xFFF1291A);
 
   //Maroon
-
   static const Color maroon01 = Color(0xFF250902);
   static const Color maroon02 = Color(0xFF300000);
   static const Color maroon03 = Color(0xFF4F0000);
