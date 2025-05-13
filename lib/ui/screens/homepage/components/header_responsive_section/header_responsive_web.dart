@@ -89,36 +89,36 @@ class _HeaderResponsiveWebState extends State<HeaderResponsiveWeb> {
                                 ),
                               ),
                             ),
-                            ConstrainedBox(
-                              constraints: BoxConstraints(maxWidth: screenWidth),
-                              child: AnimatedTextKit(
-                                animatedTexts: [
-                                  TypewriterAnimatedText(
-                                    StringConst.INTRO3,
-                                    textAlign: TextAlign.start,
-                                    speed: Duration(milliseconds: 100),
-                                    textStyle: GoogleFonts.poppins(
-                                      fontSize: headerIntroTextSize,
-                                      fontWeight: FontWeight.w600,
-                                      color: AppColors.white,
-                                    ),
-                                  ),
-                                ],
-                                onTap: () {},
-                                isRepeatingAnimation: true,
-                                repeatForever: true,
-                              ),
-                            ),
+                            // ConstrainedBox(
+                            //   constraints: BoxConstraints(maxWidth: screenWidth),
+                            //   child: AnimatedTextKit(
+                            //     animatedTexts: [
+                            //       TypewriterAnimatedText(
+                            //         StringConst.INTRO3,
+                            //         textAlign: TextAlign.start,
+                            //         speed: Duration(milliseconds: 100),
+                            //         textStyle: GoogleFonts.poppins(
+                            //           fontSize: headerIntroTextSize,
+                            //           fontWeight: FontWeight.w600,
+                            //           color: AppColors.white,
+                            //         ),
+                            //       ),
+                            //     ],
+                            //     onTap: () {},
+                            //     isRepeatingAnimation: true,
+                            //     repeatForever: true,
+                            //   ),
+                            // ),
                             SizedBoxH16(),
                             ConstrainedBox(
-                              constraints: BoxConstraints(maxWidth: screenWidth * 0.50),
+                              constraints: BoxConstraints(maxWidth: screenWidth * 0.40),
                               child: SelectableText(
                                 StringConst.ABOUT_DEV,
                                 textAlign: TextAlign.justify,
                                 style: GoogleFonts.poppins(
                                   color: AppColors.white,
                                   fontWeight: FontWeight.w500,
-                                  fontSize: 18,
+                                  fontSize: 15,
                                   height: 1.7,
                                 ),
                               ),

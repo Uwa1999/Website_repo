@@ -52,6 +52,7 @@ class _HeaderSectionState extends State<HeaderSection> with SingleTickerProvider
               colors: [
                 AppColors.white.withOpacity(0.9),
                 AppColors.white.withOpacity(0.9),
+
               ],
             ),
           ),

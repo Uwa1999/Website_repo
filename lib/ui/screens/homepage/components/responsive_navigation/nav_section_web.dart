@@ -15,6 +15,8 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/sizedbox.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
+import '../../../shared/widgets/pop_container.dart';
+
 const double logoSpaceLeftLg = 40.0;
 const double logoSpaceLeftSm = 20.0;
 const double logoSpaceRightLg = 70.0;
@@ -39,6 +41,15 @@ class NavSectionWeb extends StatefulWidget {
 }
 
 class _NavSectionWebState extends State<NavSectionWeb> {
+
+  // void _showDemoPopup(BuildContext context) {
+  //   showDialog(
+  //     context: context,
+  //     builder: (context) => DemoPopup(
+  //       // onClose: () => Navigator.of(context).pop(),
+  //     ),
+  //   );
+  // }
   @override
   Widget build(BuildContext context) {
     double logoSpaceLeft = responsiveSize(context, logoSpaceLeftSm, logoSpaceLeftLg);
@@ -115,6 +126,7 @@ class _NavSectionWebState extends State<NavSectionWeb> {
               width: contactBtnWidth,
               opensUrl: true,
               url: StringConst.EMAIL_URL,
+              // onPressed: ()=>_showDemoPopup(context),
             ),
             SizedBox(width: contactBtnSpaceRight),
           ],

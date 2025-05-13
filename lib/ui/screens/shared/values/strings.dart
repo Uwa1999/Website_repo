@@ -5,20 +5,20 @@ class StringConst {
   static const String APP_NAME = "FDS Asya Philippines Inc.";
 
   //Nav Section
-  static const String HOME = "Home";
-  static const String ABOUT = "About Us";
+  static const String HOME = "Why Us?";
   static const String SERVICES = "Products & Services";
-  static const String INSIGHTS = "Insights";
-  static const String PARTNERS = "Partners";
-  static const String CONTACT = "Contacts";
+  static const String ABOUT = "Case Studies";
+  static const String INSIGHTS = "Resources";
+  static const String PARTNERS = "Contact Us";
+  // static const String CONTACT = "Book a Demo";
 
-  static const String CONTACT_US = "Contact Us";
+  static const String CONTACT_US = "Book a Demo";
   static const String DEV_EMAIL = "fdsap@fortress-asya.com";
   static const String EMAIL_URL = "mailto:<$DEV_EMAIL>?subject=&body=";
 
   //Header Section
-  static const String INTRO = "Leading Technology-based";
-  static const String INTRO2 = "Service Provider in the";
+  static const String INTRO = "Reliable partner on your";
+  static const String INTRO2 = "Digitalization Journey.";
   static const String INTRO3 = "ASEAN Region";
   static const String ABOUT_DEV = "Providing world class core banking software in the regional economy and community with short implementation time, tailor-made services, and redefining the holistic customer experiences.";
 
