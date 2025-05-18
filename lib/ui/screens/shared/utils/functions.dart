@@ -15,9 +15,9 @@ Future<void> openUrlLink(String url) async {
   }
 }
 
-scrollToSection(BuildContext context) {
-  Scrollable.ensureVisible(
-    context,
-    duration: kDuration,
-  );
-}
+// scrollToSection(BuildContext context) {
+//   Scrollable.ensureVisible(
+//     context,
+//     duration: kDuration,
+//   );
+// }
