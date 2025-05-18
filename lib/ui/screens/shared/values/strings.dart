@@ -5,14 +5,15 @@ class StringConst {
   static const String APP_NAME = "FDS Asya Philippines Inc.";
 
   //Nav Section
-  static const String HOME = "Why Us?";
-  static const String SERVICES = "Products & Services";
-  static const String ABOUT = "Case Studies";
-  static const String INSIGHTS = "Resources";
+  static const String HOME = "Home";
+  static const String SERVICES = "Our Products & Services";
+  static const String ABOUT_US = "About Us";
+  static const String INSIGHTS = "Insights";
   static const String PARTNERS = "Contact Us";
+  static const String CLIENTS = 'Clients';
   // static const String CONTACT = "Book a Demo";
 
-  static const String CONTACT_US = "Book a Demo";
+  static const String CONTACT_US = "Contact Us";
   static const String DEV_EMAIL = "fdsap@fortress-asya.com";
   static const String EMAIL_URL = "mailto:<$DEV_EMAIL>?subject=&body=";
 
@@ -43,9 +44,9 @@ class StringConst {
   static const String FDSAP_TEAM_DESC = "Organizational Chart";
 
   //Leading Banking Partner Section
-  static const String CLIENTS = "Clients";
-  static const String YEARS_OF_EXPERIENCE = "Years of Experience";
-  static const String COUNTRIES = "Countries";
+  static const String CLIENT = "Clients";
+  static const String YEARS = "Years";
+  static const String Users = "Users";
 
   //Leading Banking Partner Section Numbers
   static const String CLIENTS_NUM = "8M+";
@@ -53,7 +54,7 @@ class StringConst {
   static const String COUNTRIES_NUM = "4";
 
   //Products & Services Section
-  static const String PRODUCT_AND_SERVICES = "Products & Services";
+  static const String PRODUCT_AND_SERVICES = "Our Products & Services";
   static const String PRODUCT_AND_SERVICES_DESC = '''FDSAP is a one-stop solution to provide IT Operations Software as a Service, providing businesses with Kplus, Chatbot, OpenAPI, ATM Switch K2C, CBS, MobCol, DCM, AMLA, and many other innovative and disruptive solutions.''';
   static const String ALL = "All Products & Services";
   static const String BANKING_TECHNOLOGY = "Banking Technology";
@@ -231,6 +232,7 @@ Latest Article & News''';
 
   //URL Links
   static const String FDSI_URL = "https://fds.co.id/";
+  static const String LOCATION_URLv2 = "https://www.google.com/maps/place/1519+D.+Oliman,+Makati,+1208+Metro+Manila/@14.5698874,121.02259,20z/data=!4m15!1m8!3m7!1s0x3397c9af66319a93:0xf6d8acbb86f3af8a!2s1519+D.+Oliman,+Makati,+1208+Metro+Manila!3b1!8m2!3d14.5698286!4d121.0227441!16s%2Fg%2F11g1nmm0dv!3m5!1s0x3397c9af66319a93:0xf6d8acbb86f3af8a!8m2!3d14.5698286!4d121.0227441!16s%2Fg%2F11g1nmm0dv!5m1!1e4?entry=ttu&g_ep=EgoyMDI1MDUxMy4xIKXMDSoASAFQAw%3D%3D";
   static const String LOCATION_URL = "https://www.google.com/maps/place/Card+MBA+Inc./@14.0677803,121.3269378,19.39z/data=!4m6!3m5!1s0x33bd5ccb0a97e6f5:0xdfba275f27ec8776!8m2!3d14.0678122!4d121.3270008!16s%2Fg%2F11c74g33l6?entry=ttu";
   static const String LINKED_IN_URL = "https://www.linkedin.com/company/91151225/";
   static const String FACEBOOK_URL = "https://www.facebook.com/FDSAsyaPhilippinesInc";
