@@ -49,7 +49,7 @@ class _DesktopProductServicesSectionState extends State<DesktopProductServicesSe
   late AnimationController _productController;
   late Animation<double> _projectScaleAnimation;
   List<List<DesktopProductServicesData>> productServices = [
-    Data.allProductServices,
+    // Data.allProductServices,
   ];
   late List<DesktopProductServicesData> selectedProductServices;
   late List<ProductServicesCategoryData> productServicesCategories;
@@ -372,7 +372,7 @@ class _MobileProductServicesSectionState extends State<MobileProductServicesSect
   late AnimationController _productController;
 
   List<List<DesktopProductServicesData>> productServices = [
-    Data.allProductServices,
+    // Data.allProductServices,
   ];
   late List<DesktopProductServicesData> selectedProductServices;
   late List<ProductServicesCategoryData> productServicesCategories;
