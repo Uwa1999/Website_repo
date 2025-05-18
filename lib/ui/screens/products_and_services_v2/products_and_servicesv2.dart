@@ -107,7 +107,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../shared/widgets/products_and _services_v2.dart';
+import '../shared/widgets/products_and_services_v2.dart';
 
 class ProductsAndServicesV2 extends StatefulWidget {
   static const String route = '/PAS';
