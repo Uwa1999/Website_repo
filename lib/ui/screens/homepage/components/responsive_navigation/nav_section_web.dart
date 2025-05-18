@@ -15,7 +15,9 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/sizedbox.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
+import '../../../clients/clients_main.dart';
 import '../../../shared/widgets/pop_container.dart';
+import '../our_location_section.dart';
 
 const double logoSpaceLeftLg = 40.0;
 const double logoSpaceLeftSm = 20.0;
@@ -32,24 +34,26 @@ const int menuSpacerRightMd = 4;
 const int menuSpacerRightSm = 3;
 
 class NavSectionWeb extends StatefulWidget {
-  final List<NavItemData> navItems;
 
-  NavSectionWeb({required this.navItems});
+   List<NavItemData> navItems = [
+    NavItemData(name: StringConst.CONTACT_US, key: GlobalKey()),
+  ];
+
+  final Function(GlobalKey) onNavItemSelected;
+
+  NavSectionWeb({required this.navItems,required this.onNavItemSelected});
 
   @override
   _NavSectionWebState createState() => _NavSectionWebState();
 }
 
 class _NavSectionWebState extends State<NavSectionWeb> {
+  late final GlobalKey contactUsKey;
+  final List<NavItemData> navItems = [
+    NavItemData(name: StringConst.CONTACT_US, key: GlobalKey()),
+  ];
 
-  // void _showDemoPopup(BuildContext context) {
-  //   showDialog(
-  //     context: context,
-  //     builder: (context) => DemoPopup(
-  //       // onClose: () => Navigator.of(context).pop(),
-  //     ),
-  //   );
-  // }
+
   @override
   Widget build(BuildContext context) {
     double logoSpaceLeft = responsiveSize(context, logoSpaceLeftSm, logoSpaceLeftLg);
@@ -78,11 +82,10 @@ class _NavSectionWebState extends State<NavSectionWeb> {
 
     return Container(
       height: Sizes.HEIGHT_100,
+      // color: Colors.transparent.withOpacity(0.2),
       decoration: BoxDecoration(
-        color: AppColors.white,
-        boxShadow: [
-          Shadows.elevationShadow,
-        ],
+        color: Colors.transparent,
+
       ),
       child: IntrinsicHeight(
         child: Row(
@@ -95,7 +98,7 @@ class _NavSectionWebState extends State<NavSectionWeb> {
               },
               child: Image.asset(
                 ImagePath.FDSAP_LOGO_MAROON,
-                height: Sizes.HEIGHT_100,
+                height: Sizes.HEIGHT_40,
               ),
             ),
             SizedBox(width: logoSpaceRight),
@@ -121,27 +124,108 @@ class _NavSectionWebState extends State<NavSectionWeb> {
             ),
             NimbusVerticalDivider(),
             SizedBox(width: contactBtnSpaceLeft),
-            ContactUsButton(
-              buttonTitle: StringConst.CONTACT_US,
-              width: contactBtnWidth,
-              opensUrl: true,
-              url: StringConst.EMAIL_URL,
-              // onPressed: ()=>_showDemoPopup(context),
+            // Container(
+            //   child: NavItem(title: 'Contact Us',), color: Colors.red,),
+            // Row(
+            //   children: navItems.map((item) {
+            //     return NavItem(
+            //       title: item.name ?? '',
+            //       isSelected: item.isSelected,
+            //       onTap: () {
+            //         final context = item.key.currentContext;
+            //         if (context != null) {
+            //           Scrollable.ensureVisible(
+            //             context,
+            //             duration: Duration(milliseconds: 500),
+            //             curve: Curves.easeInOut,
+            //           );
+            //         }
+            //       },
+            //     );
+            //   }).toList(),
+            // ),
+            // Row(
+            //   children: navItems.map((item) {
+            //     return NavItem(
+            //       title: item.name ?? '',
+            //       isSelected: item.isSelected,
+            //       onTap: () {
+            //         final ctx = item.key.currentContext;
+            //         if (ctx != null) {
+            //           Scrollable.ensureVisible(
+            //             ctx,
+            //             duration: Duration(milliseconds: 500),
+            //             curve: Curves.easeInOut,
+            //           );
+            //         }
+            //       },
+            //     );
+            //   }).toList(),
+            // ),
+            Container(
+width: 120,
+              height: 40,
+              decoration: BoxDecoration(
+                  color: AppColors.maroon05,
+                borderRadius: BorderRadius.circular(20)
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: NavItem(
+                  titleColor: AppColors.white,
+                  title: widget.navItems.last.name!,
+                  isSelected: widget.navItems.last.isSelected,
+                  onTap: () => _onTapNavItem(
+                    context: widget.navItems.last.key,
+                    navItemName: widget.navItems.last.name!,
+                  ),
+                ),
+              ),
             ),
+
+
+            // Container(
+            //   child: ContactUsButton(
+            //     buttonTitle: StringConst.CONTACT_US,
+            //     buttonColor: AppColors.maroon02,
+            //     borderRadius: BorderRadius.all(Radius.circular(100)),
+            //     width: contactBtnWidth,
+            //    onPressed: (){
+            //      Navigator.of(context).pushNamed(ContactUsPage.route);
+            //    },
+            //     // onPressed: ()=>_showDemoPopup(context),
+            //   ),
+            // ),
             SizedBox(width: contactBtnSpaceRight),
           ],
         ),
       ),
     );
   }
-
+///old
+  // _onTapNavItem({
+  //   required GlobalKey context,
+  //   required String navItemName,
+  // }) {
+  //   for (int index = 0; index < widget.navItems.length; index++) {
+  //     if (navItemName == widget.navItems[index].name) {
+  //       scrollToSection(context.currentContext!);
+  //       setState(() {
+  //         widget.navItems[index].isSelected = true;
+  //       });
+  //     } else {
+  //       widget.navItems[index].isSelected = false;
+  //     }
+  //   }
+  // }
+///new added as of may 15, 2025
   _onTapNavItem({
     required GlobalKey context,
     required String navItemName,
   }) {
     for (int index = 0; index < widget.navItems.length; index++) {
       if (navItemName == widget.navItems[index].name) {
-        scrollToSection(context.currentContext!);
+        widget.onNavItemSelected(context); // <-- Call scroll from parent
         setState(() {
           widget.navItems[index].isSelected = true;
         });
@@ -153,14 +237,14 @@ class _NavSectionWebState extends State<NavSectionWeb> {
 
   List<Widget> _buildNavItems(List<NavItemData> navItems) {
     List<Widget> items = [];
-    for (int index = 0; index < navItems.length; index++) {
+    for (int index = 0; index < navItems.length - 1; index++) {
       items.add(
         NavItem(
-          title: navItems[index].name,
+          title: navItems[index].name!,
           isSelected: navItems[index].isSelected,
           onTap: () => _onTapNavItem(
             context: navItems[index].key,
-            navItemName: navItems[index].name,
+            navItemName: navItems[index].name!,
           ),
         ),
       );
