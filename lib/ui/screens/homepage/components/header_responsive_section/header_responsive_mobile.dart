@@ -59,14 +59,14 @@ class _HeaderResponsiveMobileState extends State<HeaderResponsiveMobile> with Si
     double heightOfStack = heightOfBlobAndGlobe * 2;
     return ContentArea(
       height: MediaQuery.of(context).size.height * 0.5,
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          fit: BoxFit.cover,
-          image: AssetImage(
-            ImagePath.HOME_BACKGROUND,
-          ),
-        ),
-      ),
+      // decoration: BoxDecoration(
+      //   image: DecorationImage(
+      //     fit: BoxFit.cover,
+      //     image: AssetImage(
+      //       ImagePath.HOME_BACKGROUND,
+      //     ),
+      //   ),
+      // ),
       child: Stack(
         children: [
           Column(
@@ -90,7 +90,7 @@ class _HeaderResponsiveMobileState extends State<HeaderResponsiveMobile> with Si
                                 style: GoogleFonts.poppins(
                                   fontSize: headerIntroTextSize,
                                   fontWeight: FontWeight.w500,
-                                  color: AppColors.white,
+                                  color: AppColors.black,
                                 ),
                               ),
                             ),
@@ -102,7 +102,7 @@ class _HeaderResponsiveMobileState extends State<HeaderResponsiveMobile> with Si
                                 style: GoogleFonts.poppins(
                                   fontSize: headerIntroTextSize,
                                   fontWeight: FontWeight.w500,
-                                  color: AppColors.white,
+                                  color: AppColors.black,
                                 ),
                               ),
                             ),
@@ -134,7 +134,7 @@ class _HeaderResponsiveMobileState extends State<HeaderResponsiveMobile> with Si
                                 textAlign: TextAlign.justify,
                                 style: GoogleFonts.poppins(
                                   fontWeight: FontWeight.w400,
-                                  color: AppColors.white,
+                                  color: AppColors.black,
                                   fontSize: 14,
                                   height: 1.5,
                                 ),
