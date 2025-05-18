@@ -27,7 +27,7 @@ import 'package:visibility_detector/visibility_detector.dart';
 import '../../homepage/components/header_section.dart';
 import '../../homepage/components/leading_partners_section.dart';
 import '../../shared/widgets/animation.dart';
-import '../../shared/widgets/products_and_services_v2.dart';
+import '../../shared/widgets/products_and _services_v2.dart';
 class FinTechPage extends StatefulWidget {
   static const String route = '/Fintech';
   const FinTechPage({Key? key}) : super(key: key);
