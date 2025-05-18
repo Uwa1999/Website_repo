@@ -142,7 +142,7 @@ class _AboutSectionState extends State<AboutSection> {
 
   Widget nimbusInfoSectionLg() {
     return NimbusInfoAboutSection(
-      title1: StringConst.ABOUT,
+      title1: StringConst.ABOUT_US,
       body: StringConst.ABOUT_US_DESC,
       body2: StringConst.ABOUT_US_DESC2,
       body3: StringConst.ABOUT_US_DESC3,
@@ -156,7 +156,7 @@ class _AboutSectionState extends State<AboutSection> {
 
   Widget nimbusInfoSectionSm({required double width}) {
     return NimbusInfoAboutSection(
-      title1: StringConst.ABOUT,
+      title1: StringConst.ABOUT_US,
       body: StringConst.ABOUT_US_DESC,
       body2: StringConst.ABOUT_US_DESC2,
       body3: StringConst.ABOUT_US_DESC3,

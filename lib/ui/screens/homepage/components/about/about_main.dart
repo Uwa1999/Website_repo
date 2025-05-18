@@ -24,7 +24,7 @@ class _AboutMainState extends State<AboutMain> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.white,
+      // backgroundColor: AppColors.white,
       key: _scaffoldKey,
       drawer: ResponsiveBuilder(
         refinedBreakpoints: RefinedBreakpoints(),
