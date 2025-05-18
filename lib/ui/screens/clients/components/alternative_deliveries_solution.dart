@@ -18,7 +18,6 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/sizes.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/strings.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/buttons/footer.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/nav_item.dart';
-import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/products_and%20_services_v2.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/sizedbox.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -28,6 +27,7 @@ import 'package:visibility_detector/visibility_detector.dart';
 import '../../homepage/components/header_section.dart';
 import '../../homepage/components/leading_partners_section.dart';
 import '../../shared/widgets/animation.dart';
+import '../../shared/widgets/products_and_services_v2.dart';
 class AlternativeDeliveriesSolution extends StatefulWidget {
   ///Alternative Deliveries Solution
   static const String route = '/ADS';
