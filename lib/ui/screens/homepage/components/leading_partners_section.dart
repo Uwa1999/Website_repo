@@ -9,20 +9,145 @@ import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
+import '../../shared/widgets/animation.dart';
+
+
+// class LeadingBankingPartnerSection extends StatefulWidget {
+//   LeadingBankingPartnerSection({Key? key});
+//   @override
+//   _LeadingBankingPartnerSectionState createState() => _LeadingBankingPartnerSectionState();
+// }
+//
+// class _LeadingBankingPartnerSectionState extends State<LeadingBankingPartnerSection> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return (!isMobile(context)) == (!isTab(context)) ? DesktopLeadingPartners() : MobileLeadingPartners();
+//   }
+// }
+
 class LeadingBankingPartnerSection extends StatefulWidget {
-  LeadingBankingPartnerSection({Key? key});
   @override
   _LeadingBankingPartnerSectionState createState() => _LeadingBankingPartnerSectionState();
 }
 
-class _LeadingBankingPartnerSectionState extends State<LeadingBankingPartnerSection> {
+class _LeadingBankingPartnerSectionState extends State<LeadingBankingPartnerSection> with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+        vsync: this, duration: const Duration(milliseconds: 1000));
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return VisibilityDetector(
+//       key: Key('statistics-section'),
+//       onVisibilityChanged: (visibilityInfo) {
+//         if (visibilityInfo.visibleFraction > 0.3) {
+//           _controller.forward();
+//         }
+//       },
+//       child: Padding(
+//         padding: const EdgeInsets.all(40),
+//         child: Row(
+//           mainAxisAlignment: MainAxisAlignment.spaceAround,
+//           children: _buildItems(Data.LeadingBankingPartnerItemsData, isHorizontal: true),
+//         ),
+//       ),
+//     );
+//   }
+//
+//   List<Widget> _buildItems(List<LeadingBankingPartnerData> data, {bool isHorizontal = false}) {
+//     List<Widget> items = [];
+//     for (int index = 0; index < data.length; index++) {
+//       items.add(
+//         LeadingBankingPartnerItem(
+//           title: data[index].value!,
+//           subnum: data[index].values!,
+//           subtitle: data[index].subtitle,
+//           controller: _controller,
+//         ),
+//       );
+//
+//       if (index < data.length - 1) {
+//         if (isHorizontal) {
+//           items.add(SizedBox(width: 40));
+//         } else {
+//           items.add(SizedBox(height: 40));
+//         }
+//       }
+//     }
+//     return items;
+//   }
+// }
   @override
   Widget build(BuildContext context) {
-    return (!isMobile(context)) == (!isTab(context)) ? DesktopLeadingPartners() : MobileLeadingPartners();
+    return VisibilityDetector(
+      key: Key('statistics-section'),
+      onVisibilityChanged: (visibilityInfo) {
+        if (visibilityInfo.visibleFraction > 0.3) {
+          _controller.forward();
+        }
+      },
+      child: Padding(
+        padding: const EdgeInsets.all(40),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // AnimatedGradientText(
+            //   animation: _controller,
+            //   text: 'Our Leading Banking Partners',
+            //   fontSize: 45,
+            // ),
+            Text('Our Leading Banking Partners', style: TextStyle(fontSize: 45, color:Colors.black),),
+            const SizedBox(height: 40),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: _buildItems(
+                  Data.LeadingBankingPartnerItemsData, isHorizontal: true),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  List<Widget> _buildItems(List<LeadingBankingPartnerData> data,
+      {bool isHorizontal = false}) {
+    List<Widget> items = [];
+    for (int index = 0; index < data.length; index++) {
+      items.add(
+        LeadingBankingPartnerItem(
+          title: data[index].value!,
+          subnum: data[index].values!,
+          subtitle: data[index].subtitle,
+          controller: _controller,
+        ),
+      );
+
+      if (index < data.length - 1) {
+        if (isHorizontal) {
+          items.add(SizedBox(width: 40));
+        } else {
+          items.add(SizedBox(height: 40));
+        }
+      }
+    }
+    return items;
   }
 }
 
-class DesktopLeadingPartners extends StatefulWidget {
+
+  class DesktopLeadingPartners extends StatefulWidget {
   const DesktopLeadingPartners({Key? key}) : super(key: key);
 
   @override
@@ -68,7 +193,7 @@ class _DesktopLeadingPartnersState extends State<DesktopLeadingPartners> with Si
                   Radius.circular(Sizes.RADIUS_10),
                 ),
               ),
-              color: AppColors.maroon03,
+              color: AppColors.pink300,
               child: ResponsiveBuilder(
                 refinedBreakpoints: RefinedBreakpoints(),
                 builder: (context, sizingInformation) {
