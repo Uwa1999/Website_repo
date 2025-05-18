@@ -5,6 +5,7 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/sizes.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/strings.dart';
 import 'package:flutter/material.dart';
 
+import 'NavItemData_global.dart';
 import 'nav_item.dart';
 
 const kSpacing20 = Sizes.SIZE_20;
@@ -86,9 +87,9 @@ class _AppDrawerState extends State<AppDrawer> {
         NavItem(
           onTap: () => _onTapNavItem(
             context: menuList[i].key,
-            navItemName: menuList[i].name,
+            navItemName: menuList[i].name!,
           ),
-          title: menuList[i].name,
+          title: menuList[i].name!,
           isMobile: true,
           isSelected: menuList[i].isSelected,
           titleStyle: textTheme.bodyLarge?.copyWith(
@@ -109,7 +110,7 @@ class _AppDrawerState extends State<AppDrawer> {
   }) {
     for (int index = 0; index < widget.menuList.length; index++) {
       if (navItemName == widget.menuList[index].name) {
-        scrollToSection(context.currentContext!);
+        // scrollToSection(context.currentContext!);
         setState(() {
           widget.menuList[index].isSelected = true;
         });

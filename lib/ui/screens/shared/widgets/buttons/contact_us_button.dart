@@ -4,6 +4,8 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/link.dart';
 
+import '../../values/strings.dart';
+import '../nav_item.dart';
 import '../pop_container.dart';
 
 class ContactUsButton extends StatelessWidget {
@@ -38,7 +40,9 @@ class ContactUsButton extends StatelessWidget {
   final LinkTarget linkTarget;
   final bool opensUrl;
 
-
+  // final List<NavItemData> navItems = [
+  //   NavItemData(name: StringConst.CONTACT_US, key: GlobalKey(), isSelected: false),
+  // ];
 
 
   @override
@@ -46,9 +50,10 @@ class ContactUsButton extends StatelessWidget {
     return ClipRRect(
       borderRadius: borderRadius!,
       child: MaterialButton(
+        // key: navItems[0].key,
         minWidth: width,
         height: height,
-        onPressed: opensUrl ? () {} : onPressed,
+        onPressed: onPressed,
         color: buttonColor,
         child: Padding(
           padding: padding,
@@ -62,9 +67,9 @@ class ContactUsButton extends StatelessWidget {
     TextTheme textTheme = Theme.of(context).textTheme;
     double textSize = responsiveSize(
       context,
+      Sizes.TEXT_SIZE_12,
       Sizes.TEXT_SIZE_14,
-      Sizes.TEXT_SIZE_16,
-      md: Sizes.TEXT_SIZE_15,
+      md: Sizes.TEXT_SIZE_13,
     );
     if (opensUrl) {
       return MouseRegion(
