@@ -11,6 +11,10 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/sizedbox.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../clients/clients_main.dart';
+import '../../shared/widgets/app_drawer.dart';
+import 'our_location_section.dart';
+
 class SideMenu extends StatefulWidget {
   const SideMenu({Key? key}) : super(key: key);
 
@@ -32,58 +36,13 @@ class _SideMenuState extends State<SideMenu> with SingleTickerProviderStateMixin
           ),
           child: ListView(
             children: [
-              InkWell(
-                onTap: () {
-                  Navigator.of(context).pushNamed(HomepageScreen.route);
-                  print("-----HOMEPAGE SCREEN----");
-                },
-                child: Center(
-                  child: Image.asset(
-                    ImagePath.FDSAP_LOGO_MAROON,
-                    height: Sizes.HEIGHT_150,
-                  ),
-                ),
-              ),
-              Divider(
-                color: AppColors.grey350,
-              ),
-              SizedBoxH80(),
-              NavItem(
-                title: StringConst.HOME,
-                onTap: () {
-                  Navigator.of(context).pushNamed(HomepageScreen.route);
-                  print("-----HOMEPAGE SCREEN----");
-                },
-              ),
-              SizedBoxH30(),
-              NavItem(
-                title: StringConst.ABOUT,
-                onTap: () {
-                  Navigator.of(context).pushNamed(AboutMain.route);
-                  print("-----ABOUT US SCREEN----");
-                },
-              ),
-              SizedBoxH30(),
-              NavItem(
-                title: StringConst.SERVICES,
-                onTap: () {
-                  Navigator.of(context).pushNamed(ProductServicesMain.route);
-                  print("-----PRODUCT & SERVICES SCREEN----");
-                },
-              ),
-              SizedBoxH30(),
-              NavItem(
-                title: StringConst.INSIGHTS,
-                onTap: () {
-                  Navigator.of(context).pushNamed(InsightsMain.route);
-                  print("-----INSIGHTS SCREEN----");
-                },
-              ),
-              SizedBoxH30(),
-              NavItem(
-                title: StringConst.CONTACT_US,
-                onTap: _launchContactUsURL,
-              ),
+              Container(height: 500, child: AppDrawer(menuList: [
+                NavItemData(name: StringConst.HOME, key: GlobalKey(), isSelected: true),
+                NavItemData(name: StringConst.SERVICES, key: GlobalKey()),
+                NavItemData(name: StringConst.ABOUT_US, key: GlobalKey()),
+                NavItemData(name: StringConst.CLIENT, key: GlobalKey()),
+                NavItemData(name: StringConst.INSIGHTS, key: GlobalKey()),
+              ],)),
             ],
           ),
         ),
@@ -91,7 +50,6 @@ class _SideMenuState extends State<SideMenu> with SingleTickerProviderStateMixin
     );
   }
 }
-
 _launchContactUsURL() async {
   print('-----FDSAP GMAIL-----');
   final Uri url = Uri.parse(StringConst.EMAIL_URL);
