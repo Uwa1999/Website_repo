@@ -53,19 +53,19 @@ class Data {
 
   static List<LeadingBankingPartnerData> LeadingBankingPartnerItemsData = [
     LeadingBankingPartnerData(
-      value: 8,
-      values: "M+",
-      subtitle: StringConst.CLIENTS,
-    ),
-    LeadingBankingPartnerData(
       value: 10,
-      values: "",
-      subtitle: StringConst.YEARS_OF_EXPERIENCE,
+      values: "M+",
+      subtitle: StringConst.YEARS,
     ),
     LeadingBankingPartnerData(
       value: 4,
-      values: "",
-      subtitle: StringConst.COUNTRIES,
+      values: "+",
+      subtitle: StringConst.CLIENTS,
+    ),
+    LeadingBankingPartnerData(
+      value: 8,
+      values: "M+",
+      subtitle: StringConst.Users,
     ),
   ];
 
@@ -118,5 +118,36 @@ class Data {
       productServicesCoverUrl: ImagePath.SOFTWARE_SERVICE_GIF,
       width: 0.220,
     ),
+  ];
+}
+
+
+class LeadingBankingPartnerData {
+  final int? value;
+  final String subtitle;
+  final String? values;
+
+  LeadingBankingPartnerData({
+    this.value,
+    required this.subtitle,
+    this.values,
+  });
+}
+
+class MobileLeadingBankingPartnerData {
+  final int? value;
+  final String subtitle;
+  final String? values;
+
+  MobileLeadingBankingPartnerData({
+    this.value,
+    required this.subtitle,
+    this.values,
+  });
+}
+
+class Datav2 {
+  static List<LeadingBankingPartnerData> LeadingBankingPartnerItemsData = [
+
   ];
 }
