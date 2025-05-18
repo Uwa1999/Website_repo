@@ -10,16 +10,17 @@ const double indicatorWidth = Sizes.WIDTH_170;
 const double indicatorHeight = Sizes.HEIGHT_2;
 
 class NavItemData {
-  final String name;
+  final String? name;
   final GlobalKey key;
   bool isSelected;
 
   NavItemData({
-    required this.name,
+    this.name,
     required this.key,
     this.isSelected = false,
   });
 }
+
 
 class NavItem extends StatefulWidget {
   NavItem({
@@ -100,3 +101,4 @@ class _NavItemState extends State<NavItem> with SingleTickerProviderStateMixin {
     });
   }
 }
+
