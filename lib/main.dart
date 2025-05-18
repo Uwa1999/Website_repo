@@ -1,4 +1,10 @@
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/clients/clients_main.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/clients/components/alternative_deliveries_solution.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/clients/components/fintech.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/clients/components/mfi.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/about/about_main.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/aboutv2/aboutv2.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/our_location_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/homepage_screen.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/insights/articles/article_main.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/insights/events/event_main.dart';
@@ -9,6 +15,7 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/banking_tec
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/product_and_services_main.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/regulatory_security/regulatory_security_main.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/software_service/software_service_main.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/products_and_services_v2/products_and_servicesv2.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:layout/layout.dart';
@@ -39,6 +46,13 @@ class Fdsap extends StatelessWidget {
           ArticleDescMain.route: (context) => ArticleDescMain(),
           EventsDescMain.route: (context) => EventsDescMain(),
           NewsDescMain.route: (context) => NewsDescMain(),
+          ContactUsPage.route:(context) => ContactUsPage(),
+          ClientsList.route:(context)=>ClientsList(),
+          FinTechPage.route:(context)=>FinTechPage(),
+          AlternativeDeliveriesSolution.route:(context)=> AlternativeDeliveriesSolution(),
+          MFIPage.route:(context)=>MFIPage(),
+          ProductsAndServicesV2.route:(context)=> ProductsAndServicesV2(),
+          AboutUsSection.route:(context)=> AboutUsSection()
         },
         debugShowCheckedModeBanner: false,
       ),
