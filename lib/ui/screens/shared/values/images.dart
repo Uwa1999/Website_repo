@@ -13,7 +13,8 @@ class ImagePath {
   static const String ORGANIZATION_CHART = "$imageDir/organization_chart.png";
 
 // FDSAP Logo
-  static const String FDSAP_LOGO_MAROON = "$imageDir/fdsap_logo_maroon.png";
+//   static const String FDSAP_LOGO_MAROON = "$imageDir/fdsap_logo_maroon.png";
+  static const String FDSAP_LOGO_MAROON = "$imageDir/logo-top-right.png";
   static const String FDSAP_LOGO_WHITE = "$imageDir/fdsap_logo_white.png";
 
 //FDSAP Location
