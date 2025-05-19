@@ -264,7 +264,7 @@ class _ClientsListState extends State<ClientsList> with SingleTickerProviderStat
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Text(
-                  'Fintect',
+                  'Fintech',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 40,

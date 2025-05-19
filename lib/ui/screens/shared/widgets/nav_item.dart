@@ -9,17 +9,33 @@ import 'animated_indicator.dart';
 const double indicatorWidth = Sizes.WIDTH_170;
 const double indicatorHeight = Sizes.HEIGHT_2;
 
+// class NavItemData {
+//   final String? name;
+//   final GlobalKey key;
+//   bool isSelected;
+//
+//   NavItemData({
+//     this.name,
+//     required this.key,
+//     this.isSelected = false,
+//   });
+// }
 class NavItemData {
   final String? name;
-  final GlobalKey key;
+  final GlobalKey? key;
   bool isSelected;
+
+  /// Optional widget to navigate to
+  final WidgetBuilder? destinationBuilder;
 
   NavItemData({
     this.name,
-    required this.key,
+  this.key,
     this.isSelected = false,
+    this.destinationBuilder,
   });
 }
+
 
 
 class NavItem extends StatefulWidget {

@@ -1,3 +1,4 @@
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/aboutv2/aboutv2.dart';
 import 'package:flutter/material.dart';
 
 import '../values/strings.dart';
@@ -7,7 +8,7 @@ import '../widgets/nav_item.dart';
 List<NavItemData> navItems = [
   NavItemData(name: StringConst.HOME, key: GlobalKey(), isSelected: true),
   NavItemData(name: StringConst.SERVICES, key: GlobalKey()),
-  NavItemData(name: StringConst.ABOUT_US, key: GlobalKey()),
+  NavItemData(name: StringConst.ABOUT_US, key: GlobalKey(), destinationBuilder: (context) => AboutUsSection()),
   NavItemData(name: StringConst.CLIENT, key: GlobalKey()),
   NavItemData(name: StringConst.INSIGHTS, key: GlobalKey()),
 

@@ -92,7 +92,7 @@ class _HomepageScreenState extends State<HomepageScreen> {
             color: AppColors.white,
           ),
           onPressed: () {
-            scrollToSection(navItems[0].key);
+            scrollToSection(navItems[0].key!);
           },
         ),
       ),

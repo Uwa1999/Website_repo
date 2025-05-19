@@ -56,6 +56,6 @@ COPY /nginx_conf/nginx.conf /etc/nginx/nginx.conf
 # COPY /nginx_conf/nginx.conf /usr/share/nginx/html
 
 # Expose and run nginx
-EXPOSE 17011
+EXPOSE 18030
 
 CMD ["nginx", "-g", "daemon off;"]

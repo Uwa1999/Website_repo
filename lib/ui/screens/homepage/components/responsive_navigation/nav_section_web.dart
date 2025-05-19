@@ -176,7 +176,7 @@ width: 120,
                   title: widget.navItems.last.name!,
                   isSelected: widget.navItems.last.isSelected,
                   onTap: () => _onTapNavItem(
-                    context: widget.navItems.last.key,
+                    context: widget.navItems.last.key!,
                     navItemName: widget.navItems.last.name!,
                   ),
                 ),
@@ -219,21 +219,50 @@ width: 120,
   //   }
   // }
 ///new added as of may 15, 2025
+//   _onTapNavItem({
+//     required GlobalKey context,
+//     required String navItemName,
+//   }) {
+//     for (int index = 0; index < widget.navItems.length; index++) {
+//       if (navItemName == widget.navItems[index].name) {
+//         widget.onNavItemSelected(context); // <-- Call scroll from parent
+//         setState(() {
+//           widget.navItems[index].isSelected = true;
+//         });
+//       } else {
+//         widget.navItems[index].isSelected = false;
+//       }
+//     }
+//   }
+
   _onTapNavItem({
     required GlobalKey context,
     required String navItemName,
   }) {
     for (int index = 0; index < widget.navItems.length; index++) {
-      if (navItemName == widget.navItems[index].name) {
-        widget.onNavItemSelected(context); // <-- Call scroll from parent
+      final item = widget.navItems[index];
+
+      if (navItemName == item.name) {
         setState(() {
-          widget.navItems[index].isSelected = true;
+          item.isSelected = true;
+          // Unselect others
+          for (int j = 0; j < widget.navItems.length; j++) {
+            if (j != index) widget.navItems[j].isSelected = false;
+          }
         });
-      } else {
-        widget.navItems[index].isSelected = false;
+
+        if (item.destinationBuilder != null) {
+          Navigator.push(
+            context.currentContext!,
+            MaterialPageRoute(builder: item.destinationBuilder!),
+          );
+        } else {
+          widget.onNavItemSelected(context); // Use scroll fallback
+        }
       }
     }
   }
+
 
   List<Widget> _buildNavItems(List<NavItemData> navItems) {
     List<Widget> items = [];
@@ -243,7 +272,7 @@ width: 120,
           title: navItems[index].name!,
           isSelected: navItems[index].isSelected,
           onTap: () => _onTapNavItem(
-            context: navItems[index].key,
+            context: navItems[index].key!,
             navItemName: navItems[index].name!,
           ),
         ),

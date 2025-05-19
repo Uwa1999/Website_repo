@@ -86,7 +86,7 @@ class _AppDrawerState extends State<AppDrawer> {
       menuItems.add(
         NavItem(
           onTap: () => _onTapNavItem(
-            context: menuList[i].key,
+            context: menuList[i].key!,
             navItemName: menuList[i].name!,
           ),
           title: menuList[i].name!,
