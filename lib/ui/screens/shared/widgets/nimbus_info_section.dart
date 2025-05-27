@@ -721,64 +721,87 @@ class NimbusInfoInsightTitle extends StatelessWidget {
   final double? thickness;
   final int quarterTurns;
   final Widget? child;
+  final VoidCallback? onTap;
 
   NimbusInfoInsightTitle({
     this.title1 = "",
-    required this.body,
     this.title2 = "",
+    this.hasTitle2 = true,
+    required this.body,
     this.sectionTitleStyle,
     this.title1Style,
-    this.hasTitle2 = true,
     this.title2Style,
     this.bodyStyle,
     this.thickness = 1.15,
     this.quarterTurns = 3,
     this.dividerColor = AppColors.white,
     this.child,
+    this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
     TextTheme textTheme = Theme.of(context).textTheme;
-    TextStyle? titleStyle = textTheme.headlineMedium?.copyWith(
+
+    TextStyle defaultTitleStyle = textTheme.headlineMedium?.copyWith(
       fontSize: responsiveSize(context, 26, 36, md: 32),
       color: AppColors.white,
-    );
+      fontWeight: FontWeight.bold,
+    ) ??
+        const TextStyle();
+
     double fontSize = responsiveSize(context, 16, 18);
-    return Container(
-      child: IntrinsicHeight(
-        child: Row(
-          children: [
-            Expanded(
-              child: Column(
-                mainAxisSize: MainAxisSize.max,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    title1!,
-                    style: title1Style ??
-                        titleStyle?.copyWith(
-                          color: AppColors.black,
-                          fontWeight: FontWeight.w900,
-                        ),
-                  ),
-                  SizedBoxH20(),
-                  Text(
-                    body,
-                    style: textTheme.bodySmall?.copyWith(
-                      fontSize: fontSize,
-                      height: 1.8,
-                      color: AppColors.white,
-                    ),
-                  ),
-                  child != null ? SizedBoxH30() : EmptyContainer(),
-                  child ?? EmptyContainer(),
-                ],
-              ),
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        // "Latest" Tag
+        Container(
+          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+          decoration: BoxDecoration(
+            // color: Colors.white24,
+            border: Border.all(color: Colors.white.withOpacity(0.60)),
+            borderRadius: BorderRadius.circular(4),
+          ),
+          child: Text(
+            "Latest",
+            style: textTheme.labelSmall?.copyWith(
+              color: Colors.white.withOpacity(0.60),
+              fontWeight: FontWeight.w500,
             ),
-          ],
+          ),
         ),
-      ),
+        const SizedBox(height: 12),
+
+        // Title Lines
+        Text(
+          title1 ?? "",
+          style: title1Style ?? defaultTitleStyle.copyWith(fontWeight: FontWeight.w400),
+        ),
+        if (hasTitle2 && (title2 ?? "").isNotEmpty)
+          Text(
+            title2!,
+            style: title2Style ?? defaultTitleStyle.copyWith(fontWeight: FontWeight.bold),
+          ),
+
+        const SizedBox(height: 20),
+
+        // View Article Button
+        ElevatedButton(
+          onPressed: onTap,
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Color(0xff30120f), // Use your own AppColors.red
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(20),
+            ),
+            padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+          ),
+          child: Text(
+            "View Article",
+            style: const TextStyle(color: Colors.white),
+          ),
+        ),
+      ],
     );
   }
 }
@@ -824,23 +847,30 @@ class FDSTaglineInfoSection extends StatelessWidget {
         child: Row(
           children: [
             Expanded(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  child ?? EmptyContainer(),
-                  Text(
-                    title1!,
-                    style: title1Style ??
-                        titleStyle?.copyWith(
-                          color: AppColors.black,
-                          fontWeight: FontWeight.w900,
-                        ),
-                  ),
-                  child ?? EmptyContainer(),
-                ],
+              child: InkWell(
+                onTap: () {
+                  print("Button tapped");
+                },
+                borderRadius: BorderRadius.circular(8), // Optional: for rounded ripple
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    child ?? EmptyContainer(),
+                    Text(
+                      title1!,
+                      style: title1Style ??
+                          titleStyle?.copyWith(
+                            color: AppColors.black,
+                            fontWeight: FontWeight.w900,
+                          ),
+                    ),
+                    child ?? EmptyContainer(),
+                  ],
+                ),
               ),
             ),
+
           ],
         ),
       ),
