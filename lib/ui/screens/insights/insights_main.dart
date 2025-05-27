@@ -8,8 +8,10 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/sizedbox.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
+import '../shared/widgets/buttons/footer.dart';
+
 class InsightsMain extends StatefulWidget {
-  static const String route = '/Insights';
+  // static const String route = '/Insights';
   const InsightsMain({Key? key}) : super(key: key);
 
   @override
@@ -56,7 +58,7 @@ class _InsightsMainState extends State<InsightsMain> {
                 children: [
                   InsightSection(),
                   SizedBoxH100(),
-                  FooterSection(),
+                  FooterSectionv2(),
                 ],
               ),
             ),
