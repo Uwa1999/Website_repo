@@ -585,15 +585,212 @@ import '../photoClients.dart';
 class FooterSectionv2 extends StatelessWidget {
   const FooterSectionv2({Key? key}) : super(key: key);
 
+//   @override
+//   Widget build(BuildContext context) {
+//     const whiteText = TextStyle(color: Colors.white, fontSize: 14);
+//     final double footerHeight = 250;
+//     const linkText = TextStyle(
+//       color: Colors.white,
+//       decoration: TextDecoration.underline,
+//       fontSize: 14,
+//     );
+//
+//     return Stack(
+//       clipBehavior: Clip.none,
+//       children: [
+//         Column(
+//           children: [
+//             // Top Black Section
+//             Container(
+//               color: Colors.black,
+//               width: double.infinity,
+//               height: 600,
+//               padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 20),
+//               child: Column(
+//                 crossAxisAlignment: CrossAxisAlignment.center,
+//                 children: [
+//                   // Logos row
+//                   AutoScrollWidgetScroller(
+// height: 80,
+// itemWidth: 120,
+// spacing: 24,
+// scrollDelay: const Duration(seconds: 2),
+// scrollDuration: const Duration(milliseconds: 800),
+// items: [
+// Image.asset('assets/images/bank-kalsel-emoney.png'),
+// Image.asset('assets/images/ag-bank-emoney.png'),
+// Image.asset('assets/images/bank-bpd-bali-emoney.png'),
+// Image.asset('assets/images/bank-sahabat.png'),
+// Image.asset('assets/images/banking-tech.png'),
+// Image.asset('assets/images/IMkas.png'),
+// Image.asset('assets/images/ottocash.png'),
+// Image.asset('assets/images/ottokonek.png'),
+// Image.asset('assets/images/ottopayv2.png'),
+// Image.asset('assets/images/pac-cash.png'),
+// Image.asset('assets/images/bank-bpd-bali-emoney.png'),
+// Image.asset('assets/images/bank-ina.png'),
+// Image.asset('assets/images/bank-jambi.png'),
+// Image.asset('assets/images/bank-kalsel-emoney.png'),
+// //
+// Image.asset('assets/images/bank-kalsel-emoney.png'),
+// Image.asset('assets/images/ag-bank-emoney.png'),
+// Image.asset('assets/images/bank-bpd-bali-emoney.png'),
+// Image.asset('assets/images/bank-sahabat.png'),
+// Image.asset('assets/images/banking-tech.png'),
+// Image.asset('assets/images/IMkas.png'),
+// Image.asset('assets/images/ottocash.png'),
+// Image.asset('assets/images/ottokonek.png'),
+// Image.asset('assets/images/ottopayv2.png'),
+// Image.asset('assets/images/pac-cash.png'),
+// Image.asset('assets/images/bank-bpd-bali-emoney.png'),
+// Image.asset('assets/images/bank-ina.png'),
+// Image.asset('assets/images/bank-jambi.png'),
+// Image.asset('assets/images/bank-kalsel-emoney.png'),
+//
+// ].map((logo) {
+// return Center(
+// child: Container(
+// padding: const EdgeInsets.all(8),
+// child: logo,
+// ),
+// );
+// }).toList(),
+// ),
+//
+//
+//                   // Legal Links and Logo
+//                   Row(
+//                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//                     children: const [
+//                       Column(
+//                         crossAxisAlignment: CrossAxisAlignment.start,
+//                         children: [
+//                           Text('Privacy Policy', style: linkText),
+//                           SizedBox(height: 8),
+//                           Text('Manage Cookies', style: linkText),
+//                         ],
+//                       ),
+//                       Image(
+//                         image: AssetImage('assets/images/fdsap_logo_white.png'),
+//                         width: 150,
+//                         height: 150,
+//                       ),
+//                       Column(
+//                         crossAxisAlignment: CrossAxisAlignment.end,
+//                         children: [
+//                           // Text('Back to Top ↑', style: linkText),
+//                           SizedBox(height: 8),
+//                           Text('Terms and Conditions', style: linkText),
+//                         ],
+//                       ),
+//                     ],
+//                   ),
+//                   const SizedBox(height: 40),
+//                 ],
+//               ),
+//             ),
+//           ],
+//         ),
+//         Positioned(
+//           bottom: 0,
+//           right: 0,
+//           child: Stack(
+//             clipBehavior: Clip.none,
+//             children: [
+//               // Dynamically positioned text
+//               Positioned(
+//                 bottom: footerHeight - 60, // Adjust offset from notch top
+//                 left: 0,
+//                 right: 0,
+//                 child: Text(
+//                   'We Listen.\nWe Anticipate.\nWe Deliver.',
+//                   textAlign: TextAlign.center,
+//                   style: TextStyle(
+//                     color: Colors.white,
+//                     fontSize: 24,
+//                     height: 1.6,
+//                     fontWeight: FontWeight.w500,
+//                   ),
+//                 ),
+//               ),
+//
+//               // Notch background container
+//               ClipPath(
+//                 clipper: NotchedClipper(),
+//                 child: Container(
+//                   width: MediaQuery.of(context).size.width,
+//                   height: footerHeight,
+//                   padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
+//                   color: Colors.white,
+//                   child: Column(
+//                     crossAxisAlignment: CrossAxisAlignment.start,
+//                     children: [
+//                       // Contact Info Row
+//                       Row(
+//                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//                         crossAxisAlignment: CrossAxisAlignment.start,
+//                         children: [
+//                           Column(
+//                             crossAxisAlignment: CrossAxisAlignment.start,
+//                             children: const [
+//                               _ContactRow(
+//                                 icon: Icons.phone,
+//                                 text: '+63 919 098 6970',
+//                               ),
+//                               SizedBox(height: 12),
+//                               _ContactRow(
+//                                 icon: FontAwesomeIcons.facebookF,
+//                                 text: 'FDS Asya Philippines Inc.',
+//                               ),
+//                               SizedBox(height: 12),
+//                               Padding(
+//                                 padding: EdgeInsets.only(bottom: 50),
+//                                 child: _ContactRow(
+//                                   icon: FontAwesomeIcons.linkedinIn,
+//                                   text: 'FDS Asya Philippines Inc.',
+//                                 ),
+//                               ),
+//                             ],
+//                           ),
+//                           const Column(
+//                             crossAxisAlignment: CrossAxisAlignment.end,
+//                             children: [
+//                               Text('G/F 1519 D. Oliman St., Valenzuela, Makati City'),
+//                               SizedBox(height: 8),
+//                               Text('G/F 1519 D. Oliman St., Valenzuela, Makati City'),
+//                             ],
+//                           ),
+//                         ],
+//                       ),
+//                       const SizedBox(height: 10),
+//                       const Center(
+//                         child: Text(
+//                           '©FDSAP 2025',
+//                           style: TextStyle(fontSize: 12, color: Colors.black54),
+//                         ),
+//                       ),
+//                     ],
+//                   ),
+//                 ),
+//               ),
+//             ],
+//           ),
+//         ),
+//       ],
+//     );
+//   }
   @override
   Widget build(BuildContext context) {
     const whiteText = TextStyle(color: Colors.white, fontSize: 14);
-    final double footerHeight = 250;
     const linkText = TextStyle(
       color: Colors.white,
       decoration: TextDecoration.underline,
       fontSize: 14,
     );
+    final double screenWidth = MediaQuery.of(context).size.width;
+    final bool isMobile = screenWidth < 600;
+    final bool isTablet = screenWidth >= 600 && screenWidth < 1024;
+    final double footerHeight = 250;
 
     return Stack(
       clipBehavior: Clip.none,
@@ -604,102 +801,233 @@ class FooterSectionv2 extends StatelessWidget {
             Container(
               color: Colors.black,
               width: double.infinity,
-              height: 600,
+              height: 650,
               padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 20),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   // Logos row
                   AutoScrollWidgetScroller(
-height: 80,
-itemWidth: 120,
-spacing: 24,
-scrollDelay: const Duration(seconds: 2),
-scrollDuration: const Duration(milliseconds: 800),
-items: [
-Image.asset('assets/images/bank-kalsel-emoney.png'),
-Image.asset('assets/images/ag-bank-emoney.png'),
-Image.asset('assets/images/bank-bpd-bali-emoney.png'),
-Image.asset('assets/images/bank-sahabat.png'),
-Image.asset('assets/images/banking-tech.png'),
-Image.asset('assets/images/IMkas.png'),
-Image.asset('assets/images/ottocash.png'),
-Image.asset('assets/images/ottokonek.png'),
-Image.asset('assets/images/ottopayv2.png'),
-Image.asset('assets/images/pac-cash.png'),
-Image.asset('assets/images/bank-bpd-bali-emoney.png'),
-Image.asset('assets/images/bank-ina.png'),
-Image.asset('assets/images/bank-jambi.png'),
-Image.asset('assets/images/bank-kalsel-emoney.png'),
-//
-Image.asset('assets/images/bank-kalsel-emoney.png'),
-Image.asset('assets/images/ag-bank-emoney.png'),
-Image.asset('assets/images/bank-bpd-bali-emoney.png'),
-Image.asset('assets/images/bank-sahabat.png'),
-Image.asset('assets/images/banking-tech.png'),
-Image.asset('assets/images/IMkas.png'),
-Image.asset('assets/images/ottocash.png'),
-Image.asset('assets/images/ottokonek.png'),
-Image.asset('assets/images/ottopayv2.png'),
-Image.asset('assets/images/pac-cash.png'),
-Image.asset('assets/images/bank-bpd-bali-emoney.png'),
-Image.asset('assets/images/bank-ina.png'),
-Image.asset('assets/images/bank-jambi.png'),
-Image.asset('assets/images/bank-kalsel-emoney.png'),
-
-].map((logo) {
-return Center(
-child: Container(
-padding: const EdgeInsets.all(8),
-child: logo,
-),
-);
-}).toList(),
-),
+                    height: 80,
+                    itemWidth: 120,
+                    spacing: 24,
+                    scrollDelay: const Duration(seconds: 2),
+                    scrollDuration: const Duration(milliseconds: 800),
+                    items: [
+                      Image.asset('assets/images/pac-cash.png'),
+                      Image.asset('assets/images/bank-bpd-bali-emoney.png'),
+                      Image.asset('assets/images/ottopayv2.png'),
+                      Image.asset('assets/images/ottokonek.png'),
+                      Image.asset('assets/images/ag-bank-emoney.png'),
+                      Image.asset('assets/images/fintech_sobatku.png'),
+                      Image.asset('assets/images/bank-kalsel-emoney.png'),
+                      Image.asset('assets/images/bank-sahabat.png'),
+                      Image.asset('assets/images/ottocash.png'),
+                      Image.asset('assets/images/IMkas.png'),
+                      Image.asset('assets/images/fi_card_bank.png'),
+                      Image.asset('assets/images/fi_card_rbi.png'),
+                      Image.asset('assets/images/fi_bank_ina.png'),
+                      Image.asset('assets/images/fi_nrb_global_bank.png'),
+                      Image.asset('assets/images/fi_bank_sulsebar.png'),
+                      Image.asset('assets/images/fi_card_sme.png'),
+                      Image.asset('assets/images/fi_bank_jambi.png'),
+                      Image.asset('assets/images/fi_bank_mas.png'),
+                      Image.asset('assets/images/fi_bank_bpd_bali.png'),
+                      Image.asset('assets/images/fi_bank_kalsel.png'),
+                      Image.asset('assets/images/fi_bank_ntt.png'),
+                      Image.asset('assets/images/mfi1.png'),
+                      Image.asset('assets/images/mfi_BPR_KS.png'),
+                      Image.asset('assets/images/mfi_bpr_sejahtera_batam.png'),
+                      Image.asset('assets/images/mfi_bpr_supra.png'),
+                      Image.asset('assets/images/mfi_credit_union_bonaventura.png'),
+                      Image.asset('assets/images/mfi_credit_union_cindelaras_tumangkar.png'),
+                      Image.asset('assets/images/mfi_credit_union_femung_pebaya.png'),
+                      Image.asset('assets/images/mfi_credit_union_gerbang_kasih.png'),
+                      Image.asset('assets/images/mfi_credit_union_hati_amboina.png'),
+                      Image.asset('assets/images/mfi_credit_union_jembatan_kasih.png'),
+                      Image.asset('assets/images/mfi_credit_union_kridha.png'),
+                      Image.asset('assets/images/mfi_credit_union_mekar_kasih.png'),
+                      Image.asset('assets/images/mfi_credit_union_mosinggani_palu.png'),
+                      Image.asset('assets/images/mfi_credit_union_ndar_sesepok.png'),
+                      Image.asset('assets/images/mfi_credit_union_pelita_sejahtera.png'),
+                      Image.asset('assets/images/mfi_credit_union_semangat_warga.png'),
+                      Image.asset('assets/images/mfi_credit_union_sumber_kasih_sejahtera.png'),
+                      Image.asset('assets/images/mfi_credit_union_usaha_kita.png'),
+                      Image.asset('assets/images/mfi_cu_angudi_laras.png'),
+                      Image.asset('assets/images/mfi_cu_bahtera_sejahtera.png'),
+                      Image.asset('assets/images/mfi_cu_deus_providebit.png'),
+                      Image.asset('assets/images/mfi_cu_likku_aba.png'),
+                      Image.asset('assets/images/mfi_cu_mototabian.png'),
+                      Image.asset('assets/images/mfi_cu_prima.png'),
+                      Image.asset('assets/images/mfi_cu_sari_intugin.png'),
+                      Image.asset('assets/images/mfi_cu_sohagaini.png'),
+                      Image.asset('assets/images/mfi_cu_stella_maris.png'),
+                      Image.asset('assets/images/mfi_cu_tilung_jaya.png'),
+                      Image.asset('assets/images/mfi_cu_tunas_mekar.png'),
+                      Image.asset('assets/images/mfi_cusinar_saron.png'),
+                      Image.asset('assets/images/mfi_cusr_ampah.png'),
+                      Image.asset('assets/images/mfi_ksp_credit_union_daya_lestari.png'),
+                      Image.asset('assets/images/mfi_ksp_cu_kusapa.png'),
+                      Image.asset('assets/images/mfi_ksp_cu_sejahtera_makmur_bersama.png'),
+                      Image.asset('assets/images/mfi_ksp_multi_artha_utama.png'),
+                      Image.asset('assets/images/mfi_kspcu_pangudi.png'),
+                      Image.asset('assets/images/mfi_prima_danarta.png'),
+                      Image.asset('assets/images/mfi_pusat_koperasi_credit_union.png'),
+                      Image.asset('assets/images/mfi_sejarah_berdirinya_credit_union.png'),
+                      Image.asset('assets/images/mfi_talita_kum.png'),
+                    ].map((logo) {
+                      return Center(
+                        child: Container(
+                          padding: const EdgeInsets.all(8),
+                          child: logo,
+                        ),
+                      );
+                    }).toList(),
+                  ),
 
 
                   // Legal Links and Logo
+                  const SizedBox(height: 40),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: const [
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
                       Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text('Privacy Policy', style: linkText),
                           SizedBox(height: 8),
-                          Text('Manage Cookies', style: linkText),
+                          FittedBox(fit: BoxFit.scaleDown, child: Text('Manage Cookies', style: linkText)),
                         ],
                       ),
-                      Image(
-                        image: AssetImage('assets/images/fdsap_logo_white.png'),
-                        width: 150,
-                        height: 150,
+                      Container(
+                        padding: EdgeInsets.only(left: 30),
+                        margin: EdgeInsets.only(right: 10, left: 10),
+                        child: Image(
+                          image: AssetImage('assets/images/fdsap_logo_white.png'),
+                          width: 150,
+                          height: 150,
+                        ),
                       ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          // Text('Back to Top ↑', style: linkText),
-                          SizedBox(height: 8),
-                          Text('Terms and Conditions', style: linkText),
-                        ],
+                      Flexible(
+                        child: Wrap(
+                          crossAxisAlignment: WrapCrossAlignment.end,
+                          alignment: WrapAlignment.end,
+                          spacing: 8,
+                          runSpacing: 8,
+                          children: [
+                            Text(
+                              'Terms and Condition',
+                              style: linkText,
+                              maxLines: 2,
+                              textAlign: TextAlign.right,
+                            ),
+                          ],
+                        ),
                       ),
                     ],
                   ),
-                  const SizedBox(height: 40),
                 ],
               ),
             ),
           ],
         ),
+///old
+        // Bottom clipped section
+        // Positioned(
+        //   bottom: 0,
+        //   right: 0,
+        //   child: Stack(
+        //     clipBehavior: Clip.none,
+        //     children: [
+        //       Positioned(
+        //         bottom: footerHeight - 60,
+        //         left: 0,
+        //         right: 0,
+        //         child: Text(
+        //           'We Listen.\nWe Anticipate.\nWe Deliver.',
+        //           textAlign: TextAlign.center,
+        //           style: const TextStyle(
+        //             color: Colors.white,
+        //             fontSize: 24,
+        //             height: 1.6,
+        //             fontWeight: FontWeight.w500,
+        //           ),
+        //         ),
+        //       ),
+        //
+        //       // Notched bottom white section
+        //       ClipPath(
+        //         clipper: NotchedClipper(),
+        //         child: Container(
+        //           width: screenWidth,
+        //           height: footerHeight,
+        //           padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
+        //           color: Colors.white,
+        //           child: Column(
+        //             crossAxisAlignment: CrossAxisAlignment.start,
+        //             children: [
+        //               isMobile
+        //                   ? Column(
+        //                 crossAxisAlignment: CrossAxisAlignment.start,
+        //                 children: const [
+        //                   _ContactRow(icon: Icons.phone, text: '+63 919 098 6970'),
+        //                   SizedBox(height: 12),
+        //                   _ContactRow(icon: FontAwesomeIcons.facebookF, text: 'FDS Asya Philippines Inc.'),
+        //                   SizedBox(height: 12),
+        //                   _ContactRow(icon: FontAwesomeIcons.linkedinIn, text: 'FDS Asya Philippines Inc.'),
+        //                   SizedBox(height: 12),
+        //                   SizedBox(height: 20),
+        //                   Text('G/F 1519 D. Oliman St., Valenzuela, Makati City'),
+        //                 ],
+        //               )
+        //                   : Row(
+        //                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        //                 crossAxisAlignment: CrossAxisAlignment.start,
+        //                 children: [
+        //                   Column(
+        //                     crossAxisAlignment: CrossAxisAlignment.start,
+        //                     children: const [
+        //                       _ContactRow(icon: Icons.phone, text: '+63 919 098 6970'),
+        //                       SizedBox(height: 12),
+        //                       _ContactRow(icon: FontAwesomeIcons.facebookF, text: 'FDS Asya Philippines Inc.'),
+        //                       SizedBox(height: 12),
+        //                       _ContactRow(icon: FontAwesomeIcons.linkedinIn, text: 'FDS Asya Philippines Inc.'),
+        //                     ],
+        //                   ),
+        //                   const Column(
+        //                     crossAxisAlignment: CrossAxisAlignment.end,
+        //                     children: [
+        //                       Text('G/F 1519 D. Oliman St., Valenzuela, Makati City'),
+        //                       SizedBox(height: 8),
+        //                       Text('G/F 1519 D. Oliman St., Valenzuela, Makati City'),
+        //                     ],
+        //                   ),
+        //                 ],
+        //               ),
+        //               const SizedBox(height: 10),
+        //               const Center(
+        //                 child: Text(
+        //                   '©FDSAP 2025',
+        //                   style: TextStyle(fontSize: 12, color: Colors.black54),
+        //                 ),
+        //               ),
+        //             ],
+        //           ),
+        //         ),
+        //       ),
+        //     ],
+        //   ),
+        // ),
         Positioned(
           bottom: 0,
           right: 0,
           child: Stack(
             clipBehavior: Clip.none,
             children: [
-              // Dynamically positioned text
               Positioned(
-                bottom: footerHeight - 60, // Adjust offset from notch top
+                bottom: footerHeight - 60,
                 left: 0,
                 right: 0,
                 child: Text(
@@ -707,25 +1035,39 @@ child: logo,
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 24,
+                    fontSize: (MediaQuery.sizeOf(context).width * 0.025).clamp(18, 24),
                     height: 1.6,
                     fontWeight: FontWeight.w500,
                   ),
                 ),
               ),
 
-              // Notch background container
+              // Notched bottom white section
               ClipPath(
-                clipper: NotchedClipper(),
+                clipper: NotchedClipper(MediaQuery.of(context).size.width),
                 child: Container(
-                  width: MediaQuery.of(context).size.width,
+                  width: screenWidth,
                   height: footerHeight,
                   padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
                   color: Colors.white,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // Contact Info Row
+                      // isMobile
+                      //     ? Column(
+                      //         crossAxisAlignment: CrossAxisAlignment.start,
+                      //         children: const [
+                      //           _ContactRow(icon: Icons.phone, text: '+63 919 098 6970'),
+                      //           SizedBox(height: 12),
+                      //           _ContactRow(icon: FontAwesomeIcons.facebookF, text: 'FDS Asya Philippines Inc.'),
+                      //           SizedBox(height: 12),
+                      //           _ContactRow(icon: FontAwesomeIcons.linkedinIn, text: 'FDS Asya Philippines Inc.'),
+                      //           SizedBox(height: 12),
+                      //           SizedBox(height: 20),
+                      //           Text('G/F 1519 D. Oliman St., Valenzuela, Makati City'),
+                      //         ],
+                      //       )
+                      //     :
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -733,32 +1075,35 @@ child: logo,
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: const [
-                              _ContactRow(
-                                icon: Icons.phone,
-                                text: '+63 919 098 6970',
-                              ),
+                              _ContactRow(icon: Icons.phone, text: '+63 919 098 6970'),
                               SizedBox(height: 12),
-                              _ContactRow(
-                                icon: FontAwesomeIcons.facebookF,
-                                text: 'FDS Asya Philippines Inc.',
-                              ),
+                              _ContactRow(icon: FontAwesomeIcons.facebookF, text: 'FDS Asya Philippines Inc.'),
                               SizedBox(height: 12),
-                              Padding(
-                                padding: EdgeInsets.only(bottom: 50),
-                                child: _ContactRow(
-                                  icon: FontAwesomeIcons.linkedinIn,
-                                  text: 'FDS Asya Philippines Inc.',
-                                ),
-                              ),
+                              _ContactRow(icon: FontAwesomeIcons.linkedinIn, text: 'FDS Asya Philippines Inc.'),
                             ],
                           ),
-                          const Column(
-                            crossAxisAlignment: CrossAxisAlignment.end,
-                            children: [
-                              Text('G/F 1519 D. Oliman St., Valenzuela, Makati City'),
-                              SizedBox(height: 8),
-                              Text('G/F 1519 D. Oliman St., Valenzuela, Makati City'),
-                            ],
+                          Spacer(),
+                          Flexible(
+                            child: Wrap(
+                              crossAxisAlignment: WrapCrossAlignment.end,
+                              alignment: WrapAlignment.end,
+                              spacing: 8,
+                              runSpacing: 8,
+                              children: [
+                                Text(
+                                  'G/F 1519 D. Oliman St., Valenzuela, Makati City',
+                                  style: TextStyle(fontSize: (MediaQuery.sizeOf(context).width * 0.02).clamp(8, 14)),
+                                  maxLines: 2,
+                                  textAlign: TextAlign.right,
+                                ),
+                                Text(
+                                  'G/F 1519 D. Oliman St., Valenzuela, Makati City',
+                                  style: TextStyle(fontSize: (MediaQuery.sizeOf(context).width * 0.02).clamp(8, 14)),
+                                  maxLines: 2,
+                                  textAlign: TextAlign.right,
+                                ),
+                              ],
+                            ),
                           ),
                         ],
                       ),
@@ -779,6 +1124,7 @@ child: logo,
       ],
     );
   }
+
 
   Widget _buildLogoPlaceholder() {
     return Container(
@@ -807,33 +1153,104 @@ child: logo,
 
 // Contact row widget
 class _ContactRow extends StatelessWidget {
-  final IconData icon;
+  final IconData? icon;
   final String text;
 
-  const _ContactRow({required this.icon, required this.text});
+  const _ContactRow({this.icon, required this.text});
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Icon(icon, size: 14, color: Colors.black),
+        if (icon != null) Icon(icon, size: 14, color: Colors.black),
         const SizedBox(width: 8),
-        Text(text, style: const TextStyle(fontSize: 14)),
+        Text(text, style: TextStyle(fontSize: (MediaQuery.sizeOf(context).width * 0.02).clamp(8, 14))),
       ],
     );
   }
 }
-
 //custom clipper
+///old
+// class NotchedClipper extends CustomClipper<Path> {
+//   @override
+//   Path getClip(Size size) {
+//     final double notchWidth = 300.0;
+//     final double notchHeight = 100.0;
+//     final double cornerRadius = 20.0;
+//
+//     final double center = size.width / 2;
+//     final double left = center - (notchWidth / 2);
+//     final double right = center + (notchWidth / 2);
+//
+//     Path path = Path()
+//       ..moveTo(0, 0)
+//       ..lineTo(left - cornerRadius, 0)
+//
+//     // Top-left curve into slanted edge
+//       ..quadraticBezierTo(
+//         left,
+//         0,
+//         left + cornerRadius / 2,
+//         cornerRadius / 2,
+//       )
+//
+//     // Slanted line down to bottom-left curve start
+//       ..lineTo(left + 40, notchHeight - cornerRadius / 2)
+//
+//     // Bottom-left curve into bottom edge
+//       ..quadraticBezierTo(
+//         left + 50,
+//         notchHeight,
+//         left + 60,
+//         notchHeight,
+//       )
+//
+//     // Bottom straight section (center)
+//       ..lineTo(right - 60, notchHeight)
+//
+//     // Bottom-right curve out of bottom edge (mirrored)
+//       ..quadraticBezierTo(
+//         right - 50,
+//         notchHeight,
+//         right - 40,
+//         notchHeight - cornerRadius / 2,
+//       )
+//
+//     // Slanted line up to top-right curve start (mirrored)
+//       ..lineTo(right - cornerRadius / 2, cornerRadius / 2)
+//
+//     // Top-right curve out of slanted edge (mirrored)
+//       ..quadraticBezierTo(
+//         right,
+//         0,
+//         right + cornerRadius,
+//         0,
+//       )
+//       ..lineTo(size.width, 0)
+//       ..lineTo(size.width, size.height)
+//       ..lineTo(0, size.height)
+//       ..close();
+//
+//     return path;
+//   }
+//
+//   @override
+//   bool shouldReclip(CustomClipper<Path> oldClipper) => false;
+// }
+
 class NotchedClipper extends CustomClipper<Path> {
+  final double screenWidth;
+  NotchedClipper(this.screenWidth);
+
   @override
   Path getClip(Size size) {
-    final double notchWidth = 300.0;
-    final double notchHeight = 100.0;
+    final double notchWidth = screenWidth <= 600 ? 200 : 300.0;
+    final double notchHeight = screenWidth <= 600 ? 80 : 100.0;
     final double cornerRadius = 20.0;
 
-    final double left = (size.width - notchWidth) / 2;
-    final double right = left + notchWidth;
+    final double center = size.width / 2;
+    final double left = center - (notchWidth / 2);
+    final double right = center + (notchWidth / 2);
 
     Path path = Path()
       ..moveTo(0, 0)
@@ -890,37 +1307,5 @@ class NotchedClipper extends CustomClipper<Path> {
   @override
   bool shouldReclip(CustomClipper<Path> oldClipper) => false;
 }
-// Custom painter for the white curve top
-// class FooterCurvePainter extends CustomPainter {
-//   @override
-//   void paint(Canvas canvas, Size size) {
-//     final paint = Paint()..color = Colors.white;
-//
-//     final path = Path()
-//       ..moveTo(0, size.height)
-//       ..quadraticBezierTo(
-//         size.width * 0.5,
-//         size.height * 0.5,
-//         size.width * 0.10,
-//         0,
-//       )
-//       ..quadraticBezierTo(
-//         size.width * 1.5,
-//         size.height * 2.5,
-//         size.width,
-//         size.height,
-//       )
-//       ..lineTo(size.width, 0)
-//       ..lineTo(0, 0)
-//       ..close();
-//
-//     canvas.drawPath(path, paint);
-//   }
-//
-//   @override
-//   bool shouldRepaint(CustomPainter oldDelegate) => false;
-// }
-
-
 
 
