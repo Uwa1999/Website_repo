@@ -19,6 +19,7 @@ const double kSpacing = 28.0;
 const double kRunSpacing = 16.0;
 
 class InsightSection extends StatelessWidget {
+  static const String route = '/Insights';
   const InsightSection({Key? key}) : super(key: key);
 
   @override
