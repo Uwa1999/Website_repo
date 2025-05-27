@@ -267,16 +267,14 @@ class _LeadingBankingPartnerItemState extends State<LeadingBankingPartnerItem> w
   void initState() {
     super.initState();
 
-    // Controller for counting numbers
     numberAnimation = IntTween(begin: 0, end: widget.title).animate(
       CurvedAnimation(parent: widget.controller, curve: widget.curve),
     );
 
-    // Independent controller for the gradient animation
     gradientController = AnimationController(
       vsync: this,
       duration: const Duration(seconds: 2),
-    )..repeat(); // 🔁 Loops infinitely
+    )..repeat();
   }
 
   @override
@@ -287,43 +285,59 @@ class _LeadingBankingPartnerItemState extends State<LeadingBankingPartnerItem> w
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+
+    // Scale up font size aggressively
+    double bigFontSize;
+    double subtitleFontSize;
+
+    if (screenWidth >= 1400) {
+      bigFontSize = 160;
+      subtitleFontSize = 36;
+    } else if (screenWidth >= 1024) {
+      bigFontSize = 140;
+      subtitleFontSize = 32;
+    } else if (screenWidth >= 768) {
+      bigFontSize = 120;
+      subtitleFontSize = 28;
+    } else {
+      bigFontSize = 100;
+      subtitleFontSize = 24;
+    }
+
     return AnimatedBuilder(
       animation: numberAnimation,
       builder: (context, child) {
         return Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            // ✅ Gradient now uses its own looping controller
             AnimatedGradientText(
               animation: gradientController,
               text: "${numberAnimation.value}${widget.subnum ?? ''}",
-              fontSize: 100,
+              style: widget.titleStyle ??
+                  GoogleFonts.poppins(
+
+                    fontWeight: FontWeight.bold,
+                    color: widget.titleColor,
+                  ),
+              fontSize: bigFontSize,
             ),
-            const SizedBox(height: 12),
+            const SizedBox(height: 16),
             Text(
               widget.subtitle,
               style: widget.subtitleStyle ??
                   GoogleFonts.poppins(
+                    fontSize: subtitleFontSize,
+                    fontWeight: FontWeight.w500,
                     color: widget.subtitleColor,
-                    fontSize: 25,
                   ),
+              textAlign: TextAlign.center,
             ),
           ],
         );
       },
     );
   }
-}
-
-class MobileLeadingBankingPartnerData {
-  final int? value;
-  final String subtitle;
-  final String? values;
-
-  MobileLeadingBankingPartnerData({
-    this.value,
-    required this.subtitle,
-    this.values,
-  });
 }
 
 
@@ -370,12 +384,12 @@ class MobileLeadingBankingPartnerItem extends StatelessWidget {
   Widget _buildChild({required BuildContext context, required int value, String? values}) {
     TextTheme textTheme = Theme.of(context).textTheme;
     return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
+          // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          // crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text(
               "$value",
