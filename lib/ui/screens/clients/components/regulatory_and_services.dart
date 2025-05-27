@@ -27,16 +27,17 @@ import 'package:visibility_detector/visibility_detector.dart';
 import '../../homepage/components/header_section.dart';
 import '../../homepage/components/leading_partners_section.dart';
 import '../../shared/widgets/animation.dart';
-import '../../shared/widgets/products_and_services_v2.dart';
-class FinTechPage extends StatefulWidget {
-  static const String route = '/Fintech';
-  const FinTechPage({Key? key}) : super(key: key);
+import '../../shared/widgets/customCard.dart';
+
+class MFIPage extends StatefulWidget {
+  static const String route = '/MfisPage';
+  const MFIPage({Key? key}) : super(key: key);
 
   @override
-  State<FinTechPage> createState() => _FinTechPageState();
+  State<MFIPage> createState() => _MFIPageState();
 }
 
-class _FinTechPageState extends State<FinTechPage> with TickerProviderStateMixin {
+class _MFIPageState extends State<MFIPage> with TickerProviderStateMixin {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
   late AnimationController _controller;
   late Animation<double> _animation;
@@ -97,7 +98,7 @@ class _FinTechPageState extends State<FinTechPage> with TickerProviderStateMixin
                   Center(
                     child: AnimatedGradientText(
                       animation: _animation,
-                      text: "Banking Technology",
+                      text: "Regulatory and Security",
                     ),
                   ),
                   const SizedBox(height: 20),
