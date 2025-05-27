@@ -106,26 +106,6 @@ class _HeaderResponsiveMobileState extends State<HeaderResponsiveMobile> with Si
                                 ),
                               ),
                             ),
-                            // ConstrainedBox(
-                            //   constraints: BoxConstraints(maxWidth: screenWidth),
-                            //   child: AnimatedTextKit(
-                            //     animatedTexts: [
-                            //       TypewriterAnimatedText(
-                            //         StringConst.INTRO3,
-                            //         textAlign: TextAlign.start,
-                            //         speed: Duration(milliseconds: 100),
-                            //         textStyle: GoogleFonts.poppins(
-                            //           fontSize: headerIntroTextSize,
-                            //           fontWeight: FontWeight.w500,
-                            //           color: AppColors.white,
-                            //         ),
-                            //       ),
-                            //     ],
-                            //     onTap: () {},
-                            //     isRepeatingAnimation: true,
-                            //     repeatForever: true,
-                            //   ),
-                            // ),
                             SizedBoxH16(),
                             ConstrainedBox(
                               constraints: BoxConstraints(maxWidth: screenWidth),
