@@ -25,6 +25,19 @@ class NavSectionMobile extends StatelessWidget {
         children: [
           Padding(
             padding: const EdgeInsets.all(8.0),
+            child: InkWell(
+              onTap: () {
+                Navigator.of(context).pushNamed(HomepageScreen.route);
+                print("-----HOMEPAGE SCREEN----");
+              },
+              child: Image.asset(
+                ImagePath.FDSAP_LOGO_MAROON_SMALL,
+                height: Sizes.HEIGHT_100,
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
             child: IconButton(
               icon: Icon(
                 FeatherIcons.menu,
@@ -40,19 +53,7 @@ class NavSectionMobile extends StatelessWidget {
               },
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: InkWell(
-              onTap: () {
-                Navigator.of(context).pushNamed(HomepageScreen.route);
-                print("-----HOMEPAGE SCREEN----");
-              },
-              child: Image.asset(
-                ImagePath.FDSAP_LOGO_MAROON,
-                height: Sizes.HEIGHT_100,
-              ),
-            ),
-          ),
+
         ],
       ),
     );
