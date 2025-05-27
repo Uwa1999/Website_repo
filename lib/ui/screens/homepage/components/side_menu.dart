@@ -1,5 +1,7 @@
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/about/about_main.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/aboutv2/aboutv2.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/homepage_screen.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/insights/articlesv2/components/articleinside.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/insights/insights_main.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/product_and_services/product_and_services_main.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
@@ -23,6 +25,30 @@ class SideMenu extends StatefulWidget {
 }
 
 class _SideMenuState extends State<SideMenu> with SingleTickerProviderStateMixin {
+  late final List<NavItemData> menuItems;
+
+  @override
+  void initState() {
+    super.initState();
+    menuItems = [
+      NavItemData(name: StringConst.HOME, key: GlobalKey(), isSelected: true),
+      NavItemData(name: StringConst.SERVICES, key: GlobalKey(),),
+      NavItemData(name: StringConst.CLIENT, key: GlobalKey()),
+      NavItemData(
+        name: StringConst.INSIGHTS,
+        key: GlobalKey(),
+        destinationBuilder: (context) => ArticleDescInsidev2(),
+      ),
+      NavItemData(
+        name: StringConst.ABOUT_US,
+        key: GlobalKey(),
+        destinationBuilder: (context) => AboutUsSectionv2(),
+      ),
+
+      NavItemData(name: StringConst.CONTACT_US, key: GlobalKey()),
+    ];
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -36,13 +62,10 @@ class _SideMenuState extends State<SideMenu> with SingleTickerProviderStateMixin
           ),
           child: ListView(
             children: [
-              Container(height: 500, child: AppDrawer(menuList: [
-                NavItemData(name: StringConst.HOME, key: GlobalKey(), isSelected: true),
-                NavItemData(name: StringConst.SERVICES, key: GlobalKey()),
-                NavItemData(name: StringConst.ABOUT_US, key: GlobalKey()),
-                NavItemData(name: StringConst.CLIENT, key: GlobalKey()),
-                NavItemData(name: StringConst.INSIGHTS, key: GlobalKey()),
-              ],)),
+              Container(
+                height: 500,
+                child: AppDrawer(menuList: menuItems),
+              ),
             ],
           ),
         ),
@@ -50,6 +73,7 @@ class _SideMenuState extends State<SideMenu> with SingleTickerProviderStateMixin
     );
   }
 }
+
 _launchContactUsURL() async {
   print('-----FDSAP GMAIL-----');
   final Uri url = Uri.parse(StringConst.EMAIL_URL);
