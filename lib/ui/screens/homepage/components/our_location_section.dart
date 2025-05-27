@@ -497,51 +497,41 @@ class OurLocationSection extends StatelessWidget {
   const OurLocationSection({Key? key}) : super(key: key);
 
   static const String _imagePath = 'assets/images/location.png';
+
   @override
   Widget build(BuildContext context) {
-
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        // Semantics(
-        //   header: true,
-        //   child: Text(
-        //     _title,
-        //     style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-        //       fontWeight: FontWeight.bold,
-        //     ),
-        //     textAlign: TextAlign.center,
-        //   ),
-        // ),
-        // const SizedBox(height: 16.0),
-        // Text(
-        //   _description,
-        //   style: Theme.of(context).textTheme.bodyLarge,
-        //   textAlign: TextAlign.center,
-        // ),
-        // const SizedBox(height: 24.0),
         Container(
           width: 700,
           height: 500,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(50))
+          decoration: const BoxDecoration(
+            // color: Colors.transparent, // <-- No background
+            borderRadius: BorderRadius.all(Radius.circular(50)),
           ),
           child: InkWell(
+            hoverColor: Colors.transparent,
             onTap: _launchDesktopURLv2,
-            child: Image.asset(
-              _imagePath,
-              // fit: BoxFit.fill,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(50),
+              child: Image.asset(
+                _imagePath,
+                fit: BoxFit.cover, // optional: can adjust to fit your design
+              ),
             ),
           ),
         ),
-      SizedBox(height: 10,),
-      Container(
+        const SizedBox(height: 10),
+        const SizedBox(
           width: 500,
-          child: CopyAddressWidget())
+          child: CopyAddressWidget(),
+        )
       ],
     );
   }
 }
+
 _launchDesktopURLv2() async {
   print('-----FDSAP GOOGLE MAP LOCATION-----');
   final Uri url = Uri.parse(StringConst.LOCATION_URLv2);
@@ -581,142 +571,165 @@ class _ContactUsPageState extends State<ContactUsPage> {
 
   @override
   Widget build(BuildContext context) {
-    EdgeInsetsGeometry padding = EdgeInsets.symmetric(horizontal: getSidePadding(context));
-    double screenWidth = widthOfScreen(context) - (getSidePadding(context) * 2);
-    return Material(
-      child: SingleChildScrollView(
-        padding: const EdgeInsets.all(24.0),
-        child: ContentArea(
-          padding: padding,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const SizedBox(height: 40),
-              const Text(
-                'Start your journey with us.',
-                style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(height: 8),
-              const Text(
-                "Let's build what's next, together.",
-                style: TextStyle(fontSize: 20),
-              ),
-              const SizedBox(height: 32),
-              Wrap(
-                spacing: 16,
-                runSpacing: 16,
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        bool isMobile = constraints.maxWidth < 600;
+        double fieldWidth = isMobile ? double.infinity : (constraints.maxWidth / 2) - 24;
+
+        return Material(
+        color: Colors.transparent,
+         child: SingleChildScrollView(
+            padding: const EdgeInsets.all(24.0),
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 700),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Row(
-                    children: [
-                      SizedBox(
-                        width: 300,
-                        child: _buildTextField(
-                          controller: firstNameController,
-                          hintText: 'First Name',
-                          validatorText: 'Please enter your firstname.',
+                  const SizedBox(height: 40),
+                  const Text(
+                    'Start your journey with us.',
+                    style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(height: 8),
+                  const Text(
+                    "Let's build what's next, together.",
+                    style: TextStyle(fontSize: 20),
+                  ),
+                  const SizedBox(height: 32),
+
+                  /// 👇 Responsive Name Fields
+                  Container(
+                    width: 900,
+                    child: Wrap(
+                      spacing: 10,
+                      runSpacing: 16,
+                      alignment: WrapAlignment.start,
+                      crossAxisAlignment: WrapCrossAlignment.start,
+                      children: [
+                        SizedBox(
+                          width: fieldWidth - 5,
+                          child: _buildTextField(
+                            controller: firstNameController,
+                            hintText: 'First Name',
+                            validatorText: 'Please enter your firstname.',
+                          ),
                         ),
+                        SizedBox(
+                          width: fieldWidth - 5,
+                          child: _buildTextField(
+                            controller: lastNameController,
+                            hintText: 'Last Name',
+                            validatorText: 'Please enter your lastname.',
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+
+                  const SizedBox(height: 16),
+
+                  /// 👇 Other Fields
+                  SizedBox(
+                    width: double.infinity,
+                    child: _buildTextField(
+                      controller: companyController,
+                      hintText: 'Company Name',
+                      validatorText: 'Please enter your company name.',
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                  SizedBox(
+                    width: double.infinity,
+                    child: _buildTextField(
+                      controller: emailController,
+                      hintText: 'Company Email',
+                      validatorText: 'Please enter your company email.',
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                  SizedBox(
+                    width: double.infinity,
+                    child: _buildTextField(
+                      controller: phoneController,
+                      hintText: 'Phone Number',
+                      validatorText: 'Please enter your phone number.',
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                  SizedBox(
+                    width: double.infinity,
+                    child: DropdownButtonFormField<String>(
+                      value: companyType,
+                      decoration: const InputDecoration(
+                        labelText: 'Company Type',
+                        border: OutlineInputBorder(),
+                        contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                       ),
-                      const SizedBox(width: 15),
-                      SizedBox(
-                        width: 300,
-                        child: _buildTextField(
-                          controller: lastNameController,
-                          hintText: 'Last Name',
-                          validatorText: 'Please enter your lastname.',
+                      items: ['Startup', 'SME', 'Enterprise']
+                          .map((type) => DropdownMenuItem(
+                        value: type,
+                        child: Text(type),
+                      ))
+                          .toList(),
+                      onChanged: (value) {
+                        setState(() {
+                          companyType = value;
+                        });
+                      },
+                    ),
+                  ),
+
+                  const SizedBox(height: 24),
+
+                  /// 👇 Checkbox and Agreement Text
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Checkbox(
+                        value: isChecked,
+                        onChanged: (val) {
+                          setState(() {
+                            isChecked = val ?? false;
+                          });
+                        },
+                        activeColor: AppColors.maroon01,
+                      ),
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 12),
+                          child: Text(
+                            'By submitting this form, you agree to allow FDS ASYA PHILIPPINES INC. to store and process the personal information provided above to contact you about our products and services.',
+                            style: TextStyle(fontSize: 14),
+                          ),
                         ),
                       ),
                     ],
-                  )
+                  ),
 
+                  const SizedBox(height: 16),
+
+                  /// 👇 Submit Button
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xFF400000),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+                    ),
+                    onPressed: isChecked ? () {} : null,
+                    child: const Text(
+                      'Contact Us',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                  const SizedBox(height: 32),
                 ],
               ),
-              const SizedBox(height: 16),
-              SizedBox(
-                width: 615,
-                child: _buildTextField(
-                  controller: companyController,
-                  hintText: 'Company Name',
-                  validatorText: 'Please enter your company name.',
-                ),
-              ),
-              const SizedBox(height: 16),
-              SizedBox(
-                width: 615,
-                child: _buildTextField(
-                  controller: emailController,
-                  hintText: 'Company Email',
-                  validatorText: 'Please enter your company email.',
-                ),
-              ),
-              const SizedBox(height: 16),
-              SizedBox(
-                width: 615,
-                child: _buildTextField(
-                  controller: phoneController,
-                  hintText: 'Phone Number',
-                  validatorText: 'Please enter your phone number.',
-                ),
-              ),
-              const SizedBox(height: 16),
-              SizedBox(
-                width: 615,
-                child: DropdownButtonFormField<String>(
-                  value: companyType,
-                  decoration: const InputDecoration(labelText: 'Company Type'),
-                  items: ['Startup', 'SME', 'Enterprise']
-                      .map((type) => DropdownMenuItem(
-                    value: type,
-                    child: Text(type),
-                  ))
-                      .toList(),
-                  onChanged: (value) {
-                    setState(() {
-                      companyType = value;
-                    });
-                  },
-                ),
-              ),
-              const SizedBox(height: 24),
-              SizedBox(
-                width: 615,
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Checkbox(
-                      value: isChecked,
-                      onChanged: (val) {
-                        setState(() {
-                          isChecked = val ?? false;
-                        });
-                      },
-                      activeColor: AppColors.maroon01,
-                    ),
-                    const Expanded(
-                      child: Text(
-                        'By submitting this form, you agree to allow FDS ASYA PHILIPPINES INC. to store and process the personal information provided above to contact you about our products and services.',
-                        style: TextStyle(fontSize: 12),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(height: 16),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.brown[900],
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(30),
-                  ),
-                  padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
-                ),
-                onPressed: isChecked ? () {} : null,
-                child: const Text('Contact Us', style: TextStyle(color: AppColors.white),),
-              ),
-              const SizedBox(height: 32),
-            ],
+            ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 
@@ -736,8 +749,8 @@ class _ContactUsPageState extends State<ContactUsPage> {
       cursorRadius: const Radius.circular(10),
       decoration: InputDecoration(
         contentPadding: const EdgeInsets.only(top: 5, left: 10, right: 15),
-        filled: true,
-        fillColor: Colors.white10,
+        // filled: true,
+        // fillColor: Colors.white10,
         focusedBorder: OutlineInputBorder(
           borderSide: const BorderSide(
             color: Color(0xff1c601f),
