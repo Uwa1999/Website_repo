@@ -1,20 +1,42 @@
+
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/aboutv2/aboutv2.dart';
 import 'package:flutter/material.dart';
 
+import '../../homepage/components/insightsv2/insightscreen.dart';
+import '../../insights/articles/article_main.dart';
+import '../../insights/articlesv2/articlev2main.dart';
+import '../../insights/insights_main.dart';
+import '../../insights/insights_section.dart';
 import '../values/strings.dart';
 import '../widgets/nav_item.dart';
 
 ///GLOBAL DECLARATION OF NAVIGATION ITEMS
 List<NavItemData> navItems = [
-  NavItemData(name: StringConst.HOME, key: GlobalKey(), isSelected: true),
-  NavItemData(name: StringConst.SERVICES, key: GlobalKey()),
-  NavItemData(name: StringConst.ABOUT_US, key: GlobalKey(), destinationBuilder: (context) => AboutUsSection()),
-  NavItemData(name: StringConst.CLIENT, key: GlobalKey()),
-  NavItemData(name: StringConst.INSIGHTS, key: GlobalKey()),
-
-
-  ///LAST ITEM NOT INCLUDED IN NAV ITEMS
-  NavItemData(name: StringConst.CONTACT_US, key: GlobalKey()),
+  ///0
+  NavItemData(name: StringConst.HOME,
+      key: GlobalKey(),
+      isSelected: true),
+///1
+  NavItemData(name: StringConst.SERVICES,
+      key: GlobalKey()
+  ),
+  ///2
+  NavItemData(name: StringConst.CLIENT,
+      key: GlobalKey()
+  ),
+///3
+  NavItemData(name: StringConst.INSIGHTS,
+      key: GlobalKey(),
+      destinationBuilder: (context) => ArticleDescMain()
+  ),
+///4
+  NavItemData(name: StringConst.ABOUT_US,
+      // key: GlobalKey(),
+      destinationBuilder: (context) => AboutUsSectionv2()
+  ),
+///5
+  NavItemData(name: StringConst.CONTACT_US,
+      key: GlobalKey()),
 ];
 
 /// Utility method to scroll to a section using its GlobalKey
@@ -24,13 +46,13 @@ void scrollToSection(GlobalKey key, {int attempts = 10}) {
   if (context != null) {
     Scrollable.ensureVisible(
       context,
-      duration: const Duration(milliseconds: 500),
+      duration: const Duration(milliseconds: 250),
       curve: Curves.easeInOut,
     );
     ScrollTarget.targetKey = null;
   } else if (attempts > 0) {
-    Future.delayed(const Duration(milliseconds: 100), () {
-      scrollToSection(key, attempts: attempts - 1);
+    Future.delayed(const Duration(milliseconds: 1000), () {
+      scrollToSection(key, attempts: attempts - 2);
     });
   }
 }
@@ -38,4 +60,11 @@ void scrollToSection(GlobalKey key, {int attempts = 10}) {
 ///FINDS THE TARGET SCROLLING LOCATION OF THE NAV ITEM
 class ScrollTarget {
   static GlobalKey? targetKey;
+}
+
+/// Update nav selection state globally
+void updateSelectedNavItem(String selectedName) {
+  for (var item in navItems) {
+    item.isSelected = item.name == selectedName;
+  }
 }
