@@ -6,9 +6,11 @@ class AnimatedGradientText extends StatelessWidget {
   final Animation<double> animation;
   final String text;
   final double fontSize;
+  final TextStyle? style;
 
   const AnimatedGradientText({
     Key? key,
+    this.style,
     required this.animation,
     required this.text,
     this.fontSize = 45,
