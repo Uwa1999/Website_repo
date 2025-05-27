@@ -54,7 +54,7 @@ class Data {
   static List<LeadingBankingPartnerData> LeadingBankingPartnerItemsData = [
     LeadingBankingPartnerData(
       value: 10,
-      values: "M+",
+      values: "+",
       subtitle: StringConst.YEARS,
     ),
     LeadingBankingPartnerData(
