@@ -16,6 +16,7 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/sizedbox.dart';
 import 'package:flutter/material.dart';
 
 import '../../clients/clients_main.dart';
+import '../../insights/insights_section.dart';
 import '../../shared/widgets/NavItemData_global.dart';
 import 'our_location_section.dart';
 
@@ -128,7 +129,7 @@ class _HeaderSectionState extends State<HeaderSection> with SingleTickerProvider
                             NavItem(
                               title: 'Insights',
                               onTap: () {
-                                Navigator.of(context).pushNamed(InsightsMain.route);
+                                Navigator.of(context).pushNamed(InsightSection.route);
                                 print("-----INSIGHTS SCREEN----");
                               },
                             ),
