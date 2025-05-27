@@ -33,90 +33,31 @@ class _DesktopArticleDescScreenState extends State<DesktopArticleDescScreen> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      child: Column(
-        children: [
-          SizedBoxH10(),
-          Padding(
-            padding: EdgeInsets.only(
-              left: Sizes.PADDING_100,
-              right: Sizes.PADDING_100,
-            ),
-            child: NimbusInfoInsightSection(
-              title1: '',
-              hasTitle2: false,
-              body: StringConst.ARTICLE_DESC1,
-            ),
-          ),
-          SizedBoxH30(),
-          Padding(
-            padding: EdgeInsets.only(
-              left: Sizes.PADDING_100,
-              right: Sizes.PADDING_100,
-            ),
-            child: NimbusInfoInsightSection(
-              title1: StringConst.ARTICLE_DESC_SUBTITLE2,
-              hasTitle2: false,
-              body: StringConst.ARTICLE_DESC2,
-              title1Style: GoogleFonts.poppins(
-                fontSize: Sizes.TEXT_SIZE_28,
-                fontWeight: FontWeight.w700,
-                color: AppColors.black,
+      child: Container(
+        height: 2000,
+        width: double.infinity,
+        child: Column(
+          children: [
+            SizedBoxH30(),
+            Padding(
+              padding: EdgeInsets.only(
+                left: Sizes.PADDING_100,
+                right: Sizes.PADDING_100,
+              ),
+              child: NimbusInfoInsightSection(
+                // title1: StringConst.ARTICLE_DESC_SUBTITLE5,
+                hasTitle2: false,
+                body: StringConst.ARTICLE_DESC5,
+                title1Style: GoogleFonts.poppins(
+                  fontSize: Sizes.TEXT_SIZE_28,
+                  fontWeight: FontWeight.w700,
+                  color: AppColors.black,
+                ),
               ),
             ),
-          ),
-          SizedBoxH30(),
-          Padding(
-            padding: EdgeInsets.only(
-              left: Sizes.PADDING_100,
-              right: Sizes.PADDING_100,
-            ),
-            child: NimbusInfoInsightSection(
-              title1: StringConst.ARTICLE_DESC_SUBTITLE3,
-              hasTitle2: false,
-              body: StringConst.ARTICLE_DESC3,
-              title1Style: GoogleFonts.poppins(
-                fontSize: Sizes.TEXT_SIZE_28,
-                fontWeight: FontWeight.w700,
-                color: AppColors.black,
-              ),
-            ),
-          ),
-          SizedBoxH30(),
-          Padding(
-            padding: EdgeInsets.only(
-              left: Sizes.PADDING_100,
-              right: Sizes.PADDING_100,
-            ),
-            child: NimbusInfoInsightSection(
-              title1: StringConst.ARTICLE_DESC_SUBTITLE4,
-              hasTitle2: false,
-              body: StringConst.ARTICLE_DESC4,
-              title1Style: GoogleFonts.poppins(
-                fontSize: Sizes.TEXT_SIZE_28,
-                fontWeight: FontWeight.w700,
-                color: AppColors.black,
-              ),
-            ),
-          ),
-          SizedBoxH30(),
-          Padding(
-            padding: EdgeInsets.only(
-              left: Sizes.PADDING_100,
-              right: Sizes.PADDING_100,
-            ),
-            child: NimbusInfoInsightSection(
-              title1: StringConst.ARTICLE_DESC_SUBTITLE5,
-              hasTitle2: false,
-              body: StringConst.ARTICLE_DESC5,
-              title1Style: GoogleFonts.poppins(
-                fontSize: Sizes.TEXT_SIZE_28,
-                fontWeight: FontWeight.w700,
-                color: AppColors.black,
-              ),
-            ),
-          ),
-          SizedBoxH50(),
-        ],
+            SizedBoxH50(),
+          ],
+        ),
       ),
     );
   }
@@ -135,89 +76,26 @@ class _MobileArticleDescSectionState extends State<MobileArticleDescSection> {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
-        children: [
-          SizedBoxH10(),
-          Padding(
-            padding: const EdgeInsets.only(
-              left: Sizes.PADDING_30,
-              right: Sizes.PADDING_30,
-            ),
-            child: NimbusInfoInsightSection(
-              title1: '',
-              hasTitle2: false,
-              body: StringConst.ARTICLE_DESC1,
-            ),
-          ),
-          SizedBoxH30(),
-          Padding(
-            padding: const EdgeInsets.only(
-              left: Sizes.PADDING_30,
-              right: Sizes.PADDING_30,
-            ),
-            child: NimbusInfoInsightSection(
-              title1: StringConst.ARTICLE_DESC_SUBTITLE2,
-              hasTitle2: false,
-              body: StringConst.ARTICLE_DESC2,
-              title1Style: GoogleFonts.poppins(
-                fontSize: Sizes.TEXT_SIZE_18,
-                fontWeight: FontWeight.w700,
-                color: AppColors.black,
+        children:  [
+            SizedBoxH30(),
+            Padding(
+              padding: EdgeInsets.only(
+                left: Sizes.PADDING_40,
+                right: Sizes.PADDING_40,
+              ),
+              child: NimbusInfoInsightSection(
+                // title1: StringConst.ARTICLE_DESC_SUBTITLE5,
+                hasTitle2: false,
+                body: StringConst.ARTICLE_DESC5,
+                title1Style: GoogleFonts.poppins(
+                  fontSize: Sizes.TEXT_SIZE_28,
+                  fontWeight: FontWeight.w700,
+                  color: AppColors.black,
+                ),
               ),
             ),
-          ),
-          SizedBoxH30(),
-          Padding(
-            padding: const EdgeInsets.only(
-              left: Sizes.PADDING_30,
-              right: Sizes.PADDING_30,
-            ),
-            child: NimbusInfoInsightSection(
-              title1: StringConst.ARTICLE_DESC_SUBTITLE3,
-              hasTitle2: false,
-              body: StringConst.ARTICLE_DESC3,
-              title1Style: GoogleFonts.poppins(
-                fontSize: Sizes.TEXT_SIZE_18,
-                fontWeight: FontWeight.w700,
-                color: AppColors.black,
-              ),
-            ),
-          ),
-          SizedBoxH30(),
-          Padding(
-            padding: const EdgeInsets.only(
-              left: Sizes.PADDING_30,
-              right: Sizes.PADDING_30,
-            ),
-            child: NimbusInfoInsightSection(
-              title1: StringConst.ARTICLE_DESC_SUBTITLE4,
-              hasTitle2: false,
-              body: StringConst.ARTICLE_DESC4,
-              title1Style: GoogleFonts.poppins(
-                fontSize: Sizes.TEXT_SIZE_18,
-                fontWeight: FontWeight.w700,
-                color: AppColors.black,
-              ),
-            ),
-          ),
-          SizedBoxH30(),
-          Padding(
-            padding: const EdgeInsets.only(
-              left: Sizes.PADDING_30,
-              right: Sizes.PADDING_30,
-            ),
-            child: NimbusInfoInsightSection(
-              title1: StringConst.ARTICLE_DESC_SUBTITLE5,
-              hasTitle2: false,
-              body: StringConst.ARTICLE_DESC5,
-              title1Style: GoogleFonts.poppins(
-                fontSize: Sizes.TEXT_SIZE_18,
-                fontWeight: FontWeight.w700,
-                color: AppColors.black,
-              ),
-            ),
-          ),
-          SizedBoxH50(),
-        ],
+            SizedBoxH50(),
+          ],
       ),
     );
   }
