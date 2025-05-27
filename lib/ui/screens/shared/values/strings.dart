@@ -157,9 +157,9 @@ class StringConst {
   static const String ARTICLE_DATE = "February 4, 2023";
   static const String ARTICLE_TITLE_1 = '''FDS ASYA PHILIPPINES INC. Pioneering Digital Transformations in Banking and Financial Services''';
   static const String ARTICLE_SUBTITLE_1 = '''By co-creating value and empowering financial institutions with solutions designed for the digital era, FDS ASYA PHILIPPINES INC. (FDSAP) drives growth, enhances operational efficiency, and delivers exceptional customer experiences.''';
-  static const String ARTICLE_DESC_TITLE = '''FDS ASYA PHILIPPINES INC.
-Pioneering Digital Transformations in Banking and Financial Services''';
-  static const String ARTICLE_DESC_SUBTITLE1 = 'Article';
+  static const String ARTICLE_DESC_TITLE = '''Meet the team:
+Project Management Office''';
+  static const String ARTICLE_DESC_SUBTITLE1 = 'View Article';
   static const String ARTICLE_DESC1 = '''By co-creating value and empowering financial institutions with solutions designed for the digital era, FDS ASYA PHILIPPINES INC. (FDSAP) drives growth, enhances operational efficiency, and delivers exceptional customer experiences. With a commitment to collaboration, harnessing technological advancements, and building lasting partnerships, FDSAP remains at the forefront of regional transformation, playing a crucial role in shaping the future of banking.
 
 FDSAP is a company owned of FDS Asya, Inc. based  in Singapore. It is the result of a joint venture between two industry-leading companies, CARD MRI and Fortress Data Services Indonesia. While FDS offers top-notch banking applications to Indonesian banks and financial services, CARD MRI is a group of institutions dedicated to eradicating poverty in the Philippines. Both FDSAP and CARD MRI Holdings, Inc. are member-institutions of CARD Mutually Reinforcing Institutions (CARD MRI).''';
@@ -170,7 +170,7 @@ FDSAP is a company owned of FDS Asya, Inc. based  in Singapore. It is the result
   static const String ARTICLE_DESC_SUBTITLE4 = 'Harnessing Technological Advancements:';
   static const String ARTICLE_DESC4 = '''FDSAP stays at the forefront of technological advancements, leveraging them to deliver cutting-edge solutions. With expertise in areas such as core banking, mobile banking, and digital financial ecosystems, FDSAP equips financial institutions with scalable and flexible architectures that can accommodate businesses of all sizes. By harnessing emerging technologies such as artificial intelligence, blockchain, and data analytics, FDSAP enables financial institutions to drive innovation, enhance security, and unlock new opportunities for growth.''';
   static const String ARTICLE_DESC_SUBTITLE5 = 'A Trusted Partner:';
-  static const String ARTICLE_DESC5 = '''Throughout its journey, FDSAP has built a reputation as a trusted and reliable partner for financial institutions.. With its deep industry knowledge, extensive experience, and a track record of successful implementations, FDSAP has garnered the trust of its clients. Financial institutions recognize FDSAP as a partner that understands their unique challenges and provides tailored solutions to address their specific needs, ultimately positioning them for long-term success in the digital era.''';
+  static const String ARTICLE_DESC5 = '''FDS ASYA PHILIPPINES INC. (FDSAP) is a leader in digital services, whose success is also attributed to the support of an international alliance with our holding, FORTRESS DATA SERVICES INDONESIA FDSI). With a deep understanding of local businesses, we have played a vital role since 2015 in facilitating the digitalization journeys of CARD Bank, CARD RBI, and CARD SME. Throughout the years, we have become one of Southeast Asia's leading IT companies and continues to be a trustworthy and reliable partner in the financial industry.''';
 
   //Events Info
   static const String EVENTS_DATE = "February 14, 2023";
