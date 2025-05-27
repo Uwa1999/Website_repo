@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ArticleDescSection extends StatefulWidget {
+  static const String route = '/Article Inside';
   const ArticleDescSection({Key? key}) : super(key: key);
 
   @override
@@ -23,6 +24,70 @@ class _ArticleDescSectionState extends State<ArticleDescSection> {
 }
 
 //Desktop Scree
+// class DesktopArticleDescScreen extends StatelessWidget {
+//   const DesktopArticleDescScreen({Key? key}) : super(key: key);
+//
+//
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     TextTheme textTheme = Theme.of(context).textTheme;
+//
+//     TextStyle defaultTitleStyle = textTheme.headlineMedium?.copyWith(
+//       fontSize: responsiveSize(context, 26, 36, md: 32),
+//       color: AppColors.black,
+//       fontWeight: FontWeight.bold,
+//     ) ??
+//         const TextStyle();
+//     return Column(
+//       mainAxisAlignment: MainAxisAlignment.start,
+//       crossAxisAlignment: CrossAxisAlignment.start,
+//       children: [
+//         SizedBox(height: 90,),
+//         Container(
+//           padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+//           decoration: BoxDecoration(
+//             border: Border.all(color: Colors.black),
+//             borderRadius: BorderRadius.circular(4),
+//           ),
+//           child: Text(
+//             "Latest",
+//             style: textTheme.labelSmall?.copyWith(
+//               color: Colors.black,
+//               fontWeight: FontWeight.w500,
+//             ),
+//           ),
+//         ),
+//         Container(
+//           width: 900,
+//           padding: EdgeInsets.only(top: 40),
+//           child: Text(
+//             'Meet the team:\nProject Management Office',
+//             style: GoogleFonts.inter(
+//               fontSize: 42,
+//               fontWeight: FontWeight.bold,
+//               color: Colors.black,
+//             ),
+//           ),
+//         ),
+//         const SizedBox(height: 40),
+//         Container(
+//           width: MediaQuery.of(context).size.width * 0.9,
+//           height: MediaQuery.of(context).size.height,
+//           decoration: BoxDecoration(
+//             borderRadius: BorderRadius.circular(10),
+//             image: DecorationImage(
+//               image: AssetImage('assets/images/pmo1.png'),
+//               fit: BoxFit.cover,
+//             ),
+//           ),
+//         ),
+//       ],
+//     );
+//   }
+// }
+
+//Mobile Screen
 class DesktopArticleDescScreen extends StatefulWidget {
   const DesktopArticleDescScreen({Key? key}) : super(key: key);
 
@@ -31,49 +96,113 @@ class DesktopArticleDescScreen extends StatefulWidget {
 }
 
 class _DesktopArticleDescScreenState extends State<DesktopArticleDescScreen> {
+  final ScrollController _scrollController = ScrollController();
+  bool isFabVisible = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _scrollController.addListener(() {
+      final maxScroll = _scrollController.position.maxScrollExtent;
+      final currentScroll = _scrollController.position.pixels;
+
+      if (currentScroll >= maxScroll - 50) {
+        if (!isFabVisible) {
+          setState(() => isFabVisible = true);
+        }
+      } else {
+        if (isFabVisible) {
+          setState(() => isFabVisible = false);
+        }
+      }
+    });
+  }
+
+  void scrollToTop() {
+    _scrollController.animateTo(0.0, duration: const Duration(milliseconds: 500), curve: Curves.easeInOut);
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Column(
+    TextTheme textTheme = Theme.of(context).textTheme;
+    TextStyle defaultTitleStyle = textTheme.headlineMedium?.copyWith(
+      fontSize: responsiveSize(context, 26, 36, md: 32),
+      color: AppColors.black,
+      fontWeight: FontWeight.bold,
+    ) ??
+        const TextStyle();
+
+    return Stack(
       children: [
-        Container(
-          padding: EdgeInsets.only(
-            left: Sizes.PADDING_100,
-            right: Sizes.PADDING_150,
-          ),
-          height: MediaQuery.of(context).size.height * 0.7,
-          width: double.infinity,
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              fit: BoxFit.cover,
-              image: AssetImage(
-                ImagePath.ARTICLE_HEADER,
-              ),
-            ),
-          ),
+        SingleChildScrollView(
+          controller: _scrollController,
+          padding: const EdgeInsets.symmetric(horizontal: 40),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBoxH190(),
-              SizedBoxH190(),
-              NimbusInfoInsightTitle(
-                title1: StringConst.ARTICLE_DESC_TITLE,
-                hasTitle2: false,
-                body: StringConst.ARTICLE_DESC_SUBTITLE1,
-                title1Style: GoogleFonts.poppins(
-                  fontSize: Sizes.TEXT_SIZE_28,
-                  fontWeight: FontWeight.w700,
-                  color: AppColors.white,
+              const SizedBox(height: 90),
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.black),
+                  borderRadius: BorderRadius.circular(4),
+                ),
+                child: Text(
+                  "Latest",
+                  style: textTheme.labelSmall?.copyWith(
+                    color: Colors.black,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
               ),
+              Container(
+                width: 900,
+                padding: const EdgeInsets.only(top: 40),
+                child: Text(
+                  'Meet the team:\nProject Management Office',
+                  style: GoogleFonts.inter(
+                    fontSize: 42,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 40),
+              Container(
+                width: MediaQuery.of(context).size.width * 0.9,
+                height: MediaQuery.of(context).size.height,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  image: const DecorationImage(
+                    image: AssetImage('assets/images/pmo1.png'),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 100),
             ],
           ),
         ),
+        if (isFabVisible)
+          Positioned(
+            bottom: 24,
+            right: 24,
+            child: FloatingActionButton(
+              backgroundColor: AppColors.maroon08,
+              onPressed: scrollToTop,
+              child: const Icon(Icons.expand_less, color: Colors.white),
+            ),
+          ),
       ],
     );
   }
 }
-
-//Mobile Screen
 class MobileArticleDescScreen extends StatefulWidget {
   const MobileArticleDescScreen({Key? key}) : super(key: key);
 
@@ -82,46 +211,125 @@ class MobileArticleDescScreen extends StatefulWidget {
 }
 
 class _MobileArticleDescScreenState extends State<MobileArticleDescScreen> {
+  final ScrollController _scrollController = ScrollController();
+  bool isFabVisible = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _scrollController.addListener(() {
+      final maxScroll = _scrollController.position.maxScrollExtent;
+      final currentScroll = _scrollController.position.pixels;
+
+      if (currentScroll >= maxScroll - 50) {
+        if (!isFabVisible) {
+          setState(() => isFabVisible = true);
+        }
+      } else {
+        if (isFabVisible) {
+          setState(() => isFabVisible = false);
+        }
+      }
+    });
+  }
+
+  void scrollToTop() {
+    _scrollController.animateTo(0.0, duration: const Duration(milliseconds: 500), curve: Curves.easeInOut);
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Stack(
       children: [
-        Container(
-          padding: EdgeInsets.only(
-            left: Sizes.PADDING_20,
-            right: Sizes.PADDING_20,
-          ),
-          height: MediaQuery.of(context).size.height * 0.5,
-          width: double.infinity,
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: [
-                AppColors.maroon03.withOpacity(1.0),
-                AppColors.maroon05.withOpacity(0.8),
-              ],
-            ),
-          ),
+        SingleChildScrollView(
+          controller: _scrollController,
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              SizedBoxH130(),
-              //   SizedBoxH80(),
-              NimbusInfoInsightTitle(
-                title1: StringConst.ARTICLE_DESC_TITLE,
-                hasTitle2: false,
-                body: StringConst.ARTICLE_DESC_SUBTITLE1,
-                title1Style: GoogleFonts.poppins(
-                  fontSize: Sizes.TEXT_SIZE_18,
-                  fontWeight: FontWeight.w700,
-                  color: AppColors.white,
+              const SizedBox(height: 30),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Text(
+                  'Meet the team:\nProject Management Office',
+                  style: GoogleFonts.inter(
+                    fontSize: 28,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                  ),
+                  textAlign: TextAlign.left,
                 ),
               ),
+              const SizedBox(height: 20),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(12),
+                  child: Image.asset(
+                    'assets/images/pmo1.png',
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 100),
             ],
           ),
         ),
+        if (isFabVisible)
+          Positioned(
+            bottom: 24,
+            right: 24,
+            child: FloatingActionButton(
+              backgroundColor: AppColors.maroon08,
+              onPressed: scrollToTop,
+              child: const Icon(Icons.expand_less, color: Colors.white),
+            ),
+          ),
       ],
     );
   }
 }
+
+// class MobileArticleDescScreen extends StatelessWidget {
+//   const MobileArticleDescScreen({Key? key}) : super(key: key);
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return SingleChildScrollView(
+//       child: Column(
+//         children: [
+//           const SizedBox(height: 30),
+//           Padding(
+//             padding: const EdgeInsets.symmetric(horizontal: 20),
+//             child: Text(
+//               'Meet the team:\nProject Management Office',
+//               style: GoogleFonts.inter(
+//                 fontSize: 28,
+//                 fontWeight: FontWeight.bold,
+//                 color: Colors.black,
+//               ),
+//               textAlign: TextAlign.left,
+//             ),
+//           ),
+//           const SizedBox(height: 20),
+//           Padding(
+//             padding: const EdgeInsets.symmetric(horizontal: 20),
+//             child: ClipRRect(
+//               borderRadius: BorderRadius.circular(12),
+//               child: Image.asset(
+//                 'assets/images/pmo1.png',
+//                 fit: BoxFit.cover,
+//               ),
+//             ),
+//           ),
+//
+//           const SizedBox(height: 30),
+//         ],
+//       ),
+//     );
+//   }
+// }
