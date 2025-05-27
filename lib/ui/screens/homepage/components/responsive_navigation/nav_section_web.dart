@@ -16,6 +16,7 @@ import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 import '../../../clients/clients_main.dart';
+import '../../../shared/widgets/NavItemData_global.dart';
 import '../../../shared/widgets/pop_container.dart';
 import '../our_location_section.dart';
 
@@ -34,67 +35,37 @@ const int menuSpacerRightMd = 4;
 const int menuSpacerRightSm = 3;
 
 class NavSectionWeb extends StatefulWidget {
-
-   List<NavItemData> navItems = [
-    NavItemData(name: StringConst.CONTACT_US, key: GlobalKey()),
-  ];
-
+  final List<NavItemData> navItems;
   final Function(GlobalKey) onNavItemSelected;
 
-  NavSectionWeb({required this.navItems,required this.onNavItemSelected});
+  NavSectionWeb({required this.navItems, required this.onNavItemSelected});
 
   @override
   _NavSectionWebState createState() => _NavSectionWebState();
 }
 
 class _NavSectionWebState extends State<NavSectionWeb> {
-  late final GlobalKey contactUsKey;
-  final List<NavItemData> navItems = [
-    NavItemData(name: StringConst.CONTACT_US, key: GlobalKey()),
-  ];
-
-
   @override
   Widget build(BuildContext context) {
     double logoSpaceLeft = responsiveSize(context, logoSpaceLeftSm, logoSpaceLeftLg);
     double logoSpaceRight = responsiveSize(context, logoSpaceRightSm, logoSpaceRightLg);
-    double contactBtnSpaceLeft = responsiveSize(
-      context,
-      contactButtonSpaceLeftSm,
-      contactButtonSpaceLeftLg,
-    );
-    double contactBtnSpaceRight = responsiveSize(
-      context,
-      contactButtonSpaceRightSm,
-      contactButtonSpaceRightLg,
-    );
-    double contactBtnWidth = responsiveSize(
-      context,
-      contactBtnWidthSm,
-      contactBtnWidthLg,
-    );
-    int menuSpacerRight = responsiveSizeInt(
-      context,
-      menuSpacerRightSm,
-      menuSpacerRightLg,
-      md: menuSpacerRightMd,
-    );
+    double contactBtnSpaceLeft = responsiveSize(context, contactButtonSpaceLeftSm, contactButtonSpaceLeftLg);
+    double contactBtnSpaceRight = responsiveSize(context, contactButtonSpaceRightSm, contactButtonSpaceRightLg);
+    double contactBtnWidth = responsiveSize(context, contactBtnWidthSm, contactBtnWidthLg);
+    int menuSpacerRight = responsiveSizeInt(context, menuSpacerRightSm, menuSpacerRightLg, md: menuSpacerRightMd);
 
     return Container(
       height: Sizes.HEIGHT_100,
-      // color: Colors.transparent.withOpacity(0.2),
-      decoration: BoxDecoration(
-        color: Colors.transparent,
-
-      ),
+      decoration: BoxDecoration(color: Colors.transparent),
       child: IntrinsicHeight(
         child: Row(
           children: [
             SizedBox(width: logoSpaceLeft),
             InkWell(
               onTap: () {
+                updateSelectedNavItem(StringConst.HOME);
+                setState(() {}); // <--- Force UI update when navigating home
                 Navigator.of(context).pushNamed(HomepageScreen.route);
-                print("-----HOMEPAGE SCREEN----");
               },
               child: Image.asset(
                 ImagePath.FDSAP_LOGO_MAROON,
@@ -113,186 +84,68 @@ class _NavSectionWebState extends State<NavSectionWeb> {
                 if (screenWidth < (RefinedBreakpoints().desktopSmall + 450)) {
                   return EmptyContainer();
                 } else {
-                  return Row(
-                    children: [
-                      //   ..._buildSocialIcons(Data.socialData),
-                      SizedBoxW20(),
-                    ],
-                  );
+                  return Row(children: [SizedBoxW20()]);
                 }
               },
             ),
             NimbusVerticalDivider(),
             SizedBox(width: contactBtnSpaceLeft),
-            // Container(
-            //   child: NavItem(title: 'Contact Us',), color: Colors.red,),
-            // Row(
-            //   children: navItems.map((item) {
-            //     return NavItem(
-            //       title: item.name ?? '',
-            //       isSelected: item.isSelected,
-            //       onTap: () {
-            //         final context = item.key.currentContext;
-            //         if (context != null) {
-            //           Scrollable.ensureVisible(
-            //             context,
-            //             duration: Duration(milliseconds: 500),
-            //             curve: Curves.easeInOut,
-            //           );
-            //         }
-            //       },
-            //     );
-            //   }).toList(),
-            // ),
-            // Row(
-            //   children: navItems.map((item) {
-            //     return NavItem(
-            //       title: item.name ?? '',
-            //       isSelected: item.isSelected,
-            //       onTap: () {
-            //         final ctx = item.key.currentContext;
-            //         if (ctx != null) {
-            //           Scrollable.ensureVisible(
-            //             ctx,
-            //             duration: Duration(milliseconds: 500),
-            //             curve: Curves.easeInOut,
-            //           );
-            //         }
-            //       },
-            //     );
-            //   }).toList(),
-            // ),
             Container(
-width: 120,
+              padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
+              width: 150,
               height: 40,
               decoration: BoxDecoration(
-                  color: AppColors.maroon05,
-                borderRadius: BorderRadius.circular(20)
+                color: AppColors.maroon05,
+                borderRadius: BorderRadius.circular(20),
               ),
-              child: Padding(
-                padding: const EdgeInsets.all(10.0),
+              child: Center(
                 child: NavItem(
                   titleColor: AppColors.white,
-                  title: widget.navItems.last.name!,
+                  title: widget.navItems.last.name,
                   isSelected: widget.navItems.last.isSelected,
-                  onTap: () => _onTapNavItem(
-                    context: widget.navItems.last.key!,
-                    navItemName: widget.navItems.last.name!,
-                  ),
+                  onTap: () => _onTapNavItem(widget.navItems.last),
                 ),
               ),
             ),
-
-
-            // Container(
-            //   child: ContactUsButton(
-            //     buttonTitle: StringConst.CONTACT_US,
-            //     buttonColor: AppColors.maroon02,
-            //     borderRadius: BorderRadius.all(Radius.circular(100)),
-            //     width: contactBtnWidth,
-            //    onPressed: (){
-            //      Navigator.of(context).pushNamed(ContactUsPage.route);
-            //    },
-            //     // onPressed: ()=>_showDemoPopup(context),
-            //   ),
-            // ),
             SizedBox(width: contactBtnSpaceRight),
           ],
         ),
       ),
     );
   }
-///old
-  // _onTapNavItem({
-  //   required GlobalKey context,
-  //   required String navItemName,
-  // }) {
-  //   for (int index = 0; index < widget.navItems.length; index++) {
-  //     if (navItemName == widget.navItems[index].name) {
-  //       scrollToSection(context.currentContext!);
-  //       setState(() {
-  //         widget.navItems[index].isSelected = true;
-  //       });
-  //     } else {
-  //       widget.navItems[index].isSelected = false;
-  //     }
-  //   }
-  // }
-///new added as of may 15, 2025
-//   _onTapNavItem({
-//     required GlobalKey context,
-//     required String navItemName,
-//   }) {
-//     for (int index = 0; index < widget.navItems.length; index++) {
-//       if (navItemName == widget.navItems[index].name) {
-//         widget.onNavItemSelected(context); // <-- Call scroll from parent
-//         setState(() {
-//           widget.navItems[index].isSelected = true;
-//         });
-//       } else {
-//         widget.navItems[index].isSelected = false;
-//       }
-//     }
-//   }
 
-  _onTapNavItem({
-    required GlobalKey context,
-    required String navItemName,
-  }) {
-    for (int index = 0; index < widget.navItems.length; index++) {
-      final item = widget.navItems[index];
-
-      if (navItemName == item.name) {
-        setState(() {
-          item.isSelected = true;
-          // Unselect others
-          for (int j = 0; j < widget.navItems.length; j++) {
-            if (j != index) widget.navItems[j].isSelected = false;
-          }
-        });
-
-        if (item.destinationBuilder != null) {
-          Navigator.push(
-            context.currentContext!,
-            MaterialPageRoute(builder: item.destinationBuilder!),
-          );
-        } else {
-          widget.onNavItemSelected(context); // Use scroll fallback
-        }
+  void _onTapNavItem(NavItemData item) {
+    setState(() {
+      for (var navItem in widget.navItems) {
+        navItem.isSelected = navItem.name == item.name;
       }
+    });
+
+    if (item.destinationBuilder != null) {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: item.destinationBuilder!),
+      ).then((_) {
+        // Reset to HOME when returning
+        updateSelectedNavItem(StringConst.HOME);
+        setState(() {});
+      });
+    } else if (item.key != null) {
+      widget.onNavItemSelected(item.key!);
     }
   }
-
 
   List<Widget> _buildNavItems(List<NavItemData> navItems) {
     List<Widget> items = [];
-    for (int index = 0; index < navItems.length - 1; index++) {
+    for (int i = 0; i < navItems.length - 1; i++) {
       items.add(
         NavItem(
-          title: navItems[index].name!,
-          isSelected: navItems[index].isSelected,
-          onTap: () => _onTapNavItem(
-            context: navItems[index].key!,
-            navItemName: navItems[index].name!,
-          ),
+          title: navItems[i].name,
+          isSelected: navItems[i].isSelected,
+          onTap: () => _onTapNavItem(navItems[i]),
         ),
       );
       items.add(Spacer());
-    }
-    return items;
-  }
-
-  List<Widget> _buildSocialIcons(List<SocialButtonData> socialItems) {
-    List<Widget> items = [];
-    for (int index = 0; index < socialItems.length; index++) {
-      items.add(
-        SocialButton(
-          tag: socialItems[index].tag,
-          iconData: socialItems[index].iconData,
-          onPressed: () => openUrlLink(socialItems[index].url),
-        ),
-      );
-      items.add(SizedBoxW16());
     }
     return items;
   }
