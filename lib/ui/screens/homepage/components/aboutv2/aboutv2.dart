@@ -122,7 +122,7 @@ class _AboutUsSectionv2State extends State<AboutUsSectionv2> {
                           child: SizedBox(
                             width: 800,
                             child: Text(
-                              '''FDS ASYA PHILIPPINES INC. (FDSAP) is a leader in digital services...''',
+                              '''FDS ASYA PHILIPPINES INC. (FDSAP) is a leader in digital services, whose success is also attributed to the support of an international alliance with our holding, FORTRESS DATA SERVICES INDONESIA FDSI). With a deep understanding of local businesses, we have played a vital role since 2015 in facilitating the digitalization journeys of CARD Bank, CARD RBI, and CARD SME. Throughout the years, we have become one of Southeast Asia's leading IT companies and continues to be a trustworthy and reliable partner in the financial industry.''',
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 fontSize: 14,
@@ -295,8 +295,22 @@ Widget blackSpaceWithImage(BuildContext context) {
                 Stack(
                   alignment: Alignment.center,
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 60),
+                    // Padding(
+                    //   padding: const EdgeInsets.symmetric(vertical: 20),
+                    //   child: Text(
+                    //     'Listening is where the care begins.',
+                    //     style: TextStyle(
+                    //       fontSize: (screenWidth * 0.05).clamp(30.0, 50.0),
+                    //       fontWeight: FontWeight.bold,
+                    //       color: Colors.white,
+                    //     ),
+                    //     textAlign: TextAlign.center,
+                    //   ),
+                    // ),
+                    Positioned(
+                      top: 170, // Adjust this value to control how high the text appears
+                      left: 0,
+                      right: 0,
                       child: Text(
                         'Listening is where the care begins.',
                         style: TextStyle(
@@ -307,11 +321,16 @@ Widget blackSpaceWithImage(BuildContext context) {
                         textAlign: TextAlign.center,
                       ),
                     ),
-                    Image.asset(
-                      'assets/images/_new1.png',
-                      width: MediaQuery.of(context).size.width,
-                      // height: 500,
-                      fit: BoxFit.contain,
+                    ClipRect(
+                      child: Align(
+                        alignment: Alignment.bottomCenter, // Change this to crop different areas
+                        heightFactor: 0.6, // 0.5 means show only the top half
+                        child: Image.asset(
+                          'assets/images/_new1.png',
+                          width: MediaQuery.of(context).size.width,
+                          fit: BoxFit.cover, // Use cover to fill the cropping area
+                        ),
+                      ),
                     ),
                   ],
                 ),
