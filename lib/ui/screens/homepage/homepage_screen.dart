@@ -295,197 +295,7 @@ import 'package:responsive_builder/responsive_builder.dart';
 
 import '../shared/widgets/buttons/footer.dart';
 import 'components/leading_partners_section.dart';
-//
-// class HomepageScreen extends StatefulWidget {
-//   static const String route = '/Homepage';
-//   @override
-//   _HomepageScreenState createState() => _HomepageScreenState();
-// }
-//
-// class _HomepageScreenState extends State<HomepageScreen> {
-//   bool isFabVisible = false;
-//   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
-//   final ScrollController _scrollController = ScrollController();
-//
-//   @override
-//   void initState() {
-//     super.initState();
-//     _scrollController.addListener(_onScroll);
-//     WidgetsBinding.instance.addPostFrameCallback((_) {
-//       if (ScrollTarget.targetKey != null) {
-//         scrollToSection(ScrollTarget.targetKey!);
-//       }
-//     });
-//   }
-//
-//   @override
-//   void dispose() {
-//     _scrollController.removeListener(_onScroll);
-//     _scrollController.dispose();
-//     super.dispose();
-//   }
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     double imageWidth = MediaQuery.of(context).size.width;
-//     final imageAspectRatio = 3 / 1;
-//     final imageHeight = imageWidth / imageAspectRatio;
-//     return Scaffold(
-//       backgroundColor: Colors.transparent,
-//       key: _scaffoldKey,
-//       drawer: ResponsiveBuilder(
-//         builder: (context, sizingInformation) {
-//           return sizingInformation.screenSize.width < 900 ? SideMenu() : Container();
-//         },
-//       ),
-//       floatingActionButton: Visibility(
-//         visible: isFabVisible,
-//         child: FloatingActionButton(
-//           backgroundColor: AppColors.maroon08,
-//           child: Icon(Icons.expand_less, size: Sizes.ICON_SIZE_18, color: AppColors.white),
-//           onPressed: () => scrollToSection(navItems[0].key!),
-//         ),
-//       ),
-//       body: NotificationListener<UserScrollNotification>(
-//         onNotification: (notification) {
-//           if (notification.direction == ScrollDirection.forward && !isFabVisible) {
-//             setState(() => isFabVisible = true);
-//           } else if (notification.direction == ScrollDirection.reverse && isFabVisible) {
-//             setState(() => isFabVisible = false);
-//           }
-//           return true;
-//         },
-//         child: Column(
-//           children: [
-//             ResponsiveBuilder(
-//               builder: (context, sizingInfo) {
-//                 return sizingInfo.screenSize.width < 900
-//                     ? NavSectionMobile(scaffoldKey: _scaffoldKey)
-//                     : NavSectionWeb(
-//                   navItems: navItems,
-//                   onNavItemSelected: (key) {
-//                     WidgetsBinding.instance.addPostFrameCallback((_) {
-//                       if (key.currentContext != null) scrollToSection(key);
-//                     });
-//                   },
-//                 );
-//               },
-//             ),
-//             Expanded(
-//               child: SingleChildScrollView(
-//                 controller: _scrollController,
-//                 child: Column(
-//                   children: [
-//                     Stack(
-//                       children: [
-//                         Column(
-//                           children: [
-//                             HeaderResponsiveWeb(key: navItems[0].key),
-//                             imageWidth <= 800 ? SizedBox(height: imageHeight) : SizedBox(height: 20),
-//                             Column(
-//                               children: [
-//                                 Container(
-//                                   key: navItems[1].key,
-//                                   child: ProductsAndServicesV2(),
-//                                 ),
-//                                 Container(
-//                                   key: navItems[2].key,
-//                                   child: ClientsList(),
-//                                 ),
-//                               ],
-//                             ),
-//                             LeadingBankingPartnerSection(),
-//                             LayoutBuilder(
-//                               builder: (context, constraints) {
-//                                 final totalWidth = constraints.maxWidth;
-//                                 final isDesktop = totalWidth > 1100;
-//                                 final contactFormWidth = 850.0;
-//                                 final sidePadding = 40.0;
-//
-//                                 if (isDesktop) {
-//                                   // Desktop layout: side by side using Row
-//                                   return Padding(
-//                                     padding: const EdgeInsets.symmetric(horizontal: 40.0, vertical: 40.0),
-//                                     child: Row(
-//                                       crossAxisAlignment: CrossAxisAlignment.start,
-//                                       children: [
-//                                         SizedBox(
-//                                           key: navItems[5].key,
-//                                           width: contactFormWidth,
-//                                           child: ContactUsPage(),
-//                                         ),
-//                                         const SizedBox(width: 40), // space between form and location
-//                                         Expanded(
-//                                           child: OurLocationSection(),
-//                                         ),
-//                                       ],
-//                                     ),
-//                                   );
-//                                 } else {
-//                                   // Mobile layout: stacked
-//                                   return Column(
-//                                     children: [
-//                                       Container(
-//                                         key: navItems[5].key,
-//                                         padding: const EdgeInsets.symmetric(horizontal: 16.0),
-//                                         child: ContactUsPage(),
-//                                       ),
-//                                       const SizedBox(height: 20),
-//                                       Padding(
-//                                         padding: const EdgeInsets.symmetric(horizontal: 16.0),
-//                                         child: OurLocationSection(),
-//                                       ),
-//                                     ],
-//                                   );
-//                                 }
-//                               },
-//                             ),
-//
-//
-//                             FooterSectionv2(),
-//                           ],
-//                         ),
-//                         // Positioned(
-//                         //   top: MediaQuery.of(context).size.height * 0.45,
-//                         //   left: (MediaQuery.of(context).size.width - 1300) / 2,
-//                         //   child: Center(
-//                         //     child: Image.asset(
-//                         //       'assets/images/phone-web.png',
-//                         //       width: MediaQuery.of(context).size.width * 0.8,
-//                         //       fit: BoxFit.contain,
-//                         //     ),
-//                         //   ),
-//                         // ),
-//                       ],
-//                     ),
-//                   ],
-//                 ),
-//               ),
-//             ),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-//
-//   void _onScroll() {
-//     for (var item in navItems) {
-//       final context = item.key?.currentContext;
-//       if (context != null) {
-//         final box = context.findRenderObject() as RenderBox;
-//         final position = box.localToGlobal(Offset.zero).dy;
-//         if (position >= 0 && position < MediaQuery.of(context).size.height / 2) {
-//           if (!item.isSelected) {
-//             setState(() {
-//               updateSelectedNavItem(item.name);
-//             });
-//           }
-//           break;
-//         }
-//       }
-//     }
-//   }
-// }
+
 class HomepageScreen extends StatefulWidget {
   static const String route = '/Homepage';
   @override
@@ -501,19 +311,6 @@ class _HomepageScreenState extends State<HomepageScreen> {
   void initState() {
     super.initState();
     _scrollController.addListener(_onScroll);
-
-    // Show FAB when reaching bottom
-    _scrollController.addListener(() {
-      final maxScroll = _scrollController.position.maxScrollExtent;
-      final currentScroll = _scrollController.position.pixels;
-
-      if (currentScroll >= maxScroll - 50) { // buffer for smoother triggering
-        setState(() {
-          isFabVisible = true;
-        });
-      }
-    });
-
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (ScrollTarget.targetKey != null) {
         scrollToSection(ScrollTarget.targetKey!);
@@ -533,7 +330,6 @@ class _HomepageScreenState extends State<HomepageScreen> {
     double imageWidth = MediaQuery.of(context).size.width;
     final imageAspectRatio = 3 / 1;
     final imageHeight = imageWidth / imageAspectRatio;
-
     return Scaffold(
       backgroundColor: Colors.transparent,
       key: _scaffoldKey,
@@ -547,7 +343,7 @@ class _HomepageScreenState extends State<HomepageScreen> {
         child: FloatingActionButton(
           backgroundColor: AppColors.maroon08,
           child: Icon(Icons.expand_less, size: Sizes.ICON_SIZE_18, color: AppColors.white),
-          onPressed: scrollToTop,
+          onPressed: () => scrollToSection(navItems[0].key!),
         ),
       ),
       body: NotificationListener<UserScrollNotification>(
@@ -585,7 +381,7 @@ class _HomepageScreenState extends State<HomepageScreen> {
                         Column(
                           children: [
                             HeaderResponsiveWeb(key: navItems[0].key),
-                            imageWidth <= 800 ? SizedBox(height: imageHeight) : SizedBox(height: 20),
+                            imageWidth <= 800 ? SizedBox(height: imageHeight) : SizedBox(height: imageHeight * 0.10),
                             Column(
                               children: [
                                 Container(
@@ -607,6 +403,7 @@ class _HomepageScreenState extends State<HomepageScreen> {
                                 final sidePadding = 40.0;
 
                                 if (isDesktop) {
+                                  // Desktop layout: side by side using Row
                                   return Padding(
                                     padding: const EdgeInsets.symmetric(horizontal: 40.0, vertical: 40.0),
                                     child: Row(
@@ -617,7 +414,7 @@ class _HomepageScreenState extends State<HomepageScreen> {
                                           width: contactFormWidth,
                                           child: ContactUsPage(),
                                         ),
-                                        const SizedBox(width: 40),
+                                        const SizedBox(width: 40), // space between form and location
                                         Expanded(
                                           child: OurLocationSection(),
                                         ),
@@ -625,6 +422,7 @@ class _HomepageScreenState extends State<HomepageScreen> {
                                     ),
                                   );
                                 } else {
+                                  // Mobile layout: stacked
                                   return Column(
                                     children: [
                                       Container(
@@ -642,9 +440,22 @@ class _HomepageScreenState extends State<HomepageScreen> {
                                 }
                               },
                             ),
+
+
                             FooterSectionv2(),
                           ],
                         ),
+                        // Positioned(
+                        //   top: MediaQuery.of(context).size.height * 0.45,
+                        //   left: (MediaQuery.of(context).size.width - 1300) / 2,
+                        //   child: Center(
+                        //     child: Image.asset(
+                        //       'assets/images/phone-web.png',
+                        //       width: MediaQuery.of(context).size.width * 0.8,
+                        //       fit: BoxFit.contain,
+                        //     ),
+                        //   ),
+                        // ),
                       ],
                     ),
                   ],
@@ -673,13 +484,5 @@ class _HomepageScreenState extends State<HomepageScreen> {
         }
       }
     }
-  }
-
-  void scrollToTop() {
-    _scrollController.animateTo(
-      0.0,
-      duration: const Duration(milliseconds: 500),
-      curve: Curves.easeInOut,
-    );
   }
 }
