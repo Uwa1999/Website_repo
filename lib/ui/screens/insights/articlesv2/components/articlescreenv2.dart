@@ -8,14 +8,14 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 
-class ArticleDescScreenInsidev2 extends StatefulWidget {
-  const ArticleDescScreenInsidev2({Key? key}) : super(key: key);
+class ArticleDescScreen extends StatefulWidget {
+  const ArticleDescScreen({Key? key}) : super(key: key);
 
   @override
-  State<ArticleDescScreenInsidev2> createState() => _ArticleDescScreenInsidev2State();
+  State<ArticleDescScreen> createState() => _ArticleDescScreenState();
 }
 
-class _ArticleDescScreenInsidev2State extends State<ArticleDescScreenInsidev2> {
+class _ArticleDescScreenState extends State<ArticleDescScreen> {
   @override
   Widget build(BuildContext context) {
     return (!isMobile(context)) == (!isTab(context))

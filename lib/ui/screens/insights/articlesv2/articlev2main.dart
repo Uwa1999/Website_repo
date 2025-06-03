@@ -184,8 +184,8 @@ class _ArticleDescMainv2State extends State<ArticleDescMainv2> {
               controller: _scrollController,
               child: Column(
                 children: [
-                  ArticleDescSection(),
-                  ArticleDescScreen(),
+                  ArticleDescSectionInside(),
+                  ArticleDescScreenInside(),
                   SizedBoxH10(),
                   FooterSectionv2(),
                 ],

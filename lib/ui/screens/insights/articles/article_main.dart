@@ -202,8 +202,8 @@ class _ArticleDescMainState extends State<ArticleDescMain> {
                         width: double.infinity,
                         child: Column(
                           children: [
-                            ArticleDescSectionInsidev2(),
-                            ArticleDescScreenInsidev2(),
+                            ArticleDescSection(),
+                            ArticleDescScreen(),
                           ],
                         ),
                       ),

@@ -66,7 +66,7 @@ class Fdsap extends StatelessWidget {
           MissionVision.route:(context)=> MissionVision(),
           InsightSection.route:(context)=> InsightSection(),
           ArticleDescMainv2.route:(context)=> ArticleDescMainv2(),
-          ArticleDescSection.route:(context)=> ArticleDescSection()
+          ArticleDescSectionInside.route:(context)=> ArticleDescSectionInside()
 
           // GoogleLikeSearchPage.route:(context)=> GoogleLikeSearchPage()
         },

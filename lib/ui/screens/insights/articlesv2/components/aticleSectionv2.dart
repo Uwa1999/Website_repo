@@ -8,14 +8,14 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/sizedbox.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class ArticleDescSectionInsidev2 extends StatefulWidget {
-  const ArticleDescSectionInsidev2({Key? key}) : super(key: key);
+class ArticleDescSection extends StatefulWidget {
+  const ArticleDescSection({Key? key}) : super(key: key);
 
   @override
-  State<ArticleDescSectionInsidev2> createState() => _ArticleDescSectionInsidev2State();
+  State<ArticleDescSection> createState() => _ArticleDescSectionState();
 }
 
-class _ArticleDescSectionInsidev2State extends State<ArticleDescSectionInsidev2> {
+class _ArticleDescSectionState extends State<ArticleDescSection> {
   @override
   Widget build(BuildContext context) {
     return (!isMobile(context)) == (!isTab(context)) ? DesktopArticleDescScreenInsidev2() : MobileArticleDescScreenInsidev2();

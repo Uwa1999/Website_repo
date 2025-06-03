@@ -240,15 +240,15 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/sizedbox.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class ArticleDescSection extends StatefulWidget {
+class ArticleDescSectionInside extends StatefulWidget {
   static const String route = '/Article Inside';
-  const ArticleDescSection({Key? key}) : super(key: key);
+  const ArticleDescSectionInside({Key? key}) : super(key: key);
 
   @override
-  State<ArticleDescSection> createState() => _ArticleDescSectionState();
+  State<ArticleDescSectionInside> createState() => _ArticleDescSectionInsideState();
 }
 
-class _ArticleDescSectionState extends State<ArticleDescSection> {
+class _ArticleDescSectionInsideState extends State<ArticleDescSectionInside> {
   @override
   Widget build(BuildContext context) {
     return (!isMobile(context)) == (!isTab(context))

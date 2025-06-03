@@ -82,8 +82,8 @@ class _ArticleDescInsidev2State extends State<ArticleDescInsidev2> {
               child: SingleChildScrollView(
                 child: Column(
                   children: [
-                    ArticleDescSectionInsidev2(),
-                    ArticleDescScreenInsidev2(),
+                    ArticleDescSection(),
+                    ArticleDescScreen(),
                     SizedBoxH10(),
                     FooterSectionv2(),
                   ],
