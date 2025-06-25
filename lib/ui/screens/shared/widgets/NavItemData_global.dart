@@ -11,33 +11,43 @@ import '../values/strings.dart';
 import '../widgets/nav_item.dart';
 
 ///GLOBAL DECLARATION OF NAVIGATION ITEMS
+///old changed date june 09, 2025
+// List<NavItemData> navItems = [
+//   ///0
+//   NavItemData(name: StringConst.HOME,
+//       key: GlobalKey(),
+//       isSelected: true),
+// ///1
+//   NavItemData(name: StringConst.SERVICES,
+//       key: GlobalKey()
+//   ),
+//   ///2
+//   NavItemData(name: StringConst.CLIENT,
+//       key: GlobalKey()
+//   ),
+// ///3
+//   NavItemData(name: StringConst.INSIGHTS,
+//       key: GlobalKey(),
+//       destinationBuilder: (context) => ArticleDescMain()
+//   ),
+// ///4
+//   NavItemData(name: StringConst.ABOUT_US,
+//       // key: GlobalKey(),
+//       destinationBuilder: (context) => AboutUsSectionv2()
+//   ),
+// ///5
+//   NavItemData(name: StringConst.CONTACT_US,
+//       key: GlobalKey()),
+// ];
 List<NavItemData> navItems = [
-  ///0
-  NavItemData(name: StringConst.HOME,
-      key: GlobalKey(),
-      isSelected: true),
-///1
-  NavItemData(name: StringConst.SERVICES,
-      key: GlobalKey()
-  ),
-  ///2
-  NavItemData(name: StringConst.CLIENT,
-      key: GlobalKey()
-  ),
-///3
-  NavItemData(name: StringConst.INSIGHTS,
-      key: GlobalKey(),
-      destinationBuilder: (context) => ArticleDescMain()
-  ),
-///4
-  NavItemData(name: StringConst.ABOUT_US,
-      // key: GlobalKey(),
-      destinationBuilder: (context) => AboutUsSectionv2()
-  ),
-///5
-  NavItemData(name: StringConst.CONTACT_US,
-      key: GlobalKey()),
+  NavItemData(name: StringConst.HOME, key: GlobalObjectKey('home'), isSelected: true),
+  NavItemData(name: StringConst.SERVICES, key: GlobalObjectKey('services')),
+  NavItemData(name: StringConst.CLIENT, key: GlobalObjectKey('client')),
+  NavItemData(name: StringConst.INSIGHTS, key: GlobalObjectKey('insights'), destinationBuilder: (context) => ArticleDescMain()),
+  NavItemData(name: StringConst.ABOUT_US, destinationBuilder: (context) => AboutUsSectionv2()),
+  NavItemData(name: StringConst.CONTACT_US, key: GlobalObjectKey('contact')),
 ];
+
 
 /// Utility method to scroll to a section using its GlobalKey
 /// GLOBALLY ACCESSED BY THE HEADER SECTION

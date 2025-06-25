@@ -467,22 +467,42 @@ class _HomepageScreenState extends State<HomepageScreen> {
       ),
     );
   }
-
+  ///old changed june 09, 2025
+  // void _onScroll() {
+  //   for (var item in navItems) {
+  //     final context = item.key?.currentContext;
+  //     if (context != null) {
+  //       final box = context.findRenderObject() as RenderBox;
+  //       final position = box.localToGlobal(Offset.zero).dy;
+  //       if (position >= 0 && position < MediaQuery.of(context).size.height / 2) {
+  //         if (!item.isSelected) {
+  //           setState(() {
+  //             updateSelectedNavItem(item.name);
+  //           });
+  //         }
+  //         break;
+  //       }
+  //     }
+  //   }
+  // }
   void _onScroll() {
     for (var item in navItems) {
       final context = item.key?.currentContext;
       if (context != null) {
-        final box = context.findRenderObject() as RenderBox;
-        final position = box.localToGlobal(Offset.zero).dy;
-        if (position >= 0 && position < MediaQuery.of(context).size.height / 2) {
-          if (!item.isSelected) {
-            setState(() {
-              updateSelectedNavItem(item.name);
-            });
+        try {
+          final box = context.findRenderObject() as RenderBox;
+          final position = box.localToGlobal(Offset.zero).dy;
+          if (position >= 0 && position < MediaQuery.of(context).size.height / 2) {
+            if (!item.isSelected) {
+              setState(() {
+                updateSelectedNavItem(item.name);
+              });
+            }
+            break;
           }
-          break;
-        }
+        } catch (_) {}
       }
     }
   }
+
 }
