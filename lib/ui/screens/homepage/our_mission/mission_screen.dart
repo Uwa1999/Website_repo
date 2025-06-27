@@ -70,7 +70,7 @@ class _MissionScreenState extends State<MissionScreen> {
                   ),
                   child: Text(
                     StringConst.CHATBOT_DESC,
-                    style: textTheme.headline6,
+                    // style: textTheme.headline6,
                   ),
                 ),
               ),

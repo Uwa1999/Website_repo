@@ -1,3 +1,10 @@
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/admin/auth/login_page.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/admin/auth/registration_page.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/admin/catalogs/products_and_services.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/admin/homepage/dashboard_screen.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/admin/homepage/main_screen.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/admin/insights/add_insight.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/admin/insights/update_insight.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/clients/clients_main.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/clients/components/alternative_deliveries_solution.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/clients/components/banking_technology.dart';
@@ -41,8 +48,14 @@ class Fdsap extends StatelessWidget {
         theme: ThemeData(
           textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme).apply(bodyColor: Colors.black54),
         ),
-        initialRoute: HomepageScreen.route,
+        initialRoute: LoginScreen.route,
         routes: {
+          MainScreen.route: (context) => MainScreen(),
+          LoginScreen.route: (context) => LoginScreen(),
+          RegistrationForm.route: (context) => RegistrationForm(),
+          ProductsAndServices.route: (context) => ProductsAndServices(),
+          DashboardScreen.route: (context) => DashboardScreen(searchQuery: '',),
+          AddInsightForm.route: (context) => AddInsightForm(),
           HomepageScreen.route: (context) => HomepageScreen(),
           AboutMain.route: (context) => AboutMain(),
           ProductServicesMain.route: (context) => ProductServicesMain(),

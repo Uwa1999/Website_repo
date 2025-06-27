@@ -6,14 +6,6 @@ import 'package:flutter/material.dart';
 
 import '../../../shared/widgets/gradientcustomtext.dart';
 
-
-const double bodyTextSizeLg = 16.0;
-const double bodyTextSizeSm = 14.0;
-const double socialTextSizeLg = 18.0;
-const double socialTextSizeSm = 14.0;
-
-
-
 class HeaderResponsiveWeb extends StatefulWidget {
   const HeaderResponsiveWeb({Key? key}) : super(key: key);
 
@@ -30,15 +22,18 @@ class _HeaderResponsiveWebState extends State<HeaderResponsiveWeb> {
   @override
   Widget build(BuildContext context) {
     return ContentArea(
-      height: MediaQuery.of(context).size.height,
-      child: _buildDesktopHeader(context),
+      child: SingleChildScrollView(  // Added SingleChildScrollView
+        child: SizedBox(
+          height: MediaQuery.of(context).size.height,
+          child: _buildDesktopHeader(context),
+        ),
+      ),
     );
   }
 
   Widget _buildDesktopHeader(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
     final isMobile = screenWidth < 800;
-
     final textAlign = isMobile ? TextAlign.center : TextAlign.justify;
 
     final textItems = [
@@ -56,8 +51,6 @@ class _HeaderResponsiveWebState extends State<HeaderResponsiveWeb> {
               child: LayoutBuilder(
                 builder: (context, constraints) {
                   double screenWidth = constraints.maxWidth;
-
-                  // Adjust this formula as needed for your layout
                   double dynamicFontSize = (screenWidth * 0.08).clamp(50.0, 100.0);
 
                   return GradientCustomText(
@@ -71,10 +64,9 @@ class _HeaderResponsiveWebState extends State<HeaderResponsiveWeb> {
                 },
               ),
             ),
-            isMobile ? SizedBox(height: 20) : SizedBox(height: 300),
+            const Spacer(),  // Changed from fixed SizedBox to Spacer for flexible space
             Center(
               child: Container(
-                // color: Colors.teal,
                 width: screenWidth * 0.9,
                 padding: const EdgeInsets.symmetric(vertical: 20),
                 child: Flex(
@@ -84,6 +76,7 @@ class _HeaderResponsiveWebState extends State<HeaderResponsiveWeb> {
                 ),
               ),
             ),
+            const SizedBox(height: 100),  // Added bottom padding
           ],
         ),
       ],
