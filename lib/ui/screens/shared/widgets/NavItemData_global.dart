@@ -7,36 +7,38 @@ import '../../insights/articles/article_main.dart';
 import '../../insights/articlesv2/articlev2main.dart';
 import '../../insights/insights_main.dart';
 import '../../insights/insights_section.dart';
+import '../values/keys.dart';
 import '../values/strings.dart';
 import '../widgets/nav_item.dart';
 
-///GLOBAL DECLARATION OF NAVIGATION ITEMS
+
 List<NavItemData> navItems = [
-  ///0
-  NavItemData(name: StringConst.HOME,
-      key: GlobalKey(),
-      isSelected: true),
-///1
-  NavItemData(name: StringConst.SERVICES,
-      key: GlobalKey()
+  NavItemData(
+    name: StringConst.HOME,
+    key: homeKey,
+    isSelected: true,
   ),
-  ///2
-  NavItemData(name: StringConst.CLIENT,
-      key: GlobalKey()
+  // NavItemData(
+  //   name: StringConst.SERVICES,
+  //   key: servicesKey,
+  // ),
+  NavItemData(
+    name: StringConst.CLIENT,
+    key: clientKey,
   ),
-///3
-  NavItemData(name: StringConst.INSIGHTS,
-      key: GlobalKey(),
-      destinationBuilder: (context) => ArticleDescMain()
+  NavItemData(
+    name: StringConst.INSIGHTS,
+    key: insightsKey,
+    destinationBuilder: (context) => ArticleDescMain(),
   ),
-///4
-  NavItemData(name: StringConst.ABOUT_US,
-      // key: GlobalKey(),
-      destinationBuilder: (context) => AboutUsSectionv2()
+  NavItemData(
+    name: StringConst.ABOUT_US,
+    destinationBuilder: (context) => AboutUsSectionv2(),
   ),
-///5
-  NavItemData(name: StringConst.CONTACT_US,
-      key: GlobalKey()),
+  NavItemData(
+    name: StringConst.CONTACT_US,
+    key: contactKey,
+  ),
 ];
 
 /// Utility method to scroll to a section using its GlobalKey

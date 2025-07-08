@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/responsive.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/images.dart';
@@ -492,6 +494,8 @@ import 'package:flutter/material.dart';
 //   }
 // }
 //
+import 'package:http/http.dart' as http;
+
 
 class OurLocationSection extends StatelessWidget {
   const OurLocationSection({Key? key}) : super(key: key);
@@ -542,7 +546,7 @@ _launchDesktopURLv2() async {
 
 
 class ContactUsPage extends StatefulWidget {
-  static const String route = '/Contact Us';
+  static const String route = '/ContactUs';
   @override
   _ContactUsPageState createState() => _ContactUsPageState();
 }
@@ -553,22 +557,78 @@ class _ContactUsPageState extends State<ContactUsPage> {
   final TextEditingController companyController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController phoneController = TextEditingController();
-  final TextEditingController messageController = TextEditingController();
   String? companyType;
   bool isChecked = false;
+  bool _isSubmitting = false;
 
-
-  @override
-  void dispose() {
-    firstNameController.dispose();
-    lastNameController.dispose();
-    companyController.dispose();
-    emailController.dispose();
-    phoneController.dispose();
-    messageController.dispose();
-    super.dispose();
+  void _showTopSnackBar(String message, {bool isError = false}) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(message),
+        backgroundColor: isError ? Colors.red : const Color(0xFF630606),
+        behavior: SnackBarBehavior.floating,
+        margin: EdgeInsets.only(
+          bottom: MediaQuery.of(context).size.height - 100,
+          left: 550,
+          right: 550,
+        ),
+        duration: const Duration(seconds: 3),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
+        ),
+      ),
+    );
   }
 
+  Future<void> _submitForm() async {
+    if (!isChecked) {
+      _showTopSnackBar('Please agree to the terms before submitting', isError: true);
+      return;
+    }
+
+    setState(() {
+      _isSubmitting = true;
+    });
+
+    try {
+      final response = await http.post(
+        Uri.parse('https://dev-api-janus.fortress-asya.com:18043/api/public/v1/subscribers/subscribe'),
+        headers: {'Content-Type': 'application/json'},
+        body: jsonEncode({
+          "first_name": firstNameController.text,
+          "last_name": lastNameController.text,
+          "company": companyController.text,
+          "email": emailController.text,
+          "phone_number": phoneController.text,
+          "company_type": companyType ?? "Startup",
+        }),
+      );
+
+      if (response.statusCode == 200 || response.statusCode == 204) {
+        final responseData = jsonDecode(response.body);
+        _showTopSnackBar(responseData['message'] ?? 'Thank you for contacting us!');
+
+        // Clear form
+        firstNameController.clear();
+        lastNameController.clear();
+        companyController.clear();
+        emailController.clear();
+        phoneController.clear();
+        setState(() {
+          companyType = null;
+          isChecked = false;
+        });
+      } else {
+        _showTopSnackBar('Failed to submit form. Please try again.', isError: true);
+      }
+    } catch (e) {
+      _showTopSnackBar('An error occurred. Please check your connection.', isError: true);
+    } finally {
+      setState(() {
+        _isSubmitting = false;
+      });
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
@@ -577,8 +637,8 @@ class _ContactUsPageState extends State<ContactUsPage> {
         double fieldWidth = isMobile ? double.infinity : (constraints.maxWidth / 2) - 24;
 
         return Material(
-        color: Colors.transparent,
-         child: SingleChildScrollView(
+          color: Colors.transparent,
+          child: SingleChildScrollView(
             padding: const EdgeInsets.all(24.0),
             child: ConstrainedBox(
               constraints: const BoxConstraints(maxWidth: 700),
@@ -707,8 +767,7 @@ class _ContactUsPageState extends State<ContactUsPage> {
                   ),
 
                   const SizedBox(height: 16),
-
-                  /// 👇 Submit Button
+                  // Submit Button - keeping your exact design
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       backgroundColor: const Color(0xFF400000),
@@ -717,13 +776,21 @@ class _ContactUsPageState extends State<ContactUsPage> {
                       ),
                       padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
                     ),
-                    onPressed: isChecked ? () {} : null,
-                    child: const Text(
+                    onPressed: isChecked && !_isSubmitting ? _submitForm : null,
+                    child: _isSubmitting
+                        ? const SizedBox(
+                        width: 20,
+                        height: 20,
+                        child: CircularProgressIndicator(
+                          strokeWidth: 2,
+                          valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                        )
+                    )
+                        : const Text(
                       'Contact Us',
                       style: TextStyle(color: Colors.white),
                     ),
                   ),
-                  const SizedBox(height: 32),
                 ],
               ),
             ),
@@ -733,6 +800,7 @@ class _ContactUsPageState extends State<ContactUsPage> {
     );
   }
 
+  // Keep your existing _buildTextField method exactly as is
   Widget _buildTextField({
     required TextEditingController controller,
     required String hintText,

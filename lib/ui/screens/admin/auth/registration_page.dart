@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -47,7 +46,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
           data: ThemeData.light().copyWith(
             datePickerTheme: const DatePickerThemeData(
               backgroundColor: Colors.white,
-              headerBackgroundColor: const Color(0xFF630606),
+              headerBackgroundColor: Color(0xFF630606),
               headerForegroundColor: Colors.white,
             ),
             colorScheme: const ColorScheme.light(
@@ -180,14 +179,17 @@ class _RegistrationFormState extends State<RegistrationForm> {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(message),
-        backgroundColor: isError ? Colors.red : Colors.green,
+        backgroundColor: isError ? Colors.red : const Color(0xFF630606),
         behavior: SnackBarBehavior.floating,
         margin: EdgeInsets.only(
           bottom: MediaQuery.of(context).size.height - 100,
           left: 550,
           right: 550,
         ),
-        duration: const Duration(seconds: 2),
+        duration: const Duration(seconds: 3),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
+        ),
       ),
     );
   }
@@ -224,447 +226,468 @@ class _RegistrationFormState extends State<RegistrationForm> {
     super.dispose();
   }
 
-
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
 
     return Scaffold(
-      backgroundColor: const Color(0xFF630606).withOpacity(0.50),
-      body: Center(
-        child: Responsive(
-          desktop: Stack(
-            children: [
-              Positioned(
-                top: 10,
-                left: 10,
-                child: ClipPath(
-                  clipper: CustomClipPath(),
-                  child: Container(
-                    width: 200,
-                    height: 90,
-                    color: Colors.transparent,
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 15, right: 1, bottom: 15, top: 15),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          ColorFiltered(
-                            colorFilter: const ColorFilter.mode(
-                              AppColors.white,
-                              BlendMode.srcIn,
-                            ),
-                            child: Image.asset(
-                              'assets/images/fdsap.png',
-                              width: 140,
-                              height: 140,
-                              fit: BoxFit.contain,
-                            ),
-                          ),
-                        ],
-                      ),
+      body: Stack(
+        children: [
+          // Background container - matches login page
+          Positioned.fill(
+            child: Container(
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [Color(0xFF630606), Color(0xFF000000)],
+                ),
+              ),
+            ),
+          ),
+
+          // Logo at top-left - matches login page
+          Positioned(
+            top: 20,
+            left: 20,
+            child: SizedBox(
+              width: Responsive.isDesktop(context) ? 200 : size.width * 0.5,
+              height: Responsive.isDesktop(context) ? 90 : size.width * 0.2,
+              child: ClipPath(
+                clipper: CustomClipPath(),
+                child: Container(
+                  color: Colors.transparent,
+                  padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
+                  child: ColorFiltered(
+                    colorFilter: const ColorFilter.mode(
+                      Colors.white,
+                      BlendMode.srcIn,
+                    ),
+                    child: Image.asset(
+                      'assets/images/fdsap.png',
+                      fit: BoxFit.contain,
                     ),
                   ),
                 ),
               ),
-              Center(
-                child: Padding(
-                  padding: const EdgeInsets.only(right: 20, bottom: 20),
-                  child: Align(
-                    alignment: Alignment.center,
-                    child: Container(
-                      width: size.width * 0.5,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(10),
-                        boxShadow: const [
-                          BoxShadow(
-                            color: Colors.black26,
-                            blurRadius: 20,
-                            spreadRadius: 2,
-                            offset: Offset(0, 4),
-                          ),
-                        ],
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(20),
-                        child: Form(
-                          key: _formKey,
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              const Text(
-                                "Registration",
-                                style: TextStyle(
-                                  fontSize: 26,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.black,
-                                ),
+            ),
+          ),
+
+          // Main form content
+          Center(
+            child: SingleChildScrollView(
+              padding: const EdgeInsets.all(20),
+              child: Responsive(
+                desktop: ConstrainedBox(
+                  constraints: BoxConstraints(
+                    maxWidth: 800,
+                    minHeight: size.height * 0.7,
+                  ),
+                  child: _buildFormContent(),
+                ),
+                mobile: ConstrainedBox(
+                  constraints: BoxConstraints(
+                    maxWidth: 500,
+                    minHeight: size.height * 0.7,
+                  ),
+                  child: _buildFormContent(),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildFormContent() {
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(10),
+        boxShadow: const [
+          BoxShadow(
+            color: Colors.black26,
+            blurRadius: 20,
+            spreadRadius: 2,
+            offset: Offset(0, 4),
+          ),
+        ],
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(20),
+        child: Form(
+          key: _formKey,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const Text(
+                "Registration",
+                style: TextStyle(
+                  fontSize: 26,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                ),
+              ),
+              const SizedBox(height: 20),
+
+              // Responsive layout
+              Responsive(
+                desktop: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Expanded(child: _buildNameFields()),
+                    const SizedBox(width: 16),
+                    Expanded(child: _buildContactFields()),
+                  ],
+                ),
+                mobile: Column(
+                  children: [
+                    _buildNameFields(),
+                    const SizedBox(height: 16),
+                    _buildContactFields(),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 20),
+
+              // Terms checkbox
+              Row(
+                children: [
+                  Checkbox(
+                    value: _termsAccepted,
+                    onChanged: (value) {
+                      setState(() {
+                        _termsAccepted = value!;
+                      });
+                    },
+                    activeColor: const Color(0xFF630606),
+                  ),
+                  Expanded(
+                    child: GestureDetector(
+                      onTap: () => setState(() => _termsAccepted = !_termsAccepted),
+                      child: RichText(
+                        text: TextSpan(
+                          children: [
+                            const TextSpan(
+                              text: 'I agree to the ',
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 13,
                               ),
-                              const SizedBox(height: 20),
-
-                              // Two column layout
-                              Row(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  // First Column: Name fields
-                                  Expanded(
-                                    child: Column(
-                                      children: [
-                                        // First Name
-                                        TextFormFieldsWidget(
-                                          title: "First Name",
-                                          hintText: "Enter first name",
-                                          keyboardType: TextInputType.text,
-                                          textInputAction: TextInputAction.next,
-                                          prefixIcon: Icons.person_outline,
-                                          controller: _firstNameController,
-                                          validator: (value) {
-                                            if (value == null || value.isEmpty) {
-                                              return 'Required';
-                                            }
-                                            return null;
-                                          },
-                                        ),
-                                        const SizedBox(height: 16),
-
-                                        // Middle Name
-                                        TextFormFieldsWidget(
-                                          title: "Middle Name",
-                                          hintText: "Enter middle name",
-                                          keyboardType: TextInputType.text,
-                                          textInputAction: TextInputAction.next,
-                                          prefixIcon: Icons.person_outline,
-                                          controller: _middleNameController,
-                                          validator: (value) {
-                                            if (value == null || value.isEmpty) {
-                                              return 'Required';
-                                            }
-                                            return null;
-                                          },
-                                        ),
-                                        const SizedBox(height: 16),
-
-                                        // Last Name
-                                        TextFormFieldsWidget(
-                                          title: "Last Name",
-                                          hintText: "Enter last name",
-                                          keyboardType: TextInputType.text,
-                                          textInputAction: TextInputAction.next,
-                                          prefixIcon: Icons.person_outline,
-                                          controller: _lastNameController,
-                                          validator: (value) {
-                                            if (value == null || value.isEmpty) {
-                                              return 'Required';
-                                            }
-                                            return null;
-                                          },
-                                        ),
-                                        const SizedBox(height: 16),
-
-                                        // Username
-                                        TextFormFieldsWidget(
-                                          title: "Username",
-                                          hintText: "Enter username",
-                                          keyboardType: TextInputType.text,
-                                          textInputAction: TextInputAction.next,
-                                          prefixIcon: Icons.person_outline,
-                                          controller: _userNameController,
-                                          focusNode: _userNameFocusNode,
-                                          validator: (value) {
-                                            if (value == null || value.isEmpty) {
-                                              return 'Required';
-                                            }
-                                            if (value.contains(' ')) {
-                                              return 'No spaces allowed';
-                                            }
-                                            return null;
-                                          },
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-
-                                  const SizedBox(width: 16),
-
-                                  // Second Column: Contact and password fields
-                                  Expanded(
-                                    child: Column(
-                                      children: [
-                                        // Phone Number
-                                        TextFormFieldsWidget(
-                                          title: "Phone Number",
-                                          hintText: "Enter phone",
-                                          prefixIcon: Icons.phone_outlined,
-                                          keyboardType: TextInputType.phone,
-                                          textInputAction: TextInputAction.next,
-                                          focusNode: _phoneFocusNode,
-                                          controller: _phoneController,
-                                          validator: (value) {
-                                            if (value == null || value.isEmpty) {
-                                              return 'Required';
-                                            }
-                                            if (!RegExp(r'^[0-9]+$').hasMatch(value)) {
-                                              return 'Only numbers allowed';
-                                            }
-                                            if (value.length != 11) {
-                                              return 'Must be 11 digits';
-                                            }
-                                            if (!value.startsWith('09')) {
-                                              return 'Must start with 09';
-                                            }
-                                            return null;
-                                          },
-                                        ),
-                                        const SizedBox(height: 16),
-
-                                        // Email
-                                        TextFormFieldsWidget(
-                                          title: "Email",
-                                          hintText: "Enter email",
-                                          prefixIcon: Icons.email_outlined,
-                                          keyboardType: TextInputType.emailAddress,
-                                          textInputAction: TextInputAction.next,
-                                          focusNode: _emailFocusNode,
-                                          controller: _emailController,
-                                          validator: (value) {
-                                            if (value == null || value.isEmpty) {
-                                              return 'Required';
-                                            }
-                                            if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$').hasMatch(value)) {
-                                              return 'Invalid email';
-                                            }
-                                            return null;
-                                          },
-                                        ),
-                                        const SizedBox(height: 16),
-
-                                        // Date of Birth
-                                        InkWell(
-                                          onTap: () => _selectDate(context),
-                                          child: InputDecorator(
-                                            decoration: const InputDecoration(
-                                              labelText: 'Date of Birth',
-                                              prefixIcon: Icon(Icons.calendar_today_outlined, color: Color(0xFF630606)),
-                                              border: OutlineInputBorder(
-                                                borderSide: BorderSide(color: Color(0xFF630606)),
-                                              ),
-                                              focusedBorder: OutlineInputBorder(
-                                                borderSide: BorderSide(color: Color(0xFF630606), width: 2),
-                                              ),
-                                            ),
-                                            child: Padding(
-                                              padding: const EdgeInsets.symmetric(vertical: 12),
-                                              child: Text(
-                                                _selectedDate == null
-                                                    ? 'Select date'
-                                                    : DateFormat('MM/dd/yyyy').format(_selectedDate!),
-                                                style: TextStyle(
-                                                  color: _selectedDate == null ? Colors.grey[600] : Colors.black,
-                                                ),
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                        const SizedBox(height: 16),
-
-                                        // Password
-                                        TextFormField(
-                                          controller: _passwordController,
-                                          obscureText: _obscurePassword,
-                                          decoration: InputDecoration(
-                                            labelText: "Password",
-                                            hintText: "Enter password",
-                                            prefixIcon: const Icon(Icons.lock_outline),
-                                            suffixIcon: IconButton(
-                                              icon: Icon(
-                                                _obscurePassword
-                                                    ? Icons.visibility
-                                                    : Icons.visibility_off,
-                                              ),
-                                              onPressed: () {
-                                                setState(() {
-                                                  _obscurePassword = !_obscurePassword;
-                                                });
-                                              },
-                                            ),
-                                            border: const OutlineInputBorder(),
-                                          ),
-                                          validator: (value) {
-                                            if (value == null || value.isEmpty) {
-                                              return 'Required';
-                                            }
-                                            if (value.length < 8) {
-                                              return 'Min 8 characters';
-                                            }
-                                            if (!RegExp(r'[A-Z]').hasMatch(value)) {
-                                              return '1 uppercase needed';
-                                            }
-                                            if (!RegExp(r'[a-z]').hasMatch(value)) {
-                                              return '1 lowercase needed';
-                                            }
-                                            if (!RegExp(r'[0-9]').hasMatch(value)) {
-                                              return '1 number needed';
-                                            }
-                                            if (!RegExp(r'[!@#$%^&*(),.?":{}|<>]').hasMatch(value)) {
-                                              return '1 special character needed';
-                                            }
-                                            return null;
-                                          },
-                                        ),
-                                        const SizedBox(height: 16),
-
-                                        // Confirm Password
-                                        TextFormField(
-                                          controller: _confirmPasswordController,
-                                          obscureText: _obscureConfirmPassword,
-                                          decoration: InputDecoration(
-                                            labelText: "Confirm Password",
-                                            hintText: "Confirm password",
-                                            prefixIcon: const Icon(Icons.lock_outline),
-                                            suffixIcon: IconButton(
-                                              icon: Icon(
-                                                _obscureConfirmPassword
-                                                    ? Icons.visibility
-                                                    : Icons.visibility_off,
-                                              ),
-                                              onPressed: () {
-                                                setState(() {
-                                                  _obscureConfirmPassword = !_obscureConfirmPassword;
-                                                });
-                                              },
-                                            ),
-                                            border: const OutlineInputBorder(),
-                                          ),
-                                          validator: (value) {
-                                            if (value == null || value.isEmpty) {
-                                              return 'Required';
-                                            }
-                                            if (value != _passwordController.text) {
-                                              return 'Passwords must match';
-                                            }
-                                            return null;
-                                          },
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ],
+                            ),
+                            TextSpan(
+                              text: 'terms and conditions',
+                              style: const TextStyle(
+                                color: Colors.blue,
+                                fontSize: 13,
+                                decoration: TextDecoration.underline,
                               ),
-                              const SizedBox(height: 20),
-
-                              // Terms checkbox
-                              Row(
-                                children: [
-                                  Checkbox(
-                                    value: _termsAccepted,
-                                    onChanged: (value) {
-                                      setState(() {
-                                        _termsAccepted = value!;
-                                      });
-                                    },
-                                  ),
-                                  Expanded(
-                                    child: GestureDetector(
-                                      onTap: () => setState(() => _termsAccepted = !_termsAccepted),
-                                      child: RichText(
-                                        text: TextSpan(
-                                          children: [
-                                            const TextSpan(
-                                              text: 'I agree to the ',
-                                              style: TextStyle(
-                                                color: Colors.black,
-                                                fontSize: 13,
-                                              ),
-                                            ),
-                                            TextSpan(
-                                              text: 'terms and conditions',
-                                              style: const TextStyle(
-                                                color: Colors.blue,
-                                                fontSize: 13,
-                                                decoration: TextDecoration.underline,
-                                              ),
-                                              recognizer: TapGestureRecognizer()
-                                                ..onTap = () {
-                                                  // Show terms dialog
-                                                },
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              const SizedBox(height: 20),
-
-                              // Register button
-                              SizedBox(
-                                width: double.infinity,
-                                child: ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor: const Color(0xFF630606),
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(15),
-                                    ),
-                                    padding: const EdgeInsets.symmetric(vertical: 15),
-                                  ),
-                                  onPressed: _submitForm,
-                                  child: const Text(
-                                    "REGISTER",
-                                    style: TextStyle(
-                                      fontSize: 15,
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              const SizedBox(height: 16),
-
-                              // Login link
-                              RichText(
-                                text: TextSpan(
-                                  children: [
-                                    const TextSpan(
-                                      text: 'Already have an account? ',
-                                      style: TextStyle(
-                                        fontSize: 13,
-                                        color: Colors.black,
-                                      ),
-                                    ),
-                                    TextSpan(
-                                      text: 'Login here',
-                                      style: const TextStyle(
-                                        fontSize: 13,
-                                        color: Colors.blue,
-                                        decoration: TextDecoration.underline,
-                                      ),
-                                      recognizer: TapGestureRecognizer()
-                                        ..onTap = () {
-                                          Navigator.pushReplacement(
-                                            context,
-                                            MaterialPageRoute(builder: (context) => const LoginScreen()),
-                                          );
-                                        },
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
+                              recognizer: TapGestureRecognizer()
+                                ..onTap = () {
+                                  // Add terms dialog
+                                },
+                            ),
+                          ],
                         ),
                       ),
                     ),
                   ),
+                ],
+              ),
+              const SizedBox(height: 20),
+
+              // Register button
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: const Color(0xFF630606),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    padding: const EdgeInsets.symmetric(vertical: 15),
+                  ),
+                  onPressed: _submitForm,
+                  child: const Text(
+                    "REGISTER",
+                    style: TextStyle(
+                      fontSize: 15,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 16),
+
+              // Login link
+              RichText(
+                text: TextSpan(
+                  children: [
+                    const TextSpan(
+                      text: 'Already have an account? ',
+                      style: TextStyle(
+                        fontSize: 13,
+                        color: Colors.black,
+                      ),
+                    ),
+                    TextSpan(
+                      text: 'Login here',
+                      style: const TextStyle(
+                        fontSize: 13,
+                        color: Colors.blue,
+                        decoration: TextDecoration.underline,
+                      ),
+                      recognizer: TapGestureRecognizer()
+                        ..onTap = () {
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(builder: (context) => const LoginScreen()),
+                          );
+                        },
+                    ),
+                  ],
                 ),
               ),
             ],
-          ),
-          mobile: Container(
-            // Mobile version would go here
           ),
         ),
       ),
     );
   }
+
+  Widget _buildNameFields() {
+    return Column(
+      children: [
+        TextFormFieldsWidget(
+          title: "First Name",
+          hintText: "Enter first name",
+          keyboardType: TextInputType.text,
+          textInputAction: TextInputAction.next,
+          prefixIcon: Icons.person_outline,
+          controller: _firstNameController,
+          validator: (value) {
+            if (value == null || value.isEmpty) {
+              return 'Required';
+            }
+            return null;
+          },
+        ),
+        const SizedBox(height: 16),
+        TextFormFieldsWidget(
+          title: "Middle Name",
+          hintText: "Enter middle name",
+          keyboardType: TextInputType.text,
+          textInputAction: TextInputAction.next,
+          prefixIcon: Icons.person_outline,
+          controller: _middleNameController,
+          validator: (value) {
+            if (value == null || value.isEmpty) {
+              return 'Required';
+            }
+            return null;
+          },
+        ),
+        const SizedBox(height: 16),
+        TextFormFieldsWidget(
+          title: "Last Name",
+          hintText: "Enter last name",
+          keyboardType: TextInputType.text,
+          textInputAction: TextInputAction.next,
+          prefixIcon: Icons.person_outline,
+          controller: _lastNameController,
+          validator: (value) {
+            if (value == null || value.isEmpty) {
+              return 'Required';
+            }
+            return null;
+          },
+        ),
+        const SizedBox(height: 16),
+        TextFormFieldsWidget(
+          title: "Username",
+          hintText: "Enter username",
+          keyboardType: TextInputType.text,
+          textInputAction: TextInputAction.next,
+          prefixIcon: Icons.person_outline,
+          controller: _userNameController,
+          focusNode: _userNameFocusNode,
+          validator: (value) {
+            if (value == null || value.isEmpty) {
+              return 'Required';
+            }
+            if (value.contains(' ')) {
+              return 'No spaces allowed';
+            }
+            return null;
+          },
+        ),
+      ],
+    );
+  }
+
+  Widget _buildContactFields() {
+    return Column(
+      children: [
+        TextFormFieldsWidget(
+          title: "Phone Number",
+          hintText: "Enter phone",
+          prefixIcon: Icons.phone_outlined,
+          keyboardType: TextInputType.phone,
+          textInputAction: TextInputAction.next,
+          focusNode: _phoneFocusNode,
+          controller: _phoneController,
+          validator: (value) {
+            if (value == null || value.isEmpty) {
+              return 'Required';
+            }
+            if (!RegExp(r'^[0-9]+$').hasMatch(value)) {
+              return 'Only numbers allowed';
+            }
+            if (value.length != 11) {
+              return 'Must be 11 digits';
+            }
+            if (!value.startsWith('09')) {
+              return 'Must start with 09';
+            }
+            return null;
+          },
+        ),
+        const SizedBox(height: 16),
+        TextFormFieldsWidget(
+          title: "Email",
+          hintText: "Enter email",
+          prefixIcon: Icons.email_outlined,
+          keyboardType: TextInputType.emailAddress,
+          textInputAction: TextInputAction.next,
+          focusNode: _emailFocusNode,
+          controller: _emailController,
+          validator: (value) {
+            if (value == null || value.isEmpty) {
+              return 'Required';
+            }
+            if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$').hasMatch(value)) {
+              return 'Invalid email';
+            }
+            return null;
+          },
+        ),
+        const SizedBox(height: 16),
+        InkWell(
+          onTap: () => _selectDate(context),
+          child: InputDecorator(
+            decoration: const InputDecoration(
+              labelText: 'Date of Birth',
+              prefixIcon: Icon(Icons.calendar_today_outlined, color: Color(0xFF630606)),
+              border: OutlineInputBorder(
+                borderSide: BorderSide(color: Color(0xFF630606)),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: Color(0xFF630606), width: 2),
+              ),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 12),
+              child: Text(
+                _selectedDate == null
+                    ? 'Select date'
+                    : DateFormat('MM/dd/yyyy').format(_selectedDate!),
+                style: TextStyle(
+                  color: _selectedDate == null ? Colors.grey[600] : Colors.black,
+                ),
+              ),
+            ),
+          ),
+        ),
+        const SizedBox(height: 16),
+        TextFormField(
+          controller: _passwordController,
+          obscureText: _obscurePassword,
+          decoration: InputDecoration(
+            labelText: "Password",
+            hintText: "Enter password",
+            prefixIcon: const Icon(Icons.lock_outline),
+            suffixIcon: IconButton(
+              icon: Icon(
+                _obscurePassword ? Icons.visibility : Icons.visibility_off,
+              ),
+              onPressed: () {
+                setState(() {
+                  _obscurePassword = !_obscurePassword;
+                });
+              },
+            ),
+            border: const OutlineInputBorder(),
+          ),
+          validator: (value) {
+            if (value == null || value.isEmpty) {
+              return 'Required';
+            }
+            if (value.length < 8) {
+              return 'Min 8 characters';
+            }
+            if (!RegExp(r'[A-Z]').hasMatch(value)) {
+              return '1 uppercase needed';
+            }
+            if (!RegExp(r'[a-z]').hasMatch(value)) {
+              return '1 lowercase needed';
+            }
+            if (!RegExp(r'[0-9]').hasMatch(value)) {
+              return '1 number needed';
+            }
+            if (!RegExp(r'[!@#$%^&*(),.?":{}|<>]').hasMatch(value)) {
+              return '1 special character needed';
+            }
+            return null;
+          },
+        ),
+        const SizedBox(height: 16),
+        TextFormField(
+          controller: _confirmPasswordController,
+          obscureText: _obscureConfirmPassword,
+          decoration: InputDecoration(
+            labelText: "Confirm Password",
+            hintText: "Confirm password",
+            prefixIcon: const Icon(Icons.lock_outline),
+            suffixIcon: IconButton(
+              icon: Icon(
+                _obscureConfirmPassword ? Icons.visibility : Icons.visibility_off,
+              ),
+              onPressed: () {
+                setState(() {
+                  _obscureConfirmPassword = !_obscureConfirmPassword;
+                });
+              },
+            ),
+            border: const OutlineInputBorder(),
+          ),
+          validator: (value) {
+            if (value == null || value.isEmpty) {
+              return 'Required';
+            }
+            if (value != _passwordController.text) {
+              return 'Passwords must match';
+            }
+            return null;
+          },
+        ),
+      ],
+    );
+  }
+}
+
+class CustomClipPath extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    Path path = Path();
+    path.lineTo(0, size.height);
+    path.lineTo(size.width - 20, size.height);
+    path.lineTo(size.width, size.height - 20);
+    path.lineTo(size.width, 0);
+    path.close();
+    return path;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) => false;
 }

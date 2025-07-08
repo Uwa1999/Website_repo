@@ -9,6 +9,8 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/link.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../insights/articlesv2/articlev2main.dart';
+
 class NimbusInfoSection1 extends StatelessWidget {
   final String? title1;
   final String? title2;
@@ -722,6 +724,8 @@ class NimbusInfoInsightTitle extends StatelessWidget {
   final int quarterTurns;
   final Widget? child;
   final VoidCallback? onTap;
+  final String? remarks;
+  final Map<String, dynamic>? articleData; // Add this parameter
 
   NimbusInfoInsightTitle({
     this.title1 = "",
@@ -737,6 +741,8 @@ class NimbusInfoInsightTitle extends StatelessWidget {
     this.dividerColor = AppColors.white,
     this.child,
     this.onTap,
+    this.remarks,
+    this.articleData, // Initialize it here
   });
 
   @override
@@ -747,36 +753,31 @@ class NimbusInfoInsightTitle extends StatelessWidget {
       fontSize: responsiveSize(context, 26, 36, md: 32),
       color: AppColors.white,
       fontWeight: FontWeight.bold,
-    ) ??
-        const TextStyle();
-
-    double fontSize = responsiveSize(context, 16, 18);
+    ) ?? const TextStyle();
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        // "Latest" Tag
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-          decoration: BoxDecoration(
-            // color: Colors.white24,
-            border: Border.all(color: Colors.white.withOpacity(0.60)),
-            borderRadius: BorderRadius.circular(4),
-          ),
-          child: Text(
-            "Latest",
-            style: textTheme.labelSmall?.copyWith(
-              color: Colors.white.withOpacity(0.60),
-              fontWeight: FontWeight.w500,
+        if (remarks != null && remarks!.isNotEmpty)
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+            decoration: BoxDecoration(
+              border: Border.all(color: Colors.white.withOpacity(0.60)),
+              borderRadius: BorderRadius.circular(4),
+            ),
+            child: Text(
+              remarks!,
+              style: textTheme.labelSmall?.copyWith(
+                color: Colors.white.withOpacity(0.60),
+                fontWeight: FontWeight.w500,
+              ),
             ),
           ),
-        ),
-        const SizedBox(height: 12),
+        if (remarks != null && remarks!.isNotEmpty) const SizedBox(height: 12),
 
-        // Title Lines
         Text(
           title1 ?? "",
-          style: title1Style ?? defaultTitleStyle.copyWith(fontWeight: FontWeight.w400),
+          style: title1Style ?? defaultTitleStyle.copyWith(fontWeight: FontWeight.bold, fontSize: 50),
         ),
         if (hasTitle2 && (title2 ?? "").isNotEmpty)
           Text(
@@ -786,21 +787,34 @@ class NimbusInfoInsightTitle extends StatelessWidget {
 
         const SizedBox(height: 20),
 
-        // View Article Button
         ElevatedButton(
-          onPressed: onTap,
+          onPressed: () {
+            if (onTap != null) {
+              onTap!();
+            } else if (articleData != null) {
+              Navigator.pushNamed(
+                context,
+                ArticleDescMainv2.route,
+                arguments: {
+                  'articleId': articleData!['id'].toString(),
+                  'articleData': articleData,
+                },
+              );
+            }
+          },
           style: ElevatedButton.styleFrom(
-            backgroundColor: Color(0xff30120f), // Use your own AppColors.red
+            backgroundColor: const Color(0xff30120f),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(20),
             ),
             padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
           ),
-          child: Text(
+          child: const Text(
             "View Article",
-            style: const TextStyle(color: Colors.white),
+            style: TextStyle(color: Colors.white),
           ),
         ),
+        const SizedBox(height: 20),
       ],
     );
   }

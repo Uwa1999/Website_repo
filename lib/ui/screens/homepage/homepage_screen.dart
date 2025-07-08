@@ -287,6 +287,7 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/products_and_services_v2/product
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/functions.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/responsive.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/keys.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/sizes.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/NavItemData_global.dart';
 import 'package:flutter/material.dart';
@@ -343,7 +344,7 @@ class _HomepageScreenState extends State<HomepageScreen> {
         child: FloatingActionButton(
           backgroundColor: AppColors.maroon08,
           child: Icon(Icons.expand_less, size: Sizes.ICON_SIZE_18, color: AppColors.white),
-          onPressed: () => scrollToSection(navItems[0].key!),
+          onPressed: () => scrollToSection(homeKey!),
         ),
       ),
       body: NotificationListener<UserScrollNotification>(
@@ -380,16 +381,16 @@ class _HomepageScreenState extends State<HomepageScreen> {
                       children: [
                         Column(
                           children: [
-                            HeaderResponsiveWeb(key: navItems[0].key),
+                            HeaderResponsiveWeb(key: homeKey),
                             imageWidth <= 800 ? SizedBox(height: imageHeight) : SizedBox(height: imageHeight * 0.10),
                             Column(
                               children: [
+                                // Container(
+                                //   key: navItems[1].key,
+                                //   child: ProductsAndServicesV2(),
+                                // ),
                                 Container(
-                                  key: navItems[1].key,
-                                  child: ProductsAndServicesV2(),
-                                ),
-                                Container(
-                                  key: navItems[2].key,
+                                  key: clientKey,
                                   child: ClientsList(),
                                 ),
                               ],
@@ -410,7 +411,7 @@ class _HomepageScreenState extends State<HomepageScreen> {
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
                                         SizedBox(
-                                          key: navItems[5].key,
+                                          key: contactKey,
                                           width: contactFormWidth,
                                           child: ContactUsPage(),
                                         ),
@@ -426,7 +427,7 @@ class _HomepageScreenState extends State<HomepageScreen> {
                                   return Column(
                                     children: [
                                       Container(
-                                        key: navItems[5].key,
+                                        key: contactKey,
                                         padding: const EdgeInsets.symmetric(horizontal: 16.0),
                                         child: ContactUsPage(),
                                       ),

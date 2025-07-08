@@ -8,7 +8,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../shared/admin_widgets/text_editor_widget.dart';
 
-
 class UpdateInsightForm extends StatefulWidget {
   static const String route = '/Admin/UpdateInsight';
   final int insightId;
@@ -51,12 +50,17 @@ class _UpdateInsightFormState extends State<UpdateInsightForm> {
     super.initState();
     _titleController = TextEditingController(text: widget.initialData['title']);
     _remarksController = TextEditingController(text: widget.initialData['remarks'] ?? 'Main');
-    _eventDateController = TextEditingController(text: widget.initialData['event_date']);
-    _scheduleDateController = TextEditingController();
-    _timeController = TextEditingController();
+    _eventDateController = TextEditingController();
+    _scheduleDateController = TextEditingController(text: widget.initialData['schedule_date'] ?? '');
+    _timeController = TextEditingController(text: widget.initialData['time'] ?? '');
     _selectedCategory = widget.initialData['category'];
 
-
+    // Initialize editor content after widget is built
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (_editorKey.currentState != null && widget.initialData['content'] != null) {
+        _editorKey.currentState!.setHtmlContent(widget.initialData['content']);
+      }
+    });
   }
 
   @override
@@ -143,12 +147,13 @@ class _UpdateInsightFormState extends State<UpdateInsightForm> {
         throw Exception('Authentication token not found. Please login again.');
       }
 
-      // Get the HTML content from the editor
-      final htmlContent = _editorKey.currentState?.getHtmlContent() ?? '';
+      // Get content from editor or fall back to initial content
+      final htmlContent = _editorKey.currentState?.getHtmlContent() ??
+          widget.initialData['content'] ??
+          '';
 
-      // Change the method to PUT or PATCH based on your API requirements
       final uri = Uri.parse('https://dev-api-janus.fortress-asya.com:18043/api/private/v1/insights/${widget.insightId}');
-      final request = http.MultipartRequest('PUT', uri) // or 'PATCH'
+      final request = http.MultipartRequest('PUT', uri)
         ..headers['Accept'] = 'application/json'
         ..headers['Authorization'] = 'Bearer $token'
         ..fields['title'] = _titleController.text
@@ -166,6 +171,9 @@ class _UpdateInsightFormState extends State<UpdateInsightForm> {
           _fileBytes!,
           filename: _fileName ?? 'upload.jpg',
         ));
+      } else if (widget.initialData['image_path'] != null) {
+        // Include existing image path if no new file was selected
+        request.fields['image_path'] = widget.initialData['image_path'];
       }
 
       final response = await request.send();
@@ -222,10 +230,9 @@ class _UpdateInsightFormState extends State<UpdateInsightForm> {
       }
     }
   }
+
   @override
   Widget build(BuildContext context) {
-    final bool hasScheduledDate = _scheduleDateController.text.isNotEmpty;
-
     return SingleChildScrollView(
       padding: const EdgeInsets.all(24),
       child: Column(
@@ -336,7 +343,7 @@ class _UpdateInsightFormState extends State<UpdateInsightForm> {
                           borderRadius: BorderRadius.circular(12),
                           child: Image.network(
                             widget.initialData['image_path'],
-                            fit: BoxFit.cover,
+                            fit: BoxFit.fitHeight,
                             errorBuilder: (_, __, ___) => const Icon(Icons.image, size: 48),
                           ),
                         )
@@ -406,10 +413,11 @@ class _UpdateInsightFormState extends State<UpdateInsightForm> {
               ),
             ],
           ),
-          // const SizedBox(height: 20),
-
           const SizedBox(height: 10),
-          AdvancedTextEditor(key: _editorKey),
+          AdvancedTextEditor(
+            key: _editorKey,
+            initialContent: widget.initialData['content'] ?? '',
+          ),
           const SizedBox(height: 20),
           SizedBox(
             width: double.infinity,

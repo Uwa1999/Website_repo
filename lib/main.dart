@@ -78,8 +78,14 @@ class Fdsap extends StatelessWidget {
           InsightPage.route:(context) => InsightPage(),
           MissionVision.route:(context)=> MissionVision(),
           InsightSection.route:(context)=> InsightSection(),
-          ArticleDescMainv2.route:(context)=> ArticleDescMainv2(),
-          ArticleDescSectionInside.route:(context)=> ArticleDescSectionInside()
+          ArticleDescMainv2.route: (context) {
+            final args = ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>?;
+            return ArticleDescMainv2(
+              articleId: args?['articleId'] ?? '',
+              initialArticleData: args?['articleData'],
+            );
+          },
+          ArticleDescSectionInside.route:(context)=> ArticleDescSectionInside(title: '', imageUrl: '', remarks: '', date: '',)
 
           // GoogleLikeSearchPage.route:(context)=> GoogleLikeSearchPage()
         },

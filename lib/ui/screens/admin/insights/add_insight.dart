@@ -13,7 +13,7 @@ import '../../../../services/api/api_services.dart';
 import '../../shared/admin_widgets/text_editor_widget.dart';
 
 class AddInsightForm extends StatefulWidget {
-  static const String route = '/Admin/AddInsightScreen';
+  static const String route = '/Admin/AddInsight';
   const AddInsightForm({super.key});
 
   @override
@@ -39,6 +39,7 @@ class _AddInsightFormState extends State<AddInsightForm> {
     const DropdownMenuItem(value: 'Articles', child: Text('Articles')),
     const DropdownMenuItem(value: 'Events', child: Text('Events')),
     const DropdownMenuItem(value: 'Announcements', child: Text('Announcements')),
+    const DropdownMenuItem(value: 'News', child: Text('News')),
   ];
 
   Future<String?> _getAuthToken() async {
@@ -103,14 +104,17 @@ class _AddInsightFormState extends State<AddInsightForm> {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(message),
-        backgroundColor: isError ? Colors.red : Colors.green,
+        backgroundColor: isError ? Colors.red : const Color(0xFF630606),
         behavior: SnackBarBehavior.floating,
         margin: EdgeInsets.only(
           bottom: MediaQuery.of(context).size.height - 100,
           left: 550,
           right: 550,
         ),
-        duration: const Duration(seconds: 1),
+        duration: const Duration(seconds: 3),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
+        ),
       ),
     );
   }
@@ -121,6 +125,12 @@ class _AddInsightFormState extends State<AddInsightForm> {
         _selectedCategory == null ||
         _eventDateController.text.isEmpty) {
       _showTopSnackBar('Please fill all required fields', isError: true);
+      return;
+    }
+
+    // Check if an image is selected
+    if (_pickedFile == null || _fileBytes == null) {
+      _showTopSnackBar('Please select an image for the insight', isError: true);
       return;
     }
 
@@ -339,6 +349,9 @@ class _AddInsightFormState extends State<AddInsightForm> {
             ],
           ),
           const SizedBox(height: 20),
+
+          AdvancedTextEditor(key: _editorKey),
+          const SizedBox(height: 20),
           const Text("PUBLISHING ARTICLE", style: TextStyle(fontWeight: FontWeight.bold)),
           const SizedBox(height: 16),
           Container(
@@ -438,8 +451,6 @@ class _AddInsightFormState extends State<AddInsightForm> {
             ),
           ),
           const SizedBox(height: 10),
-          AdvancedTextEditor(key: _editorKey),
-          const SizedBox(height: 20),
         ],
       ),
     );

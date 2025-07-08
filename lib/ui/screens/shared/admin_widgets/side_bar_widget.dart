@@ -160,6 +160,7 @@ class _SideNavigationState extends State<SideNavigation> {
             // Add Insights item
             GestureDetector(
               onTap: () => widget.onItemSelected('insights'),
+
               child: Container(
                 color: widget.selectedItem == 'insights'
                     ? const Color(0xFF630606)
@@ -178,25 +179,25 @@ class _SideNavigationState extends State<SideNavigation> {
               ),
             ),
 
-            GestureDetector(
-              onTap: () => widget.onItemSelected('products & services'),
-              child: Container(
-                color: widget.selectedItem == 'products & services'
-                    ? const Color(0xFF630606)
-                    : Colors.transparent,
-                child: ListTile(
-                  leading: Icon(Icons.computer,
-                      color: widget.selectedItem == 'products & services'
-                          ? Colors.white
-                          : Colors.black),
-                  title: Text('Add Products & Services',
-                      style: TextStyle(
-                          color: widget.selectedItem == 'products & services'
-                              ? Colors.white
-                              : Colors.black)),
-                ),
-              ),
-            ),
+            // GestureDetector(
+            //   onTap: () => widget.onItemSelected('products & services'),
+            //   child: Container(
+            //     color: widget.selectedItem == 'products & services'
+            //         ? const Color(0xFF630606)
+            //         : Colors.transparent,
+            //     child: ListTile(
+            //       leading: Icon(Icons.computer,
+            //           color: widget.selectedItem == 'products & services'
+            //               ? Colors.white
+            //               : Colors.black),
+            //       title: Text('Add Products & Services',
+            //           style: TextStyle(
+            //               color: widget.selectedItem == 'products & services'
+            //                   ? Colors.white
+            //                   : Colors.black)),
+            //     ),
+            //   ),
+            // ),
 
             // Spacer to push logout button to bottom
             // const Spacer(),

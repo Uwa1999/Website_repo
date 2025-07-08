@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_html/flutter_html.dart';
 import '../../../../core/models/article_model.dart';
 import '../../../../services/api/article_api.dart';
 import '../../shared/admin_widgets/buttons/insight_filter_button.dart';
@@ -92,19 +93,21 @@ class _DashboardScreenState extends State<DashboardScreen> {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(message),
-        backgroundColor: isError ? Colors.red : Colors.green,
+        backgroundColor: isError ? Colors.red : const Color(0xFF630606),
         behavior: SnackBarBehavior.floating,
         margin: EdgeInsets.only(
           bottom: MediaQuery.of(context).size.height - 100,
-          left: 600,
-          right: 600,
+          left: 550,
+          right: 550,
         ),
-        duration: const Duration(seconds: 1),
+        duration: const Duration(seconds: 3),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
+        ),
       ),
     );
   }
 
-  // Add these methods to handle deletion
   Future<void> _deleteInsights(List<int> ids) async {
     try {
       setState(() => _isLoading = true);
@@ -382,13 +385,18 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         overflow: TextOverflow.ellipsis,
                       ),
                       const SizedBox(height: 4),
-                      Text(
-                        article.content.length > 50
+                      Html(
+                        data: article.content.length > 50
                             ? '${article.content.substring(0, 50)}...'
                             : article.content,
-                        style: const TextStyle(color: Colors.grey, fontSize: 12),
-                        maxLines: 2,
-                        overflow: TextOverflow.ellipsis,
+                        style: {
+                          "body": Style(
+                            fontSize: FontSize(12.0),
+                            color: Colors.grey,
+                            margin: Margins.zero,
+                            padding: HtmlPaddings.zero,
+                          ),
+                        },
                       ),
                     ],
                   ),
@@ -447,13 +455,21 @@ class _DashboardScreenState extends State<DashboardScreen> {
               IconButton(
                 icon: const Icon(Icons.edit_outlined),
                 onPressed: () {
-                  // Extract just the date portion (YYYY-MM-DD) from the eventDate
                   final eventDate = article.eventDate.split(' ')[0];
 
                   showDialog(
                     context: context,
                     builder: (context) => AlertDialog(
-                      title: const Text('Edit Insight'),
+                      title: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          const Text('Edit Insight'),
+                          IconButton(
+                            icon: const Icon(Icons.close),
+                            onPressed: () => Navigator.pop(context),
+                          ),
+                        ],
+                      ),
                       content: SizedBox(
                         width: double.maxFinite,
                         child: SingleChildScrollView(
@@ -464,7 +480,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                               'content': article.content ?? '',
                               'remarks': article.remarks,
                               'category': article.category,
-                              'event_date': eventDate,  // Pass only the date portion
+                              'event_date': eventDate,
                               'image_path': article.imagePath,
                             },
                             onUpdateSuccess: () {
@@ -486,12 +502,12 @@ class _DashboardScreenState extends State<DashboardScreen> {
               IconButton(
                 icon: Icon(Icons.delete,
                     color: isMultipleSelected
-                        ? Colors.grey  // Disabled color when multiple selected
-                        : Colors.red   // Normal color when single or none selected
+                        ? Colors.grey
+                        : Colors.red
                 ),
                 onPressed: isMultipleSelected
-                    ? null  // Disabled when multiple selected
-                    : () => _confirmDeleteSingle(article),  // Enabled for single selection
+                    ? null
+                    : () => _confirmDeleteSingle(article),
               ),
               flex: 1,
               center: true

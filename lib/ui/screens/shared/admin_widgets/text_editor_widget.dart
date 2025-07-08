@@ -1,16 +1,16 @@
-// text_editor_widget.dart
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AdvancedTextEditor extends StatefulWidget {
-  const AdvancedTextEditor({super.key});
+  final String? initialContent;
+  const AdvancedTextEditor({super.key, this.initialContent});
 
   @override
   State<AdvancedTextEditor> createState() => AdvancedTextEditorState();
 }
 
 class AdvancedTextEditorState extends State<AdvancedTextEditor> {
-  final TextEditingController _controller = TextEditingController();
+  late final TextEditingController _controller;
   TextSelection _currentSelection = const TextSelection.collapsed(offset: 0);
 
   // Default formatting values
@@ -70,6 +70,7 @@ class AdvancedTextEditorState extends State<AdvancedTextEditor> {
   @override
   void initState() {
     super.initState();
+    _controller = TextEditingController(text: widget.initialContent ?? '');
     _controller.addListener(_updateSelection);
   }
 
@@ -97,6 +98,7 @@ class AdvancedTextEditorState extends State<AdvancedTextEditor> {
     });
   }
 
+  /// Clears the editor content and resets all formatting
   void clearContent() {
     setState(() {
       _controller.clear();
@@ -104,12 +106,32 @@ class AdvancedTextEditorState extends State<AdvancedTextEditor> {
     });
   }
 
+  /// Gets the current content as HTML with basic formatting
   String getHtmlContent() {
     String html = _controller.text;
     if (_currentIsBold) html = '<strong>$html</strong>';
     if (_currentIsItalic) html = '<em>$html</em>';
     if (_currentIsUnderline) html = '<u>$html</u>';
     return html;
+  }
+
+  /// Sets the editor content programmatically
+  void setHtmlContent(String html) {
+    // Simple HTML parsing (you might want to enhance this)
+    final text = html
+        .replaceAll('<strong>', '')
+        .replaceAll('</strong>', '')
+        .replaceAll('<em>', '')
+        .replaceAll('</em>', '')
+        .replaceAll('<u>', '')
+        .replaceAll('</u>', '');
+
+    setState(() {
+      _controller.text = text;
+      _currentIsBold = html.contains('<strong>');
+      _currentIsItalic = html.contains('<em>');
+      _currentIsUnderline = html.contains('<u>');
+    });
   }
 
   void _applyFormatting({

@@ -282,7 +282,7 @@ class _TextFormFieldsWidgetState extends State<TextFormFieldsWidget> {
                 ' ${widget.title}',
                 style: const TextStyle(
                   fontSize: 15,
-                  color: Colors.green,
+                  color: Colors.black,
                 ),
               ),
             ),
@@ -368,7 +368,7 @@ class _TextFormFieldsWidgetState extends State<TextFormFieldsWidget> {
                           child: Icon(
                             widget.prefixIcon,
                             size: 18.0,
-                            color: widget.dynamicColor ? Colors.green : Colors.green,
+                            color: widget.dynamicColor ? Colors.black : Colors.black,
                           ),
                         ),
                       )
