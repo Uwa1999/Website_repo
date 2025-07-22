@@ -42,7 +42,7 @@ import '../widgets/nav_item.dart';
 List<NavItemData> navItems = [
   NavItemData(
       name: StringConst.HOME, key: GlobalObjectKey('home'), isSelected: true),
-  NavItemData(name: StringConst.SERVICES, key: GlobalObjectKey('services')),
+  // NavItemData(name: StringConst.SERVICES, key: GlobalObjectKey('services')),
   NavItemData(name: StringConst.CLIENT, key: GlobalObjectKey('client')),
   NavItemData(
       name: StringConst.INSIGHTS,
