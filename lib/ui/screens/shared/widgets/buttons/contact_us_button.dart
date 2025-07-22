@@ -39,7 +39,7 @@ class ContactUsButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: borderRadius,
+      borderRadius: borderRadius!,
       child: MaterialButton(
         minWidth: width,
         height: height,
