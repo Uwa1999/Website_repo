@@ -1076,21 +1076,21 @@ class _LoginScreenState extends State<LoginScreen> {
                                   if (value == null || value.isEmpty) {
                                     return 'Please enter your password';
                                   }
-                                  if (value.contains(' ')) {
-                                    return 'Password cannot contain spaces';
-                                  }
-                                  if (!RegExp(r'[a-z]').hasMatch(value)) {
-                                    return 'Must contain at least 1 lowercase letter';
-                                  }
-                                  if (!RegExp(r'[A-Z]').hasMatch(value)) {
-                                    return 'Must contain at least 1 uppercase letter';
-                                  }
-                                  if (!RegExp(r'[0-9]').hasMatch(value)) {
-                                    return 'Must contain at least 1 number';
-                                  }
-                                  if (!RegExp(r'[!@#$%^&*(),.?":{}|<>=]').hasMatch(value)) {
-                                    return 'Must contain at least 1 special character';
-                                  }
+                                  // if (value.contains(' ')) {
+                                  //   return 'Password cannot contain spaces';
+                                  // }
+                                  // if (!RegExp(r'[a-z]').hasMatch(value)) {
+                                  //   return 'Must contain at least 1 lowercase letter';
+                                  // }
+                                  // if (!RegExp(r'[A-Z]').hasMatch(value)) {
+                                  //   return 'Must contain at least 1 uppercase letter';
+                                  // }
+                                  // if (!RegExp(r'[0-9]').hasMatch(value)) {
+                                  //   return 'Must contain at least 1 number';
+                                  // }
+                                  // if (!RegExp(r'[!@#$%^&*(),.?":{}|<>=]').hasMatch(value)) {
+                                  //   return 'Must contain at least 1 special character';
+                                  // }
                                   return null;
                                 },
                               ),

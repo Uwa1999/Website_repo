@@ -18,7 +18,7 @@ class NavItemData {
 
   NavItemData({
     required this.name,
-  this.key,
+    this.key,
     this.isSelected = false,
     this.destinationBuilder,
   });
@@ -70,20 +70,20 @@ class _NavItemState extends State<NavItem> with SingleTickerProviderStateMixin {
             if (!widget.isMobile)
               widget.isSelected
                   ? Positioned(
-                      top: Sizes.SIZE_20,
-                      child: SelectedIndicator(
-                        width: indicatorWidth,
-                        height: indicatorHeight,
-                      ),
-                    )
+                top: Sizes.SIZE_20,
+                child: SelectedIndicator(
+                  width: indicatorWidth,
+                  height: indicatorHeight,
+                ),
+              )
                   : Positioned(
-                      top: Sizes.SIZE_20,
-                      child: AnimatedHoverIndicator(
-                        isHover: _hovering,
-                        width: indicatorWidth,
-                        height: indicatorHeight,
-                      ),
-                    ),
+                top: Sizes.SIZE_20,
+                child: AnimatedHoverIndicator(
+                  isHover: _hovering,
+                  width: indicatorWidth,
+                  height: indicatorHeight,
+                ),
+              ),
             Text(
               widget.title,
               style: widget.titleStyle ??
@@ -105,4 +105,3 @@ class _NavItemState extends State<NavItem> with SingleTickerProviderStateMixin {
     });
   }
 }
-

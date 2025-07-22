@@ -79,74 +79,74 @@ class _HeaderSectionState extends State<HeaderSection> with SingleTickerProvider
             },
           )
               : Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    InkWell(
-                      onTap: () {
-                        Navigator.of(context).pushNamed(HomepageScreen.route);
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.only(
-                          top: Sizes.PADDING_10,
-                        ),
-                        child: Image.asset(
-                          ImagePath.FDSAP_LOGO_MAROON,
-                          height: Sizes.HEIGHT_100,
-                        ),
-                      ),
-                    ),
-                    SizedBox(width: 10),
-                    if (!isMobile(context))
-                      if (!isTab(context))
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            SizedBoxW67(),
-                            NavItem(
-                              title: 'Home',
-                              onTap: () {
-                                Navigator.of(context).pushNamed(HomepageScreen.route);
-                                print("-----HOMEPAGE SCREEN----");
-                              },
-                            ),
-                            SizedBoxW65(),
-                            // NavItem(
-                            //   title: 'About Us',
-                            //   onTap: () {
-                            //     Navigator.of(context).pushNamed(AboutMain.route);
-                            //     print("-----ABOUT US SCREEN----");
-                            //   },
-                            // ),
-                            SizedBoxW60(),
-                            NavItem(
-                              title: 'Product & Services',
-                              onTap: () {
-                                Navigator.of(context).pushNamed(ProductServicesMain.route);
-                                print("-----PRODUCT & SERVICES SCREEN----");
-                              },
-                            ),
-                            SizedBoxW60(),
-                            NavItem(
-                              title: 'Insights',
-                              onTap: () {
-                                Navigator.of(context).pushNamed(InsightSection.route);
-                                print("-----INSIGHTS SCREEN----");
-                              },
-                            ),
-                          ],
-                        ),
-                    if (isMobile(context))
-                      IconButton(
-                        icon: Icon(
-                          Icons.menu,
-                          color: Colors.grey.shade50,
-                        ),
-                        onPressed: () {
-                          Scaffold.of(context).openEndDrawer();
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              InkWell(
+                onTap: () {
+                  Navigator.of(context).pushNamed(HomepageScreen.route);
+                },
+                child: Padding(
+                  padding: const EdgeInsets.only(
+                    top: Sizes.PADDING_10,
+                  ),
+                  child: Image.asset(
+                    ImagePath.FDSAP_LOGO_MAROON,
+                    height: Sizes.HEIGHT_100,
+                  ),
+                ),
+              ),
+              SizedBox(width: 10),
+              if (!isMobile(context))
+                if (!isTab(context))
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      SizedBoxW67(),
+                      NavItem(
+                        title: 'Home',
+                        onTap: () {
+                          Navigator.of(context).pushNamed(HomepageScreen.route);
+                          print("-----HOMEPAGE SCREEN----");
                         },
                       ),
-                  ],
+                      SizedBoxW65(),
+                      // NavItem(
+                      //   title: 'About Us',
+                      //   onTap: () {
+                      //     Navigator.of(context).pushNamed(AboutMain.route);
+                      //     print("-----ABOUT US SCREEN----");
+                      //   },
+                      // ),
+                      SizedBoxW60(),
+                      NavItem(
+                        title: 'Product & Services',
+                        onTap: () {
+                          Navigator.of(context).pushNamed(ProductServicesMain.route);
+                          print("-----PRODUCT & SERVICES SCREEN----");
+                        },
+                      ),
+                      SizedBoxW60(),
+                      NavItem(
+                        title: 'Insights',
+                        onTap: () {
+                          Navigator.of(context).pushNamed(InsightSection.route);
+                          print("-----INSIGHTS SCREEN----");
+                        },
+                      ),
+                    ],
+                  ),
+              if (isMobile(context))
+                IconButton(
+                  icon: Icon(
+                    Icons.menu,
+                    color: Colors.grey.shade50,
+                  ),
+                  onPressed: () {
+                    Scaffold.of(context).openEndDrawer();
+                  },
                 ),
+            ],
+          ),
         ),
         Divider(
           color: Colors.grey,

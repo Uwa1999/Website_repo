@@ -195,18 +195,10 @@ class _ArticleDescMainState extends State<ArticleDescMain> {
               controller: _scrollController,
               child: Column(
                 children: [
-                  Stack(
+                  Column(  // Remove Stack and fixed height Container
                     children: [
-                      Container(
-                        height: 2000,
-                        width: double.infinity,
-                        child: Column(
-                          children: [
-                            ArticleDescSection(),
-                            ArticleDescScreen(),
-                          ],
-                        ),
-                      ),
+                      ArticleDescSection(),
+                      ArticleDescScreen(),
                     ],
                   ),
                   SizedBoxH10(),

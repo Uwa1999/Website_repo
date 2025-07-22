@@ -42,8 +42,8 @@ class InsightPage extends StatelessWidget {
                   // ),
                   const SizedBox(height: 20),
                   const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 32),
-                    child: Image(image: AssetImage('assets/images/org_chart.png'))
+                      padding: EdgeInsets.symmetric(horizontal: 32),
+                      child: Image(image: AssetImage('assets/images/org_chart.png'))
                   ),
 
                   // Footer
@@ -57,4 +57,3 @@ class InsightPage extends StatelessWidget {
     );
   }
 }
-

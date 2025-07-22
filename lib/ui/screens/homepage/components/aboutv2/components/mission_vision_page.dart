@@ -58,10 +58,10 @@ class _MissionVisionState extends State<MissionVision> with TickerProviderStateM
                 children: [
                   const SizedBox(height: 30),
                   Center(
-                    child: Text(
-                      'Listening is where the care begins.',
+                      child: Text(
+                        'Listening is where the care begins.',
 
-                    style: TextStyle(fontSize: 40),)
+                        style: TextStyle(fontSize: 40),)
                   ),
                   const SizedBox(height: 20),
                   const SizedBox(height: 100),
@@ -75,5 +75,3 @@ class _MissionVisionState extends State<MissionVision> with TickerProviderStateM
     );
   }
 }
-
-

@@ -300,7 +300,7 @@ class _BankingTechnologyState extends State<BankingTechnology> with TickerProvid
                   const SizedBox(height: 30),
                   Center(
                     child: GradientText(
-                     text: 'Banking Technology',
+                      text: 'Banking Technology',
                       gradient: LinearGradient(colors: [Colors.black, Colors.redAccent, Colors.red]),
                       style: TextStyle(
                         fontSize: 50,

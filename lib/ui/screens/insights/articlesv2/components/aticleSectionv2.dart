@@ -141,24 +141,24 @@ class DesktopArticleDescScreenInsidev2 extends StatelessWidget {
 
           // Content
           Positioned(
-            top: 500,
-            left: 100,
-            child: NimbusInfoInsightTitle(
-              title1: articleData['title'] ?? 'No Title',
-              title2: articleData['subtitle'] ?? '',
-              body: articleData['content'] ?? 'No content available',
-              remarks: articleData['remarks'],
-              onTap: () {
-                Navigator.pushNamed(
-                  context,
-                  ArticleDescMainv2.route,
-                  arguments: {
-                    'articleId': articleData['id'].toString(),
-                    'articleData': articleData,
-                  },
-                );
-              },
-            )
+              top: 500,
+              left: 100,
+              child: NimbusInfoInsightTitle(
+                title1: articleData['title'] ?? 'No Title',
+                title2: articleData['subtitle'] ?? '',
+                body: articleData['content'] ?? 'No content available',
+                remarks: articleData['remarks'],
+                onTap: () {
+                  Navigator.pushNamed(
+                    context,
+                    ArticleDescMainv2.route,
+                    arguments: {
+                      'articleId': articleData['id'].toString(),
+                      'articleData': articleData,
+                    },
+                  );
+                },
+              )
           ),
         ],
       ),
@@ -215,25 +215,25 @@ class MobileArticleDescScreenInsidev2 extends StatelessWidget {
 
             // Content
             Positioned(
-              bottom: 20,
-              left: 20,
-              right: 20,
-              child: NimbusInfoInsightTitle(
-                title1: articleData['title'] ?? 'No Title',
-                title2: articleData['subtitle'] ?? '',
-                body: articleData['content'] ?? 'No content available',
-                remarks: articleData['remarks'],
-                onTap: () {
-                  Navigator.pushNamed(
-                    context,
-                    ArticleDescMainv2.route,
-                    arguments: {
-                      'articleId': articleData['id'].toString(),
-                      'articleData': articleData,
-                    },
-                  );
-                },
-              )
+                bottom: 20,
+                left: 20,
+                right: 20,
+                child: NimbusInfoInsightTitle(
+                  title1: articleData['title'] ?? 'No Title',
+                  title2: articleData['subtitle'] ?? '',
+                  body: articleData['content'] ?? 'No content available',
+                  remarks: articleData['remarks'],
+                  onTap: () {
+                    Navigator.pushNamed(
+                      context,
+                      ArticleDescMainv2.route,
+                      arguments: {
+                        'articleId': articleData['id'].toString(),
+                        'articleData': articleData,
+                      },
+                    );
+                  },
+                )
             ),
           ],
         ),

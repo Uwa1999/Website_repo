@@ -130,15 +130,15 @@ class _DesktopInsightSectionState extends State<DesktopInsightSection> {
     double cardWidth = ((width - (kSpacing * 2)) / 5);
     List<Widget> items = [];
     List<VoidCallback> function = [
-      () {
+          () {
         Navigator.of(context).pushNamed(ArticleDescMain.route);
         print('-----ARTICLE SCREEN-----');
       },
-      () {
+          () {
         Navigator.of(context).pushNamed(EventsDescMain.route);
         print('-----EVENTS SCREEN-----');
       },
-      () {
+          () {
         Navigator.of(context).pushNamed(NewsDescMain.route);
         print('-----NEWS SCREEN-----');
       },
@@ -293,15 +293,15 @@ class _MobileInsightSectionState extends State<MobileInsightSection> {
     double cardWidth = ((width - (kSpacing * 2)) / 5);
     List<Widget> items = [];
     List<VoidCallback> function = [
-      () {
+          () {
         Navigator.of(context).pushNamed(ArticleDescMain.route);
         print('-----ARTICLE SCREEN-----');
       },
-      () {
+          () {
         Navigator.of(context).pushNamed(EventsDescMain.route);
         print('-----EVENTS SCREEN-----');
       },
-      () {
+          () {
         Navigator.of(context).pushNamed(NewsDescMain.route);
         print('-----NEWS SCREEN-----');
       },

@@ -42,6 +42,7 @@ class _UpdateInsightFormState extends State<UpdateInsightForm> {
   final List<DropdownMenuItem<String>> _categoryItems = [
     const DropdownMenuItem(value: 'Articles', child: Text('Articles')),
     const DropdownMenuItem(value: 'Events', child: Text('Events')),
+    const DropdownMenuItem(value: 'News', child: Text('News')),
     const DropdownMenuItem(value: 'Announcements', child: Text('Announcements')),
   ];
 
