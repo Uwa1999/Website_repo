@@ -127,6 +127,8 @@
 //
 // }
 
+import 'dart:core';
+
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/functions.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/images.dart';
@@ -215,9 +217,11 @@ class _AppDrawerState extends State<AppDrawer> {
           isMobile: true,
           isSelected: navItems[i].isSelected,
           titleStyle: textTheme.bodyLarge?.copyWith(
-            color: navItems[i].isSelected ? AppColors.maroon450 : AppColors.black,
+            color:
+                navItems[i].isSelected ? AppColors.maroon450 : AppColors.black,
             fontSize: Sizes.TEXT_SIZE_16,
-            fontWeight: navItems[i].isSelected ? FontWeight.bold : FontWeight.normal,
+            fontWeight:
+                navItems[i].isSelected ? FontWeight.bold : FontWeight.normal,
           ),
         ),
       );
@@ -225,7 +229,6 @@ class _AppDrawerState extends State<AppDrawer> {
     }
     return menuItems;
   }
-
 
   void _onTapNavItem({
     required BuildContext context,
@@ -253,9 +256,11 @@ class _AppDrawerState extends State<AppDrawer> {
     // Delay to allow UI to rebuild (e.g. highlight selection) before navigating
     Future.delayed(const Duration(milliseconds: 150), () {
       if (item.destinationBuilder != null) {
-        Navigator.of(context).push(
+        Navigator.of(context)
+            .push(
           MaterialPageRoute(builder: item.destinationBuilder!),
-        ).then((_) {
+        )
+            .then((_) {
           // Reset to HOME on return
           updateSelectedNavItem(StringConst.HOME);
           setState(() {
@@ -266,7 +271,7 @@ class _AppDrawerState extends State<AppDrawer> {
 
           // Scroll to HOME section
           final homeItem = navItems.firstWhere(
-                (e) => e.name == StringConst.HOME,
+            (e) => e.name == StringConst.HOME,
             orElse: () => NavItemData(name: StringConst.HOME, key: key),
           );
           if (homeItem.key?.currentContext != null) {
@@ -286,6 +291,4 @@ class _AppDrawerState extends State<AppDrawer> {
       }
     });
   }
-
-
 }

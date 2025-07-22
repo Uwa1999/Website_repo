@@ -22,7 +22,8 @@ class _HeaderResponsiveWebState extends State<HeaderResponsiveWeb> {
   @override
   Widget build(BuildContext context) {
     return ContentArea(
-      child: SingleChildScrollView(  // Added SingleChildScrollView
+      child: SingleChildScrollView(
+        // Added SingleChildScrollView
         child: SizedBox(
           height: MediaQuery.of(context).size.height,
           child: _buildDesktopHeader(context),
@@ -41,45 +42,54 @@ class _HeaderResponsiveWebState extends State<HeaderResponsiveWeb> {
       'Implementation time, tailor-made services, and redefining the holistic customer experiences.',
     ];
 
-    return Stack(
-      children: [
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const SizedBox(height: 100),
-            Center(
-              child: LayoutBuilder(
-                builder: (context, constraints) {
-                  double screenWidth = constraints.maxWidth;
-                  double dynamicFontSize = (screenWidth * 0.08).clamp(50.0, 100.0);
+    return SafeArea(
+      child: Stack(
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(height: 100),
+              Center(
+                child: LayoutBuilder(
+                  builder: (context, constraints) {
+                    double screenWidth = constraints.maxWidth;
 
-                  return GradientCustomText(
-                    text: 'Trusted partner on your Digitalization Journey.',
-                    style: TextStyle(
-                      fontSize: dynamicFontSize,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    gradient: linearGradient,
-                  );
-                },
-              ),
-            ),
-            const Spacer(),  // Changed from fixed SizedBox to Spacer for flexible space
-            Center(
-              child: Container(
-                width: screenWidth * 0.9,
-                padding: const EdgeInsets.symmetric(vertical: 20),
-                child: Flex(
-                  direction: isMobile ? Axis.vertical : Axis.horizontal,
-                  mainAxisAlignment: isMobile ? MainAxisAlignment.center : MainAxisAlignment.spaceBetween,
-                  children: textItems.map((text) => textBox(text, textAlign)).toList(),
+                    // Adjust this formula as needed for your layout
+                    double dynamicFontSize =
+                        (screenWidth * 0.08).clamp(50.0, 100.0);
+
+                    return GradientCustomText(
+                      text: 'Trusted partner on your Digitalization Journey.',
+                      style: TextStyle(
+                        fontSize: dynamicFontSize,
+                        fontWeight: FontWeight.bold,
+                      ),
+                      gradient: linearGradient,
+                    );
+                  },
                 ),
               ),
-            ),
-            const SizedBox(height: 100),  // Added bottom padding
-          ],
-        ),
-      ],
+              isMobile ? SizedBox(height: 20) : SizedBox(height: 300),
+              Center(
+                child: Container(
+                  // color: Colors.teal,
+                  width: screenWidth * 0.9,
+                  padding: const EdgeInsets.symmetric(vertical: 20),
+                  child: Flex(
+                    direction: isMobile ? Axis.vertical : Axis.horizontal,
+                    mainAxisAlignment: isMobile
+                        ? MainAxisAlignment.center
+                        : MainAxisAlignment.spaceBetween,
+                    children: textItems
+                        .map((text) => textBox(text, textAlign))
+                        .toList(),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 
@@ -115,5 +125,4 @@ class _HeaderResponsiveWebState extends State<HeaderResponsiveWeb> {
 //
 // }
 
-  // You can put these in separate files or in the same file.
-
+// You can put these in separate files or in the same file.

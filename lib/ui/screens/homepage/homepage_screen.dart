@@ -336,22 +336,27 @@ class _HomepageScreenState extends State<HomepageScreen> {
       key: _scaffoldKey,
       drawer: ResponsiveBuilder(
         builder: (context, sizingInformation) {
-          return sizingInformation.screenSize.width < 900 ? SideMenu() : Container();
+          return sizingInformation.screenSize.width < 900
+              ? SideMenu()
+              : Container();
         },
       ),
       floatingActionButton: Visibility(
         visible: isFabVisible,
         child: FloatingActionButton(
           backgroundColor: AppColors.maroon08,
-          child: Icon(Icons.expand_less, size: Sizes.ICON_SIZE_18, color: AppColors.white),
+          child: Icon(Icons.expand_less,
+              size: Sizes.ICON_SIZE_18, color: AppColors.white),
           onPressed: () => scrollToSection(homeKey!),
         ),
       ),
       body: NotificationListener<UserScrollNotification>(
         onNotification: (notification) {
-          if (notification.direction == ScrollDirection.forward && !isFabVisible) {
+          if (notification.direction == ScrollDirection.forward &&
+              !isFabVisible) {
             setState(() => isFabVisible = true);
-          } else if (notification.direction == ScrollDirection.reverse && isFabVisible) {
+          } else if (notification.direction == ScrollDirection.reverse &&
+              isFabVisible) {
             setState(() => isFabVisible = false);
           }
           return true;
@@ -363,13 +368,14 @@ class _HomepageScreenState extends State<HomepageScreen> {
                 return sizingInfo.screenSize.width < 900
                     ? NavSectionMobile(scaffoldKey: _scaffoldKey)
                     : NavSectionWeb(
-                  navItems: navItems,
-                  onNavItemSelected: (key) {
-                    WidgetsBinding.instance.addPostFrameCallback((_) {
-                      if (key.currentContext != null) scrollToSection(key);
-                    });
-                  },
-                );
+                        navItems: navItems,
+                        onNavItemSelected: (key) {
+                          WidgetsBinding.instance.addPostFrameCallback((_) {
+                            if (key.currentContext != null)
+                              scrollToSection(key);
+                          });
+                        },
+                      );
               },
             ),
             Expanded(
@@ -382,7 +388,9 @@ class _HomepageScreenState extends State<HomepageScreen> {
                         Column(
                           children: [
                             HeaderResponsiveWeb(key: homeKey),
-                            imageWidth <= 800 ? SizedBox(height: imageHeight) : SizedBox(height: imageHeight * 0.10),
+                            imageWidth <= 800
+                                ? SizedBox(height: imageHeight)
+                                : SizedBox(height: imageHeight * 0.10),
                             Column(
                               children: [
                                 // Container(
@@ -406,16 +414,20 @@ class _HomepageScreenState extends State<HomepageScreen> {
                                 if (isDesktop) {
                                   // Desktop layout: side by side using Row
                                   return Padding(
-                                    padding: const EdgeInsets.symmetric(horizontal: 40.0, vertical: 40.0),
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 40.0, vertical: 40.0),
                                     child: Row(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
                                       children: [
                                         SizedBox(
                                           key: contactKey,
                                           width: contactFormWidth,
                                           child: ContactUsPage(),
                                         ),
-                                        const SizedBox(width: 40), // space between form and location
+                                        const SizedBox(
+                                            width:
+                                                40), // space between form and location
                                         Expanded(
                                           child: OurLocationSection(),
                                         ),
@@ -428,12 +440,14 @@ class _HomepageScreenState extends State<HomepageScreen> {
                                     children: [
                                       Container(
                                         key: contactKey,
-                                        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 16.0),
                                         child: ContactUsPage(),
                                       ),
                                       const SizedBox(height: 20),
                                       Padding(
-                                        padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 16.0),
                                         child: OurLocationSection(),
                                       ),
                                     ],
@@ -441,8 +455,6 @@ class _HomepageScreenState extends State<HomepageScreen> {
                                 }
                               },
                             ),
-
-
                             FooterSectionv2(),
                           ],
                         ),
@@ -469,20 +481,41 @@ class _HomepageScreenState extends State<HomepageScreen> {
     );
   }
 
+  ///old changed june 09, 2025
+  // void _onScroll() {
+  //   for (var item in navItems) {
+  //     final context = item.key?.currentContext;
+  //     if (context != null) {
+  //       final box = context.findRenderObject() as RenderBox;
+  //       final position = box.localToGlobal(Offset.zero).dy;
+  //       if (position >= 0 && position < MediaQuery.of(context).size.height / 2) {
+  //         if (!item.isSelected) {
+  //           setState(() {
+  //             updateSelectedNavItem(item.name);
+  //           });
+  //         }
+  //         break;
+  //       }
+  //     }
+  //   }
+  // }
   void _onScroll() {
     for (var item in navItems) {
       final context = item.key?.currentContext;
       if (context != null) {
-        final box = context.findRenderObject() as RenderBox;
-        final position = box.localToGlobal(Offset.zero).dy;
-        if (position >= 0 && position < MediaQuery.of(context).size.height / 2) {
-          if (!item.isSelected) {
-            setState(() {
-              updateSelectedNavItem(item.name);
-            });
+        try {
+          final box = context.findRenderObject() as RenderBox;
+          final position = box.localToGlobal(Offset.zero).dy;
+          if (position >= 0 &&
+              position < MediaQuery.of(context).size.height / 2) {
+            if (!item.isSelected) {
+              setState(() {
+                updateSelectedNavItem(item.name);
+              });
+            }
+            break;
           }
-          break;
-        }
+        } catch (_) {}
       }
     }
   }
