@@ -1,3 +1,5 @@
+import 'dart:core';
+
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/homepage_screen.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/functions.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/responsive.dart';
@@ -47,12 +49,19 @@ class NavSectionWeb extends StatefulWidget {
 class _NavSectionWebState extends State<NavSectionWeb> {
   @override
   Widget build(BuildContext context) {
-    double logoSpaceLeft = responsiveSize(context, logoSpaceLeftSm, logoSpaceLeftLg);
-    double logoSpaceRight = responsiveSize(context, logoSpaceRightSm, logoSpaceRightLg);
-    double contactBtnSpaceLeft = responsiveSize(context, contactButtonSpaceLeftSm, contactButtonSpaceLeftLg);
-    double contactBtnSpaceRight = responsiveSize(context, contactButtonSpaceRightSm, contactButtonSpaceRightLg);
-    double contactBtnWidth = responsiveSize(context, contactBtnWidthSm, contactBtnWidthLg);
-    int menuSpacerRight = responsiveSizeInt(context, menuSpacerRightSm, menuSpacerRightLg, md: menuSpacerRightMd);
+    double logoSpaceLeft =
+        responsiveSize(context, logoSpaceLeftSm, logoSpaceLeftLg);
+    double logoSpaceRight =
+        responsiveSize(context, logoSpaceRightSm, logoSpaceRightLg);
+    double contactBtnSpaceLeft = responsiveSize(
+        context, contactButtonSpaceLeftSm, contactButtonSpaceLeftLg);
+    double contactBtnSpaceRight = responsiveSize(
+        context, contactButtonSpaceRightSm, contactButtonSpaceRightLg);
+    double contactBtnWidth =
+        responsiveSize(context, contactBtnWidthSm, contactBtnWidthLg);
+    int menuSpacerRight = responsiveSizeInt(
+        context, menuSpacerRightSm, menuSpacerRightLg,
+        md: menuSpacerRightMd);
 
     return Container(
       height: Sizes.HEIGHT_100,
@@ -91,7 +100,8 @@ class _NavSectionWebState extends State<NavSectionWeb> {
             NimbusVerticalDivider(),
             SizedBox(width: contactBtnSpaceLeft),
             Container(
-              padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10),
               width: 150,
               height: 40,
               decoration: BoxDecoration(

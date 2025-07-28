@@ -24,7 +24,8 @@ class SideMenu extends StatefulWidget {
   State<SideMenu> createState() => _SideMenuState();
 }
 
-class _SideMenuState extends State<SideMenu> with SingleTickerProviderStateMixin {
+class _SideMenuState extends State<SideMenu>
+    with SingleTickerProviderStateMixin {
   late final List<NavItemData> menuItems;
 
   @override
@@ -32,7 +33,7 @@ class _SideMenuState extends State<SideMenu> with SingleTickerProviderStateMixin
     super.initState();
     menuItems = [
       NavItemData(name: StringConst.HOME, key: GlobalKey(), isSelected: true),
-      NavItemData(name: StringConst.SERVICES, key: GlobalKey(),),
+      // NavItemData(name: StringConst.SERVICES, key: GlobalKey(),),
       NavItemData(name: StringConst.CLIENT, key: GlobalKey()),
       NavItemData(
         name: StringConst.INSIGHTS,
