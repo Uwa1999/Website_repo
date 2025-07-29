@@ -23,11 +23,8 @@ class _HeaderResponsiveWebState extends State<HeaderResponsiveWeb> {
   Widget build(BuildContext context) {
     return ContentArea(
       child: SingleChildScrollView(
-        // Added SingleChildScrollView
-        child: SizedBox(
-          height: MediaQuery.of(context).size.height,
-          child: _buildDesktopHeader(context),
-        ),
+        // Remove SizedBox with fixed height here
+        child: _buildDesktopHeader(context),
       ),
     );
   }
@@ -48,25 +45,42 @@ class _HeaderResponsiveWebState extends State<HeaderResponsiveWeb> {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(height: 100),
+              const SizedBox(height: 20),
               Center(
-                child: LayoutBuilder(
-                  builder: (context, constraints) {
-                    double screenWidth = constraints.maxWidth;
+                child: Column(
+                  mainAxisSize: MainAxisSize.min, // To make the column only take necessary space
+                  children: [
+                    LayoutBuilder(
+                      builder: (context, constraints) {
+                        double screenWidth = constraints.maxWidth;
+                        double dynamicFontSize = (screenWidth * 0.04).clamp(10.0, 60.0);
 
-                    // Adjust this formula as needed for your layout
-                    double dynamicFontSize =
-                        (screenWidth * 0.08).clamp(50.0, 100.0);
+                        return GradientCustomText(
+                          text: 'Trusted partner on your',
+                          style: TextStyle(
+                            fontSize: dynamicFontSize,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          gradient: linearGradient,
+                        );
+                      },
+                    ),
+                    LayoutBuilder( // Use another LayoutBuilder for the second line to maintain responsiveness
+                      builder: (context, constraints) {
+                        double screenWidth = constraints.maxWidth;
+                        double dynamicFontSize = (screenWidth * 0.04).clamp(10.0, 60.0);
 
-                    return GradientCustomText(
-                      text: 'Trusted partner on your Digitalization Journey.',
-                      style: TextStyle(
-                        fontSize: dynamicFontSize,
-                        fontWeight: FontWeight.bold,
-                      ),
-                      gradient: linearGradient,
-                    );
-                  },
+                        return GradientCustomText(
+                          text: 'Digitalization Journey.',
+                          style: TextStyle(
+                            fontSize: dynamicFontSize,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          gradient: linearGradient,
+                        );
+                      },
+                    ),
+                  ],
                 ),
               ),
               isMobile ? SizedBox(height: 20) : SizedBox(height: 300),

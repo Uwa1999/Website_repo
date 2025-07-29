@@ -261,7 +261,7 @@ class LeadingBankingPartnerItem extends StatefulWidget {
 
 class _LeadingBankingPartnerItemState extends State<LeadingBankingPartnerItem> with SingleTickerProviderStateMixin {
   late Animation<int> numberAnimation;
-  late AnimationController gradientController;
+  // Removed: late AnimationController gradientController; // No longer needed for static gradient
 
   @override
   void initState() {
@@ -271,15 +271,12 @@ class _LeadingBankingPartnerItemState extends State<LeadingBankingPartnerItem> w
       CurvedAnimation(parent: widget.controller, curve: widget.curve),
     );
 
-    gradientController = AnimationController(
-      vsync: this,
-      duration: const Duration(seconds: 2),
-    )..repeat();
+    // Removed: gradientController = AnimationController(...); // No longer needed
   }
 
   @override
   void dispose() {
-    gradientController.dispose();
+    // Removed: gradientController.dispose(); // No longer needed
     super.dispose();
   }
 
@@ -311,16 +308,31 @@ class _LeadingBankingPartnerItemState extends State<LeadingBankingPartnerItem> w
         return Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            AnimatedGradientText(
-              animation: gradientController,
-              text: "${numberAnimation.value}${widget.subnum ?? ''}",
-              style: widget.titleStyle ??
-                  GoogleFonts.poppins(
-
-                    fontWeight: FontWeight.bold,
-                    color: widget.titleColor,
-                  ),
-              fontSize: bigFontSize,
+            ShaderMask(
+              shaderCallback: (bounds) {
+                // Define your static gradient colors here.
+                // You can customize these colors as per your design.
+                return LinearGradient(
+                  colors: [
+                    Colors.red, // Start color of your static gradient
+                    Colors.black,   // End color of your static gradient
+                  ],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                ).createShader(bounds);
+              },
+              child: Text(
+                "${numberAnimation.value}${widget.subnum ?? ''}",
+                style: widget.titleStyle ??
+                    GoogleFonts.poppins(
+                      fontWeight: FontWeight.bold,
+                      // The color here will be masked by the shader.
+                      // Often set to white for best gradient application.
+                      color: Colors.white,
+                      fontSize: bigFontSize,
+                    ),
+                textAlign: TextAlign.center,
+              ),
             ),
             const SizedBox(height: 16),
             Text(
@@ -394,14 +406,14 @@ class MobileLeadingBankingPartnerItem extends StatelessWidget {
             Text(
               "$value",
               style: GoogleFonts.poppins(
-                color: titleColor,
+                color: Colors.blueAccent, // Changed title color here
                 fontSize: 25,
               ),
             ),
             Text(
               "$values",
               style: GoogleFonts.poppins(
-                color: titleColor,
+                color: Colors.blueAccent, // Changed subnum color here
                 fontSize: 25,
               ),
             ),
@@ -411,7 +423,7 @@ class MobileLeadingBankingPartnerItem extends StatelessWidget {
         Text(
           subtitle,
           style: GoogleFonts.poppins(
-            color: subtitleColor,
+            color: Colors.deepOrange, // Changed subtitle color here
             fontSize: 12,
           ),
         ),

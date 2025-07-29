@@ -568,7 +568,10 @@ class _ContactUsPageState extends State<ContactUsPage> {
         backgroundColor: isError ? Colors.red : const Color(0xFF630606),
         behavior: SnackBarBehavior.floating,
         margin: EdgeInsets.only(
-          bottom: MediaQuery.of(context).size.height - 100,
+          bottom: MediaQuery
+              .of(context)
+              .size
+              .height - 100,
           left: 550,
           right: 550,
         ),
@@ -582,7 +585,8 @@ class _ContactUsPageState extends State<ContactUsPage> {
 
   Future<void> _submitForm() async {
     if (!isChecked) {
-      _showTopSnackBar('Please agree to the terms before submitting', isError: true);
+      _showTopSnackBar(
+          'Please agree to the terms before submitting', isError: true);
       return;
     }
 
@@ -592,7 +596,8 @@ class _ContactUsPageState extends State<ContactUsPage> {
 
     try {
       final response = await http.post(
-        Uri.parse('https://dev-api-janus.fortress-asya.com:18043/api/public/v1/subscribers/subscribe'),
+        Uri.parse(
+            'https://dev-api-janus.fortress-asya.com:18043/api/public/v1/subscribers/subscribe'),
         headers: {'Content-Type': 'application/json'},
         body: jsonEncode({
           "first_name": firstNameController.text,
@@ -606,7 +611,8 @@ class _ContactUsPageState extends State<ContactUsPage> {
 
       if (response.statusCode == 200 || response.statusCode == 204) {
         final responseData = jsonDecode(response.body);
-        _showTopSnackBar(responseData['message'] ?? 'Thank you for contacting us!');
+        _showTopSnackBar(
+            responseData['message'] ?? 'Thank you for contacting us!');
 
         // Clear form
         firstNameController.clear();
@@ -619,22 +625,26 @@ class _ContactUsPageState extends State<ContactUsPage> {
           isChecked = false;
         });
       } else {
-        _showTopSnackBar('Failed to submit form. Please try again.', isError: true);
+        _showTopSnackBar(
+            'Failed to submit form. Please try again.', isError: true);
       }
     } catch (e) {
-      _showTopSnackBar('An error occurred. Please check your connection.', isError: true);
+      _showTopSnackBar(
+          'An error occurred. Please check your connection.', isError: true);
     } finally {
       setState(() {
         _isSubmitting = false;
       });
     }
   }
+
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
         bool isMobile = constraints.maxWidth < 600;
-        double fieldWidth = isMobile ? double.infinity : (constraints.maxWidth / 2) - 24;
+        double fieldWidth = isMobile ? double.infinity : (constraints.maxWidth /
+            2) - 24;
 
         return Material(
           color: Colors.transparent,
@@ -723,13 +733,15 @@ class _ContactUsPageState extends State<ContactUsPage> {
                       decoration: const InputDecoration(
                         labelText: 'Company Type',
                         border: OutlineInputBorder(),
-                        contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                        contentPadding: EdgeInsets.symmetric(
+                            horizontal: 16, vertical: 12),
                       ),
                       items: ['Startup', 'SME', 'Enterprise']
-                          .map((type) => DropdownMenuItem(
-                        value: type,
-                        child: Text(type),
-                      ))
+                          .map((type) =>
+                          DropdownMenuItem(
+                            value: type,
+                            child: Text(type),
+                          ))
                           .toList(),
                       onChanged: (value) {
                         setState(() {
@@ -774,7 +786,8 @@ class _ContactUsPageState extends State<ContactUsPage> {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(30),
                       ),
-                      padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 32, vertical: 16),
                     ),
                     onPressed: isChecked && !_isSubmitting ? _submitForm : null,
                     child: _isSubmitting
@@ -783,7 +796,8 @@ class _ContactUsPageState extends State<ContactUsPage> {
                         height: 20,
                         child: CircularProgressIndicator(
                           strokeWidth: 2,
-                          valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                          valueColor: AlwaysStoppedAnimation<Color>(Colors
+                              .white),
                         )
                     )
                         : const Text(
@@ -811,32 +825,32 @@ class _ContactUsPageState extends State<ContactUsPage> {
       style: const TextStyle(fontSize: 12),
       textInputAction: TextInputAction.next,
       textAlignVertical: TextAlignVertical.center,
-      cursorColor: const Color(0xff1c601f),
+      cursorColor: Colors.black,
       cursorWidth: 1,
       cursorHeight: 15,
       cursorRadius: const Radius.circular(10),
       decoration: InputDecoration(
         contentPadding: const EdgeInsets.only(top: 5, left: 10, right: 15),
-        // filled: true,
-        // fillColor: Colors.white10,
         focusedBorder: OutlineInputBorder(
           borderSide: const BorderSide(
-            color: Color(0xff1c601f),
-            width: 1,
+            color: Colors.black,
+            width: 1.0,
+          ),
+          borderRadius: BorderRadius.circular(10),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderSide: const BorderSide(
+            color: Colors.black,
+            width: 1.0,
           ),
           borderRadius: BorderRadius.circular(10),
         ),
         border: OutlineInputBorder(
           borderSide: const BorderSide(
-            color: Color(0xff1c601f),
+            color: Colors.black,
+            width: 1.0,
           ),
           borderRadius: BorderRadius.circular(10),
-        ),
-        enabledBorder: const OutlineInputBorder(
-          borderSide: BorderSide(
-            width: 0.6,
-          ),
-          borderRadius: BorderRadius.all(Radius.circular(5)),
         ),
         hintText: hintText,
         hintStyle: const TextStyle(fontSize: 12),

@@ -1091,13 +1091,13 @@ class FooterSectionv2 extends StatelessWidget {
                               runSpacing: 8,
                               children: [
                                 Text(
-                                  'G/F 1519 D. Oliman St., Valenzuela, Makati City',
+                                  'G/F 1519 D. Oliman St., Valenzuela, Makati City (Head Office)',
                                   style: TextStyle(fontSize: (MediaQuery.sizeOf(context).width * 0.02).clamp(8, 14)),
                                   maxLines: 2,
                                   textAlign: TextAlign.right,
                                 ),
                                 Text(
-                                  'G/F 1519 D. Oliman St., Valenzuela, Makati City',
+                                  'Hermanos Belen San Pablo City Laguna (Other Branch)',
                                   style: TextStyle(fontSize: (MediaQuery.sizeOf(context).width * 0.02).clamp(8, 14)),
                                   maxLines: 2,
                                   textAlign: TextAlign.right,

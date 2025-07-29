@@ -82,8 +82,8 @@ class _NavSectionWebState extends State<NavSectionWeb> {
               ),
             ),
             SizedBox(width: logoSpaceRight),
-            NimbusVerticalDivider(),
-            Spacer(flex: 1),
+            // NimbusVerticalDivider(),
+            Spacer(flex: 6),
             ..._buildNavItems(widget.navItems),
             Spacer(flex: menuSpacerRight),
             ResponsiveBuilder(
@@ -93,11 +93,11 @@ class _NavSectionWebState extends State<NavSectionWeb> {
                 if (screenWidth < (RefinedBreakpoints().desktopSmall + 450)) {
                   return EmptyContainer();
                 } else {
-                  return Row(children: [SizedBoxW20()]);
+                  return Row(children: [SizedBoxW40()]);
                 }
               },
             ),
-            NimbusVerticalDivider(),
+            // NimbusVerticalDivider(),
             SizedBox(width: contactBtnSpaceLeft),
             Container(
               padding:

@@ -562,7 +562,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
       if (response.statusCode == 200) {
         final responseData = jsonDecode(response.body);
-        if (responseData['retCode'] == '200') {
+        if (responseData['retCode'] == '201') {
           // Successful login - reset attempts
           setState(() {
             remainingAttempts = 3;

@@ -360,19 +360,26 @@ Widget blackSpaceWithImage(BuildContext context) {
                                 ),
                               ),
                               const SizedBox(height: 50),
-                              Text(
-                                'To enable customers to enter digitalization with world-class solutions, at an unprecedented speed to market and affordable cost.',
-                                style: TextStyle(
-                                  fontSize: bodyFontSize,
-                                  fontWeight: FontWeight.w500,
-                                  color: Colors.white,
+                              Container(
+                                width: 800, // Adjust width based on your layout
+                                child: Text(
+                                  'To enable customers to enter digitalization with world-class solutions, at an unprecedented speed to market and affordable cost.',
+                                  style: TextStyle(
+                                    fontSize: 30,
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.white,
+                                  ),
+                                  textAlign: TextAlign.left,
+                                  softWrap: true,
+                                  maxLines: 3, // optional: limits to 3 lines
+                                  overflow: TextOverflow.ellipsis, // optional: adds "..." if overflows
                                 ),
-                                textAlign: TextAlign.left,
                               ),
                             ],
                           ),
                         ),
                       ),
+
                       Image.asset(
                         'assets/images/mission.png',
                         width: imageWidth,
@@ -435,10 +442,10 @@ Widget blackSpaceWithImage(BuildContext context) {
       // Group photo positioned above, outside the black container
       Positioned(
         top: -imageHeight * 1.3,
-        left: (screenWidth - imageWidth) / 2,
+        left: (screenWidth - imageWidth) / 20,
         child: Image.asset(
           'assets/images/grp_photo.png',
-          width: imageWidth,
+          width: imageWidth - 100,
           fit: BoxFit.contain,
         ),
       ),

@@ -64,7 +64,7 @@ class _LeadingBankingPartnerSectionState
           bool isMobile = constraints.maxWidth < 600;
 
           return Padding(
-            padding: const EdgeInsets.symmetric(vertical: 60, horizontal: 20),
+            padding: const EdgeInsets.symmetric(vertical: 60, horizontal: 70),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               // mainAxisAlignment: MainAxisAlignment.start,

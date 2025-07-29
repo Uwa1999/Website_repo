@@ -148,9 +148,9 @@ class _HeaderSectionState extends State<HeaderSection> with SingleTickerProvider
             ],
           ),
         ),
-        Divider(
-          color: Colors.grey,
-        ),
+        // Divider(
+        //   color: Colors.grey,
+        // ),
         // SizedBoxH30(),
       ],
     );
