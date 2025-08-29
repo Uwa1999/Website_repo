@@ -1,12 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'package:flutter/material.dart';
-
 class CustomCardWidget extends StatelessWidget {
   final String? title;
   final String description;
   final String imagePath;
+  final bool isNetworkImage; // Add this flag
   final List<String>? buttonLabels;
   final VoidCallback? onMainActionPressed;
   final List<VoidCallback>? onButtonPressed;
@@ -18,6 +17,7 @@ class CustomCardWidget extends StatelessWidget {
     this.maxWidth,
     required this.description,
     required this.imagePath,
+    this.isNetworkImage = false, // Default to false for backward compatibility
     this.buttonLabels,
     this.onMainActionPressed,
     this.onButtonPressed,
@@ -33,6 +33,14 @@ class CustomCardWidget extends StatelessWidget {
         double descFontSize = isWide ? 15 : 14;
         double imageWidth = isWide ? 400 : constraints.maxWidth * 0.9;
         double imageHeight = isWide ? 300 : 200;
+
+        // Create image provider based on the source type
+        ImageProvider imageProvider;
+        if (isNetworkImage) {
+          imageProvider = NetworkImage(imagePath);
+        } else {
+          imageProvider = AssetImage(imagePath);
+        }
 
         Widget cardContent = Card(
           color: Colors.white,
@@ -52,7 +60,7 @@ class CustomCardWidget extends StatelessWidget {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(30),
                     image: DecorationImage(
-                      image: AssetImage(imagePath),
+                      image: imageProvider,
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -70,7 +78,7 @@ class CustomCardWidget extends StatelessWidget {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(30),
                     image: DecorationImage(
-                      image: AssetImage(imagePath),
+                      image: imageProvider,
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -101,7 +109,7 @@ class CustomCardWidget extends StatelessWidget {
             children: [
               Container(
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10)
+                    borderRadius: BorderRadius.circular(10)
                 ),
                 child: Text(''),
               ),
@@ -129,13 +137,13 @@ class CustomCardWidget extends StatelessWidget {
               return Container(
                 padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
                 decoration: BoxDecoration(
-                  color: Colors.grey.withOpacity(0.2), // Change this to your desired button color
+                  color: Colors.grey.withOpacity(0.2),
                   borderRadius: BorderRadius.circular(50),
                 ),
                 child: Text(
                   buttonLabels![index],
                   style: const TextStyle(
-                    color: Colors.black, // Text color
+                    color: Colors.black,
                     fontSize: 14,
                     fontWeight: FontWeight.w500,
                   ),
@@ -143,17 +151,16 @@ class CustomCardWidget extends StatelessWidget {
               );
             }),
           )
-
       ],
     );
   }
 }
 
-
 class CustomCardWidgetv2 extends StatelessWidget {
   final String? title;
   final String description;
   final String imagePath;
+  final bool isNetworkImage; // Add this flag
   final List<String>? buttonLabels;
   final VoidCallback? onMainActionPressed;
   final List<VoidCallback>? onButtonPressed;
@@ -165,6 +172,7 @@ class CustomCardWidgetv2 extends StatelessWidget {
     this.maxWidth,
     required this.description,
     required this.imagePath,
+    this.isNetworkImage = false, // Default to false for backward compatibility
     this.buttonLabels,
     this.onMainActionPressed,
     this.onButtonPressed,
@@ -181,6 +189,14 @@ class CustomCardWidgetv2 extends StatelessWidget {
         double imageWidth = isWide ? 450 : constraints.maxWidth * 0.9;
         double imageHeight = isWide ? 300 : 200;
 
+        // Create image provider based on the source type
+        ImageProvider imageProvider;
+        if (isNetworkImage) {
+          imageProvider = NetworkImage(imagePath);
+        } else {
+          imageProvider = AssetImage(imagePath);
+        }
+
         Widget cardContent = Card(
           surfaceTintColor: Colors.white,
           shadowColor: Colors.grey,
@@ -194,9 +210,7 @@ class CustomCardWidgetv2 extends StatelessWidget {
               alignment: isWide ? WrapAlignment.start : WrapAlignment.center,
               crossAxisAlignment: WrapCrossAlignment.center,
               spacing: 40,
-              // space between items horizontally
               runSpacing: 20,
-              // space between items vertically
               children: [
                 Container(
                   width: imageWidth,
@@ -205,8 +219,8 @@ class CustomCardWidgetv2 extends StatelessWidget {
                     color: const Color(0xfff3f4f7),
                     borderRadius: BorderRadius.circular(25),
                     image: DecorationImage(
-                      image: AssetImage(imagePath),
-                      fit: BoxFit.contain, // better for various screen sizes
+                      image: imageProvider,
+                      fit: BoxFit.contain,
                     ),
                   ),
                 ),
@@ -264,13 +278,12 @@ class CustomCardWidgetv2 extends StatelessWidget {
                     horizontal: 16, vertical: 10),
                 decoration: BoxDecoration(
                   color: Colors.grey.withOpacity(0.2),
-                  // Change this to your desired button color
                   borderRadius: BorderRadius.circular(50),
                 ),
                 child: Text(
                   buttonLabels![index],
                   style: const TextStyle(
-                    color: Colors.black, // Text color
+                    color: Colors.black,
                     fontSize: 14,
                     fontWeight: FontWeight.w500,
                   ),
@@ -282,4 +295,3 @@ class CustomCardWidgetv2 extends StatelessWidget {
     );
   }
 }
-

@@ -810,7 +810,7 @@ class NimbusInfoInsightTitle extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
           ),
           child: const Text(
-            "View Article",
+            "View",
             style: TextStyle(color: Colors.white),
           ),
         ),

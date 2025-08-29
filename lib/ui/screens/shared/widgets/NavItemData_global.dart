@@ -18,18 +18,18 @@ List<NavItemData> navItems = [
     key: homeKey,
     isSelected: true,
   ),
-  // NavItemData(
-  //   name: StringConst.SERVICES,
-  //   key: servicesKey,
-  // ),
+  NavItemData(
+    name: StringConst.SERVICES,
+    key: servicesKey,
+  ),
   NavItemData(
     name: StringConst.CLIENT,
     key: clientKey,
   ),
   NavItemData(
     name: StringConst.INSIGHTS,
-    key: insightsKey,
     destinationBuilder: (context) => ArticleDescMain(),
+
   ),
   NavItemData(
     name: StringConst.ABOUT_US,

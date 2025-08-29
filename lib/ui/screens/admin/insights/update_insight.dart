@@ -38,6 +38,8 @@ class _UpdateInsightFormState extends State<UpdateInsightForm> {
   String? _fileName;
   String? _selectedCategory;
   bool _isLoading = false;
+  bool _isEnabled = true;
+  bool _isFetchingStatus = true; // Add loading state for status fetch
 
   final List<DropdownMenuItem<String>> _categoryItems = [
     const DropdownMenuItem(value: 'Articles', child: Text('Articles')),
@@ -56,12 +58,80 @@ class _UpdateInsightFormState extends State<UpdateInsightForm> {
     _timeController = TextEditingController(text: widget.initialData['time'] ?? '');
     _selectedCategory = widget.initialData['category'];
 
+    // Initialize with the value from initialData but also fetch the latest status
+    _isEnabled = _parseEnabledStatus(widget.initialData['is_enabled']);
+
+    // Fetch the latest status from the API
+    _fetchArticleStatus();
+
     // Initialize editor content after widget is built
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (_editorKey.currentState != null && widget.initialData['content'] != null) {
         _editorKey.currentState!.setHtmlContent(widget.initialData['content']);
       }
     });
+  }
+
+  // Helper method to parse enabled status from various data types
+  bool _parseEnabledStatus(dynamic enabledValue) {
+    if (enabledValue is bool) {
+      return enabledValue;
+    } else if (enabledValue is String) {
+      return enabledValue.toLowerCase() == 'true';
+    } else if (enabledValue is int) {
+      return enabledValue == 1;
+    } else {
+      return true; // Default value
+    }
+  }
+
+  // Fetch the latest article status from the API
+  Future<void> _fetchArticleStatus() async {
+    try {
+      final token = await _getAuthToken();
+      if (token == null) {
+        throw Exception('Authentication token not found');
+      }
+
+      final response = await http.get(
+        Uri.parse('https://dev-api-janus.fortress-asya.com:18043/api/private/v1/insights/index?page=1'),
+        headers: {
+          'Accept': 'application/json',
+          'Authorization': 'Bearer $token',
+        },
+      ).timeout(const Duration(seconds: 30));
+
+      if (response.statusCode == 200) {
+        final jsonData = jsonDecode(response.body);
+        final articles = jsonData['data']['data'] as List<dynamic>;
+
+        // Find the specific article by ID
+        final article = articles.firstWhere(
+              (article) => article['id'] == widget.insightId,
+          orElse: () => null,
+        );
+
+        if (article != null) {
+          setState(() {
+            _isEnabled = _parseEnabledStatus(article['is_enabled']);
+            _isFetchingStatus = false;
+          });
+        } else {
+          setState(() {
+            _isFetchingStatus = false;
+          });
+        }
+      } else {
+        setState(() {
+          _isFetchingStatus = false;
+        });
+      }
+    } catch (e) {
+      setState(() {
+        _isFetchingStatus = false;
+      });
+      // Don't show error for status fetch as we already have the initial data
+    }
   }
 
   @override
@@ -164,7 +234,7 @@ class _UpdateInsightFormState extends State<UpdateInsightForm> {
         ..fields['event_date'] = _eventDateController.text
         ..fields['updated_by'] = 'admin123'
         ..fields['is_published'] = 'true'
-        ..fields['is_enabled'] = 'true';
+        ..fields['is_enabled'] = _isEnabled.toString(); // Use the enabled state
 
       if (_pickedFile != null && _fileBytes != null) {
         request.files.add(http.MultipartFile.fromBytes(
@@ -297,6 +367,25 @@ class _UpdateInsightFormState extends State<UpdateInsightForm> {
                               _selectedCategory = newValue;
                             });
                           },
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 24),
+                    // Add ENABLED switch similar to the catalog form
+                    Row(
+                      children: [
+                        const Text("ENABLED", style: TextStyle(fontWeight: FontWeight.bold)),
+                        const SizedBox(width: 16),
+                        _isFetchingStatus
+                            ? const CircularProgressIndicator()
+                            : Switch(
+                          value: _isEnabled,
+                          onChanged: (value) {
+                            setState(() {
+                              _isEnabled = value;
+                            });
+                          },
+                          activeColor: const Color(0xFF630606),
                         ),
                       ],
                     ),

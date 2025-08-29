@@ -6,8 +6,10 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../../../core/provider/user_provider.dart';
 import '../../shared/admin_widgets/text_form_field_widget.dart';
 import '../../shared/utils/responsive.dart';
 import '../../shared/values/colors.dart';
@@ -50,7 +52,18 @@ class _LoginScreenState extends State<LoginScreen> {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _usernameFocusNode.requestFocus();
     });
+    _loadLoginAttemptState();
   }
+
+  Future<void> _loadLoginAttemptState() async {
+    final prefs = await SharedPreferences.getInstance();
+    setState(() {
+      remainingAttempts = prefs.getInt('remainingAttempts') ?? 3;
+      isUserLocked = prefs.getBool('isUserLocked') ?? false;
+      lockoutMessage = prefs.getString('lockoutMessage');
+    });
+  }
+
 
   @override
   void dispose() {
@@ -513,12 +526,17 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   Future<void> loginUser(String username, String password, BuildContext context) async {
-    // Clear previous lockout message if any
+    // Load preferences
+    final prefs = await SharedPreferences.getInstance();
+
+    // Clear lockout message only if not locked
     if (lockoutMessage != null || isUserLocked) {
       setState(() {
         lockoutMessage = null;
         isUserLocked = false;
       });
+      await prefs.remove('isUserLocked');
+      await prefs.remove('lockoutMessage');
     }
 
     showDialog(
@@ -563,79 +581,111 @@ class _LoginScreenState extends State<LoginScreen> {
       if (response.statusCode == 200) {
         final responseData = jsonDecode(response.body);
         if (responseData['retCode'] == '201') {
-          // Successful login - reset attempts
+          // ✅ Successful login - reset attempts
           setState(() {
             remainingAttempts = 3;
             isUserLocked = false;
+            lockoutMessage = null;
           });
+
+          await prefs.remove('remainingAttempts');
+          await prefs.remove('isUserLocked');
+          await prefs.remove('lockoutMessage');
 
           final adminUser = responseData['data']['admin_user'];
           final roleId = adminUser['role_id'].toString();
           final token = responseData['data']['jwt_token'];
           final username = adminUser['username'] ?? usernameController.text;
 
-          // Store the token and username
-          final prefs = await SharedPreferences.getInstance();
+          // Save user info
           await prefs.setString('jwt_token', token);
           await prefs.setString('username', username);
           await prefs.setString('firstname', adminUser['firstname'] ?? '');
           await prefs.setString('lastname', adminUser['lastname'] ?? '');
           await prefs.setString('email', adminUser['email'] ?? '');
+          await prefs.setString('role_id', roleId);
 
-          if (roleId == '4') { // Admin role check
-            if (kIsWeb) {
-              html.window.history.pushState(null, '', '/Admin/Dashboard');
-            }
+          final userProvider = Provider.of<UserProvider>(context, listen: false);
+          userProvider.setUser(
+            username: username,
+            firstname: adminUser['firstname'] ?? '',
+            lastname: adminUser['lastname'] ?? '',
+            email: adminUser['email'] ?? '',
+            token: token,
+            roleId: roleId,
+          );
 
-            Navigator.of(context).pushAndRemoveUntil(
-              MaterialPageRoute(
-                builder: (context) => MainScreen(
-                  userData: adminUser,
-                ),
-              ),
-                  (Route<dynamic> route) => false,
+          if (roleId == '4') {
+            Navigator.pushNamedAndRemoveUntil(
+              context,
+              MainScreen.route,
+                  (route) => false,
             );
           } else {
             _showErrorDialog(context, 'You do not have permission to access this application.');
+            usernameController.clear();
+            passwordController.clear();
           }
         } else {
-          // Check if user is locked from the API response
+          // ❌ Login failed
           if (responseData['retCode'] == '401' && responseData['message']?.contains('User Locked') == true) {
             setState(() {
               isUserLocked = true;
               lockoutMessage = responseData['message'];
             });
+            await prefs.setBool('isUserLocked', true);
+            await prefs.setString('lockoutMessage', lockoutMessage!);
           } else {
-            // Regular failed attempt
             setState(() {
               remainingAttempts--;
             });
+            await prefs.setInt('remainingAttempts', remainingAttempts);
+            if (remainingAttempts <= 0) {
+              setState(() {
+                isUserLocked = true;
+                lockoutMessage = "Too many failed attempts. You are locked out.";
+              });
+              await prefs.setBool('isUserLocked', true);
+              await prefs.setString('lockoutMessage', lockoutMessage!);
+            }
           }
 
           _showErrorDialog(context, responseData['message'] ?? 'Login failed');
+          usernameController.clear();
           passwordController.clear();
         }
       } else {
         final errorData = jsonDecode(response.body);
-        // Check if user is locked from the API response
         if (errorData['retCode'] == '401' && errorData['message']?.contains('User Locked') == true) {
           setState(() {
             isUserLocked = true;
             lockoutMessage = errorData['message'];
           });
+          await prefs.setBool('isUserLocked', true);
+          await prefs.setString('lockoutMessage', lockoutMessage!);
         } else {
-          // Regular failed attempt
           setState(() {
             remainingAttempts--;
           });
+          await prefs.setInt('remainingAttempts', remainingAttempts);
+          if (remainingAttempts <= 0) {
+            setState(() {
+              isUserLocked = true;
+              lockoutMessage = "Too many failed attempts. You are locked out.";
+            });
+            await prefs.setBool('isUserLocked', true);
+            await prefs.setString('lockoutMessage', lockoutMessage!);
+          }
         }
 
-        _showErrorDialog(context, errorData['message'] ?? 'Failed to connect to the server. Please try again later.');
+        _showErrorDialog(context, errorData['message'] ?? 'Failed to connect to the server.');
+        usernameController.clear();
         passwordController.clear();
       }
     } catch (e) {
       Navigator.pop(context);
       _showErrorDialog(context, 'An error occurred: $e');
+      usernameController.clear();
       passwordController.clear();
     }
   }
@@ -644,7 +694,7 @@ class _LoginScreenState extends State<LoginScreen> {
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        title: const Text('Error'),
+        title: const Text('Login Failed'),
         content: Text(message),
         actions: [
           TextButton(
@@ -819,29 +869,17 @@ class _LoginScreenState extends State<LoginScreen> {
                               ),
 
                               // Lockout messages
-                              if (isUserLocked)
-                                Padding(
-                                  padding: const EdgeInsets.symmetric(vertical: 8.0),
-                                  child: Text(
-                                    lockoutMessage ?? 'User account is locked',
-                                    style: const TextStyle(
-                                      color: Colors.red,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                    textAlign: TextAlign.center,
-                                  ),
-                                )
-                              else if (remainingAttempts < 3)
-                                Padding(
-                                  padding: const EdgeInsets.symmetric(vertical: 8.0),
-                                  child: Text(
-                                    'Remaining attempts: $remainingAttempts',
-                                    style: const TextStyle(
-                                      color: Colors.red,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                ),
+                              // if (remainingAttempts < 3)
+                              //   Padding(
+                              //     padding: const EdgeInsets.symmetric(vertical: 8.0),
+                              //     child: Text(
+                              //       'Remaining attempts: $remainingAttempts',
+                              //       style: const TextStyle(
+                              //         color: Colors.red,
+                              //         fontWeight: FontWeight.bold,
+                              //       ),
+                              //     ),
+                              //   ),
 
                               // Login Button
                               Padding(
@@ -850,15 +888,13 @@ class _LoginScreenState extends State<LoginScreen> {
                                   width: double.infinity,
                                   child: ElevatedButton(
                                     style: ElevatedButton.styleFrom(
-                                      backgroundColor: isUserLocked ? Colors.grey : const Color(0xFF630606),
+                                      backgroundColor: const Color(0xFF630606),
                                       shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.circular(15),
                                       ),
                                       padding: const EdgeInsets.symmetric(vertical: 15),
                                     ),
-                                    onPressed: isUserLocked
-                                        ? null
-                                        : () {
+                                    onPressed: () {
                                       if (formKey.currentState!.validate()) {
                                         loginUser(usernameController.text, passwordController.text, context);
                                       }
@@ -899,12 +935,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                           if (kDebugMode) {
                                             print('-----Create Account Screen-----');
                                           }
-                                          Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                              builder: (context) => const RegistrationForm(),
-                                            ),
-                                          );
+                                          Navigator.pushReplacementNamed(context, RegistrationForm.route);
+
                                         },
                                     ),
                                     TextSpan(
@@ -1097,46 +1129,30 @@ class _LoginScreenState extends State<LoginScreen> {
                               const SizedBox(height: 15),
 
                               // Lockout message or remaining attempts
-                              if (isUserLocked)
-                                Padding(
-                                  padding: const EdgeInsets.symmetric(vertical: 8.0),
-                                  child: Text(
-                                    lockoutMessage ?? 'User account is locked',
-                                    style: const TextStyle(
-                                      color: Colors.red,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                    textAlign: TextAlign.center,
-                                  ),
-                                )
-                              else if (remainingAttempts < 3)
-                                Padding(
-                                  padding: const EdgeInsets.symmetric(vertical: 8.0),
-                                  child: Text(
-                                    'Remaining attempts: $remainingAttempts',
-                                    style: const TextStyle(
-                                      color: Colors.red,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                ),
+                              // if (remainingAttempts < 3)
+                              //   Padding(
+                              //     padding: const EdgeInsets.symmetric(vertical: 8.0),
+                              //     child: Text(
+                              //       'Remaining attempts: $remainingAttempts',
+                              //       style: const TextStyle(
+                              //         color: Colors.red,
+                              //         fontWeight: FontWeight.bold,
+                              //       ),
+                              //     ),
+                              //   ),
 
                               // Login Button
                               SizedBox(
                                 width: double.infinity,
                                 child: ElevatedButton(
                                   style: ElevatedButton.styleFrom(
-                                    backgroundColor: isUserLocked
-                                        ? Colors.grey
-                                        : const Color(0xFF630606),
+                                    backgroundColor: const Color(0xFF630606),
                                     shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(15),
                                     ),
                                     padding: const EdgeInsets.symmetric(vertical: 15),
                                   ),
-                                  onPressed: isUserLocked
-                                      ? null
-                                      : () {
+                                  onPressed: () {
                                     if (formKey.currentState!.validate()) {
                                       loginUser(
                                         usernameController.text,
@@ -1181,13 +1197,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                           if (kDebugMode) {
                                             print('-----Create Account Screen-----');
                                           }
-                                          Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                              builder: (context) =>
-                                              const RegistrationForm(),
-                                            ),
-                                          );
+                                          Navigator.pushReplacementNamed(context, RegistrationForm.route);
+
                                         },
                                     ),
                                     const TextSpan(

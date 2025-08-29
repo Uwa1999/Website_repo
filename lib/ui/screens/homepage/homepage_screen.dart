@@ -295,6 +295,7 @@ import 'package:flutter/rendering.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
 import '../shared/widgets/buttons/footer.dart';
+import 'components/insightsv2/main_features.dart';
 import 'components/leading_partners_section.dart';
 
 class HomepageScreen extends StatefulWidget {
@@ -393,11 +394,16 @@ class _HomepageScreenState extends State<HomepageScreen> {
                                 : SizedBox(height: imageHeight * 0.10),
                             Column(
                               children: [
+                                Container(
+                                  key: servicesKey,
+                                  child: ProductsAndServicesV2(),
+                                ),
                                 // Container(
-                                //   key: navItems[1].key,
-                                //   child: ProductsAndServicesV2(),
+                                //   key: insightsKey,
+                                //   child: MainFeaturedSection(),
                                 // ),
-                                SizedBox(height: 100,),
+                                SizedBox(height: 100),
+                                // const MainFeaturedSection(),  // Add this line
                                 Container(
                                   key: clientKey,
                                   child: ClientsList(),
@@ -405,6 +411,10 @@ class _HomepageScreenState extends State<HomepageScreen> {
                               ],
                             ),
                             LeadingBankingPartnerSection(),
+                            // Container(
+                            //   key: insightsKey,
+                            //   child: MainFeaturedSection(),
+                            // ),
                             LayoutBuilder(
                               builder: (context, constraints) {
                                 final totalWidth = constraints.maxWidth;

@@ -115,10 +115,8 @@ class _RegistrationFormState extends State<RegistrationForm> {
             _clearAllFields();
 
             Future.delayed(const Duration(seconds: 2), () {
-              Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (context) => LoginScreen())
-              );
+              Navigator.pushReplacementNamed(context, LoginScreen.route);
+
             });
           } else {
             final errorDetails = responseData['errors'] ?? responseData['message'] ?? 'Unknown error';
@@ -240,7 +238,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
                 gradient: LinearGradient(
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
-                  colors: [Color(0xFF630606), Color(0xFF000000)],
+                  colors: [Colors.white, Colors.white],
                 ),
               ),
             ),
@@ -440,10 +438,8 @@ class _RegistrationFormState extends State<RegistrationForm> {
                       ),
                       recognizer: TapGestureRecognizer()
                         ..onTap = () {
-                          Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(builder: (context) => const LoginScreen()),
-                          );
+                          Navigator.pushReplacementNamed(context, LoginScreen.route);
+
                         },
                     ),
                   ],
@@ -624,7 +620,7 @@ class _RegistrationFormState extends State<RegistrationForm> {
               return 'Required';
             }
             if (value.length < 8) {
-              return 'Min 8 characters';
+              return 'Minimum 8 characters';
             }
             if (!RegExp(r'[A-Z]').hasMatch(value)) {
               return '1 uppercase needed';

@@ -132,18 +132,23 @@ class _NavSectionWebState extends State<NavSectionWeb> {
     });
 
     if (item.destinationBuilder != null) {
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: item.destinationBuilder!),
-      ).then((_) {
-        // Reset to HOME when returning
-        updateSelectedNavItem(StringConst.HOME);
-        setState(() {});
+      // Delay page navigation by 2 seconds
+      Future.delayed(const Duration(seconds: 1), () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: item.destinationBuilder!),
+        ).then((_) {
+          // Reset to HOME when returning
+          updateSelectedNavItem(StringConst.HOME);
+          setState(() {});
+        });
       });
     } else if (item.key != null) {
+      // Scroll instantly
       widget.onNavItemSelected(item.key!);
     }
   }
+
 
   List<Widget> _buildNavItems(List<NavItemData> navItems) {
     List<Widget> items = [];

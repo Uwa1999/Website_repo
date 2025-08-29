@@ -1,3 +1,11 @@
+import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'package:provider/provider.dart';
+import 'dart:convert';
+import 'package:responsive_builder/responsive_builder.dart';
+import 'package:flutter_html/flutter_html.dart';
+import 'package:intl/intl.dart';
+
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/footer_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/header_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/responsive_navigation/nav_section_mobile.dart';
@@ -5,12 +13,10 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/side_menu.da
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/sizes.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/sizedbox.dart';
-import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-import 'dart:convert';
-import 'package:responsive_builder/responsive_builder.dart';
 
+import '../../../../core/provider/article_provider.dart';
 import '../../shared/widgets/buttons/footer.dart';
+import '../articles/article_main.dart';
 import '../articles/article_screen.dart';
 import '../articles/article_section.dart';
 import '../more_articles_section.dart';
@@ -43,17 +49,93 @@ class _ArticleDescMainv2State extends State<ArticleDescMainv2> {
   void initState() {
     super.initState();
     _scrollController.addListener(_scrollListener);
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _loadArticleData();
+    });
+  }
+
+  Future<void> _loadArticleData() async {
+    setState(() => isLoading = true);
+
+    final provider = context.read<ArticleProvider>();
+
+    // Priority 1: Use initial data if provided
     if (widget.initialArticleData != null) {
-      articleData = widget.initialArticleData;
-      isLoading = false;
-    } else {
-      _fetchArticleData();
+      await provider.setArticleData(widget.initialArticleData!);
+      _initializeWithData(widget.initialArticleData!);
+      return;
     }
-    // Trigger click count API when the page loads
+
+    // Priority 2: Try to fetch by articleId if provided
+    if (widget.articleId.isNotEmpty) {
+      try {
+        final response = await http.get(
+          Uri.parse('https://dev-api-janus.fortress-asya.com:18043/api/public/v1/insights/show/${widget.articleId}'),
+        );
+
+        if (response.statusCode == 200) {
+          final jsonResponse = json.decode(response.body);
+          await provider.setArticleData(jsonResponse['data']);
+          _initializeWithData(jsonResponse['data']);
+          return;
+        }
+      } catch (e) {
+        print('Error fetching article: $e');
+      }
+    }
+
+    // Priority 3: Use provider data if available
+    if (provider.articleData != null) {
+      _initializeWithData(provider.articleData!);
+      return;
+    }
+
+    // Priority 4: Fallback to fetching main article
+    try {
+      final response = await http.get(
+        Uri.parse('https://dev-api-janus.fortress-asya.com:18043/api/public/v1/insights/index'),
+      );
+
+      if (response.statusCode == 200) {
+        final data = json.decode(response.body);
+        final articles = data['data']['data'] as List;
+        final article = articles.firstWhere(
+              (item) => item['remarks'] == 'Main',
+          orElse: () => null,
+        );
+
+        if (article != null) {
+          await provider.setArticleData(article);
+          _initializeWithData(article);
+          return;
+        }
+      }
+    } catch (e) {
+      print('Error fetching fallback article: $e');
+    }
+
+    // If all else fails
+    setState(() {
+      isLoading = false;
+      errorMessage = 'No article data available';
+    });
+  }
+
+  void _initializeWithData(Map<String, dynamic> data) {
+    setState(() {
+      articleData = data;
+      isLoading = false;
+    });
     _incrementClickCount();
   }
 
+
   Future<void> _incrementClickCount() async {
+    final id = widget.articleId.isNotEmpty
+        ? widget.articleId
+        : articleData?['id']?.toString() ?? '';
+
+    if (id.isEmpty) return;
     try {
       final response = await http.get(
         Uri.parse('https://dev-api-janus.fortress-asya.com:18043/api/public/v1/insights/show/${widget.articleId}'),
@@ -146,6 +228,15 @@ class _ArticleDescMainv2State extends State<ArticleDescMainv2> {
     }
   }
 
+  String formatDate(String dateString) {
+    try {
+      final date = DateTime.parse(dateString);
+      return DateFormat('MMMM dd, yyyy').format(date);
+    } catch (e) {
+      return dateString; // Return original if parsing fails
+    }
+  }
+
   @override
   void dispose() {
     _scrollController.removeListener(_scrollListener);
@@ -158,6 +249,22 @@ class _ArticleDescMainv2State extends State<ArticleDescMainv2> {
     return Scaffold(
       backgroundColor: AppColors.white,
       key: _scaffoldKey,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: AppColors.maroon08),
+          onPressed: () {
+            Future.delayed(const Duration(milliseconds: 700), () {
+              Navigator.pushNamed(
+                context,
+                ArticleDescMain.route, // Using the named route
+              );
+            });
+          },
+        ),
+        automaticallyImplyLeading: true, // This shows the back button
+      ),
       floatingActionButton: Visibility(
         visible: isFabVisible,
         child: FloatingActionButton(
@@ -181,33 +288,6 @@ class _ArticleDescMainv2State extends State<ArticleDescMainv2> {
       ),
       body: Column(
         children: [
-          ResponsiveBuilder(
-            refinedBreakpoints: RefinedBreakpoints(),
-            builder: (context, sizingInformation) {
-              double screenWidth = sizingInformation.screenSize.width;
-              return Column(
-                children: [
-                  if (screenWidth < RefinedBreakpoints().desktopSmall)
-                    NavSectionMobile(scaffoldKey: _scaffoldKey)
-                  else
-                    HeaderSection(),
-                  // Back button positioned below the header/navigation
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 20.0, top: 10.0),
-                      child: IconButton(
-                        icon: Icon(Icons.arrow_back,
-                            color: AppColors.black,
-                            size: Sizes.ICON_SIZE_30),
-                        onPressed: () => Navigator.of(context).pop(),
-                      ),
-                    ),
-                  ),
-                ],
-              );
-            },
-          ),
           Expanded(
             child: SingleChildScrollView(
               controller: _scrollController,
@@ -217,7 +297,7 @@ class _ArticleDescMainv2State extends State<ArticleDescMainv2> {
                   ? Center(child: Text(errorMessage!))
                   : Column(
                 children: [
-                  // Display click count (optional - you can remove this if you don't want to show it)
+                  // Display click count
                   Padding(
                     padding: const EdgeInsets.only(top: 8.0),
                     child: Text(
@@ -232,7 +312,7 @@ class _ArticleDescMainv2State extends State<ArticleDescMainv2> {
                     title: articleData?['title'] ?? 'No Title',
                     imageUrl: articleData?['image_path'] ?? '',
                     remarks: articleData?['remarks'] ?? '',
-                    date: articleData?['published_at'] ?? '',
+                    date: formatDate(articleData?['published_at'] ?? ''),
                   ),
                   ArticleDescScreenInside(
                     content: articleData?['content'] ?? 'No Content',

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 import '../shared/utils/responsive.dart';
 import '../shared/widgets/customCard.dart';
 
@@ -11,6 +13,45 @@ class ProductsAndServicesV2 extends StatefulWidget {
 }
 
 class _ProductsAndServicesV2State extends State<ProductsAndServicesV2> {
+  List<dynamic>? catalogData;
+  bool isLoading = true;
+  String errorMessage = '';
+
+  @override
+  void initState() {
+    super.initState();
+    fetchCatalogData();
+  }
+
+  Future<void> fetchCatalogData() async {
+    try {
+      final response = await http.get(
+        Uri.parse('https://dev-api-janus.fortress-asya.com:18043/api/public/v1/catalogs/index'),
+        headers: {
+          'Accept': 'application/json',
+        },
+      );
+
+      if (response.statusCode == 200) {
+        final jsonResponse = json.decode(response.body);
+        setState(() {
+          catalogData = jsonResponse['data']['data'];
+          isLoading = false;
+        });
+      } else {
+        setState(() {
+          isLoading = false;
+          errorMessage = 'Failed to load data: ${response.statusCode}';
+        });
+      }
+    } catch (e) {
+      setState(() {
+        isLoading = false;
+        errorMessage = 'Error fetching data: $e';
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
@@ -22,6 +63,19 @@ class _ProductsAndServicesV2State extends State<ProductsAndServicesV2> {
     // Image aspect ratio (adjust based on your image)
     final imageAspectRatio = 3 / 1; // Example: 3 width : 1 height
     final imageHeight = imageWidth / imageAspectRatio;
+
+    if (isLoading) {
+      return const Center(child: CircularProgressIndicator());
+    }
+
+    if (errorMessage.isNotEmpty) {
+      return Center(child: Text('Error: $errorMessage'));
+    }
+
+    if (catalogData == null || catalogData!.isEmpty) {
+      return const Center(child: Text('No data available'));
+    }
+
     return Stack(
       clipBehavior: Clip.none,
       children: [
@@ -87,7 +141,7 @@ class _ProductsAndServicesV2State extends State<ProductsAndServicesV2> {
         padding: EdgeInsets.only(left: paddingLeft, bottom: 50, top: 100),
         child: Text(
           'Our Products and Services',
-          style: TextStyle(fontSize: textSize, color: Colors.black),
+          style: TextStyle(fontSize: 46, color: Colors.black, fontWeight: FontWeight.bold),
         ),
       ),
     );
@@ -99,47 +153,40 @@ class _ProductsAndServicesV2State extends State<ProductsAndServicesV2> {
       width: double.infinity,
       alignment: Alignment.center,
       child: Column(
-        children: [
-          SizedBox(
-            width: width,
-            // height: 400,
-            child: CustomCardWidget(
-              title: 'Banking Technology',
-              description: isMobile
-                  ? 'Our secure, scalable SaaS banking solutions enable financial institutions to modernize their operations, enhance efficiency, and expand their outreach —delivering world-class banking experiences through real-time data, streamlined field processes, and third-party integration. These tools support inclusive finance while ensuring compliance, data privacy, and service excellence.'
-                  : 'Our secure, scalable SaaS banking solutions enable financial institutions to modernize their operations, enhance efficiency, and expand their outreach —delivering world-class banking experiences through real-time data, streamlined field processes, and third-party integration. These tools support inclusive finance while ensuring compliance, data privacy, and service excellence.',
-              buttonLabels: ['FinCloud', 'Temenos', 'Mobile Collection', 'We Collection','Open API'],
-              imagePath: 'assets/images/banking-tech.png',
-              onMainActionPressed: () => Navigator.pushNamed(context, '/bankingtechnology'),
-            ),
-          ),
-          const SizedBox(height: 10),
-          SizedBox(
-            width: width,
-            child: CustomCardWidget(
-              title: 'Alternative Deliveries Solution',
-              description: isMobile
-                  ? 'We provide mobile apps, digital wallets, and self-service tools that make banking more accessible, especially in underserved areas. These reliable, user-friendly channels enable seamless transactions, real-time account access, and broader financial inclusion.'
-                  : 'We provide mobile apps, digital wallets, and self-service tools that make banking more accessible, especially in underserved areas. These reliable, user-friendly channels enable seamless transactions, real-time account access, and broader financial inclusion.',
-              buttonLabels: ['Kplus', 'Konek2CARD', 'ATM Switch', 'DCM'],
-              imagePath: 'assets/images/alternative-deliveries-solution.png',
-              onMainActionPressed: () => Navigator.pushNamed(context, '/ADS'),
-            ),
-          ),
-          const SizedBox(height: 10),
-          SizedBox(
-            width: width,
-            child: CustomCardWidget(
-              title: 'Regulatory and Services',
-              description: isMobile
-                  ? 'Our security solutions ensure compliance and protect against fraud and cyber threats. With AML tools and risk intelligence systems like World-Check, institutions can operate with transparency, safeguard data, and maintain client trust.'
-                  : 'Our security solutions ensure compliance and protect against fraud and cyber threats. With AML tools and risk intelligence systems like World-Check, institutions can operate with transparency, safeguard data, and maintain client trust.',
-              buttonLabels: ['Cyber Security', 'Fraud Detection', 'ATM'],
-              imagePath: 'assets/images/regulatory-and-services.png',
-              onMainActionPressed: () => Navigator.pushNamed(context, '/MfisPage'),
-            ),
-          ),
-        ],
+        children: catalogData!.map((catalogItem) {
+          // Extract button labels from services
+          List<String> buttonLabels = [];
+          if (catalogItem['services'] != null) {
+            buttonLabels = List<String>.from(
+                catalogItem['services'].map((service) => service['name'] as String)
+            );
+          }
+
+          // Determine the appropriate route based on the catalog name
+          String routeName = '/bankingtechnology'; // default
+          if (catalogItem['name'] == 'Alternative Deliveries Solution') {
+            routeName = '/ADS';
+          } else if (catalogItem['name'] == 'Regulatory and Services') {
+            routeName = '/MfisPage';
+          }
+
+          return Column(
+            children: [
+              SizedBox(
+                width: width,
+                child: CustomCardWidget(
+                  title: catalogItem['name'] ?? 'No Title',
+                  description: catalogItem['description'] ?? 'No description available',
+                  buttonLabels: buttonLabels,
+                  imagePath: catalogItem['image_path'] ?? '',
+                  isNetworkImage: true, // Add this flag
+                  onMainActionPressed: () => Navigator.pushNamed(context, routeName),
+                ),
+              ),
+              const SizedBox(height: 10),
+            ],
+          );
+        }).toList(),
       ),
     );
   }

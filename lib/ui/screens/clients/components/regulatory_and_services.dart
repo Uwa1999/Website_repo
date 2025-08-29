@@ -6,6 +6,8 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/header_secti
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/animation.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/customCard.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/buttons/footer.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 import '../../shared/utils/responsive.dart';
 
@@ -24,31 +26,11 @@ class _MFIPageState extends State<MFIPage> with TickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _animation;
 
-  final List<BankingService> services = [
-    BankingService(
-      title: 'Cyber Security',
-      description:
-      'Computer security, or information security, protects systems, networks, and data from cyber threats to ensure confidentiality, integrity, and availability in the digital space.',
-      imagePath: 'assets/images/cybersecurity1.png',
-    ),
-    BankingService(
-      title: 'Fraud Detection',
-      description: 'Fraud detection is the process of identifying and preventing fraudulent activities or transactions to safeguard individuals, businesses, and financial institutions from financial loss and reputational harm.',
-      imagePath: 'assets/images/frauddetection1.png',
-    ),
-    BankingService(
-      title: 'Ati Money Laundering',
-      description:
-      'CARD MRI’s banking and non-banking institutions utilize our Anti-Money Laundering (AMLA) software to analyze customer data and identify suspicious transactions.',
-      imagePath: 'assets/images/aml1.png',
-    ),
-    BankingService(
-      title: 'World Check',
-      description:
-      'World-Check is a risk intelligence database used for financial compliance. It helps identify potentially high-risk individuals, organizations, and countries associated with money laundering, terrorism, and other illicit activities.',
-      imagePath: 'assets/images/worldcheck1.png',
-    ),
-  ];
+  List<dynamic> services = [];
+  bool isLoading = true;
+  String errorMessage = '';
+  String categoryName = 'Regulatory and Services';
+  int servicesCount = 0;
 
   @override
   void initState() {
@@ -59,6 +41,52 @@ class _MFIPageState extends State<MFIPage> with TickerProviderStateMixin {
     )..repeat(reverse: true);
 
     _animation = Tween<double>(begin: 0, end: 1).animate(_controller);
+    fetchRegulatoryServices();
+  }
+
+  Future<void> fetchRegulatoryServices() async {
+    try {
+      final response = await http.get(
+        Uri.parse('https://dev-api-janus.fortress-asya.com:18043/api/public/v1/catalogs/index'),
+        headers: {
+          'Accept': 'application/json',
+        },
+      );
+
+      if (response.statusCode == 200) {
+        final jsonResponse = json.decode(response.body);
+        final List<dynamic> catalogData = jsonResponse['data']['data'];
+
+        // Find the Regulatory and Services category
+        final regulatoryCategory = catalogData.firstWhere(
+              (category) => category['name'] == 'Regulatory and Services',
+          orElse: () => null,
+        );
+
+        if (regulatoryCategory != null) {
+          setState(() {
+            services = regulatoryCategory['services'] ?? [];
+            servicesCount = services.length;
+            isLoading = false;
+          });
+        } else {
+          setState(() {
+            isLoading = false;
+            errorMessage = 'Regulatory and Services category not found';
+          });
+        }
+      } else {
+        setState(() {
+          isLoading = false;
+          errorMessage = 'Failed to load data: ${response.statusCode}';
+        });
+      }
+    } catch (e) {
+      setState(() {
+        isLoading = false;
+        errorMessage = 'Error fetching data: $e';
+      });
+    }
   }
 
   @override
@@ -82,13 +110,12 @@ class _MFIPageState extends State<MFIPage> with TickerProviderStateMixin {
           ),
           Expanded(
             child: SingleChildScrollView(
-              // padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
               child: Column(
                 children: [
                   const SizedBox(height: 30),
                   Center(
                     child: GradientText(
-                      text: 'Regulatory and Services',
+                      text: categoryName,
                       gradient: LinearGradient(colors: [Colors.black, Colors.redAccent, Colors.red]),
                       style: TextStyle(
                         fontSize: 50,
@@ -103,10 +130,10 @@ class _MFIPageState extends State<MFIPage> with TickerProviderStateMixin {
                       borderRadius: BorderRadius.circular(10),
                       border: Border.all(),
                     ),
-                    child: const Center(
+                    child: Center(
                       child: Text(
-                        "4 services offered",
-                        style: TextStyle(
+                        "$servicesCount services offered",
+                        style: const TextStyle(
                           fontSize: 14,
                           color: Colors.black87,
                           fontWeight: FontWeight.normal,
@@ -117,19 +144,29 @@ class _MFIPageState extends State<MFIPage> with TickerProviderStateMixin {
                     ),
                   ),
                   const SizedBox(height: 30),
-                  Wrap(
-                    alignment: WrapAlignment.center,
-                    spacing: 20,
-                    runSpacing: 20,
-                    children: services.map((service) {
-                      return CustomCardWidgetv1(
-                        title: service.title,
-                        description: service.description,
-                        imagePath: service.imagePath,
-                        maxWidth: widget.cardWidth,
-                      );
-                    }).toList(),
-                  ),
+
+                  if (isLoading)
+                    const Center(child: CircularProgressIndicator())
+                  else if (errorMessage.isNotEmpty)
+                    Center(child: Text('Error: $errorMessage'))
+                  else if (services.isEmpty)
+                      const Center(child: Text('No services available'))
+                    else
+                      Wrap(
+                        alignment: WrapAlignment.center,
+                        spacing: 20,
+                        runSpacing: 20,
+                        children: services.map((service) {
+                          return CustomCardWidgetv1(
+                            title: service['name'] ?? 'No Title',
+                            description: service['description'] ?? 'No description available',
+                            imagePath: service['image_path'] ?? '',
+                            isNetworkImage: true, // Add this flag for network images
+                            maxWidth: widget.cardWidth,
+                          );
+                        }).toList(),
+                      ),
+
                   const SizedBox(height: 100),
                   const FooterSectionv2(),
                 ],
@@ -146,12 +183,14 @@ class CustomCardWidgetv1 extends StatelessWidget {
   final String title;
   final String description;
   final String imagePath;
+  final bool isNetworkImage; // Add this flag
   final double? maxWidth;
 
   const CustomCardWidgetv1({
     required this.title,
     required this.description,
     required this.imagePath,
+    this.isNetworkImage = false, // Default to false for backward compatibility
     this.maxWidth,
     Key? key,
   }) : super(key: key);
@@ -161,6 +200,14 @@ class CustomCardWidgetv1 extends StatelessWidget {
     final double screenWidth = MediaQuery.of(context).size.width;
     final double width = maxWidth ?? (screenWidth > 800 ? 700 : screenWidth * 0.9);
     final bool isMobile = width < 600;
+
+    // Create image provider based on the source type
+    ImageProvider imageProvider;
+    if (isNetworkImage) {
+      imageProvider = NetworkImage(imagePath);
+    } else {
+      imageProvider = AssetImage(imagePath);
+    }
 
     // Define a clean, neutral TextStyle to avoid style inheritance
     const TextStyle descriptionTextStyle = TextStyle(
@@ -194,7 +241,16 @@ class CustomCardWidgetv1 extends StatelessWidget {
           ? Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Center(child: Image.asset(imagePath, width: 50, height: 50)),
+          Center(
+            child: Image(
+              image: imageProvider,
+              width: 50,
+              height: 50,
+              errorBuilder: (context, error, stackTrace) {
+                return const Icon(Icons.error, size: 50);
+              },
+            ),
+          ),
           const SizedBox(height: 10),
           Text(title, style: titleTextStyle),
           const SizedBox(height: 10),
@@ -206,7 +262,14 @@ class CustomCardWidgetv1 extends StatelessWidget {
         children: [
           Column(
             children: [
-              Image.asset(imagePath, width: 50, height: 50),
+              Image(
+                image: imageProvider,
+                width: 50,
+                height: 50,
+                errorBuilder: (context, error, stackTrace) {
+                  return const Icon(Icons.error, size: 50);
+                },
+              ),
               const SizedBox(height: 10),
               Text(title, style: titleTextStyle),
             ],
@@ -219,7 +282,7 @@ class CustomCardWidgetv1 extends StatelessWidget {
   }
 }
 
-// Card model
+// Card model (kept for reference, but not used anymore)
 class BankingService {
   final String title;
   final String description;

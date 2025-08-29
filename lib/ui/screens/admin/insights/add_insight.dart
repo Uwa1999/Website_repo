@@ -56,7 +56,7 @@ class _AddInsightFormState extends State<AddInsightForm> {
   Future<void> _selectDate(BuildContext context, TextEditingController controller) async {
     final DateTime? pickedDate = await showDatePicker(
       context: context,
-      initialDate: DateTime(1996),
+      initialDate: DateTime.now(),
       firstDate: DateTime(1996),
       lastDate: DateTime(2100),
       builder: (BuildContext context, Widget? child) {

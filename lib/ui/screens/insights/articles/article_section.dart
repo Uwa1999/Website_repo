@@ -5,6 +5,7 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/sizedbox.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:intl/intl.dart';
 
 class ArticleDescSectionInside extends StatefulWidget {
   static const String route = '/Article Inside';
@@ -100,9 +101,10 @@ class _DesktopArticleDescScreenState extends State<DesktopArticleDescScreen> {
   Widget build(BuildContext context) {
     TextTheme textTheme = Theme.of(context).textTheme;
 
-    // Parse the date string to a more readable format
-    DateTime parsedDate = DateTime.parse(widget.date);
-    String formattedDate = '${parsedDate.day} ${_getMonthName(parsedDate.month)} ${parsedDate.year}';
+    // Try parsing "August 06, 2025"
+    DateTime parsedDate = DateFormat("MMMM dd, yyyy").parse(widget.date);
+    String formattedDate =
+        '${parsedDate.day} ${_getMonthName(parsedDate.month)} ${parsedDate.year}';
 
     return Stack(
       children: [

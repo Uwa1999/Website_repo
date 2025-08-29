@@ -2,8 +2,10 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/utils/responsive.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/sizedbox.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:provider/provider.dart';
 import 'dart:convert';
 
+import '../../../../../core/provider/article_provider.dart';
 import '../articlev2main.dart';
 
 class ArticleDescScreen extends StatefulWidget {
@@ -107,9 +109,9 @@ class _MoreArticlesSectionState extends State<MoreArticlesSection> {
         setState(() {
           articles = (data['data']['data'] as List).where((article) {
             if (article['category'] == 'Articles') {
-              return article['remarks'] != 'Main';
+              return true; // Include all articles, including those with 'Main' remarks
             }
-            return true;
+            return true; // Keep original condition for other categories
           }).toList();
           isLoading = false;
         });
@@ -179,15 +181,19 @@ class _MoreArticlesSectionState extends State<MoreArticlesSection> {
   }
 
   void _navigateToArticleDetails(Map<String, dynamic> article) {
-    Navigator.push(
+    final articleProvider = Provider.of<ArticleProvider>(context, listen: false);
+    articleProvider.setArticleData(article); // update current article
+
+    Navigator.pushNamed(
       context,
-      MaterialPageRoute(
-        builder: (context) => ArticleDescMainv2(
-          articleId: article['id'].toString(),
-        ),
-      ),
+      ArticleDescMainv2.route,
+      arguments: {
+        'articleId': article['id'].toString(),
+        'articleData': article,
+      },
     );
   }
+
 
   @override
   Widget build(BuildContext context) {

@@ -7,8 +7,10 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/sizedbox.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:http/http.dart' as http;
+import 'package:provider/provider.dart';
 import 'dart:convert';
 
+import '../../../../../core/provider/article_provider.dart';
 import '../articlev2main.dart';
 
 class ArticleDescSection extends StatefulWidget {
@@ -50,10 +52,14 @@ class _ArticleDescSectionState extends State<ArticleDescSection> {
             articleData = article;
             isLoading = false;
           });
-        } else {
+
+          final articleProvider = Provider.of<ArticleProvider>(context, listen: false);
+          articleProvider.setArticleData(article); // Save to provider (and SharedPrefs)
+        }
+        else {
           setState(() {
             isLoading = false;
-            errorMessage = 'No main article found';
+            errorMessage = '';
           });
         }
       } else {
@@ -148,16 +154,19 @@ class DesktopArticleDescScreenInsidev2 extends StatelessWidget {
                 title2: articleData['subtitle'] ?? '',
                 body: articleData['content'] ?? 'No content available',
                 remarks: articleData['remarks'],
-                onTap: () {
-                  Navigator.pushNamed(
-                    context,
-                    ArticleDescMainv2.route,
-                    arguments: {
-                      'articleId': articleData['id'].toString(),
-                      'articleData': articleData,
-                    },
-                  );
-                },
+                  onTap: () {
+                    final provider = Provider.of<ArticleProvider>(context, listen: false);
+                    provider.setArticleData(articleData); // Save to provider immediately
+
+                    Navigator.pushNamed(
+                      context,
+                      ArticleDescMainv2.route,
+                      arguments: {
+                        'articleId': articleData['id'].toString(),
+                        'articleData': articleData,
+                      },
+                    );
+                  }
               )
           ),
         ],
@@ -223,16 +232,19 @@ class MobileArticleDescScreenInsidev2 extends StatelessWidget {
                   title2: articleData['subtitle'] ?? '',
                   body: articleData['content'] ?? 'No content available',
                   remarks: articleData['remarks'],
-                  onTap: () {
-                    Navigator.pushNamed(
-                      context,
-                      ArticleDescMainv2.route,
-                      arguments: {
-                        'articleId': articleData['id'].toString(),
-                        'articleData': articleData,
-                      },
-                    );
-                  },
+                    onTap: () {
+                      final provider = Provider.of<ArticleProvider>(context, listen: false);
+                      provider.setArticleData(articleData); // Save to provider immediately
+
+                      Navigator.pushNamed(
+                        context,
+                        ArticleDescMainv2.route,
+                        arguments: {
+                          'articleId': articleData['id'].toString(),
+                          'articleData': articleData,
+                        },
+                      );
+                    }
                 )
             ),
           ],

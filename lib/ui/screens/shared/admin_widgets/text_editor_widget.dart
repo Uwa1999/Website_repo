@@ -72,6 +72,11 @@ class AdvancedTextEditorState extends State<AdvancedTextEditor> {
     super.initState();
     _controller = TextEditingController(text: widget.initialContent ?? '');
     _controller.addListener(_updateSelection);
+
+    // Parse initial HTML content if provided
+    if (widget.initialContent != null && widget.initialContent!.isNotEmpty) {
+      _parseHtmlContent(widget.initialContent!);
+    }
   }
 
   @override
@@ -106,32 +111,134 @@ class AdvancedTextEditorState extends State<AdvancedTextEditor> {
     });
   }
 
-  /// Gets the current content as HTML with basic formatting
+  /// Gets the current content as HTML with all formatting
   String getHtmlContent() {
-    String html = _controller.text;
-    if (_currentIsBold) html = '<strong>$html</strong>';
-    if (_currentIsItalic) html = '<em>$html</em>';
-    if (_currentIsUnderline) html = '<u>$html</u>';
-    return html;
+    String content = _controller.text;
+
+    // Wrap content in appropriate HTML tags based on formatting
+    if (_currentIsBold) content = '<strong>$content</strong>';
+    if (_currentIsItalic) content = '<em>$content</em>';
+    if (_currentIsUnderline) content = '<u>$content</u>';
+
+    // Add font family and size
+    content = '<span style="font-family: $_currentFontFamily; font-size: ${_currentFontSize}px;">$content</span>';
+
+    // Add text color
+    content = '<span style="color: ${_colorToHex(_currentTextColor)};">$content</span>';
+
+    // Add alignment
+    String align = 'left';
+    if (_currentAlignment == TextAlign.center) align = 'center';
+    if (_currentAlignment == TextAlign.right) align = 'right';
+
+    return '<div style="text-align: $align;">$content</div>';
+  }
+
+  String _colorToHex(Color color) {
+    return '#${color.value.toRadixString(16).substring(2, 8)}';
+  }
+
+  /// Parses HTML content and applies formatting to the editor
+  void _parseHtmlContent(String html) {
+    // This is a simplified parser - you might need to enhance it for more complex HTML
+
+    // Extract alignment
+    final alignRegex = RegExp(r'text-align:\s*([^;"]+)');
+    final alignMatch = alignRegex.firstMatch(html);
+    if (alignMatch != null) {
+      final align = alignMatch.group(1)?.trim();
+      if (align == 'center') {
+        _currentAlignment = TextAlign.center;
+      } else if (align == 'right') {
+        _currentAlignment = TextAlign.right;
+      } else {
+        _currentAlignment = TextAlign.left;
+      }
+    }
+
+    // Extract font family
+    final fontFamilyRegex = RegExp(r'font-family:\s*([^;"]+)');
+    final fontFamilyMatch = fontFamilyRegex.firstMatch(html);
+    if (fontFamilyMatch != null) {
+      _currentFontFamily = fontFamilyMatch.group(1)?.trim() ?? 'Roboto';
+      _nextFontFamily = _currentFontFamily;
+    }
+
+    // Extract font size
+    final fontSizeRegex = RegExp(r'font-size:\s*([^;"]+)px');
+    final fontSizeMatch = fontSizeRegex.firstMatch(html);
+    if (fontSizeMatch != null) {
+      _currentFontSize = double.tryParse(fontSizeMatch.group(1)?.trim() ?? '14') ?? 14;
+      _nextFontSize = _currentFontSize;
+    }
+
+    // Extract color
+    final colorRegex = RegExp(r'color:\s*([^;"]+)');
+    final colorMatch = colorRegex.firstMatch(html);
+    if (colorMatch != null) {
+      final colorStr = colorMatch.group(1)?.trim();
+      if (colorStr != null) {
+        _currentTextColor = _hexToColor(colorStr);
+        _nextTextColor = _currentTextColor;
+      }
+    }
+
+    // Extract basic formatting
+    _currentIsBold = html.contains('<strong>') || html.contains('<b>');
+    _currentIsItalic = html.contains('<em>') || html.contains('<i>');
+    _currentIsUnderline = html.contains('<u>');
+
+    // Extract plain text (remove HTML tags)
+    final text = html
+        .replaceAll(RegExp(r'<[^>]*>'), '')
+        .replaceAll('&nbsp;', ' ')
+        .trim();
+
+    _controller.text = text;
+  }
+
+  Color _hexToColor(String hexString) {
+    try {
+      if (hexString.startsWith('#')) {
+        return Color(int.parse(hexString.substring(1), radix: 16) + 0xFF000000);
+      } else if (hexString.startsWith('0x')) {
+        return Color(int.parse(hexString));
+      } else if (hexString.startsWith('rgb')) {
+        // Handle rgb() format if needed
+        return Colors.black;
+      } else {
+        // Try to match named colors
+        switch (hexString.toLowerCase()) {
+          case 'red': return Colors.red;
+          case 'pink': return Colors.pink;
+          case 'purple': return Colors.purple;
+          case 'deepPurple': return Colors.deepPurple;
+          case 'indigo': return Colors.indigo;
+          case 'blue': return Colors.blue;
+          case 'lightBlue': return Colors.lightBlue;
+          case 'cyan': return Colors.cyan;
+          case 'teal': return Colors.teal;
+          case 'green': return Colors.green;
+          case 'lightGreen': return Colors.lightGreen;
+          case 'lime': return Colors.lime;
+          case 'yellow': return Colors.yellow;
+          case 'amber': return Colors.amber;
+          case 'orange': return Colors.orange;
+          case 'deepOrange': return Colors.deepOrange;
+          case 'brown': return Colors.brown;
+          case 'grey': return Colors.grey;
+          case 'blueGrey': return Colors.blueGrey;
+          default: return Colors.black;
+        }
+      }
+    } catch (e) {
+      return Colors.black;
+    }
   }
 
   /// Sets the editor content programmatically
   void setHtmlContent(String html) {
-    // Simple HTML parsing (you might want to enhance this)
-    final text = html
-        .replaceAll('<strong>', '')
-        .replaceAll('</strong>', '')
-        .replaceAll('<em>', '')
-        .replaceAll('</em>', '')
-        .replaceAll('<u>', '')
-        .replaceAll('</u>', '');
-
-    setState(() {
-      _controller.text = text;
-      _currentIsBold = html.contains('<strong>');
-      _currentIsItalic = html.contains('<em>');
-      _currentIsUnderline = html.contains('<u>');
-    });
+    _parseHtmlContent(html);
   }
 
   void _applyFormatting({
@@ -184,24 +291,6 @@ class AdvancedTextEditorState extends State<AdvancedTextEditor> {
         _currentAlignment = alignment;
       }
     });
-
-    // If text is selected, apply formatting to the selection
-    if (_currentSelection.isValid && !_currentSelection.isCollapsed) {
-      final selectedText = _controller.text.substring(
-        _currentSelection.start,
-        _currentSelection.end,
-      );
-
-      // For simplicity, we're just replacing the text with itself
-      // In a real app, you'd want to track spans of text with different formatting
-      _controller.text = _controller.text.replaceRange(
-        _currentSelection.start,
-        _currentSelection.end,
-        selectedText,
-      );
-
-      _controller.selection = _currentSelection;
-    }
   }
 
   void _resetFormatting() {

@@ -582,6 +582,31 @@ class _ContactUsPageState extends State<ContactUsPage> {
       ),
     );
   }
+  bool get _allFieldsFilled {
+    return firstNameController.text.isNotEmpty &&
+        lastNameController.text.isNotEmpty &&
+        companyController.text.isNotEmpty &&
+        emailController.text.isNotEmpty &&
+        phoneController.text.isNotEmpty &&
+        companyType != null;
+  }
+  void _validateFieldsBeforeCheck() {
+    final missingFields = <String>[];
+
+    if (firstNameController.text.isEmpty) missingFields.add('First Name');
+    if (lastNameController.text.isEmpty) missingFields.add('Last Name');
+    if (companyController.text.isEmpty) missingFields.add('Company Name');
+    if (emailController.text.isEmpty) missingFields.add('Company Email');
+    if (phoneController.text.isEmpty) missingFields.add('Phone Number');
+    if (companyType == null) missingFields.add('Company Type');
+
+    if (missingFields.isNotEmpty) {
+      _showTopSnackBar(
+        'Please fill in all fields: ${missingFields.join(', ')}',
+        isError: true,
+      );
+    }
+  }
 
   Future<void> _submitForm() async {
     if (!isChecked) {
@@ -609,8 +634,9 @@ class _ContactUsPageState extends State<ContactUsPage> {
         }),
       );
 
+      final responseData = response.body.isNotEmpty ? jsonDecode(response.body) : {};
+
       if (response.statusCode == 200 || response.statusCode == 204) {
-        final responseData = jsonDecode(response.body);
         _showTopSnackBar(
             responseData['message'] ?? 'Thank you for contacting us!');
 
@@ -624,17 +650,27 @@ class _ContactUsPageState extends State<ContactUsPage> {
           companyType = null;
           isChecked = false;
         });
+      } else if (response.statusCode == 401) {
+        // Handle existing email case specifically
+        _showTopSnackBar(
+            responseData['message'] ?? 'This email is already registered',
+            isError: true);
       } else {
         _showTopSnackBar(
-            'Failed to submit form. Please try again.', isError: true);
+            responseData['message'] ?? 'Failed to submit form. Please try again.',
+            isError: true);
       }
+    } on FormatException {
+      _showTopSnackBar('Invalid server response', isError: true);
     } catch (e) {
       _showTopSnackBar(
           'An error occurred. Please check your connection.', isError: true);
     } finally {
-      setState(() {
-        _isSubmitting = false;
-      });
+      if (mounted) {
+        setState(() {
+          _isSubmitting = false;
+        });
+      }
     }
   }
 
@@ -754,28 +790,43 @@ class _ContactUsPageState extends State<ContactUsPage> {
                   const SizedBox(height: 24),
 
                   /// 👇 Checkbox and Agreement Text
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Checkbox(
-                        value: isChecked,
-                        onChanged: (val) {
-                          setState(() {
-                            isChecked = val ?? false;
-                          });
-                        },
-                        activeColor: AppColors.maroon01,
-                      ),
-                      Expanded(
-                        child: Padding(
-                          padding: const EdgeInsets.only(top: 12),
-                          child: Text(
-                            'By submitting this form, you agree to allow FDS ASYA PHILIPPINES INC. to store and process the personal information provided above to contact you about our products and services.',
-                            style: TextStyle(fontSize: 14),
+                  GestureDetector(
+                    onTap: () {
+                      if (!_allFieldsFilled) {
+                        _validateFieldsBeforeCheck();
+                      }
+                    },
+                    child: AbsorbPointer(
+                      absorbing: !_allFieldsFilled,
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Checkbox(
+                            value: isChecked,
+                            onChanged: _allFieldsFilled
+                                ? (val) {
+                              setState(() {
+                                isChecked = val ?? false;
+                              });
+                            }
+                                : null,
+                            activeColor: AppColors.maroon01,
                           ),
-                        ),
+                          Expanded(
+                            child: Padding(
+                              padding: const EdgeInsets.only(top: 12),
+                              child: Text(
+                                'By submitting this form, you agree to allow FDS ASYA PHILIPPINES INC. to store and process the personal information provided above to contact you about our products and services.',
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  color: !_allFieldsFilled ? Colors.grey : null,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
-                    ],
+                    ),
                   ),
 
                   const SizedBox(height: 16),
@@ -786,18 +837,18 @@ class _ContactUsPageState extends State<ContactUsPage> {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(30),
                       ),
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 32, vertical: 16),
+                      padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 16),
                     ),
-                    onPressed: isChecked && !_isSubmitting ? _submitForm : null,
+                    onPressed: _allFieldsFilled && isChecked && !_isSubmitting
+                        ? _submitForm
+                        : null,
                     child: _isSubmitting
                         ? const SizedBox(
                         width: 20,
                         height: 20,
                         child: CircularProgressIndicator(
                           strokeWidth: 2,
-                          valueColor: AlwaysStoppedAnimation<Color>(Colors
-                              .white),
+                          valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
                         )
                     )
                         : const Text(

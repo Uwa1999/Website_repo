@@ -2,6 +2,7 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/footer_secti
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/header_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/responsive_navigation/nav_section_mobile.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/side_menu.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/homepage_screen.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/insights/articles/article_screen.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/insights/articles/article_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/insights/articlesv2/components/articlescreenv2.dart';
@@ -130,7 +131,6 @@ class _ArticleDescMainState extends State<ArticleDescMain> {
     final maxScroll = _scrollController.position.maxScrollExtent;
     final currentScroll = _scrollController.position.pixels;
 
-    // Show FAB when near bottom (or you can change to currentScroll > 300)
     if (currentScroll >= maxScroll - 100) {
       if (!isFabVisible) setState(() => isFabVisible = true);
     } else {
@@ -158,12 +158,29 @@ class _ArticleDescMainState extends State<ArticleDescMain> {
     return Scaffold(
       backgroundColor: AppColors.white,
       key: _scaffoldKey,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back, color: AppColors.maroon08),
+          onPressed: () {
+            Future.delayed(const Duration(milliseconds: 700), () {
+              Navigator.pushNamed(
+                context,
+                HomepageScreen.route, // Using the named route
+              );
+            });
+          },
+        ),
+        automaticallyImplyLeading: true, // This shows the back button
+      ),
+
       floatingActionButton: Visibility(
         visible: isFabVisible,
         child: FloatingActionButton(
           backgroundColor: AppColors.maroon08,
           child: Icon(
-            Icons.expand_less, // change from expand_more to expand_less for "scroll to top"
+            Icons.expand_less,
             size: Sizes.ICON_SIZE_18,
             color: AppColors.white,
           ),
@@ -181,21 +198,12 @@ class _ArticleDescMainState extends State<ArticleDescMain> {
       ),
       body: Column(
         children: [
-          ResponsiveBuilder(
-            refinedBreakpoints: RefinedBreakpoints(),
-            builder: (context, sizingInformation) {
-              double screenWidth = sizingInformation.screenSize.width;
-              return screenWidth < RefinedBreakpoints().desktopSmall
-                  ? NavSectionMobile(scaffoldKey: _scaffoldKey)
-                  : HeaderSection();
-            },
-          ),
           Expanded(
             child: SingleChildScrollView(
               controller: _scrollController,
               child: Column(
                 children: [
-                  Column(  // Remove Stack and fixed height Container
+                  Column(
                     children: [
                       ArticleDescSection(),
                       ArticleDescScreen(),

@@ -62,6 +62,22 @@ class _MoreArticlesSectionState extends State<MoreArticlesSection> {
     }
   }
 
+  String _getNoArticlesMessage() {
+    switch (widget.categoryFilter.toLowerCase()) {
+      case 'news':
+        return 'No more news found';
+      case 'articles':
+        return 'No more articles found';
+      case 'updates':
+        return 'No more updates found';
+      case 'announcements':
+        return 'No more announcements found';
+    // Add more cases as needed for your categories
+      default:
+        return 'No more ${widget.categoryFilter.toLowerCase()} found';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     if (isLoading) {
@@ -78,7 +94,7 @@ class _MoreArticlesSectionState extends State<MoreArticlesSection> {
     }
 
     if (articles.isEmpty) {
-      return const Center(child: Text('No more articles found'));
+      return Center(child: Text(_getNoArticlesMessage()));
     }
 
     double screenWidth = MediaQuery.of(context).size.width;

@@ -352,7 +352,7 @@ class _ProductsAndServicesState extends State<ProductsAndServices> {
                         : DropdownButtonFormField<int>(
                       value: _selectedCatalogId,
                       decoration: const InputDecoration(
-                        labelText: 'Select Catalog',
+                        hintText: 'Select Catalog',
                         border: OutlineInputBorder(),
                       ),
                       items: _catalogs.map((catalog) {

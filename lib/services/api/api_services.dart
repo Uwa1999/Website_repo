@@ -25,10 +25,25 @@ class ApiService {
 
   Future<List<Map<String, dynamic>>> fetchCatalogs() async {
     try {
-      final response = await http.get(Uri.parse('$_publicBase/catalogs'));
+      final token = await _getAuthToken();
+      if (token == null) {
+        throw Exception('Authentication token not found');
+      }
+
+      final response = await http.get(
+        Uri.parse('https://dev-api-janus.fortress-asya.com:18043/api/private/v1/catalogs/index'),
+        headers: {
+          'Accept': 'application/json',
+          'Authorization': 'Bearer $token',
+        },
+      ).timeout(const Duration(seconds: 30));
+
       if (response.statusCode == 200) {
         final jsonResponse = json.decode(response.body);
+
+        // Adjust depending on response structure of the private API
         final catalogData = jsonResponse['data']['data'] as List;
+
         return catalogData.map<Map<String, dynamic>>((catalog) {
           return {
             'id': catalog['id'],
@@ -36,11 +51,13 @@ class ApiService {
           };
         }).toList();
       }
+
       throw Exception('Failed to load catalogs: ${response.statusCode}');
     } catch (e) {
       throw Exception('Error fetching catalogs: $e');
     }
   }
+
 
   Future<Map<String, dynamic>> createInsight({
     required String title,

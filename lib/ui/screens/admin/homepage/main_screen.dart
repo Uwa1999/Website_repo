@@ -3,9 +3,8 @@ import 'package:flutter/foundation.dart' show kIsWeb;
 import 'dart:html' as html;
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-
+import 'dart:async';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import '../../shared/admin_widgets/dashboard_appbar_widget.dart';
 import '../../shared/admin_widgets/side_bar_widget.dart';
 import '../auth/login_page.dart';
@@ -13,9 +12,8 @@ import '../catalogs/products_and_services.dart';
 import '../insights/add_insight.dart';
 import 'dashboard_screen.dart';
 
-
 class MainScreen extends StatefulWidget {
-  static const String route = '/Admin/MainScreen';
+  static const String route = '/AdminScreen';
 
   final Map<String, dynamic>? userData;
 
@@ -29,15 +27,108 @@ class _MainScreenState extends State<MainScreen> {
   String _selectedItem = 'dashboard';
   bool _isSidebarVisible = true;
   String _searchQuery = '';
+  bool _isLoading = true;
+  Map<String, dynamic>? _userData;
+  Timer? _sessionTimer;
 
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      _showWelcomeDialog();
-    });
+    _checkSession();
   }
+
+  @override
+  void dispose() {
+    _sessionTimer?.cancel();
+    super.dispose();
+  }
+
+  Future<void> _checkSession() async {
+    final prefs = await SharedPreferences.getInstance();
+    final token = prefs.getString('jwt_token');
+
+    if (token == null || token.isEmpty) {
+      if (mounted) {
+        Navigator.pushNamedAndRemoveUntil(
+          context,
+          LoginScreen.route,
+              (route) => false,
+        );
+      }
+      return;
+    }
+
+    // Check token expiration if we have JWT
+    try {
+      final parts = token.split('.');
+      if (parts.length == 3) {
+        final payload = json.decode(
+            utf8.decode(
+                base64Url.decode(
+                    base64Url.normalize(parts[1])
+                )
+            )
+        );
+        final expiry = payload['exp'] as int?;
+
+        if (expiry != null) {
+          final expiryTime = DateTime.fromMillisecondsSinceEpoch(expiry * 1000);
+          final currentTime = DateTime.now();
+
+          if (currentTime.isAfter(expiryTime)) {
+            await _performLogout();
+            return;
+          } else {
+            // Set up a timer to log out when token expires
+            final durationUntilExpiry = expiryTime.difference(currentTime);
+            _sessionTimer = Timer(durationUntilExpiry, () async {
+              if (mounted) {
+                await _performLogout();
+              }
+            });
+          }
+        }
+      }
+    } catch (e) {
+      print('Error decoding token: $e');
+    }
+
+    // If we have a token but no userData (page refresh case), load user data
+    if (widget.userData == null) {
+      try {
+        setState(() {
+          _userData = {
+            'username': prefs.getString('username'),
+            'firstname': prefs.getString('firstname'),
+            'lastname': prefs.getString('lastname'),
+            'email': prefs.getString('email'),
+            'role_id': prefs.getString('role_id'),
+          };
+          _isLoading = false;
+        });
+      } catch (e) {
+        // If there's an error, force logout
+        await _performLogout();
+      }
+    } else {
+      setState(() {
+        _userData = widget.userData;
+        _isLoading = false;
+      });
+    }
+
+    // Only show welcome dialog if we came from login (widget.userData is not null)
+    if (widget.userData != null) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        _showWelcomeDialog();
+      });
+    }
+  }
+
   Future<void> _performLogout() async {
+    // Cancel any pending session timer
+    _sessionTimer?.cancel();
+
     // Show confirmation dialog
     bool? shouldLogout = await showDialog<bool>(
       context: context,
@@ -82,10 +173,13 @@ class _MainScreenState extends State<MainScreen> {
     try {
       // Clear user data
       final prefs = await SharedPreferences.getInstance();
-      await prefs.remove('role');
-      await prefs.remove('staffID');
-      await prefs.remove('selectedIndex');
       await prefs.remove('jwt_token');
+      await prefs.remove('username');
+      await prefs.remove('firstname');
+      await prefs.remove('lastname');
+      await prefs.remove('email');
+      await prefs.remove('role_id');
+      await prefs.remove('selectedIndex');
 
       await Future.delayed(const Duration(milliseconds: 1000));
 
@@ -99,9 +193,10 @@ class _MainScreenState extends State<MainScreen> {
 
       // Navigate to login screen
       if (mounted) {
-        Navigator.of(context).pushAndRemoveUntil(
-          MaterialPageRoute(builder: (context) => const LoginScreen()),
-              (Route<dynamic> route) => false,
+        Navigator.pushNamedAndRemoveUntil(
+          context,
+          LoginScreen.route,
+              (route) => false,
         );
       }
     } catch (e) {
@@ -138,7 +233,7 @@ class _MainScreenState extends State<MainScreen> {
         Uri.parse(apiUrl),
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': 'Bearer $token', // Use the token from SharedPreferences
+          'Authorization': 'Bearer $token',
         },
         body: jsonEncode({
           'username': username,
@@ -154,22 +249,16 @@ class _MainScreenState extends State<MainScreen> {
       } else {
         _showTopSnackBar(responseData['message'] ?? 'Failed to change password', isError: true);
 
-        // If token is invalid/expired, you might want to force logout
+        // If token is invalid/expired, force logout
         if (response.statusCode == 401) {
-          // Clear stored credentials
-          await prefs.remove('jwt_token');
-          await prefs.remove('username');
-          // Navigate back to login
-          Navigator.of(context).pushAndRemoveUntil(
-            MaterialPageRoute(builder: (context) => const LoginScreen()),
-                (Route<dynamic> route) => false,
-          );
+          await _performLogout();
         }
       }
     } catch (e) {
       _showTopSnackBar('An error occurred: ${e.toString()}', isError: true);
     }
   }
+
   void _showChangePasswordDialog() {
     final currentPasswordController = TextEditingController();
     final newPasswordController = TextEditingController();
@@ -181,7 +270,6 @@ class _MainScreenState extends State<MainScreen> {
     bool passwordsMatch = false;
     bool allRequirementsMet = false;
 
-    // Check all password requirements
     void checkPasswordRequirements(String password) {
       final hasMinLength = password.length >= 8;
       final hasUppercase = password.contains(RegExp(r'[A-Z]'));
@@ -209,7 +297,6 @@ class _MainScreenState extends State<MainScreen> {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    // Current Password Field
                     TextField(
                       controller: currentPasswordController,
                       obscureText: obscureCurrentPassword,
@@ -231,8 +318,6 @@ class _MainScreenState extends State<MainScreen> {
                       ),
                     ),
                     const SizedBox(height: 16),
-
-                    // New Password Field
                     TextField(
                       controller: newPasswordController,
                       obscureText: obscureNewPassword,
@@ -260,8 +345,6 @@ class _MainScreenState extends State<MainScreen> {
                       ),
                     ),
                     const SizedBox(height: 8),
-
-                    // Password Requirements
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -301,8 +384,6 @@ class _MainScreenState extends State<MainScreen> {
                       ],
                     ),
                     const SizedBox(height: 16),
-
-                    // Confirm Password Field
                     TextField(
                       controller: confirmPasswordController,
                       obscureText: obscureConfirmPassword,
@@ -340,8 +421,6 @@ class _MainScreenState extends State<MainScreen> {
                       ),
                     ),
                     const SizedBox(height: 8),
-
-                    // Password Match Indicator
                     if (confirmPasswordController.text.isNotEmpty)
                       Text(
                         passwordsMatch ? 'Passwords match' : 'Passwords do not match',
@@ -366,20 +445,17 @@ class _MainScreenState extends State<MainScreen> {
                   ),
                   onPressed: allRequirementsMet && passwordsMatch
                       ? () async {
-                    // Validate current password is not empty
                     if (currentPasswordController.text.isEmpty) {
                       _showTopSnackBar('Please enter your current password', isError: true);
                       return;
                     }
 
-                    // Get username from userData
-                    final username = widget.userData?['username'];
+                    final username = _userData?['username'];
                     if (username == null || username.isEmpty) {
                       _showTopSnackBar('User information not available', isError: true);
                       return;
                     }
 
-                    // Show loading indicator
                     showDialog(
                       context: context,
                       barrierDismissible: false,
@@ -388,16 +464,16 @@ class _MainScreenState extends State<MainScreen> {
                       ),
                     );
 
-                    // Call the API
                     await _changePassword(
                       username: username,
                       oldPassword: currentPasswordController.text,
                       newPassword: newPasswordController.text,
                     );
 
-                    // Close both dialogs
-                    Navigator.of(context).pop(); // Close loading dialog
-                    Navigator.of(context).pop(); // Close password change dialog
+                    if (mounted) {
+                      Navigator.of(context).pop(); // Close loading dialog
+                      Navigator.of(context).pop(); // Close password change dialog
+                    }
                   }
                       : null,
                   child: const Text(
@@ -413,7 +489,6 @@ class _MainScreenState extends State<MainScreen> {
     );
   }
 
-// Helper widget for requirement rows
   Widget _buildRequirementRow(String text, bool isMet, bool hasInput) {
     return Row(
       children: [
@@ -454,8 +529,8 @@ class _MainScreenState extends State<MainScreen> {
   }
 
   void _showWelcomeDialog() {
-    if (widget.userData != null) {
-      final firstName = widget.userData!['firstname'] ?? 'User';
+    if (_userData != null) {
+      final firstName = _userData!['firstname'] ?? 'User';
       showDialog(
         context: context,
         barrierDismissible: false,
@@ -502,6 +577,14 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
+    if (_isLoading) {
+      return const Scaffold(
+        body: Center(
+          child: CircularProgressIndicator(),
+        ),
+      );
+    }
+
     return Scaffold(
       body: Row(
         children: [
@@ -516,7 +599,6 @@ class _MainScreenState extends State<MainScreen> {
                 },
                 selectedItem: _selectedItem,
                 onToggleSidebar: _toggleSidebar,
-                // onLogout: () {}, // This can be empty now since we handle logout internally
               ),
             ),
           Expanded(
@@ -537,8 +619,8 @@ class _MainScreenState extends State<MainScreen> {
                         child: DashboardAppBar(
                           onSearchChanged: _handleSearchChanged,
                           isEnabled: _selectedItem == 'dashboard',
-                          username: widget.userData?['username'] ??
-                              widget.userData?['firstname'] ??
+                          username: _userData?['username'] ??
+                              _userData?['firstname'] ??
                               'User',
                           onChangePasswordPressed: _showChangePasswordDialog,
                           onLogout: _performLogout,
