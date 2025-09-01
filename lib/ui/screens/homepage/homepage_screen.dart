@@ -469,18 +469,18 @@ class _HomepageScreenState extends State<HomepageScreen> {
                             FooterSectionv2(),
                           ],
                         ),
-                        Positioned(
-                          top: MediaQuery.of(context).size.height * 0.17,
-                          left: (MediaQuery.of(context).size.width - 1130) / 2,
-                          child: Center(
-                            child: Image.asset(
-                              'assets/images/phone-web.png',
-                              width: MediaQuery.of(context).size.width * 0.8,
-                              height: MediaQuery.of(context).size.height * 0.95,
-                              fit: BoxFit.contain,
-                            ),
-                          ),
-                        ),
+                        // Positioned(
+                        //   top: MediaQuery.of(context).size.height * 0.17,
+                        //   left: (MediaQuery.of(context).size.width - 1130) / 2,
+                        //   child: Center(
+                        //     child: Image.asset(
+                        //       'assets/images/phone-web.png',
+                        //       width: MediaQuery.of(context).size.width * 0.8,
+                        //       height: MediaQuery.of(context).size.height * 0.95,
+                        //       fit: BoxFit.contain,
+                        //     ),
+                        //   ),
+                        // ),
                       ],
                     ),
                   ],

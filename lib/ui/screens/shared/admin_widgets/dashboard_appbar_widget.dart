@@ -68,7 +68,7 @@ class _DashboardAppBarState extends State<DashboardAppBar> {
           value: 'change_password',
           child: Row(
             children: [
-              Icon(Icons.lock_outline, size: 20),
+              Icon(Icons.lock_reset_rounded, size: 20),
               SizedBox(width: 8),
               Text('Change Password'),
             ],
