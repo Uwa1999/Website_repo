@@ -133,7 +133,7 @@ class _NavSectionWebState extends State<NavSectionWeb> {
 
     if (item.destinationBuilder != null) {
       // Delay page navigation by 2 seconds
-      Future.delayed(const Duration(seconds: 1), () {
+      Future.delayed(const Duration(milliseconds: 500), () {
         Navigator.push(
           context,
           MaterialPageRoute(builder: item.destinationBuilder!),

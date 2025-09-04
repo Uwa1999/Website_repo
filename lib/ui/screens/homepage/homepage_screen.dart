@@ -391,7 +391,7 @@ class _HomepageScreenState extends State<HomepageScreen> {
                             HeaderResponsiveWeb(key: homeKey),
                             imageWidth <= 800
                                 ? SizedBox(height: imageHeight)
-                                : SizedBox(height: imageHeight * 0.10),
+                                : SizedBox(height: imageHeight * 0.20),
                             Column(
                               children: [
                                 Container(

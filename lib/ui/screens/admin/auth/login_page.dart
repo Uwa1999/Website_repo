@@ -799,6 +799,13 @@ class _LoginScreenState extends State<LoginScreen> {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               const Text(
+                                "V1.0",
+                                style: TextStyle(
+                                  fontSize: 10,
+                                  color: Colors.black12,
+                                 ),
+                              ),
+                              const Text(
                                 "Login",
                                 style: TextStyle(
                                   fontSize: 26,
@@ -810,8 +817,8 @@ class _LoginScreenState extends State<LoginScreen> {
 
                               // Staff ID Field
                               TextFormFieldsWidget(
-                                title: "Staff ID",
-                                hintText: "Staff ID",
+                                title: "Username",
+                                hintText: "Username",
                                 prefixIcon: Icons.person_outline,
                                 keyboardType: TextInputType.text,
                                 textInputAction: TextInputAction.next,

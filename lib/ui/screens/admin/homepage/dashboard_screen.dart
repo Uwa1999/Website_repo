@@ -48,6 +48,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
 
     // First apply the category filter (for insights only)
     if (_currentView == 'Insights' && _currentFilter != 'All') {
+      dataToFilter = dataToFilter.where((item) => item is Article).toList();
       dataToFilter = _applyFilter(dataToFilter, _currentFilter);
     }
 
@@ -55,26 +56,37 @@ class _DashboardScreenState extends State<DashboardScreen> {
     if (widget.searchQuery.isNotEmpty) {
       final query = widget.searchQuery.toLowerCase();
       dataToFilter = dataToFilter.where((item) {
-        if (_currentView == 'Insights') {
-          final article = item as Article;
-          return article.title.toLowerCase().contains(query) ||
-              article.content.toLowerCase().contains(query) ||
-              article.category.toLowerCase().contains(query) ||
-              article.remarks.toLowerCase().contains(query);
-        } else if (_currentView == 'Products') {
-          final catalog = item as Catalog;
-          return catalog.name.toLowerCase().contains(query) ||
-              catalog.description.toLowerCase().contains(query);
-        } else if (_currentView == 'Services') {
-          final service = item as Service;
-          return service.name.toLowerCase().contains(query) ||
-              service.description.toLowerCase().contains(query);
+        if (_currentView == 'Insights' && item is Article) {
+          return item.title.toLowerCase().contains(query) ||
+              item.content.toLowerCase().contains(query) ||
+              item.category.toLowerCase().contains(query) ||
+              item.remarks.toLowerCase().contains(query);
+        } else if (_currentView == 'Products' && item is Catalog) {
+          return item.name.toLowerCase().contains(query) ||
+              item.description.toLowerCase().contains(query);
+        } else if (_currentView == 'Services' && item is Service) {
+          return item.name.toLowerCase().contains(query) ||
+              item.description.toLowerCase().contains(query);
         }
         return false;
       }).toList();
     }
 
     return dataToFilter;
+  }
+
+  String _highlightHtmlContent(String htmlContent, String query) {
+    if (query.isEmpty) {
+      return htmlContent;
+    }
+
+    // Create a regex pattern for the search query
+    final pattern = RegExp(query, caseSensitive: false);
+
+    // Replace matches with highlighted spans
+    return htmlContent.replaceAllMapped(pattern, (match) {
+      return '<span style="background-color: yellow; color: red; font-weight: bold;">${match.group(0)}</span>';
+    });
   }
 
   @override
@@ -201,12 +213,15 @@ class _DashboardScreenState extends State<DashboardScreen> {
 // Update the _confirmDeleteSingle method to handle service deletion
   Future<void> _confirmDeleteSingle(dynamic item) async {
     String title;
-    if (_currentView == 'Insights') {
-      title = (item as Article).title;
-    } else if (_currentView == 'Products') {
-      title = (item as Catalog).name;
+    if (_currentView == 'Insights' && item is Article) {
+      title = item.title;
+    } else if (_currentView == 'Products' && item is Catalog) {
+      title = item.name;
+    } else if (_currentView == 'Services' && item is Service) {
+      title = item.name;
     } else {
-      title = (item as Service).name;
+      _showTopSnackBar('Cannot delete item of unexpected type', isError: true);
+      return;
     }
 
     final confirmed = await showDialog<bool>(
@@ -228,12 +243,12 @@ class _DashboardScreenState extends State<DashboardScreen> {
     );
 
     if (confirmed == true) {
-      if (_currentView == 'Insights') {
-        await _deleteInsights([(item as Article).id]);
-      } else if (_currentView == 'Products') {
-        await _deleteCatalogs([(item as Catalog).id]);
-      } else if (_currentView == 'Services') {
-        await _deleteServices([(item as Service).id]);
+      if (_currentView == 'Insights' && item is Article) {
+        await _deleteInsights([item.id]);
+      } else if (_currentView == 'Products' && item is Catalog) {
+        await _deleteCatalogs([item.id]);
+      } else if (_currentView == 'Services' && item is Service) {
+        await _deleteServices([item.id]);
       }
     }
   }
@@ -242,12 +257,15 @@ class _DashboardScreenState extends State<DashboardScreen> {
     if (filter == 'All' || _currentView != 'Insights') return data;
 
     return data.where((item) {
-      final article = item as Article;
-      if (filter == 'Main' || filter == 'Sub') {
-        return article.remarks == filter;
-      } else {
-        return article.category.toLowerCase() == filter.toLowerCase();
+      if (item is Article) {
+        final article = item;
+        if (filter == 'Main' || filter == 'Sub') {
+          return article.remarks == filter;
+        } else {
+          return article.category.toLowerCase() == filter.toLowerCase();
+        }
       }
+      return false;
     }).toList();
   }
 
@@ -379,6 +397,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
             _buildCell(const Text("Date of Event", style: TextStyle(fontWeight: FontWeight.bold)), flex: 2),
           if (_currentView == 'Insights')
             _buildCell(const Text("Remarks", style: TextStyle(fontWeight: FontWeight.bold)), flex: 2),
+          if (_currentView == 'Services')
+            _buildCell(const Text("Catalog", style: TextStyle(fontWeight: FontWeight.bold)), flex: 2,),
           if (_currentView == 'Insights')
             _buildCell(const Text("Category", style: TextStyle(fontWeight: FontWeight.bold)), flex: 2),
           if (_currentView != 'Insights')
@@ -418,14 +438,16 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       .entries
                       .where((entry) => _selectedRows[entry.key])
                       .map((entry) {
-                    if (_currentView == 'Insights') {
+                    if (_currentView == 'Insights' && entry.value is Article) {
                       return (entry.value as Article).id;
-                    } else if (_currentView == 'Products') {
+                    } else if (_currentView == 'Products' && entry.value is Catalog) {
                       return (entry.value as Catalog).id;
-                    } else {
+                    } else if (_currentView == 'Services' && entry.value is Service) {
                       return (entry.value as Service).id;
                     }
-                  }).toList();
+                    return -1; // Invalid ID for unexpected types
+                  }).where((id) => id != -1) // Filter out invalid IDs
+                      .toList();
 
                   if (_currentView == 'Insights') {
                     await _deleteInsights(selectedIds.cast<int>());
@@ -452,12 +474,18 @@ class _DashboardScreenState extends State<DashboardScreen> {
     required int index,
     required dynamic item,
   }) {
-    if (_currentView == 'Insights') {
-      return _buildArticleRow(index: index, article: item as Article);
-    } else if (_currentView == 'Products') {
-      return _buildCatalogRow(index: index, catalog: item as Catalog);
+    if (_currentView == 'Insights' && item is Article) {
+      return _buildArticleRow(index: index, article: item);
+    } else if (_currentView == 'Products' && item is Catalog) {
+      return _buildCatalogRow(index: index, catalog: item);
+    } else if (_currentView == 'Services' && item is Service) {
+      return _buildServiceRow(index: index, service: item);
     } else {
-      return _buildServiceRow(index: index, service: item as Service);
+      // Fallback for unexpected types
+      return Container(
+        padding: const EdgeInsets.all(16),
+        child: Text('Unexpected item type: ${item.runtimeType}'),
+      );
     }
   }
 
@@ -534,23 +562,43 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        article.title,
-                        style: const TextStyle(fontWeight: FontWeight.bold),
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
+                      // Title with HTML support and highlighting
+                      Html(
+                        data: _highlightHtmlContent(article.title, widget.searchQuery),
+                        style: {
+                          "body": Style(
+                            fontWeight: FontWeight.bold,
+                            margin: Margins.zero,
+                            padding: HtmlPaddings.zero,
+                            fontSize: FontSize(16.0),
+                            maxLines: 1,
+                            textOverflow: TextOverflow.ellipsis,
+                          ),
+                          "span": Style(
+                            backgroundColor: const Color.fromARGB(0, 0, 0, 0),
+                          ),
+                        },
                       ),
                       const SizedBox(height: 4),
+                      // Content with HTML support and highlighting
                       Html(
-                        data: article.content.length > 50
-                            ? '${article.content.substring(0, 50)}...'
-                            : article.content,
+                        data: _highlightHtmlContent(
+                          article.content.length > 50
+                              ? '${article.content.substring(0, 50)}...'
+                              : article.content,
+                          widget.searchQuery,
+                        ),
                         style: {
                           "body": Style(
                             fontSize: FontSize(12.0),
                             color: Colors.grey,
                             margin: Margins.zero,
                             padding: HtmlPaddings.zero,
+                            maxLines: 2,
+                            textOverflow: TextOverflow.ellipsis,
+                          ),
+                          "span": Style(
+                            backgroundColor: const Color.fromARGB(0, 0, 0, 0),
                           ),
                         },
                       ),
@@ -561,7 +609,10 @@ class _DashboardScreenState extends State<DashboardScreen> {
             ),
             flex: 3,
           ),
-          _buildCell(Text(dateString), flex: 2),
+          _buildCell(
+              Text(dateString),
+              flex: 2
+          ),
           _buildCell(
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
@@ -723,24 +774,24 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        catalog.name,
-                        style: const TextStyle(fontWeight: FontWeight.bold),
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
+                      // Catalog name with HTML support and highlighting
+                      Html(
+                        data: _highlightHtmlContent(catalog.name, widget.searchQuery),
+                        style: {
+                          "body": Style(
+                            fontWeight: FontWeight.bold,
+                            margin: Margins.zero,
+                            padding: HtmlPaddings.zero,
+                            fontSize: FontSize(16.0),
+                            maxLines: 1,
+                            textOverflow: TextOverflow.ellipsis,
+                          ),
+                          "span": Style(
+                            backgroundColor: const Color.fromARGB(0, 0, 0, 0),
+                          ),
+                        },
                       ),
                       const SizedBox(height: 4),
-                      // Text(
-                      //   catalog.description.length > 50
-                      //       ? '${catalog.description.substring(0, 50)}...'
-                      //       : catalog.description,
-                      //   style: const TextStyle(
-                      //     fontSize: 12.0,
-                      //     color: Colors.grey,
-                      //   ),
-                      //   maxLines: 2,
-                      //   overflow: TextOverflow.ellipsis,
-                      // ),
                     ],
                   ),
                 ),
@@ -749,21 +800,27 @@ class _DashboardScreenState extends State<DashboardScreen> {
             flex: 3,
           ),
           _buildCell(
-            Text(
-              catalog.description.length > 100
-                  ? '${catalog.description.substring(0, 100)}...'
-                  : catalog.description,
-              style: const TextStyle(fontSize: 12),
+            // Catalog description with HTML support and highlighting
+            Html(
+              data: _highlightHtmlContent(
+                catalog.description.length > 100
+                    ? '${catalog.description.substring(0, 100)}...'
+                    : catalog.description,
+                widget.searchQuery,
+              ),
+              style: {
+                "body": Style(
+                  fontSize: FontSize(12.0),
+                  margin: Margins.zero,
+                  padding: HtmlPaddings.zero,
+                ),
+                "span": Style(
+                  backgroundColor: const Color.fromARGB(0, 0, 0, 0),
+                ),
+              },
             ),
             flex: 3,
           ),
-          // _buildCell(
-          //     const Text(
-          //         "0", // Replace with actual visit count if available
-          //         style: TextStyle(fontWeight: FontWeight.bold)
-          //     ),
-          //     flex: 1
-          // ),
           _buildCell(
               IconButton(
                 icon: const Icon(Icons.edit_outlined),
@@ -876,24 +933,24 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
-                        service.name,
-                        style: const TextStyle(fontWeight: FontWeight.bold),
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
+                      // Service name with HTML support and highlighting
+                      Html(
+                        data: _highlightHtmlContent(service.name, widget.searchQuery),
+                        style: {
+                          "body": Style(
+                            fontWeight: FontWeight.bold,
+                            margin: Margins.zero,
+                            padding: HtmlPaddings.zero,
+                            fontSize: FontSize(16.0),
+                            maxLines: 1,
+                            textOverflow: TextOverflow.ellipsis,
+                          ),
+                          "span": Style(
+                            backgroundColor: const Color.fromARGB(0, 0, 0, 0),
+                          ),
+                        },
                       ),
                       const SizedBox(height: 4),
-                      // Text(
-                      //   service.description.length > 50
-                      //       ? '${service.description.substring(0, 50)}...'
-                      //       : service.description,
-                      //   style: const TextStyle(
-                      //     fontSize: 12.0,
-                      //     color: Colors.grey,
-                      //   ),
-                      //   maxLines: 2,
-                      //   overflow: TextOverflow.ellipsis,
-                      // ),
                     ],
                   ),
                 ),
@@ -901,22 +958,47 @@ class _DashboardScreenState extends State<DashboardScreen> {
             ),
             flex: 3,
           ),
+          if (_currentView == 'Services')
+            _buildCell(
+              // Catalog name with highlighting
+              Html(
+                data: _highlightHtmlContent(service.catalogName ?? "-", widget.searchQuery),
+                style: {
+                  "body": Style(
+                    fontSize: FontSize(12.0),
+                    fontWeight: FontWeight.w500,
+                    margin: Margins.zero,
+                    padding: HtmlPaddings.zero,
+                  ),
+                  "span": Style(
+                    backgroundColor: const Color.fromARGB(0, 0, 0, 0),
+                  ),
+                },
+              ),
+              flex: 2,
+            ),
           _buildCell(
-            Text(
-              service.description.length > 100
-                  ? '${service.description.substring(0, 100)}...'
-                  : service.description,
-              style: const TextStyle(fontSize: 12),
+            // Service description with HTML support and highlighting
+            Html(
+              data: _highlightHtmlContent(
+                service.description.length > 100
+                    ? '${service.description.substring(0, 100)}...'
+                    : service.description,
+                widget.searchQuery,
+              ),
+              style: {
+                "body": Style(
+                  fontSize: FontSize(12.0),
+                  margin: Margins.zero,
+                  padding: HtmlPaddings.zero,
+                ),
+                "span": Style(
+                  backgroundColor: const Color.fromARGB(0, 0, 0, 0),
+                ),
+              },
             ),
             flex: 3,
           ),
-          // _buildCell(
-          //     const Text(
-          //         "0", // Replace with actual visit count if available
-          //         style: TextStyle(fontWeight: FontWeight.bold)
-          //     ),
-          //     flex: 1
-          // ),
           _buildCell(
               IconButton(
                 icon: const Icon(Icons.edit_outlined),

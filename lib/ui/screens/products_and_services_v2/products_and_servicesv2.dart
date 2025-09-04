@@ -104,7 +104,7 @@ class _ProductsAndServicesV2State extends State<ProductsAndServicesV2> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         _buildHeader(textSize: 70, paddingLeft: 100),
-        _buildCardsLayout(width: 1500),
+        _buildCardsLayout(width: 1350),
       ],
     );
   }
