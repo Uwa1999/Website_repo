@@ -84,17 +84,17 @@ class _ProductsAndServicesV2State extends State<ProductsAndServicesV2> {
           tablet: _buildTabletLayout(),
           desktop: _buildDesktopLayout(),
         ),
-        Positioned(
-          top: -imageHeight * 1.25,
-          left: (MediaQuery.of(context).size.width - imageWidth) / 2,
-          child: Center(
-            child: Image.asset(
-              'assets/images/phone-web.png',
-              width: imageWidth,
-              fit: BoxFit.contain,
-            ),
-          ),
-        ),
+        // Positioned(
+        //   top: -imageHeight * 1.25,
+        //   left: (MediaQuery.of(context).size.width - imageWidth) / 2,
+        //   child: Center(
+        //     child: Image.asset(
+        //       'assets/images/phone-web.png',
+        //       width: imageWidth,
+        //       fit: BoxFit.contain,
+        //     ),
+        //   ),
+        // ),
       ],
     );
   }

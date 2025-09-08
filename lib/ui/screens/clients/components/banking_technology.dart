@@ -159,7 +159,7 @@ class _BankingTechnologyState extends State<BankingTechnology> with TickerProvid
                         children: services.map((service) {
                           return CustomCardWidgetv1(
                             title: service['name'] ?? 'No Title',
-                            description: service['description'] ?? 'No description available',
+                            // description: service['description'] ?? 'No description available',
                             imagePath: service['image_path'] ?? '',
                             isNetworkImage: true, // Add this flag for network images
                             maxWidth: widget.cardWidth,
@@ -181,16 +181,14 @@ class _BankingTechnologyState extends State<BankingTechnology> with TickerProvid
 
 class CustomCardWidgetv1 extends StatelessWidget {
   final String title;
-  final String description;
   final String imagePath;
-  final bool isNetworkImage; // Add this flag
+  final bool isNetworkImage;
   final double? maxWidth;
 
   const CustomCardWidgetv1({
     required this.title,
-    required this.description,
     required this.imagePath,
-    this.isNetworkImage = false, // Default to false for backward compatibility
+    this.isNetworkImage = false,
     this.maxWidth,
     Key? key,
   }) : super(key: key);
@@ -198,43 +196,37 @@ class CustomCardWidgetv1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final double screenWidth = MediaQuery.of(context).size.width;
-    final double width = maxWidth ?? (screenWidth > 800 ? 700 : screenWidth * 0.9);
+    final double width =
+        maxWidth ?? (screenWidth > 400 ? 300 : screenWidth * 0.9);
     final bool isMobile = width < 600;
 
-    // Create image provider based on the source type
-    ImageProvider imageProvider;
-    if (isNetworkImage) {
-      imageProvider = NetworkImage(imagePath);
-    } else {
-      imageProvider = AssetImage(imagePath);
-    }
+    // Select image source
+    ImageProvider<Object> imageProvider =
+    isNetworkImage ? NetworkImage(imagePath) as ImageProvider<Object>
+        : AssetImage(imagePath) as ImageProvider<Object>;
 
-    // Define a clean, neutral TextStyle to avoid style inheritance
-    const TextStyle descriptionTextStyle = TextStyle(
-      fontSize: 14,
-      color: Colors.black87,
-      fontWeight: FontWeight.normal,
-      decoration: TextDecoration.none,
-      backgroundColor: Colors.transparent,
-    );
 
     const TextStyle titleTextStyle = TextStyle(
       fontWeight: FontWeight.bold,
       fontSize: 18,
       color: Colors.black,
       decoration: TextDecoration.none,
-      backgroundColor: Colors.transparent,
     );
 
     return Container(
-      width: width,
+      width: 190,
+      height: 190,
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         border: Border.all(color: Colors.grey.shade300),
         borderRadius: BorderRadius.circular(16),
         color: Colors.white,
         boxShadow: const [
-          BoxShadow(color: Colors.black12, blurRadius: 8, offset: Offset(0, 4)),
+          BoxShadow(
+            color: Colors.black12,
+            blurRadius: 8,
+            offset: Offset(0, 4),
+          ),
         ],
       ),
       child: isMobile
@@ -244,43 +236,41 @@ class CustomCardWidgetv1 extends StatelessWidget {
           Center(
             child: Image(
               image: imageProvider,
-              width: 50,
-              height: 50,
+              width: 80,
+              height: 80,
               errorBuilder: (context, error, stackTrace) {
                 return const Icon(Icons.error, size: 50);
               },
             ),
           ),
           const SizedBox(height: 10),
-          Text(title, style: titleTextStyle),
-          const SizedBox(height: 10),
-          Text(description, style: descriptionTextStyle),
+          Text(title, style: titleTextStyle, textAlign: TextAlign.center),
         ],
       )
           : Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Column(
-            children: [
-              Image(
-                image: imageProvider,
-                width: 50,
-                height: 50,
-                errorBuilder: (context, error, stackTrace) {
-                  return const Icon(Icons.error, size: 50);
-                },
-              ),
-              const SizedBox(height: 10),
-              Text(title, style: titleTextStyle),
-            ],
+          Image(
+            image: imageProvider,
+            width: 60,
+            height: 60,
+            errorBuilder: (context, error, stackTrace) {
+              return const Icon(Icons.error, size: 50);
+            },
           ),
-          const SizedBox(width: 40),
-          Expanded(child: Text(description, style: descriptionTextStyle)),
+          const SizedBox(width: 20),
+          Expanded(
+            child: Text(
+              title,
+              style: titleTextStyle,
+            ),
+          ),
         ],
       ),
     );
   }
 }
+
 
 // Card model (kept for reference, but not used anymore)
 class BankingService {

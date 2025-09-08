@@ -294,6 +294,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
+import '../clients/components/alternative_deliveries_solution.dart';
 import '../shared/widgets/buttons/footer.dart';
 import 'components/insightsv2/main_features.dart';
 import 'components/leading_partners_section.dart';
@@ -396,7 +397,7 @@ class _HomepageScreenState extends State<HomepageScreen> {
                               children: [
                                 Container(
                                   key: servicesKey,
-                                  child: ProductsAndServicesV2(),
+                                  child: AlternativeDeliveriesSolution(),
                                 ),
                                 // Container(
                                 //   key: insightsKey,
@@ -469,18 +470,18 @@ class _HomepageScreenState extends State<HomepageScreen> {
                             FooterSectionv2(),
                           ],
                         ),
-                        // Positioned(
-                        //   top: MediaQuery.of(context).size.height * 0.17,
-                        //   left: (MediaQuery.of(context).size.width - 1130) / 2,
-                        //   child: Center(
-                        //     child: Image.asset(
-                        //       'assets/images/phone-web.png',
-                        //       width: MediaQuery.of(context).size.width * 0.8,
-                        //       height: MediaQuery.of(context).size.height * 0.95,
-                        //       fit: BoxFit.contain,
-                        //     ),
-                        //   ),
-                        // ),
+                        Positioned(
+                          top: MediaQuery.of(context).size.height * 0.17,
+                          left: (MediaQuery.of(context).size.width - 1130) / 2,
+                          child: Center(
+                            child: Image.asset(
+                              'assets/images/phone-web.png',
+                              width: MediaQuery.of(context).size.width * 0.8,
+                              height: MediaQuery.of(context).size.height * 0.95,
+                              fit: BoxFit.contain,
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ],
