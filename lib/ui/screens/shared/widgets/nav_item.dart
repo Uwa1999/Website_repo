@@ -8,6 +8,7 @@ import 'animated_indicator.dart';
 
 const double indicatorWidth = Sizes.WIDTH_170;
 const double indicatorHeight = Sizes.HEIGHT_2;
+
 class NavItemData {
   final String name;
   final GlobalKey? key;
@@ -23,8 +24,6 @@ class NavItemData {
     this.destinationBuilder,
   });
 }
-
-
 
 class NavItem extends StatefulWidget {
   NavItem({

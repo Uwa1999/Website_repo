@@ -189,4 +189,32 @@ class ApiService {
       throw Exception('Error: ${response.statusCode}\n${responseBody.body}');
     }
   }
+
+  Future<List<Map<String, dynamic>>> fetchImages() async {
+    try {
+      final response = await http.get(
+        Uri.parse('https://dev-api-janus.fortress-asya.com:18043/api/public/v1/images'),
+        headers: {
+          'Accept': 'application/json',
+        },
+      ).timeout(const Duration(seconds: 30));
+
+      if (response.statusCode == 200) {
+        final jsonResponse = json.decode(response.body);
+        final List<dynamic> imageData = jsonResponse['data'];
+
+        return imageData.map<Map<String, dynamic>>((image) {
+          return {
+            'id': image['id'],
+            'name': image['name'],
+            'image_path': image['image_path'],
+          };
+        }).toList();
+      }
+
+      throw Exception('Failed to load images: ${response.statusCode}');
+    } catch (e) {
+      throw Exception('Error fetching images: $e');
+    }
+  }
 }

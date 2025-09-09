@@ -1,3 +1,5 @@
+import 'dart:convert';
+import 'package:http/http.dart' as http;
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/footer_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/header_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/responsive_navigation/nav_section_mobile.dart';
@@ -8,6 +10,7 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/sizedbox.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
+import '../shared/utils/dataModel.dart';
 import '../shared/widgets/animation.dart';
 import '../shared/widgets/buttons/textandimage_widget.dart';
 import '../shared/widgets/photoClients.dart';
@@ -179,8 +182,6 @@ import '../shared/widgets/photoClients.dart';
 // }
 //
 
-
-
 class ClientsList extends StatefulWidget {
   static const String route = '/ClientsList';
   const ClientsList({Key? key}) : super(key: key);
@@ -190,19 +191,18 @@ class ClientsList extends StatefulWidget {
 }
 
 class _ClientsListState extends State<ClientsList> with SingleTickerProviderStateMixin {
+  late Future<List<ClientSection>> _clientSectionsFuture;
   late AnimationController _controller;
   late Animation<double> _animation;
 
   @override
   void initState() {
     super.initState();
-
+    _clientSectionsFuture = fetchClientData();
     _controller = AnimationController(
       duration: const Duration(seconds: 3),
       vsync: this,
-    )
-      ..repeat(reverse: true);
-
+    )..repeat(reverse: true);
     _animation = Tween<double>(begin: 0, end: 1).animate(_controller);
   }
 
@@ -212,253 +212,165 @@ class _ClientsListState extends State<ClientsList> with SingleTickerProviderStat
     super.dispose();
   }
 
-  // Helper widget to build rows of images with spacing and wrapping
-  Widget _buildLogoRow(List<String> logos) {
-    return Wrap(
-      spacing: 40,
-      runSpacing: 20,
-      alignment: WrapAlignment.start,
-      children: logos
-          .map(
-            (logo) =>
-            Container(
-              width: 150,
-              height: 150,
-              child: Image.asset(
-                logo,
-                fit: BoxFit.contain,
-              ),
-            ),
-      )
-          .toList(),
-    );
+  Future<List<ClientSection>> fetchClientData() async {
+    try {
+      final response = await http.get(
+        Uri.parse('https://dev-api-janus.fortress-asya.com:18043/api/public/v1/images/sections'),
+      );
+
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> data = json.decode(response.body);
+        final List<dynamic> sectionsJson = data['data'] as List<dynamic>;
+        return sectionsJson.map((json) => ClientSection.fromJson(json as Map<String, dynamic>)).toList();
+      } else {
+        throw Exception('Failed to load client data: ${response.statusCode}');
+      }
+    } catch (e) {
+      throw Exception('Failed to connect to the API: $e');
+    }
   }
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery
-        .of(context)
-        .size
-        .width;
-
-    // Limit max content width for large screens
-    final maxContentWidth = 1200.0;
-
     return Container(
       color: Colors.black,
-      child: SingleChildScrollView(
-        padding: const EdgeInsets.all(20),
-        child: Center(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              LayoutBuilder(
-                builder: (context, constraints) {
-                  final width = constraints.maxWidth;
-                  final isMobile = width < 600;
-                  final fontSize = isMobile ? 30.0 : 50.0;
-
-                  final baseTextStyle = TextStyle(
-                    fontSize: fontSize,
-                    color: Colors.white,
-                    fontWeight: FontWeight.w400,
-                    height: 1.4,
-                  );
-
-                  if (isMobile) {
-                    // MOBILE VIEW (stacked layout)
-                    return Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text('Come and Join us', style: baseTextStyle),
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Text('using our ', style: baseTextStyle),
-                            AnimatedGradientText(
-                              animation: _animation,
-                              text: 'all-in-one',
-                              fontSize: fontSize,
-                            ),
-                            const SizedBox(width: 8),
-                            SizedBox(
-                              width: 30,
-                              height: 30,
-                              child: Image.asset(
-                                  'assets/images/twinkling2.png'),
-                            ),
-                          ],
+      child: FutureBuilder<List<ClientSection>>(
+        future: _clientSectionsFuture,
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const Center(child: CircularProgressIndicator(color: Colors.white));
+          } else if (snapshot.hasError) {
+            return Center(child: Text('Error: ${snapshot.error}', style: TextStyle(color: Colors.white)));
+          } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
+            return const Center(child: Text('No client data available.', style: TextStyle(color: Colors.white)));
+          } else {
+            final clientSections = snapshot.data!;
+            return SingleChildScrollView(
+              padding: const EdgeInsets.all(20),
+              child: Center(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    _buildHeaderSection(),
+                    const SizedBox(height: 40),
+                    ...clientSections.map((section) {
+                      return Padding(
+                        padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                        child: _buildCategorySection(
+                          title: section.sectionName,
+                          logos: section.logos,
                         ),
-                        Row(
-                          children: [
-                            Text(
-                                'banking tech solution.', style: baseTextStyle),
-                            const SizedBox(width: 8),
-                            SizedBox(
-                              width: 30,
-                              height: 30,
-                              child: Image.asset(
-                                  'assets/images/twinkling1.png'),
-                            ),
-                          ],
-                        ),
-                      ],
-                    );
-                  } else {
-                    // DESKTOP VIEW (inline layout)
-                    return Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Wrap(
-                          crossAxisAlignment: WrapCrossAlignment.center,
-                          spacing: 4,
-                          children: [
-                            Text('Come and Join us using our',
-                                style: baseTextStyle),
-                            AnimatedGradientText(
-                              animation: _animation,
-                              text: 'all-in-one',
-                              fontSize: fontSize,
-                            ),
-                            SizedBox(
-                              width: 30,
-                              height: 30,
-                              child: Image.asset(
-                                  'assets/images/twinkling2.png'),
-                            ),
-                          ],
-                        ),
-                        const SizedBox(height: 10),
-                        Wrap(
-                          crossAxisAlignment: WrapCrossAlignment.center,
-                          spacing: 4,
-                          children: [
-                            Text(
-                                'banking tech solution.', style: baseTextStyle),
-                            SizedBox(
-                              width: 30,
-                              height: 30,
-                              child: Image.asset(
-                                  'assets/images/twinkling1.png'),
-                            ),
-                          ],
-                        ),
-                      ],
-                    );
-                  }
-                },
-              ),
-
-              const SizedBox(height: 40),
-
-              Container(
-                padding: EdgeInsets.only(left: 30, right: 30),
-                child: _buildCategorySection(
-                  title: 'Fintech',
-                  logos: [
-                    'assets/images/pac-cash.png',
-                    'assets/images/bank-bpd-bali-emoney.png',
-                    'assets/images/ottopayv2.png',
-                    'assets/images/ottokonek.png',
-                    'assets/images/ag-bank-emoney.png',
-                    'assets/images/fintech_sobatku.png',
-                    'assets/images/bank-kalsel-emoney.png',
-                    'assets/images/bank-sahabat.png',
-                    'assets/images/ottocash.png',
-                    'assets/images/IMkas.png',
+                      );
+                    }).toList(),
                   ],
                 ),
               ),
-
-              const SizedBox(height: 40),
-
-              Container(
-                padding: EdgeInsets.only(left: 30, right: 30),
-                child: _buildCategorySection(
-                  title: 'Financial Inclusion',
-                  logos: [
-                    'assets/images/fi_card_bank.png',
-                    'assets/images/fi_card_rbi.png',
-                    'assets/images/fi_bank_ina.png',
-                    'assets/images/fi_nrb_global_bank.png',
-                    'assets/images/fi_bank_sulsebar.png',
-                    'assets/images/fi_card_sme.png',
-                    'assets/images/fi_bank_jambi.png',
-                    'assets/images/fi_bank_mas.png',
-                    'assets/images/fi_bank_bpd_bali.png',
-                    'assets/images/fi_bank_kalsel.png',
-                    'assets/images/fi_bank_ntt.png',
-                  ],
-                ),
-              ),
-
-              const SizedBox(height: 40),
-
-              Container(
-                padding: EdgeInsets.only(left: 30, right: 30),
-                child: _buildCategorySection(
-                  title: 'MFIs',
-                  logos: [
-                    'assets/images/mfi1.png',
-                    'assets/images/mfi_BPR_KS.png',
-                    'assets/images/mfi_bpr_sejahtera_batam.png',
-                    'assets/images/mfi_bpr_supra.png',
-                    'assets/images/mfi_credit_union_bonaventura.png',
-                    'assets/images/mfi_credit_union_cindelaras_tumangkar.png',
-                    'assets/images/mfi_credit_union_femung_pebaya.png',
-                    'assets/images/mfi_credit_union_gerbang_kasih.png',
-                    'assets/images/mfi_credit_union_hati_amboina.png',
-                    'assets/images/mfi_credit_union_jembatan_kasih.png',
-                    'assets/images/mfi_credit_union_kridha.png',
-                    'assets/images/mfi_credit_union_mekar_kasih.png',
-                    'assets/images/mfi_credit_union_mosinggani_palu.png',
-                    'assets/images/mfi_credit_union_ndar_sesepok.png',
-                    'assets/images/mfi_credit_union_pelita_sejahtera.png',
-                    'assets/images/mfi_credit_union_semangat_warga.png',
-                    'assets/images/mfi_credit_union_sumber_kasih_sejahtera.png',
-                    'assets/images/mfi_credit_union_usaha_kita.png',
-                    'assets/images/mfi_cu_angudi_laras.png',
-                    'assets/images/mfi_cu_bahtera_sejahtera.png',
-                    'assets/images/mfi_cu_deus_providebit.png',
-                    'assets/images/mfi_cu_likku_aba.png',
-                    'assets/images/mfi_cu_mototabian.png',
-                    'assets/images/mfi_cu_prima.png',
-                    'assets/images/mfi_cu_sari_intugin.png',
-                    'assets/images/mfi_cu_sohagaini.png',
-                    'assets/images/mfi_cu_stella_maris.png',
-                    'assets/images/mfi_cu_tilung_jaya.png',
-                    'assets/images/mfi_cu_tunas_mekar.png',
-                    'assets/images/mfi_cusinar_saron.png',
-                    'assets/images/mfi_cusr_ampah.png',
-                    'assets/images/mfi_ksp_credit_union_daya_lestari.png',
-                    'assets/images/mfi_ksp_cu_kusapa.png',
-                    'assets/images/mfi_ksp_cu_sejahtera_makmur_bersama.png',
-                    'assets/images/mfi_ksp_multi_artha_utama.png',
-                    'assets/images/mfi_kspcu_pangudi.png',
-                    'assets/images/mfi_prima_danarta.png',
-                    'assets/images/mfi_pusat_koperasi_credit_union.png',
-                    'assets/images/mfi_sejarah_berdirinya_credit_union.png',
-                    'assets/images/mfi_talita_kum.png',
-                  ],
-                ),
-              ),
-
-            ],
-          ),
-        ),
+            );
+          }
+        },
       ),
     );
   }
 
-// Helper widget to build each category section
+  Widget _buildHeaderSection() {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final isMobile = screenWidth < 600;
+    final fontSize = isMobile ? 30.0 : 50.0;
+
+    final baseTextStyle = TextStyle(
+      fontSize: fontSize,
+      color: Colors.white,
+      fontWeight: FontWeight.w400,
+      height: 1.4,
+    );
+
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final width = constraints.maxWidth;
+        final isMobileLayout = width < 600;
+
+        if (isMobileLayout) {
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('Come and Join us', style: baseTextStyle),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Text('using our ', style: baseTextStyle),
+                  // Assuming AnimatedGradientText is a valid widget
+                  // AnimatedGradientText(
+                  //   animation: _animation,
+                  //   text: 'all-in-one',
+                  //   fontSize: fontSize,
+                  // ),
+                  const SizedBox(width: 8),
+                  SizedBox(
+                    width: 30,
+                    height: 30,
+                    child: Image.asset('assets/images/twinkling2.png'),
+                  ),
+                ],
+              ),
+              Row(
+                children: [
+                  Text('banking tech solution.', style: baseTextStyle),
+                  const SizedBox(width: 8),
+                  SizedBox(
+                    width: 30,
+                    height: 30,
+                    child: Image.asset('assets/images/twinkling1.png'),
+                  ),
+                ],
+              ),
+            ],
+          );
+        } else {
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Wrap(
+                crossAxisAlignment: WrapCrossAlignment.center,
+                spacing: 4,
+                children: [
+                  Text('Come and Join us using our', style: baseTextStyle),
+                  // AnimatedGradientText(
+                  //   animation: _animation,
+                  //   text: 'all-in-one',
+                  //   fontSize: fontSize,
+                  // ),
+                  SizedBox(
+                    width: 30,
+                    height: 30,
+                    child: Image.asset('assets/images/twinkling2.png'),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 10),
+              Wrap(
+                crossAxisAlignment: WrapCrossAlignment.center,
+                spacing: 4,
+                children: [
+                  Text('banking tech solution.', style: baseTextStyle),
+                  SizedBox(
+                    width: 30,
+                    height: 30,
+                    child: Image.asset('assets/images/twinkling1.png'),
+                  ),
+                ],
+              ),
+            ],
+          );
+        }
+      },
+    );
+  }
+
   Widget _buildCategorySection({
     required String title,
     required List<String> logos,
   }) {
-    final screenWidth = MediaQuery
-        .of(context)
-        .size
-        .width;
+    final screenWidth = MediaQuery.of(context).size.width;
     final isMobile = screenWidth < 600;
 
     return Column(
@@ -473,8 +385,8 @@ class _ClientsListState extends State<ClientsList> with SingleTickerProviderStat
           ),
         ),
         const SizedBox(height: 20),
-
         isMobile
+        // Restored the AutoScrollWidgetScroller for mobile view
             ? AutoScrollWidgetScroller(
           height: 100,
           itemWidth: 120,
@@ -485,7 +397,7 @@ class _ClientsListState extends State<ClientsList> with SingleTickerProviderStat
             return Center(
               child: Container(
                 padding: const EdgeInsets.all(8),
-                child: Image.asset(
+                child: Image.network(
                   logo,
                   fit: BoxFit.contain,
                   height: 80,
@@ -496,18 +408,19 @@ class _ClientsListState extends State<ClientsList> with SingleTickerProviderStat
           }).toList(),
         )
             : Wrap(
-          spacing: 40,
+          spacing: 30,
           runSpacing: 20,
           children: logos.map((logo) {
             double logoSize = 120;
-            if (logo.contains('bank-bpd-bali-emoney.png')) logoSize = 100;
-            if (logo.contains('ottopayv2.png')) logoSize = 100;
-            if (logo.contains('card-bank.png')) logoSize = 100;
+            // Dynamic sizing based on a specific image name, if necessary
+            // if (logo.contains('bank-bpd-bali-emoney.png')) logoSize = 100;
+            // if (logo.contains('ottopayv2.png')) logoSize = 100;
+            // if (logo.contains('card-bank.png')) logoSize = 100;
 
             return SizedBox(
               width: logoSize,
               height: logoSize,
-              child: Image.asset(logo, fit: BoxFit.contain),
+              child: Image.network(logo, fit: BoxFit.contain),
             );
           }).toList(),
         ),

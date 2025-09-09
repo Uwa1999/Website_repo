@@ -231,6 +231,9 @@ import 'animation.dart';// Make sure this path is correct
 //   }
 // }
 ///v4
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+
 class LeadingBankingPartnerItem extends StatefulWidget {
   final int title;
   final String subtitle;
@@ -261,7 +264,6 @@ class LeadingBankingPartnerItem extends StatefulWidget {
 
 class _LeadingBankingPartnerItemState extends State<LeadingBankingPartnerItem> with SingleTickerProviderStateMixin {
   late Animation<int> numberAnimation;
-  // Removed: late AnimationController gradientController; // No longer needed for static gradient
 
   @override
   void initState() {
@@ -270,13 +272,10 @@ class _LeadingBankingPartnerItemState extends State<LeadingBankingPartnerItem> w
     numberAnimation = IntTween(begin: 0, end: widget.title).animate(
       CurvedAnimation(parent: widget.controller, curve: widget.curve),
     );
-
-    // Removed: gradientController = AnimationController(...); // No longer needed
   }
 
   @override
   void dispose() {
-    // Removed: gradientController.dispose(); // No longer needed
     super.dispose();
   }
 
@@ -284,68 +283,86 @@ class _LeadingBankingPartnerItemState extends State<LeadingBankingPartnerItem> w
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
 
-    // Scale up font size aggressively
     double bigFontSize;
     double subtitleFontSize;
 
     if (screenWidth >= 1400) {
-      bigFontSize = 160;
+      bigFontSize = 110;
       subtitleFontSize = 36;
     } else if (screenWidth >= 1024) {
-      bigFontSize = 140;
+      bigFontSize = 100;
       subtitleFontSize = 32;
     } else if (screenWidth >= 768) {
-      bigFontSize = 120;
+      bigFontSize = 90;
       subtitleFontSize = 28;
     } else {
-      bigFontSize = 100;
+      bigFontSize = 80;
       subtitleFontSize = 24;
     }
 
     return AnimatedBuilder(
       animation: numberAnimation,
       builder: (context, child) {
-        return Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            ShaderMask(
-              shaderCallback: (bounds) {
-                // Define your static gradient colors here.
-                // You can customize these colors as per your design.
-                return LinearGradient(
-                  colors: [
-                    Colors.red, // Start color of your static gradient
-                    Colors.black,   // End color of your static gradient
-                  ],
-                  begin: Alignment.topLeft,
-                  end: Alignment.bottomRight,
-                ).createShader(bounds);
-              },
-              child: Text(
-                "${numberAnimation.value}${widget.subnum ?? ''}",
-                style: widget.titleStyle ??
-                    GoogleFonts.poppins(
-                      fontWeight: FontWeight.bold,
-                      // The color here will be masked by the shader.
-                      // Often set to white for best gradient application.
-                      color: Colors.white,
+        return Center(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Stack(
+                alignment: Alignment.center,
+                children: [
+                  // This is the "shadow" text that creates the glow.
+                  Text(
+                    "${numberAnimation.value}${widget.subnum ?? ''}",
+                    style: GoogleFonts.poppins(
+                      fontWeight: FontWeight.normal,
+                      color: Colors.red.withOpacity(0.2), // The color of the glow
                       fontSize: bigFontSize,
+                    ).copyWith(shadows: [
+                      const Shadow(
+                        color: Colors.red,
+                        blurRadius: 50.0,
+                        offset: Offset(0, 0),
+                      ),
+                    ]),
+                  ),
+                  ShaderMask(
+                    shaderCallback: (bounds) {
+                      return LinearGradient(
+                        colors: [
+                          Colors.red.shade500,
+                          Colors.red,
+                        ],
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                      ).createShader(bounds);
+                    },
+                    child: Text(
+                      "${numberAnimation.value}${widget.subnum ?? ''}",
+                      style: widget.titleStyle ??
+                          GoogleFonts.poppins(
+                            fontWeight: FontWeight.normal,
+                            color: Colors.white,
+                            fontSize: bigFontSize,
+                          ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 10),
+              Text(
+                widget.subtitle,
+                style: widget.subtitleStyle ??
+                    GoogleFonts.poppins(
+                      fontSize: subtitleFontSize,
+                      fontWeight: FontWeight.w500,
+                      color: widget.subtitleColor,
                     ),
                 textAlign: TextAlign.center,
               ),
-            ),
-            const SizedBox(height: 16),
-            Text(
-              widget.subtitle,
-              style: widget.subtitleStyle ??
-                  GoogleFonts.poppins(
-                    fontSize: subtitleFontSize,
-                    fontWeight: FontWeight.w500,
-                    color: widget.subtitleColor,
-                  ),
-              textAlign: TextAlign.center,
-            ),
-          ],
+            ],
+          ),
         );
       },
     );

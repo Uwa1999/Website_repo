@@ -29,6 +29,7 @@ class _AlternativeDeliveriesSolutionState extends State<AlternativeDeliveriesSol
   String errorMessage = '';
   String categoryName = 'Alternative Deliveries Solution';
   int servicesCount = 0;
+  String? _catalogImagePath;
 
   late AnimationController _controller;
   late Animation<double> _animation;
@@ -43,37 +44,32 @@ class _AlternativeDeliveriesSolutionState extends State<AlternativeDeliveriesSol
 
     _animation = Tween<double>(begin: 0, end: 1).animate(_controller);
 
-    fetchAlternativeDeliveriesServices();
+    fetchCatalogData();
   }
 
-  Future<void> fetchAlternativeDeliveriesServices() async {
+  Future<void> fetchCatalogData() async {
+    setState(() {
+      isLoading = true;
+      errorMessage = '';
+    });
+
     try {
       final response = await http.get(
-        Uri.parse('https://dev-api-janus.fortress-asya.com:18043/api/public/v1/catalogs/index'),
+        Uri.parse('https://dev-api-janus.fortress-asya.com:18043/api/public/v1/catalogs/show/12'),
         headers: {'Accept': 'application/json'},
       );
 
       if (response.statusCode == 200) {
         final jsonResponse = json.decode(response.body);
-        final List<dynamic> catalogData = jsonResponse['data']['data'];
+        final data = jsonResponse['data'];
 
-        final alternativeDeliveriesCategory = catalogData.firstWhere(
-              (category) => category['name'] == 'Alternative Deliveries Solution',
-          orElse: () => null,
-        );
-
-        if (alternativeDeliveriesCategory != null) {
-          setState(() {
-            services = alternativeDeliveriesCategory['services'] ?? [];
-            servicesCount = services.length;
-            isLoading = false;
-          });
-        } else {
-          setState(() {
-            isLoading = false;
-            errorMessage = 'Alternative Deliveries Solution category not found';
-          });
-        }
+        setState(() {
+          _catalogImagePath = data['image_path'];
+          services = data['services'] ?? [];
+          servicesCount = services.length;
+          categoryName = data['name'] ?? 'Current Products';
+          isLoading = false;
+        });
       } else {
         setState(() {
           isLoading = false;
@@ -96,8 +92,14 @@ class _AlternativeDeliveriesSolutionState extends State<AlternativeDeliveriesSol
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    const double cardWidth = 250.0;
+    const double cardSpacing = 20.0;
+    const double maxWrapWidth = (cardWidth * 4) + (cardSpacing * 3);
+
     return Column(
       children: [
+        // ... (Header and text widgets)
         const SizedBox(height: 30),
         Center(
           child: GradientText(
@@ -129,19 +131,26 @@ class _AlternativeDeliveriesSolutionState extends State<AlternativeDeliveriesSol
         else if (services.isEmpty)
             const Center(child: Text('No services available'))
           else
-            Wrap(
-              alignment: WrapAlignment.center,
-              spacing: 20,
-              runSpacing: 20,
-              children: services.map((service) {
-                return CustomCardWidgetv1(
-                  title: service['name'] ?? 'No Title',
-                  // description: service['description'] ?? 'No description available',
-                  imagePath: service['image_path'] ?? '',
-                  isNetworkImage: true,
-                  maxWidth: widget.cardWidth,
-                );
-              }).toList(),
+            Center(
+              child: Container(
+                constraints: const BoxConstraints(maxWidth: maxWrapWidth),
+                child: Wrap(
+                  alignment: WrapAlignment.center,
+                  spacing: cardSpacing, // Reduced spacing
+                  runSpacing: cardSpacing,
+                  children: services.map((service) {
+                    return SizedBox(
+                      width: cardWidth,
+                      child: CustomCardWidgetv1(
+                        title: service['name'] ?? 'No Title',
+                        imagePath: service['image_path'] ?? '',
+                        isNetworkImage: true,
+                        maxWidth: cardWidth,
+                      ),
+                    );
+                  }).toList(),
+                ),
+              ),
             ),
       ],
     );

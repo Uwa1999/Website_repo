@@ -6,7 +6,7 @@ class StringConst {
 
   //Nav Section
   static const String HOME = "Home";
-  static const String SERVICES = "Our Products & Services";
+  static const String SERVICES = "Our Products";
   static const String ABOUT_US = "About Us";
   static const String INSIGHTS = "Insights";
   static const String PARTNERS = "Contact Us";

@@ -6,6 +6,7 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/header_secti
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/animation.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/customCard.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/buttons/footer.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
@@ -193,18 +194,37 @@ class CustomCardWidgetv1 extends StatelessWidget {
     Key? key,
   }) : super(key: key);
 
+  // Helper function to determine the image widget
+  Widget _buildImageWidget({required double width, required double height}) {
+    if (imagePath.toLowerCase().endsWith('.svg')) {
+      return SvgPicture.network(
+        imagePath,
+        width: width,
+        height: height,
+        fit: BoxFit.contain,
+        placeholderBuilder: (BuildContext context) => const CircularProgressIndicator(),
+      );
+    } else {
+      ImageProvider<Object> imageProvider = isNetworkImage
+          ? NetworkImage(imagePath) as ImageProvider<Object>
+          : AssetImage(imagePath) as ImageProvider<Object>;
+
+      return Image(
+        image: imageProvider,
+        width: width,
+        height: height,
+        errorBuilder: (context, error, stackTrace) {
+          return const Icon(Icons.error, size: 50);
+        },
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final double screenWidth = MediaQuery.of(context).size.width;
-    final double width =
-        maxWidth ?? (screenWidth > 400 ? 300 : screenWidth * 0.9);
+    final double width = maxWidth ?? (screenWidth > 400 ? 300 : screenWidth * 0.9);
     final bool isMobile = width < 600;
-
-    // Select image source
-    ImageProvider<Object> imageProvider =
-    isNetworkImage ? NetworkImage(imagePath) as ImageProvider<Object>
-        : AssetImage(imagePath) as ImageProvider<Object>;
-
 
     const TextStyle titleTextStyle = TextStyle(
       fontWeight: FontWeight.bold,
@@ -234,14 +254,7 @@ class CustomCardWidgetv1 extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Center(
-            child: Image(
-              image: imageProvider,
-              width: 80,
-              height: 80,
-              errorBuilder: (context, error, stackTrace) {
-                return const Icon(Icons.error, size: 50);
-              },
-            ),
+            child: _buildImageWidget(width: 80, height: 80),
           ),
           const SizedBox(height: 10),
           Text(title, style: titleTextStyle, textAlign: TextAlign.center),
@@ -250,14 +263,7 @@ class CustomCardWidgetv1 extends StatelessWidget {
           : Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Image(
-            image: imageProvider,
-            width: 60,
-            height: 60,
-            errorBuilder: (context, error, stackTrace) {
-              return const Icon(Icons.error, size: 50);
-            },
-          ),
+          _buildImageWidget(width: 60, height: 60),
           const SizedBox(width: 20),
           Expanded(
             child: Text(

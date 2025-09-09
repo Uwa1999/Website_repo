@@ -10,6 +10,7 @@ import '../../../shared/utils/responsive.dart';
 import '../../homepage_screen.dart';
 import '../header_section.dart';
 import '../responsive_navigation/nav_section_mobile.dart';
+import '../responsive_navigation/nav_section_web.dart';
 import '../side_menu.dart';
 
 class AboutUsSectionv2 extends StatefulWidget {
@@ -63,22 +64,6 @@ class _AboutUsSectionv2State extends State<AboutUsSectionv2> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: AppColors.maroon08),
-          onPressed: () {
-            Future.delayed(const Duration(milliseconds: 700), () {
-              Navigator.pushNamed(
-                context,
-                HomepageScreen.route, // Using the named route
-              );
-            });
-          },
-        ),
-        automaticallyImplyLeading: true, // This shows the back button
-      ),
       backgroundColor: Colors.transparent,
       floatingActionButton: Visibility(
         visible: isFabVisible,
@@ -92,25 +77,28 @@ class _AboutUsSectionv2State extends State<AboutUsSectionv2> {
         ),
       ),
       drawer: ResponsiveBuilder(
-        refinedBreakpoints: RefinedBreakpoints(),
         builder: (context, sizingInformation) {
           double screenWidth = sizingInformation.screenSize.width;
-          return screenWidth < RefinedBreakpoints().desktopSmall
+          return screenWidth < 900
               ? const SideMenu()
               : Container();
         },
       ),
       body: Column(
         children: [
-          // ResponsiveBuilder(
-          //   refinedBreakpoints: RefinedBreakpoints(),
-          //   builder: (context, sizingInformation) {
-          //     double screenWidth = sizingInformation.screenSize.width;
-          //     return screenWidth < RefinedBreakpoints().desktopSmall
-          //         ? NavSectionMobile(scaffoldKey: _scaffoldKey)
-          //         : const HeaderSection();
-          //   },
-          // ),
+          // This replaces the AppBar
+          ResponsiveBuilder(
+            builder: (context, sizingInfo) {
+              return sizingInfo.screenSize.width < 900
+                  ? NavSectionMobile(scaffoldKey: _scaffoldKey)
+                  : NavSectionWeb(
+                navItems: navItems,
+                onNavItemSelected: (key) {
+                  Navigator.pushNamed(context, HomepageScreen.route, arguments: key);
+                },
+              );
+            },
+          ),
           Expanded(
             child: SingleChildScrollView(
               controller: _scrollController,

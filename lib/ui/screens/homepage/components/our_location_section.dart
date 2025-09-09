@@ -557,9 +557,19 @@ class _ContactUsPageState extends State<ContactUsPage> {
   final TextEditingController companyController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController phoneController = TextEditingController();
+  final TextEditingController inquiryController = TextEditingController();
   String? companyType;
   bool isChecked = false;
   bool _isSubmitting = false;
+
+  List<dynamic> _companyTypes = [];
+  bool _isLoadingCompanyTypes = true;
+
+  @override
+  void initState() {
+    _fetchCompanyTypes();
+    super.initState();
+  }
 
   void _showTopSnackBar(String message, {bool isError = false}) {
     ScaffoldMessenger.of(context).showSnackBar(
@@ -631,6 +641,7 @@ class _ContactUsPageState extends State<ContactUsPage> {
           "email": emailController.text,
           "phone_number": phoneController.text,
           "company_type": companyType ?? "Startup",
+          "client_message" : inquiryController.text
         }),
       );
 
@@ -671,6 +682,34 @@ class _ContactUsPageState extends State<ContactUsPage> {
           _isSubmitting = false;
         });
       }
+    }
+  }
+
+  Future<void> _fetchCompanyTypes() async {
+    try {
+      final response = await http.get(
+        Uri.parse('https://dev-api-janus.fortress-asya.com:18043/api/public/v1/contact-us/company-type'),
+        headers: {'Accept': 'application/json'},
+      );
+
+      if (response.statusCode == 200) {
+        final jsonResponse = json.decode(response.body);
+        final List<dynamic> typesData = jsonResponse['data'];
+        setState(() {
+          _companyTypes = typesData;
+          _isLoadingCompanyTypes = false;
+        });
+      } else {
+        print('Failed to load company types: ${response.statusCode}');
+        setState(() {
+          _isLoadingCompanyTypes = false;
+        });
+      }
+    } catch (e) {
+      print('Error fetching company types: $e');
+      setState(() {
+        _isLoadingCompanyTypes = false;
+      });
     }
   }
 
@@ -764,21 +803,32 @@ class _ContactUsPageState extends State<ContactUsPage> {
                   const SizedBox(height: 16),
                   SizedBox(
                     width: double.infinity,
-                    child: DropdownButtonFormField<String>(
+                    child: _buildTextField(
+                      controller: inquiryController,
+                      hintText: 'Inquiry',
+                      validatorText: 'Please enter your inquiries.',
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                  SizedBox(
+                    width: double.infinity,
+                    child: _isLoadingCompanyTypes
+                        ? const Center(child: CircularProgressIndicator())
+                        : _companyTypes.isEmpty
+                        ? const Center(child: Text('No company types available.'))
+                        : DropdownButtonFormField<String>(
                       value: companyType,
                       decoration: const InputDecoration(
                         labelText: 'Company Type',
                         border: OutlineInputBorder(),
-                        contentPadding: EdgeInsets.symmetric(
-                            horizontal: 16, vertical: 12),
+                        contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                       ),
-                      items: ['Startup', 'SME', 'Enterprise']
-                          .map((type) =>
-                          DropdownMenuItem(
-                            value: type,
-                            child: Text(type),
-                          ))
-                          .toList(),
+                      items: _companyTypes.map((type) {
+                        return DropdownMenuItem<String>(
+                          value: type['name'],
+                          child: Text(type['name']),
+                        );
+                      }).toList(),
                       onChanged: (value) {
                         setState(() {
                           companyType = value;
@@ -786,9 +836,7 @@ class _ContactUsPageState extends State<ContactUsPage> {
                       },
                     ),
                   ),
-
                   const SizedBox(height: 24),
-
                   /// 👇 Checkbox and Agreement Text
                   GestureDetector(
                     onTap: () {
