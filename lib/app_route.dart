@@ -1,6 +1,7 @@
 // lib/routes/app_routes.dart
 
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/insights/articles/article_section.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/nav_item.dart';
 import 'package:flutter/material.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/admin/auth/login_page.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/admin/auth/registration_page.dart';
@@ -58,7 +59,15 @@ final Map<String, WidgetBuilder> appRoutes = {
   MFIPage.route: (context) => MFIPage(),
   ProductsAndServicesV2.route: (context) => ProductsAndServicesV2(),
   BankingTechnology.route: (context) => BankingTechnology(),
-  AboutUsSectionv2.route: (context) => AboutUsSectionv2(),
+  AboutUsSectionv2.route: (context) {
+    // Extract the arguments passed during navigation.
+    final arguments = ModalRoute.of(context)!.settings.arguments;
+    // Check if arguments are a List<NavItemData> and pass them to the widget.
+    if (arguments is List<NavItemData>) {
+      return AboutUsSectionv2(navItems: arguments);
+    }
+    throw Exception('AboutUsSectionv2 route was called without navItems data.');
+  },
   InsightPage.route: (context) => InsightPage(),
   MissionVision.route: (context) => MissionVision(),
   InsightSection.route: (context) => InsightSection(),

@@ -726,14 +726,12 @@ class _LoginScreenState extends State<LoginScreen> {
         child: Responsive(
           desktop: Stack(
             children: [
-              // Background container - changed to gradient
               Positioned.fill(
                 child: Container(
                   decoration: const BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [Colors.white, Colors.white],
+                    image: DecorationImage(
+                      image: AssetImage('assets/images/background.png'),
+                      fit: BoxFit.cover,
                     ),
                   ),
                 ),
@@ -751,17 +749,11 @@ class _LoginScreenState extends State<LoginScreen> {
                     color: Colors.transparent,
                     child: Padding(
                       padding: const EdgeInsets.only(left: 15, right: 1, bottom: 15, top: 15),
-                      child: ColorFiltered(
-                        colorFilter: const ColorFilter.mode(
-                          Colors.white, // Changed from AppColors.white to match mobile
-                          BlendMode.srcIn,
-                        ),
-                        child: Image.asset(
-                          'assets/images/fdsap.png',
-                          width: 140,
-                          height: 140,
-                          fit: BoxFit.contain,
-                        ),
+                      child: Image.asset(
+                        'assets/images/fdsap_logo_maroon.png',
+                        width: 140,
+                        height: 140,
+                        fit: BoxFit.contain,
                       ),
                     ),
                   ),

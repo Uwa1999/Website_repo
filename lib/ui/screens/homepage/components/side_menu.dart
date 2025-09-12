@@ -14,6 +14,7 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../clients/clients_main.dart';
+import '../../shared/values/keys.dart';
 import '../../shared/widgets/app_drawer.dart';
 import 'our_location_section.dart';
 
@@ -28,25 +29,23 @@ class _SideMenuState extends State<SideMenu>
     with SingleTickerProviderStateMixin {
   late final List<NavItemData> menuItems;
 
-  @override
   void initState() {
     super.initState();
     menuItems = [
-      NavItemData(name: StringConst.HOME, key: GlobalKey(), isSelected: true),
-      // NavItemData(name: StringConst.SERVICES, key: GlobalKey(),),
-      NavItemData(name: StringConst.CLIENT, key: GlobalKey()),
+      NavItemData(name: StringConst.HOME, key: homeKey, isSelected: true),
+      NavItemData(name: StringConst.SERVICES, key: servicesKey),
+      NavItemData(name: StringConst.CLIENT, key: clientKey),
       NavItemData(
         name: StringConst.INSIGHTS,
-        key: GlobalKey(),
+        key: insightsKey,
         destinationBuilder: (context) => ArticleDescInsidev2(),
       ),
       NavItemData(
         name: StringConst.ABOUT_US,
-        key: GlobalKey(),
-        destinationBuilder: (context) => AboutUsSectionv2(),
+        key: aboutUsKey,
+        destinationBuilder: (context) => AboutUsSectionv2(navItems: menuItems),
       ),
-
-      NavItemData(name: StringConst.CONTACT_US, key: GlobalKey()),
+      NavItemData(name: StringConst.CONTACT_US, key: contactKey),
     ];
   }
 

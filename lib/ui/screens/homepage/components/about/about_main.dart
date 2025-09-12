@@ -59,7 +59,7 @@ class _AboutMainState extends State<AboutMain> {
                   AboutSection(),
                   SizedBoxH50(),
                   MissionSection(),
-                  SizedBoxH80(),
+
                   OurTeamSection(),
                   SizedBoxH100(),
                   FooterSection(),

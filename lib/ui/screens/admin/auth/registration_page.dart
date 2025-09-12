@@ -235,10 +235,9 @@ class _RegistrationFormState extends State<RegistrationForm> {
           Positioned.fill(
             child: Container(
               decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [Colors.white, Colors.white],
+                image: DecorationImage(
+                  image: AssetImage('assets/images/background.png'),
+                  fit: BoxFit.cover,
                 ),
               ),
             ),
@@ -256,15 +255,9 @@ class _RegistrationFormState extends State<RegistrationForm> {
                 child: Container(
                   color: Colors.transparent,
                   padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
-                  child: ColorFiltered(
-                    colorFilter: const ColorFilter.mode(
-                      Colors.white,
-                      BlendMode.srcIn,
-                    ),
-                    child: Image.asset(
-                      'assets/images/fdsap.png',
-                      fit: BoxFit.contain,
-                    ),
+                  child: Image.asset(
+                    'assets/images/fdsap_logo_maroon.png',
+                    fit: BoxFit.contain,
                   ),
                 ),
               ),
@@ -613,7 +606,18 @@ class _RegistrationFormState extends State<RegistrationForm> {
                 });
               },
             ),
-            border: const OutlineInputBorder(),
+              border:  OutlineInputBorder(
+                  borderRadius:BorderRadius.circular(5),
+                  borderSide: BorderSide(color: Colors.grey, width: 0.8)
+              ),
+              focusedBorder: OutlineInputBorder(
+                  borderRadius:BorderRadius.circular(5),
+                  borderSide: BorderSide(color: Colors.grey, width: 0.8)
+              ),
+              enabledBorder: OutlineInputBorder(
+                  borderRadius:BorderRadius.circular(5),
+                  borderSide: BorderSide(color: Colors.grey, width: 0.8)
+              )
           ),
           validator: (value) {
             if (value == null || value.isEmpty) {
@@ -655,7 +659,18 @@ class _RegistrationFormState extends State<RegistrationForm> {
                 });
               },
             ),
-            border: const OutlineInputBorder(),
+              border:  OutlineInputBorder(
+                borderRadius:BorderRadius.circular(5),
+                borderSide: BorderSide(color: Colors.grey, width: 0.8)
+              ),
+              focusedBorder: OutlineInputBorder(
+                  borderRadius:BorderRadius.circular(5),
+                  borderSide: BorderSide(color: Colors.grey, width: 0.8)
+              ),
+              enabledBorder: OutlineInputBorder(
+                  borderRadius:BorderRadius.circular(5),
+                  borderSide: BorderSide(color: Colors.grey, width: 0.8)
+              )
           ),
           validator: (value) {
             if (value == null || value.isEmpty) {

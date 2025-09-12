@@ -40,9 +40,11 @@ class _HomepageScreenState extends State<HomepageScreen> {
   void initState() {
     super.initState();
     _scrollController.addListener(_onScroll);
+
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      if (ScrollTarget.targetKey != null) {
-        scrollToSection(ScrollTarget.targetKey!);
+      final GlobalKey? targetKey = ModalRoute.of(context)?.settings.arguments as GlobalKey?;
+      if (targetKey != null) {
+        scrollToSection(targetKey);
       }
     });
   }

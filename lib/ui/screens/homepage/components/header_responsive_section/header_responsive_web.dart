@@ -35,7 +35,7 @@ class _HeaderResponsiveWebState extends State<HeaderResponsiveWeb> {
   Future<void> _fetchImagesAndPrecache() async {
     try {
       final response = await http.get(
-        Uri.parse('https://dev-api-janus.fortress-asya.com:18043/api/public/v1/images'),
+        Uri.parse('https://dev-api-janus.fortress-asya.com:18043/api/public/v1/images/index'),
       );
 
       if (response.statusCode == 200) {

@@ -7,6 +7,7 @@ import 'package:responsive_builder/responsive_builder.dart';
 import '../../../shared/widgets/NavItemData_global.dart';
 import '../../../shared/widgets/buttons/footer.dart';
 import '../../../shared/utils/responsive.dart';
+import '../../../shared/widgets/nav_item.dart';
 import '../../homepage_screen.dart';
 import '../header_section.dart';
 import '../responsive_navigation/nav_section_mobile.dart';
@@ -16,7 +17,11 @@ import '../side_menu.dart';
 class AboutUsSectionv2 extends StatefulWidget {
   static const String route = '/AboutUsSec';
 
-  const AboutUsSectionv2({Key? key}) : super(key: key);
+  // MODIFIED: Added a final variable to hold the navigation items.
+  final List<NavItemData> navItems;
+
+  // MODIFIED: The constructor now requires the navItems list to be passed in.
+  const AboutUsSectionv2({Key? key, required this.navItems}) : super(key: key);
 
   @override
   State<AboutUsSectionv2> createState() => _AboutUsSectionv2State();
@@ -80,7 +85,7 @@ class _AboutUsSectionv2State extends State<AboutUsSectionv2> {
         builder: (context, sizingInformation) {
           double screenWidth = sizingInformation.screenSize.width;
           return screenWidth < 900
-              ? const SideMenu()
+              ? SideMenu()
               : Container();
         },
       ),
@@ -92,9 +97,11 @@ class _AboutUsSectionv2State extends State<AboutUsSectionv2> {
               return sizingInfo.screenSize.width < 900
                   ? NavSectionMobile(scaffoldKey: _scaffoldKey)
                   : NavSectionWeb(
-                navItems: navItems,
+                // MODIFIED: Access the list from the widget property.
+                navItems: widget.navItems,
                 onNavItemSelected: (key) {
-                  Navigator.pushNamed(context, HomepageScreen.route, arguments: key);
+                  Navigator.pushNamed(context, HomepageScreen.route,
+                      arguments: key);
                 },
               );
             },
@@ -105,7 +112,7 @@ class _AboutUsSectionv2State extends State<AboutUsSectionv2> {
               child: Column(
                 children: [
                   Container(
-                    key: navItems[4].key,
+                    key: widget.navItems[4].key,
                     width: double.infinity,
                     height: 750,
                     padding: const EdgeInsets.only(top: 80, bottom: 80),
@@ -141,10 +148,7 @@ class _AboutUsSectionv2State extends State<AboutUsSectionv2> {
                     ),
                   ),
                   blackSpaceWithImage(context),
-                  const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 32, vertical: 40),
-                    child: Image(image: AssetImage('assets/images/org_chart.png')),
-                  ),
+                  Image(image: AssetImage('assets/images/org_chart.png')),
                   const FooterSectionv2(),
                 ],
               ),
@@ -276,6 +280,9 @@ Widget blackSpaceWithImage(BuildContext context) {
   // Image aspect ratio (adjust based on your image)
   final imageAspectRatio = 3 / 1; // Example: 3 width : 1 height
   final imageHeight = imageWidth / imageAspectRatio;
+
+  final isMobile = screenWidth < 600;
+
   return Stack(
     clipBehavior: Clip.none,
     children: [
@@ -296,24 +303,16 @@ Widget blackSpaceWithImage(BuildContext context) {
             return Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                // AusButton + Listening Text (Stacked)
                 Stack(
                   alignment: Alignment.center,
                   children: [
-                    // Padding(
-                    //   padding: const EdgeInsets.symmetric(vertical: 20),
-                    //   child: Text(
-                    //     'Listening is where the care begins.',
-                    //     style: TextStyle(
-                    //       fontSize: (screenWidth * 0.05).clamp(30.0, 50.0),
-                    //       fontWeight: FontWeight.bold,
-                    //       color: Colors.white,
-                    //     ),
-                    //     textAlign: TextAlign.center,
-                    //   ),
-                    // ),
+                    Image.asset(
+                      'assets/images/_new1.png',
+                      width: isMobile ? screenWidth : screenWidth * 0.8,
+                      fit: isMobile ? BoxFit.contain : BoxFit.cover,
+                    ),
                     Positioned(
-                      top: 170, // Adjust this value to control how high the text appears
+                      bottom: isMobile ? 120 : 500,
                       left: 0,
                       right: 0,
                       child: Text(
@@ -326,22 +325,9 @@ Widget blackSpaceWithImage(BuildContext context) {
                         textAlign: TextAlign.center,
                       ),
                     ),
-                    ClipRect(
-                      child: Align(
-                        alignment: Alignment.bottomCenter, // Change this to crop different areas
-                        heightFactor: 0.6, // 0.5 means show only the top half
-                        child: Image.asset(
-                          'assets/images/_new1.png',
-                          width: MediaQuery.of(context).size.width,
-                          fit: BoxFit.cover, // Use cover to fill the cropping area
-                        ),
-                      ),
-                    ),
                   ],
                 ),
-
                 SizedBox(height: 150),
-
                 // Mission Section
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: 40),
@@ -393,7 +379,6 @@ Widget blackSpaceWithImage(BuildContext context) {
                     ],
                   ),
                 ),
-
                 // Vision Section
                 Padding(
                   padding: EdgeInsets.symmetric(vertical: 80),
@@ -443,7 +428,6 @@ Widget blackSpaceWithImage(BuildContext context) {
           },
         ),
       ),
-
       // Group photo positioned above, outside the black container
       Positioned(
         top: -imageHeight * 1.3,

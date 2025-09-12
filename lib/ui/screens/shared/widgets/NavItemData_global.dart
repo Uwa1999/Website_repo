@@ -33,7 +33,7 @@ List<NavItemData> navItems = [
   ),
   NavItemData(
     name: StringConst.ABOUT_US,
-    destinationBuilder: (context) => AboutUsSectionv2(),
+    destinationBuilder: (context) => AboutUsSectionv2(navItems: navItems),
   ),
   NavItemData(
     name: StringConst.CONTACT_US,
