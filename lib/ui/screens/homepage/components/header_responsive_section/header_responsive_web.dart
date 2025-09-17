@@ -139,22 +139,22 @@ class _HeaderResponsiveWebState extends State<HeaderResponsiveWeb> {
                       fit: BoxFit.contain,
                     ),
                     Positioned(
-                      left: constraints.maxWidth * 0.1,
+                      left: constraints.maxWidth * 0.08,
                       child: SizedBox(
                         width: 300,
                         child: textBox(
-                          'Providing world class core banking software in the regional economy and community with short',
-                          TextAlign.start,
+                          'Providing world class core banking\nsoftware in the regional economy\nand community with short',
+                          TextAlign.justify,
                         ),
                       ),
                     ),
                     Positioned(
-                      right: constraints.maxWidth * 0.1,
+                      right: constraints.maxWidth * 0.08,
                       child: SizedBox(
                         width: 300,
                         child: textBox(
-                          'Implementation time, tailor-made services, and redefining the holistic customer experiences.',
-                          TextAlign.start,
+                          'Implementation time, tailor-made\nservices, and redefining the\nholistic customer experiences.',
+                          TextAlign.justify,
                         ),
                       ),
                     ),
@@ -247,7 +247,7 @@ class _HeaderResponsiveWebState extends State<HeaderResponsiveWeb> {
       child: Text(
         text,
         textAlign: textAlign,
-        style: const TextStyle(fontSize: 16),
+        style: const TextStyle(fontSize: 14),
       ),
     );
   }

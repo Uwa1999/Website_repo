@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/gradientcustomtext.dart';
 import 'package:http/http.dart' as http;
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/footer_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/header_section.dart';
@@ -293,7 +294,7 @@ class _ClientsListState extends State<ClientsList> with SingleTickerProviderStat
           return Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Come and Join us', style: baseTextStyle),
+              Text('Come and Join us all-in-one', style: baseTextStyle),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
@@ -333,12 +334,45 @@ class _ClientsListState extends State<ClientsList> with SingleTickerProviderStat
                 crossAxisAlignment: WrapCrossAlignment.center,
                 spacing: 4,
                 children: [
-                  Text('Come and Join us using our', style: baseTextStyle),
-                  // AnimatedGradientText(
-                  //   animation: _animation,
-                  //   text: 'all-in-one',
-                  //   fontSize: fontSize,
-                  // ),
+                  Text(
+                    'Come and Join us using our ',
+                    style: baseTextStyle,
+                  ),
+                  Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      Text(
+                        'all-in-one',
+                        style: baseTextStyle.copyWith(
+                          color: Colors.white, // The color of the text for the glow effect
+                          shadows: [
+                            Shadow(
+                              color: Colors.black.withOpacity(0.5),
+                              blurRadius: 30,
+                              offset: Offset(0, 0),
+                            ),
+                          ],
+                        ),
+                      ),
+                      // Top Layer: The gradient text that sits on top of the glow
+                      ShaderMask(
+                        shaderCallback: (bounds) {
+                          return const LinearGradient(
+                            colors: [Color(0xFFA15C55), Color(0xFFDA503F)],
+                            begin: Alignment.bottomLeft,
+                            end: Alignment.topRight,
+                          ).createShader(bounds);
+                        },
+                        child: Text(
+                          'all-in-one',
+                          style: baseTextStyle.copyWith(
+                            color: Colors.white,
+                            shadows: null, // Ensure no shadows are applied here
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                   SizedBox(
                     width: 30,
                     height: 30,

@@ -1,5 +1,6 @@
 // lib/routes/app_routes.dart
 
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/admin/user_management/user_management.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/insights/articles/article_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/nav_item.dart';
 import 'package:flutter/material.dart';
@@ -41,6 +42,7 @@ final Map<String, WidgetBuilder> appRoutes = {
   LoginScreen.route: (context) => LoginScreen(),
   RegistrationForm.route: (context) => RegistrationForm(),
   ProductsAndServices.route: (context) => ProductsAndServices(),
+  UserManagement.route: (context) => UserManagement(),
   DashboardScreen.route: (context) => DashboardScreen(searchQuery: ''),
   AddInsightForm.route: (context) => AddInsightForm(),
   HomepageScreen.route: (context) => HomepageScreen(),

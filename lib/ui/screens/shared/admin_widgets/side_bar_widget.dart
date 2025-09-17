@@ -1,5 +1,7 @@
+import 'package:FDS_ASYA_PHILIPPINES/core/provider/user_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
+import 'package:provider/provider.dart';
 import 'dart:html' as html;
 
 import 'package:shared_preferences/shared_preferences.dart';
@@ -108,7 +110,21 @@ class _SideNavigationState extends State<SideNavigation> {
   // }
 
   @override
+  void initState() {
+    super.initState();
+    _loadUserRole();
+  }
+
+  void _loadUserRole() {
+    final userProvider = Provider.of<UserProvider>(context, listen: false);
+    userProvider.loadUserFromPrefs();
+  }
+
+  @override
   Widget build(BuildContext context) {
+
+    final userProvider = Provider.of<UserProvider>(context);
+
     return Container(
       color: const Color(0xFFEFEFEF),
       child: SafeArea(
@@ -198,6 +214,27 @@ class _SideNavigationState extends State<SideNavigation> {
                 ),
               ),
             ),
+
+            if (userProvider.roleName == 'Super Admin')
+              GestureDetector(
+                onTap: () => widget.onItemSelected('user management'),
+                child: Container(
+                  color: widget.selectedItem == 'user management'
+                      ? const Color(0xFF630606)
+                      : Colors.transparent,
+                  child: ListTile(
+                    leading: Icon(Icons.supervised_user_circle_rounded,
+                        color: widget.selectedItem == 'user management'
+                            ? Colors.white
+                            : Colors.black),
+                    title: Text('Users',
+                        style: TextStyle(
+                            color: widget.selectedItem == 'user management'
+                                ? Colors.white
+                                : Colors.black)),
+                  ),
+                ),
+              ),
 
             // Spacer to push logout button to bottom
             // const Spacer(),

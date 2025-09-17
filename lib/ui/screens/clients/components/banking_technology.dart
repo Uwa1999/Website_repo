@@ -159,7 +159,7 @@ class _BankingTechnologyState extends State<BankingTechnology> with TickerProvid
                         runSpacing: 20,
                         children: services.map((service) {
                           return CustomCardWidgetv1(
-                            title: service['name'] ?? 'No Title',
+                            // title: service['name'] ?? 'No Title',
                             // description: service['description'] ?? 'No description available',
                             imagePath: service['image_path'] ?? '',
                             isNetworkImage: true, // Add this flag for network images
@@ -181,27 +181,24 @@ class _BankingTechnologyState extends State<BankingTechnology> with TickerProvid
 }
 
 class CustomCardWidgetv1 extends StatelessWidget {
-  final String title;
   final String imagePath;
   final bool isNetworkImage;
   final double? maxWidth;
 
   const CustomCardWidgetv1({
-    required this.title,
     required this.imagePath,
     this.isNetworkImage = false,
     this.maxWidth,
     Key? key,
   }) : super(key: key);
 
-  // Helper function to determine the image widget
   Widget _buildImageWidget({required double width, required double height}) {
     if (imagePath.toLowerCase().endsWith('.svg')) {
       return SvgPicture.network(
         imagePath,
         width: width,
         height: height,
-        fit: BoxFit.contain,
+        fit: BoxFit.fill,
         placeholderBuilder: (BuildContext context) => const CircularProgressIndicator(),
       );
     } else {
@@ -222,21 +219,13 @@ class CustomCardWidgetv1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double screenWidth = MediaQuery.of(context).size.width;
-    final double width = maxWidth ?? (screenWidth > 400 ? 300 : screenWidth * 0.9);
-    final bool isMobile = width < 600;
-
-    const TextStyle titleTextStyle = TextStyle(
-      fontWeight: FontWeight.bold,
-      fontSize: 18,
-      color: Colors.black,
-      decoration: TextDecoration.none,
-    );
+    const double cardSize = 190.0;
+    const double imageSize = cardSize * 1.5;
 
     return Container(
-      width: 190,
-      height: 190,
-      padding: const EdgeInsets.all(20),
+      width: cardSize,
+      height: cardSize,
+      padding: const EdgeInsets.all(8),
       decoration: BoxDecoration(
         border: Border.all(color: Colors.grey.shade300),
         borderRadius: BorderRadius.circular(16),
@@ -249,29 +238,11 @@ class CustomCardWidgetv1 extends StatelessWidget {
           ),
         ],
       ),
-      child: isMobile
-          ? Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Center(
-            child: _buildImageWidget(width: 80, height: 80),
-          ),
-          const SizedBox(height: 10),
-          Text(title, style: titleTextStyle, textAlign: TextAlign.center),
-        ],
-      )
-          : Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          _buildImageWidget(width: 60, height: 60),
-          const SizedBox(width: 20),
-          Expanded(
-            child: Text(
-              title,
-              style: titleTextStyle,
-            ),
-          ),
-        ],
+      child: Center(
+        child: _buildImageWidget(
+          width: imageSize,
+          height: imageSize,
+        ),
       ),
     );
   }

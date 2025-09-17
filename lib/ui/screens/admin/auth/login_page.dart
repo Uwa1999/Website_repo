@@ -594,6 +594,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
           final adminUser = responseData['data']['admin_user'];
           final roleId = adminUser['role_id'].toString();
+          final roleName = adminUser['role_name'].toString();
           final token = responseData['data']['jwt_token'];
           final username = adminUser['username'] ?? usernameController.text;
 
@@ -604,6 +605,7 @@ class _LoginScreenState extends State<LoginScreen> {
           await prefs.setString('lastname', adminUser['lastname'] ?? '');
           await prefs.setString('email', adminUser['email'] ?? '');
           await prefs.setString('role_id', roleId);
+          await prefs.setString('role_name', roleName);
 
           final userProvider = Provider.of<UserProvider>(context, listen: false);
           userProvider.setUser(
@@ -613,9 +615,12 @@ class _LoginScreenState extends State<LoginScreen> {
             email: adminUser['email'] ?? '',
             token: token,
             roleId: roleId,
+            roleName: roleName
           );
 
-          if (roleId == '4') {
+          print(roleName);
+
+          if (roleName == 'Administrator' || roleName == 'Super Admin') {
             Navigator.pushNamedAndRemoveUntil(
               context,
               MainScreen.route,
@@ -744,17 +749,15 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: ClipPath(
                   clipper: CustomClipPath(),
                   child: Container(
-                    width: 200,
-                    height: 90,
+                    // Adjust container size to match the new logo dimensions
+                    width: 130,
+                    height: 70,
                     color: Colors.transparent,
-                    child: Padding(
-                      padding: const EdgeInsets.only(left: 15, right: 1, bottom: 15, top: 15),
-                      child: Image.asset(
-                        'assets/images/fdsap_logo_maroon.png',
-                        width: 140,
-                        height: 140,
-                        fit: BoxFit.contain,
-                      ),
+                    child: Image.asset(
+                      'assets/images/fdsap_logo_maroon.png',
+                      width: 120,
+                      height: 60,
+                      fit: BoxFit.contain,
                     ),
                   ),
                 ),
@@ -912,32 +915,32 @@ class _LoginScreenState extends State<LoginScreen> {
                                 textAlign: TextAlign.center,
                                 text: TextSpan(
                                   children: [
-                                    const TextSpan(
-                                      text: 'Do not have an account? Click here to ',
-                                      style: TextStyle(
-                                        fontSize: 13,
-                                        height: 1.8,
-                                        color: Colors.black, // Changed from AppColors.black
-                                        fontWeight: FontWeight.w100,
-                                      ),
-                                    ),
-                                    TextSpan(
-                                      text: 'Create\n',
-                                      style: const TextStyle(
-                                        fontSize: 13,
-                                        height: 1.8,
-                                        color: Colors.blue,
-                                        decoration: TextDecoration.underline,
-                                      ),
-                                      recognizer: TapGestureRecognizer()
-                                        ..onTap = () {
-                                          if (kDebugMode) {
-                                            print('-----Create Account Screen-----');
-                                          }
-                                          Navigator.pushReplacementNamed(context, RegistrationForm.route);
-
-                                        },
-                                    ),
+                                    // const TextSpan(
+                                    //   text: 'Do not have an account? Click here to ',
+                                    //   style: TextStyle(
+                                    //     fontSize: 13,
+                                    //     height: 1.8,
+                                    //     color: Colors.black, // Changed from AppColors.black
+                                    //     fontWeight: FontWeight.w100,
+                                    //   ),
+                                    // ),
+                                    // TextSpan(
+                                    //   text: 'Create\n',
+                                    //   style: const TextStyle(
+                                    //     fontSize: 13,
+                                    //     height: 1.8,
+                                    //     color: Colors.blue,
+                                    //     decoration: TextDecoration.underline,
+                                    //   ),
+                                    //   recognizer: TapGestureRecognizer()
+                                    //     ..onTap = () {
+                                    //       if (kDebugMode) {
+                                    //         print('-----Create Account Screen-----');
+                                    //       }
+                                    //       Navigator.pushReplacementNamed(context, RegistrationForm.route);
+                                    //
+                                    //     },
+                                    // ),
                                     TextSpan(
                                       text: 'Forgot Password?',
                                       style: const TextStyle(
@@ -980,7 +983,7 @@ class _LoginScreenState extends State<LoginScreen> {
               // Logo at top-left
               Positioned(
                 top: 20,
-                left: 20,
+                left: 120,
                 child: SizedBox(
                   width: size.width * 0.5,
                   height: size.width * 0.2,
@@ -1182,24 +1185,24 @@ class _LoginScreenState extends State<LoginScreen> {
                                     fontWeight: FontWeight.w100,
                                   ),
                                   children: [
-                                    const TextSpan(
-                                      text: 'Do not have an account? Click here to ',
-                                    ),
-                                    TextSpan(
-                                      text: 'Create\n',
-                                      style: const TextStyle(
-                                        color: Colors.blue,
-                                        decoration: TextDecoration.underline,
-                                      ),
-                                      recognizer: TapGestureRecognizer()
-                                        ..onTap = () {
-                                          if (kDebugMode) {
-                                            print('-----Create Account Screen-----');
-                                          }
-                                          Navigator.pushReplacementNamed(context, RegistrationForm.route);
-
-                                        },
-                                    ),
+                                    // const TextSpan(
+                                    //   text: 'Do not have an account? Click here to ',
+                                    // ),
+                                    // TextSpan(
+                                    //   text: 'Create\n',
+                                    //   style: const TextStyle(
+                                    //     color: Colors.blue,
+                                    //     decoration: TextDecoration.underline,
+                                    //   ),
+                                    //   recognizer: TapGestureRecognizer()
+                                    //     ..onTap = () {
+                                    //       if (kDebugMode) {
+                                    //         print('-----Create Account Screen-----');
+                                    //       }
+                                    //       Navigator.pushReplacementNamed(context, RegistrationForm.route);
+                                    //
+                                    //     },
+                                    // ),
                                     const TextSpan(
                                       text: 'Forgot Password? ',
                                     ),

@@ -350,7 +350,6 @@ class _LeadingBankingPartnerItemState extends State<LeadingBankingPartnerItem> w
                   ),
                 ],
               ),
-              const SizedBox(height: 10),
               Text(
                 widget.subtitle,
                 style: widget.subtitleStyle ??

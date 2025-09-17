@@ -1,3 +1,4 @@
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/gradientcustomtext.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/textwidget.dart';
 import 'package:flutter/material.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/responsive_navigation/nav_section_mobile.dart';
@@ -102,24 +103,24 @@ class _AlternativeDeliveriesSolutionState extends State<AlternativeDeliveriesSol
         // ... (Header and text widgets)
         const SizedBox(height: 30),
         Center(
-          child: GradientText(
-            text: categoryName,
-            gradient: LinearGradient(colors: [Colors.black, Colors.redAccent, Colors.red]),
-            style: const TextStyle(fontSize: 50),
-          ),
+          child: GradientCustomText(
+              text: categoryName,
+              style: TextStyle(fontSize: 50),
+              gradient: linearGradient
+          )
         ),
         const SizedBox(height: 10),
         Container(
-          width: 150,
-          height: 40,
+          width: 500,
+          height: 50,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
-            border: Border.all(),
+            border: Border.all(width: 0.5),
           ),
           child: Center(
             child: Text(
-              "$servicesCount services offered",
-              style: const TextStyle(fontSize: 14, color: Colors.black87),
+              "We'd love to share these products with you.",
+              style: const TextStyle(fontSize: 18, color: Colors.black87, fontWeight: FontWeight.bold),
             ),
           ),
         ),
@@ -136,13 +137,12 @@ class _AlternativeDeliveriesSolutionState extends State<AlternativeDeliveriesSol
                 constraints: const BoxConstraints(maxWidth: maxWrapWidth),
                 child: Wrap(
                   alignment: WrapAlignment.center,
-                  spacing: cardSpacing, // Reduced spacing
+                  spacing: cardSpacing,
                   runSpacing: cardSpacing,
                   children: services.map((service) {
                     return SizedBox(
                       width: cardWidth,
                       child: CustomCardWidgetv1(
-                        title: service['name'] ?? 'No Title',
                         imagePath: service['image_path'] ?? '',
                         isNetworkImage: true,
                         maxWidth: cardWidth,

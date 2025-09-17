@@ -805,7 +805,7 @@ class _ContactUsPageState extends State<ContactUsPage> {
                     width: double.infinity,
                     child: _buildTextField(
                       controller: inquiryController,
-                      hintText: 'Inquiry',
+                      hintText: 'Your concern here',
                       validatorText: 'Please enter your inquiries.',
                     ),
                   ),
@@ -818,10 +818,17 @@ class _ContactUsPageState extends State<ContactUsPage> {
                         ? const Center(child: Text('No company types available.'))
                         : DropdownButtonFormField<String>(
                       value: companyType,
-                      decoration: const InputDecoration(
+                      decoration: InputDecoration(
                         labelText: 'Company Type',
-                        border: OutlineInputBorder(),
-                        contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                        labelStyle: TextStyle(
+                          fontSize: 12,
+                          color: Colors.black
+                        ),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: BorderSide(color: Colors.black)
+                        ),
+                        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                       ),
                       items: _companyTypes.map((type) {
                         return DropdownMenuItem<String>(
@@ -837,7 +844,6 @@ class _ContactUsPageState extends State<ContactUsPage> {
                     ),
                   ),
                   const SizedBox(height: 24),
-                  /// 👇 Checkbox and Agreement Text
                   GestureDetector(
                     onTap: () {
                       if (!_allFieldsFilled) {
@@ -862,7 +868,7 @@ class _ContactUsPageState extends State<ContactUsPage> {
                           ),
                           Expanded(
                             child: Padding(
-                              padding: const EdgeInsets.only(top: 12),
+                              padding: const EdgeInsets.only(top: 3),
                               child: Text(
                                 'By submitting this form, you agree to allow FDS ASYA PHILIPPINES INC. to store and process the personal information provided above to contact you about our products and services.',
                                 style: TextStyle(
@@ -876,7 +882,6 @@ class _ContactUsPageState extends State<ContactUsPage> {
                       ),
                     ),
                   ),
-
                   const SizedBox(height: 16),
                   // Submit Button - keeping your exact design
                   ElevatedButton(

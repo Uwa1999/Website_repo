@@ -1,3 +1,4 @@
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/admin/user_management/user_management.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'dart:html' as html;
@@ -570,6 +571,8 @@ class _MainScreenState extends State<MainScreen> {
         return const AddInsightForm();
       case 'products & services':
         return const ProductsAndServices();
+      case 'user management':
+        return const UserManagement();
       default:
         return DashboardScreen(searchQuery: _searchQuery);
     }

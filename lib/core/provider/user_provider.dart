@@ -8,6 +8,7 @@ class UserProvider extends ChangeNotifier {
   String? _email;
   String? _token;
   String? _roleId;
+  String? _roleName;
 
   // Getters
   String? get username => _username;
@@ -16,6 +17,7 @@ class UserProvider extends ChangeNotifier {
   String? get email => _email;
   String? get token => _token;
   String? get roleId => _roleId;
+  String? get roleName => _roleName;
 
   bool get isAuthenticated => _token != null && _token!.isNotEmpty;
 
@@ -26,6 +28,7 @@ class UserProvider extends ChangeNotifier {
     required String email,
     required String token,
     required String roleId,
+    required String roleName,
   }) {
     _username = username;
     _firstname = firstname;
@@ -33,6 +36,7 @@ class UserProvider extends ChangeNotifier {
     _email = email;
     _token = token;
     _roleId = roleId;
+    _roleName = roleName;
     notifyListeners();
   }
 
@@ -43,7 +47,8 @@ class UserProvider extends ChangeNotifier {
     _lastname = prefs.getString('lastname');
     _email = prefs.getString('email');
     _token = prefs.getString('jwt_token');
-    _roleId = prefs.getString('role_id'); // You need to store this too in your login logic
+    _roleId = prefs.getString('role_id');
+    _roleName = prefs.getString('role_name');
     notifyListeners();
   }
 
@@ -57,6 +62,7 @@ class UserProvider extends ChangeNotifier {
     _email = null;
     _token = null;
     _roleId = null;
+    _roleName = null;
     notifyListeners();
   }
 }
