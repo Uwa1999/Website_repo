@@ -153,7 +153,7 @@ class _UpdateInsightFormState extends State<UpdateInsightForm> {
     final DateTime? pickedDate = await showDatePicker(
       context: context,
       initialDate: DateTime.now(),
-      firstDate: DateTime.now(),
+      firstDate: DateTime(2000),
       lastDate: DateTime(2100),
       builder: (BuildContext context, Widget? child) {
         return Theme(
