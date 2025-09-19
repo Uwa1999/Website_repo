@@ -17,10 +17,8 @@ import '../side_menu.dart';
 class AboutUsSectionv2 extends StatefulWidget {
   static const String route = '/AboutUsSec';
 
-  // MODIFIED: Added a final variable to hold the navigation items.
   final List<NavItemData> navItems;
 
-  // MODIFIED: The constructor now requires the navItems list to be passed in.
   const AboutUsSectionv2({Key? key, required this.navItems}) : super(key: key);
 
   @override
@@ -91,13 +89,11 @@ class _AboutUsSectionv2State extends State<AboutUsSectionv2> {
       ),
       body: Column(
         children: [
-          // This replaces the AppBar
           ResponsiveBuilder(
             builder: (context, sizingInfo) {
               return sizingInfo.screenSize.width < 900
                   ? NavSectionMobile(scaffoldKey: _scaffoldKey)
                   : NavSectionWeb(
-                // MODIFIED: Access the list from the widget property.
                 navItems: widget.navItems,
                 onNavItemSelected: (key) {
                   Navigator.pushNamed(context, HomepageScreen.route,
@@ -115,7 +111,7 @@ class _AboutUsSectionv2State extends State<AboutUsSectionv2> {
                     key: widget.navItems[4].key,
                     width: double.infinity,
                     height: 750,
-                    padding: const EdgeInsets.only(top: 80, bottom: 80),
+                    padding: const EdgeInsets.only(top: 70, bottom: 70),
                     child: Column(
                       children: [
                         GradientText(
@@ -158,6 +154,175 @@ class _AboutUsSectionv2State extends State<AboutUsSectionv2> {
       ),
     );
   }
+}
+
+Widget blackSpaceWithImage(BuildContext context) {
+  final screenWidth = MediaQuery.of(context).size.width;
+  final screenHeight = MediaQuery.of(context).size.height;
+
+  final imageWidth = screenWidth + 100;
+
+  final imageAspectRatio = 3 / 1;
+  final imageHeight = imageWidth / imageAspectRatio;
+
+  final isMobile = screenWidth < 600;
+
+  return Stack(
+    clipBehavior: Clip.none,
+    children: [
+
+      Container(
+        width: double.infinity,
+        color: Colors.black,
+        child: LayoutBuilder(
+          builder: (context, constraints) {
+            double screenWidth = constraints.maxWidth;
+            double textFontSize = (screenWidth * 0.03).clamp(30.0, 70.0);
+            double bodyFontSize = (screenWidth * 0.02).clamp(14.0, 20.0);
+            double imageWidth = (screenWidth * 0.3).clamp(200, 400);
+            double rightPadding = screenWidth <= 600 ? 25 : 80;
+            double leftPadding = screenWidth <= 600 ? 16 : 80;
+
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    Image.asset(
+                      'assets/images/Frame 5588.png',
+                      width: isMobile ? screenWidth : screenWidth * 0.8,
+                      fit: isMobile ? BoxFit.contain : BoxFit.cover,
+                    ),
+                    Positioned(
+                      bottom: isMobile ? 120 : 500,
+                      left: 0,
+                      right: 0,
+                      child: Text(
+                        'Listening is where the care begins.',
+                        style: TextStyle(
+                          fontSize: (screenWidth * 0.05).clamp(30.0, 50.0),
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 150),
+                // Mission Section
+                Padding(
+                  padding: EdgeInsets.symmetric(vertical: 40),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Expanded(
+                        flex: 3,
+                        child: Padding(
+                          padding: EdgeInsets.fromLTRB(leftPadding, 0, 16, 16),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'With our Mission',
+                                style: TextStyle(
+                                  fontSize: textFontSize,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                              ),
+                              const SizedBox(height: 50),
+                              Container(
+                                width: 800,
+                                child: Text(
+                                  'To enable customers to enter digitalization with world-class solutions, at an unprecedented speed to market and affordable cost.',
+                                  style: TextStyle(
+                                    fontSize: 30,
+                                    fontWeight: FontWeight.w500,
+                                    color: Colors.white,
+                                  ),
+                                  textAlign: TextAlign.left,
+                                  softWrap: true,
+                                  maxLines: 3,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+
+                      Image.asset(
+                        'assets/images/mission.png',
+                        width: imageWidth,
+                        fit: BoxFit.contain,
+                      ),
+                    ],
+                  ),
+                ),
+                // Vision Section
+                Padding(
+                  padding: EdgeInsets.symmetric(vertical: 80),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Image.asset(
+                        'assets/images/_new2.png',
+                        width: imageWidth,
+                        fit: BoxFit.contain,
+                      ),
+                      Expanded(
+                        flex: 3,
+                        child: Padding(
+                          padding: EdgeInsets.fromLTRB(0, 50, rightPadding, 50),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            children: [
+                              Text(
+                                'and a vision to',
+                                style: TextStyle(
+                                  fontSize: textFontSize,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                              ),
+                              const SizedBox(height: 30),
+                              Text(
+                                'A leading banking partner transforming the regional economy and community through co-creation of value and innovation in the banking ecosystem.',
+                                style: TextStyle(
+                                  fontSize: 30,
+                                  fontWeight: FontWeight.w500,
+                                  color: Colors.white,
+                                ),
+                                textAlign: TextAlign.right,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            );
+          },
+        ),
+      ),
+      // Group photo positioned above, outside the black container
+      Positioned(
+        top: -imageHeight * .93,
+        left: (screenWidth - imageWidth) / 20,
+        child: Image.asset(
+          'assets/images/fdsap_photo.png',
+          width: imageWidth - 100,
+          fit: BoxFit.contain,
+        ),
+      ),
+    ],
+  );
 }
 
 // class _AboutUsSectionv2State extends State<AboutUsSectionv2> {
@@ -269,175 +434,3 @@ class _AboutUsSectionv2State extends State<AboutUsSectionv2> {
 //     );
 //   }
 // }
-
-Widget blackSpaceWithImage(BuildContext context) {
-  final screenWidth = MediaQuery.of(context).size.width;
-  final screenHeight = MediaQuery.of(context).size.height;
-
-  // Responsive image width
-  final imageWidth = screenWidth + 100;
-
-  // Image aspect ratio (adjust based on your image)
-  final imageAspectRatio = 3 / 1; // Example: 3 width : 1 height
-  final imageHeight = imageWidth / imageAspectRatio;
-
-  final isMobile = screenWidth < 600;
-
-  return Stack(
-    clipBehavior: Clip.none,
-    children: [
-
-      Container(
-        width: double.infinity,
-        color: Colors.black,
-        // padding: EdgeInsets.symmetric(vertical: 40),
-        child: LayoutBuilder(
-          builder: (context, constraints) {
-            double screenWidth = constraints.maxWidth;
-            double textFontSize = (screenWidth * 0.03).clamp(30.0, 70.0);
-            double bodyFontSize = (screenWidth * 0.02).clamp(14.0, 20.0);
-            double imageWidth = (screenWidth * 0.3).clamp(200, 400);
-            double rightPadding = screenWidth <= 600 ? 25 : 80;
-            double leftPadding = screenWidth <= 600 ? 16 : 80;
-
-            return Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Stack(
-                  alignment: Alignment.center,
-                  children: [
-                    Image.asset(
-                      'assets/images/_new1.png',
-                      width: isMobile ? screenWidth : screenWidth * 0.8,
-                      fit: isMobile ? BoxFit.contain : BoxFit.cover,
-                    ),
-                    Positioned(
-                      bottom: isMobile ? 120 : 500,
-                      left: 0,
-                      right: 0,
-                      child: Text(
-                        'Listening is where the care begins.',
-                        style: TextStyle(
-                          fontSize: (screenWidth * 0.05).clamp(30.0, 50.0),
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                  ],
-                ),
-                SizedBox(height: 150),
-                // Mission Section
-                Padding(
-                  padding: EdgeInsets.symmetric(vertical: 40),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Expanded(
-                        flex: 3,
-                        child: Padding(
-                          padding: EdgeInsets.fromLTRB(leftPadding, 0, 16, 16),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'With our Mission',
-                                style: TextStyle(
-                                  fontSize: textFontSize,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white,
-                                ),
-                              ),
-                              const SizedBox(height: 50),
-                              Container(
-                                width: 800, // Adjust width based on your layout
-                                child: Text(
-                                  'To enable customers to enter digitalization with world-class solutions, at an unprecedented speed to market and affordable cost.',
-                                  style: TextStyle(
-                                    fontSize: 30,
-                                    fontWeight: FontWeight.w500,
-                                    color: Colors.white,
-                                  ),
-                                  textAlign: TextAlign.left,
-                                  softWrap: true,
-                                  maxLines: 3, // optional: limits to 3 lines
-                                  overflow: TextOverflow.ellipsis, // optional: adds "..." if overflows
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-
-                      Image.asset(
-                        'assets/images/mission.png',
-                        width: imageWidth,
-                        fit: BoxFit.contain,
-                      ),
-                    ],
-                  ),
-                ),
-                // Vision Section
-                Padding(
-                  padding: EdgeInsets.symmetric(vertical: 80),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Image.asset(
-                        'assets/images/_new2.png',
-                        width: imageWidth,
-                        fit: BoxFit.contain,
-                      ),
-                      Expanded(
-                        flex: 3,
-                        child: Padding(
-                          padding: EdgeInsets.fromLTRB(0, 50, rightPadding, 50),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.end,
-                            children: [
-                              Text(
-                                'and a vision to',
-                                style: TextStyle(
-                                  fontSize: textFontSize,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white,
-                                ),
-                              ),
-                              const SizedBox(height: 30),
-                              Text(
-                                'Enable customers to enter digitalization with world-class solutions, at an unprecedented speed to market and affordable cost.',
-                                style: TextStyle(
-                                  fontSize: bodyFontSize,
-                                  fontWeight: FontWeight.w500,
-                                  color: Colors.white,
-                                ),
-                                textAlign: TextAlign.right,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            );
-          },
-        ),
-      ),
-      // Group photo positioned above, outside the black container
-      Positioned(
-        top: -imageHeight * 1.3,
-        left: (screenWidth - imageWidth) / 20,
-        child: Image.asset(
-          'assets/images/grp_photo.png',
-          width: imageWidth - 100,
-          fit: BoxFit.contain,
-        ),
-      ),
-    ],
-  );
-}

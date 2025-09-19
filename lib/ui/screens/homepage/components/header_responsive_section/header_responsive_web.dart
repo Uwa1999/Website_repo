@@ -133,28 +133,37 @@ class _HeaderResponsiveWebState extends State<HeaderResponsiveWeb> {
                 child: Stack(
                   alignment: Alignment.center,
                   children: [
+                    // Image
                     CachedNetworkImage(
                       imageUrl: _glassPhoneImageUrl!,
-                      width: 1100,
+                      width: constraints.maxWidth * 0.8, // Scale image width
                       fit: BoxFit.contain,
                     ),
+                    // Left text box
                     Positioned(
-                      left: constraints.maxWidth * 0.08,
+                      left: constraints.maxWidth * 0.08, // Keep this as it is already responsive
                       child: SizedBox(
-                        width: 300,
-                        child: textBox(
-                          'Providing world class core banking\nsoftware in the regional economy\nand community with short',
-                          TextAlign.justify,
+                        width: constraints.maxWidth * 0.2, // Adjust width based on screen size
+                        child: FittedBox(
+                          fit: BoxFit.scaleDown,
+                          child: textBox(
+                            'Providing world class core banking\nsoftware in the regional economy\nand community with short.',
+                            TextAlign.justify,
+                          ),
                         ),
                       ),
                     ),
+                    // Right text box
                     Positioned(
-                      right: constraints.maxWidth * 0.08,
+                      right: constraints.maxWidth * 0.08, // Keep this as it is already responsive
                       child: SizedBox(
-                        width: 300,
-                        child: textBox(
-                          'Implementation time, tailor-made\nservices, and redefining the\nholistic customer experiences.',
-                          TextAlign.justify,
+                        width: constraints.maxWidth * 0.2, // Adjust width based on screen size
+                        child: FittedBox(
+                          fit: BoxFit.scaleDown,
+                          child: textBox(
+                            'Implementation time, tailor-made\nservices, and redefining the\nholistic customer experiences.',
+                            TextAlign.justify,
+                          ),
                         ),
                       ),
                     ),

@@ -13,6 +13,8 @@ import '../../../../core/provider/user_provider.dart';
 import '../../shared/admin_widgets/text_form_field_widget.dart';
 import '../../shared/utils/responsive.dart';
 import '../../shared/values/colors.dart';
+import '../../shared/values/images.dart';
+import '../../shared/values/sizes.dart';
 import '../homepage/main_screen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -750,13 +752,12 @@ class _LoginScreenState extends State<LoginScreen> {
                   clipper: CustomClipPath(),
                   child: Container(
                     // Adjust container size to match the new logo dimensions
-                    width: 130,
-                    height: 70,
+                    width: 200,
+                    height: 100,
                     color: Colors.transparent,
                     child: Image.asset(
-                      'assets/images/fdsap_logo_maroon.png',
-                      width: 120,
-                      height: 60,
+                      ImagePath.FDSAP_LOGO_MAROON,
+                      height: Sizes.HEIGHT_40,
                       fit: BoxFit.contain,
                     ),
                   ),
