@@ -716,519 +716,213 @@ class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    bool isDesktop = size.width > 600;
 
     return Scaffold(
-      backgroundColor: const Color(0xFF630606).withOpacity(0.50),
+      backgroundColor: Colors.transparent, // Make Scaffold background transparent
       body: RawKeyboardListener(
         focusNode: _keyboardFocusNode,
         autofocus: true,
         onKey: (RawKeyEvent event) {
-          if (event is RawKeyDownEvent &&
-              event.logicalKey == LogicalKeyboardKey.enter) {
+          if (event is RawKeyDownEvent && event.logicalKey == LogicalKeyboardKey.enter) {
             if (formKey.currentState!.validate()) {
               loginUser(usernameController.text, passwordController.text, context);
             }
           }
         },
-        child: Responsive(
-          desktop: Stack(
-            children: [
-              Positioned.fill(
+        child: Stack(
+          children: [
+            // Background image for both mobile and desktop views
+            Positioned.fill(
+              child: Container(
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage('assets/images/background.png'),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+            ),
+
+            // Logo, adapting to mobile/desktop
+            Positioned(
+              top: isDesktop ? 30 : 50,
+              left: isDesktop ? 30 : (size.width - 150) / 2,
+              child: ClipPath(
+                clipper: CustomClipPath(),
                 child: Container(
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                      image: AssetImage('assets/images/background.png'),
-                      fit: BoxFit.cover,
-                    ),
+                  width: isDesktop ? 230 : 150,
+                  height: isDesktop ? 70 : 50,
+                  color: Colors.transparent,
+                  child: Image.asset(
+                    ImagePath.FDSAP_LOGO_MAROON,
+                    fit: BoxFit.contain,
                   ),
                 ),
               ),
+            ),
 
-              // Logo at top-left - simplified and matched to mobile style
-              Positioned(
-                top: 20,
-                left: 20,
-                child: ClipPath(
-                  clipper: CustomClipPath(),
+            // Login Form container
+            Center(
+              child: SingleChildScrollView(
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: isDesktop ? 20 : 20, vertical: isDesktop ? 20 : 100),
                   child: Container(
-                    // Adjust container size to match the new logo dimensions
-                    width: 200,
-                    height: 100,
-                    color: Colors.transparent,
-                    child: Image.asset(
-                      ImagePath.FDSAP_LOGO_MAROON,
-                      height: Sizes.HEIGHT_40,
-                      fit: BoxFit.contain,
+                    width: isDesktop ? size.width * 0.3 : double.infinity,
+                    constraints: BoxConstraints(
+                      maxWidth: isDesktop ? 400 : double.infinity,
+                      minHeight: isDesktop ? 400 : 300,
                     ),
-                  ),
-                ),
-              ),
-
-              // Center login form - improved layout
-              Center(
-                child: SingleChildScrollView(
-                  child: Padding(
-                    padding: const EdgeInsets.all(20),
-                    child: Container(
-                      width: size.width * 0.3,
-                      constraints: BoxConstraints(
-                        maxWidth: 400, // Added max width constraint
-                        minHeight: size.height * 0.6,
-                      ),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(10),
-                        boxShadow: const [
-                          BoxShadow(
-                            color: Colors.black26,
-                            blurRadius: 20,
-                            spreadRadius: 2,
-                            offset: Offset(0, 4),
-                          ),
-                        ],
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(20),
-                        child: Form(
-                          key: formKey,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              const Text(
-                                "V1.0",
-                                style: TextStyle(
-                                  fontSize: 10,
-                                  color: Colors.black12,
-                                 ),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(10),
+                      boxShadow: const [
+                        BoxShadow(
+                          color: Colors.black26,
+                          blurRadius: 20,
+                          spreadRadius: 2,
+                          offset: Offset(0, 4),
+                        ),
+                      ],
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.all(20),
+                      child: Form(
+                        key: formKey,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Text(
+                              "V1.0",
+                              style: TextStyle(
+                                fontSize: 10,
+                                color: Colors.black12,
                               ),
-                              const Text(
-                                "Login",
-                                style: TextStyle(
-                                  fontSize: 26,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.black,
+                            ),
+                            const Text(
+                              "Login",
+                              style: TextStyle(
+                                fontSize: 26,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black,
+                              ),
+                            ),
+                            const SizedBox(height: 20),
+                            TextFormFieldsWidget(
+                              title: "Username",
+                              hintText: "Username",
+                              prefixIcon: Icons.person_outline,
+                              keyboardType: TextInputType.text,
+                              textInputAction: TextInputAction.next,
+                              controller: usernameController,
+                              accountNumberField: false,
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'Please enter your username';
+                                }
+                                if (value.contains(' ')) {
+                                  return 'Username cannot contain spaces';
+                                }
+                                return null;
+                              },
+                            ),
+                            const SizedBox(height: 15),
+                            TextFormFieldsWidget(
+                              title: "Password",
+                              hintText: "Password",
+                              obscureText: obscurePassword,
+                              prefixIcon: Icons.lock_outline,
+                              suffixIcon: obscurePassword ? Icons.visibility : Icons.visibility_off,
+                              keyboardType: TextInputType.text,
+                              textInputAction: TextInputAction.go,
+                              controller: passwordController,
+                              accountNumberField: false,
+                              onFieldSubmitted: (value) {
+                                if (formKey.currentState!.validate()) {
+                                  loginUser(usernameController.text, passwordController.text, context);
+                                }
+                              },
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'Please enter your password';
+                                }
+                                return null;
+                              },
+                            ),
+                            const SizedBox(height: 10),
+                            Align(
+                              alignment: Alignment.centerRight,
+                              child: TextButton(
+                                onPressed: _handleForgotPassword,
+                                child: const Text(
+                                  'Forgot Password?',
+                                  style: TextStyle(
+                                    color: Color(0xFF630606),
+                                    fontSize: 12,
+                                  ),
                                 ),
                               ),
-                              const SizedBox(height: 20), // Added for better spacing
-
-                              // Staff ID Field
-                              TextFormFieldsWidget(
-                                title: "Username",
-                                hintText: "Username",
-                                prefixIcon: Icons.person_outline,
-                                keyboardType: TextInputType.text,
-                                textInputAction: TextInputAction.next,
-                                controller: usernameController,
-                                accountNumberField: false,
-                                validator: (value) {
-                                  if (value == null || value.isEmpty) {
-                                    return 'Please enter your username';
-                                  }
-                                  if (value.contains(' ')) {
-                                    return 'Username cannot contain spaces';
-                                  }
-                                  return null;
-                                },
-                              ),
-                              const SizedBox(height: 15), // Added for better spacing
-
-                              // Password Field
-                              TextFormFieldsWidget(
-                                title: "Password",
-                                hintText: "Password",
-                                obscureText: obscurePassword,
-                                prefixIcon: Icons.lock_outline,
-                                suffixIcon: obscurePassword ? Icons.visibility : Icons.visibility_off,
-                                keyboardType: TextInputType.text,
-                                textInputAction: TextInputAction.go,
-                                controller: passwordController,
-                                accountNumberField: false,
-                                onFieldSubmitted: (value) {
+                            ),
+                            const SizedBox(height: 20),
+                            SizedBox(
+                              width: double.infinity,
+                              child: ElevatedButton(
+                                onPressed: isUserLocked
+                                    ? null
+                                    : () {
                                   if (formKey.currentState!.validate()) {
                                     loginUser(usernameController.text, passwordController.text, context);
                                   }
                                 },
-                                validator: (value) {
-                                  if (value == null || value.isEmpty) {
-                                    return 'Please enter your password';
-                                  }
-                                  // if (value.contains(' ')) {
-                                  //   return 'Password cannot contain spaces';
-                                  // }
-                                  // if (!RegExp(r'[a-z]').hasMatch(value)) {
-                                  //   return 'Must contain at least 1 lowercase letter';
-                                  // }
-                                  // if (!RegExp(r'[A-Z]').hasMatch(value)) {
-                                  //   return 'Must contain at least 1 uppercase letter';
-                                  // }
-                                  // if (!RegExp(r'[0-9]').hasMatch(value)) {
-                                  //   return 'Must contain at least 1 number';
-                                  // }
-                                  // if (!RegExp(r'[!@#$%^&*(),.?":{}|<>=]').hasMatch(value)) {
-                                  //   return 'Must contain at least 1 special character';
-                                  // }
-                                  return null;
-                                },
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: isUserLocked ? Colors.grey : const Color(0xFF630606),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  padding: const EdgeInsets.symmetric(vertical: 15),
+                                ),
+                                child: const Text(
+                                  'LOGIN',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
                               ),
-
-                              // Lockout messages
-                              // if (remainingAttempts < 3)
-                              //   Padding(
-                              //     padding: const EdgeInsets.symmetric(vertical: 8.0),
-                              //     child: Text(
-                              //       'Remaining attempts: $remainingAttempts',
-                              //       style: const TextStyle(
-                              //         color: Colors.red,
-                              //         fontWeight: FontWeight.bold,
-                              //       ),
-                              //     ),
-                              //   ),
-
-                              // Login Button
+                            ),
+                            if (lockoutMessage != null)
                               Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: SizedBox(
-                                  width: double.infinity,
-                                  child: ElevatedButton(
-                                    style: ElevatedButton.styleFrom(
-                                      backgroundColor: const Color(0xFF630606),
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(15),
-                                      ),
-                                      padding: const EdgeInsets.symmetric(vertical: 15),
-                                    ),
-                                    onPressed: () {
-                                      if (formKey.currentState!.validate()) {
-                                        loginUser(usernameController.text, passwordController.text, context);
-                                      }
-                                    },
-                                    child: const Text(
-                                      "LOGIN",
-                                      style: TextStyle(fontSize: 15, color: Colors.white),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              const SizedBox(height: 10),
-
-                              // Footer links
-                              RichText(
-                                textAlign: TextAlign.center,
-                                text: TextSpan(
-                                  children: [
-                                    // const TextSpan(
-                                    //   text: 'Do not have an account? Click here to ',
-                                    //   style: TextStyle(
-                                    //     fontSize: 13,
-                                    //     height: 1.8,
-                                    //     color: Colors.black, // Changed from AppColors.black
-                                    //     fontWeight: FontWeight.w100,
-                                    //   ),
-                                    // ),
-                                    // TextSpan(
-                                    //   text: 'Create\n',
-                                    //   style: const TextStyle(
-                                    //     fontSize: 13,
-                                    //     height: 1.8,
-                                    //     color: Colors.blue,
-                                    //     decoration: TextDecoration.underline,
-                                    //   ),
-                                    //   recognizer: TapGestureRecognizer()
-                                    //     ..onTap = () {
-                                    //       if (kDebugMode) {
-                                    //         print('-----Create Account Screen-----');
-                                    //       }
-                                    //       Navigator.pushReplacementNamed(context, RegistrationForm.route);
-                                    //
-                                    //     },
-                                    // ),
-                                    TextSpan(
-                                      text: 'Forgot Password?',
-                                      style: const TextStyle(
-                                        fontSize: 13,
-                                        height: 1.8,
-                                        color: Colors.blue,
-                                        decoration: TextDecoration.underline,
-                                      ),
-                                      recognizer: TapGestureRecognizer()
-                                        ..onTap = _handleForgotPassword,
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-          mobile: Stack(
-            children: [
-              // Background container
-              Positioned.fill(
-                child: Container(
-                  decoration: const BoxDecoration(
-                    gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
-                      colors: [Color(0xFF630606), Color(0xFF000000)],
-                    ),
-                  ),
-                ),
-              ),
-
-              // Logo at top-left
-              Positioned(
-                top: 20,
-                left: 120,
-                child: SizedBox(
-                  width: size.width * 0.5,
-                  height: size.width * 0.2,
-                  child: ClipPath(
-                    clipper: CustomClipPath(),
-                    child: Container(
-                      color: Colors.transparent,
-                      padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 15),
-                      child: ColorFiltered(
-                        colorFilter: const ColorFilter.mode(
-                          Colors.white,
-                          BlendMode.srcIn,
-                        ),
-                        child: Image.asset(
-                          'assets/images/fdsap.png',
-                          fit: BoxFit.contain,
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-
-              // Center login form
-              Center(
-                child: SingleChildScrollView(
-                  padding: const EdgeInsets.all(20),
-                  child: ConstrainedBox(
-                    constraints: BoxConstraints(
-                      maxWidth: 400,
-                      minHeight: size.height * 0.6,
-                    ),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(10),
-                        boxShadow: const [
-                          BoxShadow(
-                            color: Colors.black26,
-                            blurRadius: 20,
-                            spreadRadius: 2,
-                            offset: Offset(0, 4),
-                          ),
-                        ],
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(20),
-                        child: Form(
-                          key: formKey,
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              const Text(
-                                "Login",
-                                style: TextStyle(
-                                  fontSize: 26,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.black,
-                                ),
-                              ),
-                              const SizedBox(height: 20),
-
-                              // Staff ID Field
-                              TextFormField(
-                                decoration: InputDecoration(
-                                  labelText: "Staff ID",
-                                  hintText: "Enter your Staff ID",
-                                  prefixIcon: const Icon(Icons.person_outline),
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                ),
-                                keyboardType: TextInputType.text,
-                                textInputAction: TextInputAction.next,
-                                controller: usernameController,
-                                validator: (value) {
-                                  if (value == null || value.isEmpty) {
-                                    return 'Please enter your username';
-                                  }
-                                  if (value.contains(' ')) {
-                                    return 'Username cannot contain spaces';
-                                  }
-                                  return null;
-                                },
-                              ),
-                              const SizedBox(height: 15),
-
-                              // Password Field
-                              TextFormField(
-                                decoration: InputDecoration(
-                                  labelText: "Password",
-                                  hintText: "Enter your password",
-                                  prefixIcon: const Icon(Icons.lock_outline),
-                                  suffixIcon: IconButton(
-                                    icon: Icon(
-                                      obscurePassword
-                                          ? Icons.visibility
-                                          : Icons.visibility_off,
-                                    ),
-                                    onPressed: () {
-                                      setState(() {
-                                        obscurePassword = !obscurePassword;
-                                      });
-                                    },
-                                  ),
-                                  border: OutlineInputBorder(
-                                    borderRadius: BorderRadius.circular(10),
-                                  ),
-                                ),
-                                obscureText: obscurePassword,
-                                keyboardType: TextInputType.text,
-                                textInputAction: TextInputAction.go,
-                                controller: passwordController,
-                                onFieldSubmitted: (value) {
-                                  if (formKey.currentState!.validate()) {
-                                    loginUser(
-                                      usernameController.text,
-                                      passwordController.text,
-                                      context,
-                                    );
-                                  }
-                                },
-                                validator: (value) {
-                                  if (value == null || value.isEmpty) {
-                                    return 'Please enter your password';
-                                  }
-                                  // if (value.contains(' ')) {
-                                  //   return 'Password cannot contain spaces';
-                                  // }
-                                  // if (!RegExp(r'[a-z]').hasMatch(value)) {
-                                  //   return 'Must contain at least 1 lowercase letter';
-                                  // }
-                                  // if (!RegExp(r'[A-Z]').hasMatch(value)) {
-                                  //   return 'Must contain at least 1 uppercase letter';
-                                  // }
-                                  // if (!RegExp(r'[0-9]').hasMatch(value)) {
-                                  //   return 'Must contain at least 1 number';
-                                  // }
-                                  // if (!RegExp(r'[!@#$%^&*(),.?":{}|<>=]').hasMatch(value)) {
-                                  //   return 'Must contain at least 1 special character';
-                                  // }
-                                  return null;
-                                },
-                              ),
-                              const SizedBox(height: 15),
-
-                              // Lockout message or remaining attempts
-                              // if (remainingAttempts < 3)
-                              //   Padding(
-                              //     padding: const EdgeInsets.symmetric(vertical: 8.0),
-                              //     child: Text(
-                              //       'Remaining attempts: $remainingAttempts',
-                              //       style: const TextStyle(
-                              //         color: Colors.red,
-                              //         fontWeight: FontWeight.bold,
-                              //       ),
-                              //     ),
-                              //   ),
-
-                              // Login Button
-                              SizedBox(
-                                width: double.infinity,
-                                child: ElevatedButton(
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor: const Color(0xFF630606),
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(15),
-                                    ),
-                                    padding: const EdgeInsets.symmetric(vertical: 15),
-                                  ),
-                                  onPressed: () {
-                                    if (formKey.currentState!.validate()) {
-                                      loginUser(
-                                        usernameController.text,
-                                        passwordController.text,
-                                        context,
-                                      );
-                                    }
-                                  },
-                                  child: const Text(
-                                    "LOGIN",
-                                    style: TextStyle(
-                                      fontSize: 15,
-                                      color: Colors.white,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              const SizedBox(height: 15),
-
-                              // Footer links
-                              RichText(
-                                textAlign: TextAlign.center,
-                                text: TextSpan(
+                                padding: const EdgeInsets.only(top: 10),
+                                child: Text(
+                                  lockoutMessage!,
                                   style: const TextStyle(
-                                    fontSize: 13,
-                                    height: 1.8,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w100,
+                                    color: Colors.red,
+                                    fontSize: 12,
                                   ),
-                                  children: [
-                                    // const TextSpan(
-                                    //   text: 'Do not have an account? Click here to ',
-                                    // ),
-                                    // TextSpan(
-                                    //   text: 'Create\n',
-                                    //   style: const TextStyle(
-                                    //     color: Colors.blue,
-                                    //     decoration: TextDecoration.underline,
-                                    //   ),
-                                    //   recognizer: TapGestureRecognizer()
-                                    //     ..onTap = () {
-                                    //       if (kDebugMode) {
-                                    //         print('-----Create Account Screen-----');
-                                    //       }
-                                    //       Navigator.pushReplacementNamed(context, RegistrationForm.route);
-                                    //
-                                    //     },
-                                    // ),
-                                    const TextSpan(
-                                      text: 'Forgot Password? ',
-                                    ),
-                                    TextSpan(
-                                      text: 'Click here',
-                                      style: const TextStyle(
-                                        color: Colors.blue,
-                                        decoration: TextDecoration.underline,
-                                      ),
-                                      recognizer: TapGestureRecognizer()
-                                        ..onTap = _handleForgotPassword,
-                                    ),
-                                  ],
+                                  textAlign: TextAlign.center,
+                                ),
+                              )
+                            else if (remainingAttempts < 3)
+                              Padding(
+                                padding: const EdgeInsets.only(top: 10),
+                                child: Text(
+                                  'You have $remainingAttempts login attempt(s) remaining.',
+                                  style: const TextStyle(
+                                    color: Colors.orange,
+                                    fontSize: 12,
+                                  ),
+                                  textAlign: TextAlign.center,
                                 ),
                               ),
-                            ],
-                          ),
+                          ],
                         ),
                       ),
                     ),
                   ),
                 ),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

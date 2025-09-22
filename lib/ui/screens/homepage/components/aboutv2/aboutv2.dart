@@ -313,7 +313,7 @@ Widget blackSpaceWithImage(BuildContext context) {
       ),
       // Group photo positioned above, outside the black container
       Positioned(
-        top: -imageHeight * .93,
+        top: -imageHeight * .87,
         left: (screenWidth - imageWidth) / 20,
         child: Image.asset(
           'assets/images/fdsap_photo.png',
