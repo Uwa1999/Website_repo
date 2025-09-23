@@ -136,18 +136,18 @@ class _HeaderResponsiveWebState extends State<HeaderResponsiveWeb> {
                     // Image
                     CachedNetworkImage(
                       imageUrl: _glassPhoneImageUrl!,
-                      width: constraints.maxWidth * 0.8, // Scale image width
+                      width: constraints.maxWidth * 0.8,
                       fit: BoxFit.contain,
                     ),
                     // Left text box
                     Positioned(
-                      left: constraints.maxWidth * 0.08, // Keep this as it is already responsive
+                      left: constraints.maxWidth * 0.08,
                       child: SizedBox(
-                        width: constraints.maxWidth * 0.2, // Adjust width based on screen size
+                        width: constraints.maxWidth * 0.2,
                         child: FittedBox(
                           fit: BoxFit.scaleDown,
                           child: textBox(
-                            'Providing world class core banking\nsoftware in the regional economy\nand community with short.',
+                            'Providing world class core banking\nsoftware in the regional economy\nand community with short',
                             TextAlign.justify,
                           ),
                         ),
@@ -155,13 +155,13 @@ class _HeaderResponsiveWebState extends State<HeaderResponsiveWeb> {
                     ),
                     // Right text box
                     Positioned(
-                      right: constraints.maxWidth * 0.08, // Keep this as it is already responsive
+                      right: constraints.maxWidth * 0.08,
                       child: SizedBox(
-                        width: constraints.maxWidth * 0.2, // Adjust width based on screen size
+                        width: constraints.maxWidth * 0.2,
                         child: FittedBox(
                           fit: BoxFit.scaleDown,
                           child: textBox(
-                            'Implementation time, tailor-made\nservices, and redefining the\nholistic customer experiences.',
+                            'implementation time, tailor-made\nservices, and redefining the\nholistic customer experiences.',
                             TextAlign.justify,
                           ),
                         ),

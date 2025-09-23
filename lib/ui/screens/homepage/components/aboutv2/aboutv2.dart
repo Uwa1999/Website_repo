@@ -1,6 +1,9 @@
+import 'dart:convert';
+
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/homepage/components/aboutv2/components/mission_vision_page.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/textwidget.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:responsive_builder/responsive_builder.dart';
@@ -13,6 +16,7 @@ import '../header_section.dart';
 import '../responsive_navigation/nav_section_mobile.dart';
 import '../responsive_navigation/nav_section_web.dart';
 import '../side_menu.dart';
+import 'package:http/http.dart' as http;
 
 class AboutUsSectionv2 extends StatefulWidget {
   static const String route = '/AboutUsSec';
@@ -28,10 +32,13 @@ class _AboutUsSectionv2State extends State<AboutUsSectionv2> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey();
   final ScrollController _scrollController = ScrollController();
   bool isFabVisible = false;
+  String? _aboutUsImage;
+  bool _isLoading = true;
 
   @override
   void initState() {
     super.initState();
+    fetchImage();
 
     _scrollController.addListener(() {
       final maxScroll = _scrollController.position.maxScrollExtent;
@@ -62,6 +69,47 @@ class _AboutUsSectionv2State extends State<AboutUsSectionv2> {
       curve: Curves.easeInOut,
     );
   }
+
+  Future<void> fetchImage() async {
+    try {
+      final response = await http.get(
+          Uri.parse('https://dev-api-janus.fortress-asya.com:18043/api/public/v1/images/index'),
+        headers: {
+            'Content-Type' : 'application/json; charset=UTF-8',
+        }
+      );
+
+      if (response.statusCode == 200) {
+        final jsonResponse = json.decode(response.body);
+        final List<dynamic> imageData = jsonResponse['data'];
+        final aboutUsImage  = imageData.firstWhere(
+            (image) => image['name'] == 'about-us',
+          orElse: ()=> null,
+        );
+
+        if (aboutUsImage != null) {
+          final imageUrl = aboutUsImage['image_path'];
+          if(mounted) {
+            setState(() {
+              _aboutUsImage = imageUrl;
+              _isLoading = false;
+            });
+            precacheImage(CachedNetworkImageProvider(imageUrl), context);
+          }
+        } else {
+          print('Image with name "about-us" not found.');
+          if (mounted) setState(() => _isLoading = false);
+        }
+      } else {
+        print('Failed to load images: ${response.statusCode}');
+        if (mounted) setState(() => _isLoading = false);
+      }
+    } catch (e) {
+      print('Error fetching images: $e');
+      if (mounted) setState(() => _isLoading = false);
+    }
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -143,7 +191,7 @@ class _AboutUsSectionv2State extends State<AboutUsSectionv2> {
                       ],
                     ),
                   ),
-                  blackSpaceWithImage(context),
+                  blackSpaceWithImage(context, imageUrl: _aboutUsImage),
                   Image(image: AssetImage('assets/images/org_chart.png')),
                   const FooterSectionv2(),
                 ],
@@ -156,7 +204,7 @@ class _AboutUsSectionv2State extends State<AboutUsSectionv2> {
   }
 }
 
-Widget blackSpaceWithImage(BuildContext context) {
+Widget blackSpaceWithImage(BuildContext context, {String? imageUrl}) {
   final screenWidth = MediaQuery.of(context).size.width;
   final screenHeight = MediaQuery.of(context).size.height;
 
@@ -170,7 +218,6 @@ Widget blackSpaceWithImage(BuildContext context) {
   return Stack(
     clipBehavior: Clip.none,
     children: [
-
       Container(
         width: double.infinity,
         color: Colors.black,
@@ -253,7 +300,6 @@ Widget blackSpaceWithImage(BuildContext context) {
                           ),
                         ),
                       ),
-
                       Image.asset(
                         'assets/images/mission.png',
                         width: imageWidth,
@@ -311,14 +357,22 @@ Widget blackSpaceWithImage(BuildContext context) {
           },
         ),
       ),
-      // Group photo positioned above, outside the black container
       Positioned(
-        top: -imageHeight * .87,
+        top: -imageHeight * .77,
         left: (screenWidth - imageWidth) / 20,
-        child: Image.asset(
-          'assets/images/fdsap_photo.png',
+        child: (imageUrl != null && imageUrl.isNotEmpty)
+            ? CachedNetworkImage(
+          imageUrl: imageUrl,
           width: imageWidth - 100,
           fit: BoxFit.contain,
+        )
+            : Container(
+          width: imageWidth - 100,
+          height: (imageWidth - 100) * 0.5,
+          color: Colors.grey[300],
+          child: Center(
+            child: CircularProgressIndicator(),
+          ),
         ),
       ),
     ],
