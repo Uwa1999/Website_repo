@@ -249,7 +249,7 @@ class _TextFormFieldsWidgetState extends State<TextFormFieldsWidget> {
                         child: Icon(
                           widget.suffixIcon,
                           size: 17.0,
-                          color: widget.dynamicColor ? Colors.green : Colors.green,
+                          color: widget.dynamicColor ? Color(0xFF630606) : Color(0xFF630606),
                         ),
                       )
                           : SizedBox(height: 50,),
@@ -397,7 +397,7 @@ class _TextFormFieldsWidgetState extends State<TextFormFieldsWidget> {
                           child: Icon(
                             isTextVisible ? Icons.visibility : Icons.visibility_off_outlined,
                             size: 17.0,
-                            color: widget.dynamicColor ?Colors.green : Colors.green,
+                            color: widget.dynamicColor ? Color(0xFF630606) : Color(0xFF630606),
                           ),
                         ),
                       )
@@ -407,7 +407,7 @@ class _TextFormFieldsWidgetState extends State<TextFormFieldsWidget> {
                         child: Icon(
                           widget.suffixIcon,
                           size: 17.0,
-                          color: widget.dynamicColor ?Colors.green : Colors.green,
+                          color: widget.dynamicColor ? Color(0xFF630606) : Color(0xFF630606),
                         ),
                       )
                           : SizedBox(height: 50,),

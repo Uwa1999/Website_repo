@@ -7,6 +7,8 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/insights/articles/article_screen
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/insights/articles/article_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/insights/articlesv2/components/articlescreenv2.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/insights/articlesv2/components/aticleSectionv2.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/insights/articlesv3/articleHeaderSection.dart';
+import 'package:FDS_ASYA_PHILIPPINES/ui/screens/insights/articlesv3/articleSelection.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/colors.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/values/sizes.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/buttons/footer.dart';
@@ -167,12 +169,12 @@ class _ArticleDescMainState extends State<ArticleDescMain> {
             Future.delayed(const Duration(milliseconds: 700), () {
               Navigator.pushNamed(
                 context,
-                HomepageScreen.route, // Using the named route
+                HomepageScreen.route,
               );
             });
           },
         ),
-        automaticallyImplyLeading: true, // This shows the back button
+        automaticallyImplyLeading: true,
       ),
 
       floatingActionButton: Visibility(
@@ -205,8 +207,10 @@ class _ArticleDescMainState extends State<ArticleDescMain> {
                 children: [
                   Column(
                     children: [
-                      ArticleDescSection(),
-                      ArticleDescScreen(),
+                      ArticleHeaderSection(),
+                      ArticleSelection(),
+                      // ArticleDescSection(),
+                      // ArticleDescScreen(),
                     ],
                   ),
                   SizedBoxH10(),
