@@ -85,7 +85,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Future<bool> _validateEmail(String email) async {
     try {
       final response = await http.get(
-        Uri.parse('https://dev-api-janus.fortress-asya.com:18043/api/public/v1/admin-users/index'),
+        Uri.parse('https://dev-api-janus.fortress-asya.com:18043/api/public/v1/auth/send-otp'),
       );
 
       if (response.statusCode == 200) {
@@ -114,7 +114,6 @@ class _LoginScreenState extends State<LoginScreen> {
       return false;
     }
   }
-
 
   void _handleForgotPassword() {
     showDialog(
@@ -155,10 +154,7 @@ class _LoginScreenState extends State<LoginScreen> {
               backgroundColor: const Color(0xFF630606),
             ),
             onPressed: () async {
-              if (_emailController.text.isEmpty) {
-                _showTopSnackBar('Please enter your email', isError: true);
-                return;
-              }
+              // Check for valid email format first
               if (!RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$').hasMatch(_emailController.text)) {
                 _showTopSnackBar('Please enter a valid email', isError: true);
                 return;
@@ -174,16 +170,7 @@ class _LoginScreenState extends State<LoginScreen> {
               );
 
               try {
-                // First validate the email
-                final isValidEmail = await _validateEmail(_emailController.text);
-                if (!isValidEmail) {
-                  Navigator.pop(context); // Close loading dialog
-                  _showTopSnackBar('Email not found in our system', isError: true);
-                  _emailController.clear();
-                  return;
-                }
-
-                // If email is valid, send OTP
+                // Directly call the send-otp endpoint, which will validate the email's existence on the server
                 final response = await http.post(
                   Uri.parse('https://dev-api-janus.fortress-asya.com:18043/api/public/v1/auth/send-otp'),
                   headers: {'Content-Type': 'application/json'},
@@ -195,17 +182,20 @@ class _LoginScreenState extends State<LoginScreen> {
                 Navigator.pop(context); // Close loading dialog
 
                 if (response.statusCode == 201) {
+                  // Success case: The email was found and OTP was sent
                   final responseData = jsonDecode(response.body);
-                  // Store the OTP from response for validation
-                  final sentOtp = responseData['otp']?.toString(); // Adjust this based on actual response structure
-                  print("-----------------------");
-                  print(response.body);
+                  final sentOtp = responseData['otp']?.toString();
+
                   Navigator.pop(context); // Close email dialog
-                  _showOTPDialog(sentOtp: sentOtp); // Pass the OTP to the dialog
+                  _showOTPDialog(sentOtp: sentOtp);
                   _showTopSnackBar(responseData['message'] ?? 'OTP sent successfully');
                   _emailController.clear();
-                  print("response body: $responseData");
+                } else if (response.statusCode == 404) {
+                  // Email not found or other client-side error as per API documentation
+                  _showTopSnackBar('Email not found in our system', isError: true);
+                  _emailController.clear();
                 } else {
+                  // Other server errors
                   final errorData = jsonDecode(response.body);
                   _showTopSnackBar(errorData['message'] ?? 'Failed to send OTP', isError: true);
                 }
@@ -272,7 +262,6 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
     );
   }
-
 
   void _showChangePasswordDialog() {
     showDialog(
@@ -443,6 +432,7 @@ class _LoginScreenState extends State<LoginScreen> {
       },
     );
   }
+
   Widget _buildRequirementRow(String text, bool isMet, bool hasInput) {
     return Row(
       children: [
@@ -793,7 +783,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             const Text(
-                              "V1.0",
+                              "V1.1",
                               style: TextStyle(
                                 fontSize: 10,
                                 color: Colors.black12,

@@ -1,13 +1,14 @@
-import 'dart:async';
 import 'dart:convert';
 import 'dart:typed_data';
-import 'package:file_picker/file_picker.dart';
+
 import 'package:flutter/material.dart';
+import 'package:file_picker/file_picker.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../shared/admin_widgets/text_editor_widget.dart';
+
 
 class UpdateInsightForm extends StatefulWidget {
   static const String route = '/Admin/UpdateInsight';
@@ -29,7 +30,6 @@ class UpdateInsightForm extends StatefulWidget {
 class _UpdateInsightFormState extends State<UpdateInsightForm> {
   late final TextEditingController _titleController;
   late final TextEditingController _remarksController;
-  late final TextEditingController _eventDateController;
   late final TextEditingController _scheduleDateController;
   late final TextEditingController _timeController;
 
@@ -54,13 +54,13 @@ class _UpdateInsightFormState extends State<UpdateInsightForm> {
     super.initState();
     _titleController = TextEditingController(text: widget.initialData['title']);
     _remarksController = TextEditingController(text: widget.initialData['remarks'] ?? 'Main');
-    _eventDateController = TextEditingController();
-    _scheduleDateController = TextEditingController(text: _formatDate(widget.initialData['event_date']));
+    _scheduleDateController = TextEditingController(
+      text: _formatDate(widget.initialData['event_date']),
+    );
     _timeController = TextEditingController(text: widget.initialData['time'] ?? '');
     _selectedCategory = widget.initialData['category'];
 
     _isEnabled = _parseEnabledStatus(widget.initialData['is_enabled']);
-
     _fetchArticleStatus();
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -76,8 +76,7 @@ class _UpdateInsightFormState extends State<UpdateInsightForm> {
     }
     try {
       final dateTime = DateTime.parse(dateString);
-      final formatter = DateFormat('MMMM d, yyyy : h:mm a');
-
+      final formatter = DateFormat('MMMM d, yyyy');
       return formatter.format(dateTime);
     } catch (e) {
       return 'Invalid Date';
@@ -92,7 +91,7 @@ class _UpdateInsightFormState extends State<UpdateInsightForm> {
     } else if (enabledValue is int) {
       return enabledValue == 1;
     } else {
-      return true; // Default value
+      return true;
     }
   }
 
@@ -114,8 +113,6 @@ class _UpdateInsightFormState extends State<UpdateInsightForm> {
       if (response.statusCode == 200) {
         final jsonData = jsonDecode(response.body);
         final articles = jsonData['data']['data'] as List<dynamic>;
-
-        // Find the specific article by ID
         final article = articles.firstWhere(
               (article) => article['id'] == widget.insightId,
           orElse: () => null,
@@ -140,7 +137,6 @@ class _UpdateInsightFormState extends State<UpdateInsightForm> {
       setState(() {
         _isFetchingStatus = false;
       });
-      // Don't show error for status fetch as we already have the initial data
     }
   }
 
@@ -148,7 +144,6 @@ class _UpdateInsightFormState extends State<UpdateInsightForm> {
   void dispose() {
     _titleController.dispose();
     _remarksController.dispose();
-    _eventDateController.dispose();
     _scheduleDateController.dispose();
     _timeController.dispose();
     super.dispose();
@@ -201,7 +196,7 @@ class _UpdateInsightFormState extends State<UpdateInsightForm> {
 
     if (pickedDate != null) {
       setState(() {
-        controller.text = "${pickedDate.toLocal()}".split(' ')[0];
+        controller.text = _formatDate(pickedDate.toString());
       });
     }
   }
@@ -209,7 +204,7 @@ class _UpdateInsightFormState extends State<UpdateInsightForm> {
   Future<void> _updateInsight() async {
     if (_titleController.text.isEmpty ||
         _selectedCategory == null ||
-        _eventDateController.text.isEmpty) {
+        _scheduleDateController.text.isEmpty) {
       showDialog(
         context: context,
         builder: (_) => const AlertDialog(
@@ -228,10 +223,7 @@ class _UpdateInsightFormState extends State<UpdateInsightForm> {
         throw Exception('Authentication token not found. Please login again.');
       }
 
-      // Get content from editor or fall back to initial content
-      final htmlContent = _editorKey.currentState?.getHtmlContent() ??
-          widget.initialData['content'] ??
-          '';
+      final htmlContent = _editorKey.currentState?.getHtmlContent() ?? widget.initialData['content'] ?? '';
 
       final uri = Uri.parse('https://dev-api-janus.fortress-asya.com:18043/api/private/v1/insights/${widget.insightId}');
       final request = http.MultipartRequest('PUT', uri)
@@ -241,10 +233,10 @@ class _UpdateInsightFormState extends State<UpdateInsightForm> {
         ..fields['content'] = htmlContent
         ..fields['remarks'] = _remarksController.text
         ..fields['category'] = _selectedCategory!
-        ..fields['event_date'] = _eventDateController.text
+        ..fields['event_date'] = _scheduleDateController.text
         ..fields['updated_by'] = 'admin123'
         ..fields['is_published'] = 'true'
-        ..fields['is_enabled'] = _isEnabled.toString(); // Use the enabled state
+        ..fields['is_enabled'] = _isEnabled.toString();
 
       if (_pickedFile != null && _fileBytes != null) {
         request.files.add(http.MultipartFile.fromBytes(
@@ -253,7 +245,6 @@ class _UpdateInsightFormState extends State<UpdateInsightForm> {
           filename: _fileName ?? 'upload.jpg',
         ));
       } else if (widget.initialData['image_path'] != null) {
-        // Include existing image path if no new file was selected
         request.fields['image_path'] = widget.initialData['image_path'];
       }
 
@@ -345,7 +336,7 @@ class _UpdateInsightFormState extends State<UpdateInsightForm> {
                         const Text("Select the calendar date when the event will take place."),
                         const SizedBox(height: 12),
                         GestureDetector(
-                          onTap: () => _selectDate(context, _eventDateController),
+                          onTap: () => _selectDate(context, _scheduleDateController),
                           child: AbsorbPointer(
                             child: TextFormField(
                               controller: _scheduleDateController,
@@ -381,7 +372,6 @@ class _UpdateInsightFormState extends State<UpdateInsightForm> {
                       ],
                     ),
                     const SizedBox(height: 24),
-                    // Add ENABLED switch similar to the catalog form
                     Row(
                       children: [
                         const Text("ENABLED", style: TextStyle(fontWeight: FontWeight.bold)),
