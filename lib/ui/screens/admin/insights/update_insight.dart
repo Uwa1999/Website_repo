@@ -4,6 +4,7 @@ import 'dart:typed_data';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../shared/admin_widgets/text_editor_widget.dart';
@@ -39,7 +40,7 @@ class _UpdateInsightFormState extends State<UpdateInsightForm> {
   String? _selectedCategory;
   bool _isLoading = false;
   bool _isEnabled = true;
-  bool _isFetchingStatus = true; // Add loading state for status fetch
+  bool _isFetchingStatus = true;
 
   final List<DropdownMenuItem<String>> _categoryItems = [
     const DropdownMenuItem(value: 'Articles', child: Text('Articles')),
@@ -54,17 +55,14 @@ class _UpdateInsightFormState extends State<UpdateInsightForm> {
     _titleController = TextEditingController(text: widget.initialData['title']);
     _remarksController = TextEditingController(text: widget.initialData['remarks'] ?? 'Main');
     _eventDateController = TextEditingController();
-    _scheduleDateController = TextEditingController(text: widget.initialData['schedule_date'] ?? '');
+    _scheduleDateController = TextEditingController(text: _formatDate(widget.initialData['event_date']));
     _timeController = TextEditingController(text: widget.initialData['time'] ?? '');
     _selectedCategory = widget.initialData['category'];
 
-    // Initialize with the value from initialData but also fetch the latest status
     _isEnabled = _parseEnabledStatus(widget.initialData['is_enabled']);
 
-    // Fetch the latest status from the API
     _fetchArticleStatus();
 
-    // Initialize editor content after widget is built
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (_editorKey.currentState != null && widget.initialData['content'] != null) {
         _editorKey.currentState!.setHtmlContent(widget.initialData['content']);
@@ -72,7 +70,20 @@ class _UpdateInsightFormState extends State<UpdateInsightForm> {
     });
   }
 
-  // Helper method to parse enabled status from various data types
+  String _formatDate(String? dateString) {
+    if (dateString == null || dateString.isEmpty) {
+      return '';
+    }
+    try {
+      final dateTime = DateTime.parse(dateString);
+      final formatter = DateFormat('MMMM d, yyyy : h:mm a');
+
+      return formatter.format(dateTime);
+    } catch (e) {
+      return 'Invalid Date';
+    }
+  }
+
   bool _parseEnabledStatus(dynamic enabledValue) {
     if (enabledValue is bool) {
       return enabledValue;
@@ -85,7 +96,6 @@ class _UpdateInsightFormState extends State<UpdateInsightForm> {
     }
   }
 
-  // Fetch the latest article status from the API
   Future<void> _fetchArticleStatus() async {
     try {
       final token = await _getAuthToken();
@@ -338,7 +348,7 @@ class _UpdateInsightFormState extends State<UpdateInsightForm> {
                           onTap: () => _selectDate(context, _eventDateController),
                           child: AbsorbPointer(
                             child: TextFormField(
-                              controller: _eventDateController,
+                              controller: _scheduleDateController,
                               decoration: const InputDecoration(
                                 hintText: "Select Date",
                                 border: OutlineInputBorder(),

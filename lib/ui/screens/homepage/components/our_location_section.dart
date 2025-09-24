@@ -10,6 +10,7 @@ import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/content_area.dart
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/nimbus_info_section.dart';
 import 'package:FDS_ASYA_PHILIPPINES/ui/screens/shared/widgets/sizedbox.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_builder/responsive_builder.dart';
@@ -572,18 +573,21 @@ class _ContactUsPageState extends State<ContactUsPage> {
   }
 
   void _showTopSnackBar(String message, {bool isError = false}) {
-    ScaffoldMessenger.of(context).showSnackBar(
+    final screenWidth = MediaQuery.of(context).size.width;
+    final isDesktop = screenWidth > 800;
+
+    final messenger = ScaffoldMessenger.of(context);
+    messenger.hideCurrentSnackBar();
+    messenger.showSnackBar(
       SnackBar(
         content: Text(message),
         backgroundColor: isError ? Colors.red : const Color(0xFF630606),
         behavior: SnackBarBehavior.floating,
         margin: EdgeInsets.only(
-          bottom: MediaQuery
-              .of(context)
-              .size
-              .height - 100,
-          left: 550,
-          right: 550,
+          top: 20,
+          left: isDesktop ? screenWidth * 0.25 : 20,
+          right: isDesktop ? screenWidth * 0.25 : 20,
+          bottom: MediaQuery.of(context).size.height - 120,
         ),
         duration: const Duration(seconds: 3),
         shape: RoundedRectangleBorder(
@@ -592,6 +596,7 @@ class _ContactUsPageState extends State<ContactUsPage> {
       ),
     );
   }
+
   bool get _allFieldsFilled {
     return firstNameController.text.isNotEmpty &&
         lastNameController.text.isNotEmpty &&
@@ -600,6 +605,7 @@ class _ContactUsPageState extends State<ContactUsPage> {
         phoneController.text.isNotEmpty &&
         companyType != null;
   }
+
   void _validateFieldsBeforeCheck() {
     final missingFields = <String>[];
 
@@ -632,7 +638,7 @@ class _ContactUsPageState extends State<ContactUsPage> {
     try {
       final response = await http.post(
         Uri.parse(
-            'https://dev-api-janus.fortress-asya.com:18043/api/public/v1/subscribers/subscribe'),
+            'https://dev-api-janus.fortress-asya.com:18043/api/public/v1/contact-us/send-email'),
         headers: {'Content-Type': 'application/json'},
         body: jsonEncode({
           "first_name": firstNameController.text,
@@ -798,6 +804,7 @@ class _ContactUsPageState extends State<ContactUsPage> {
                       controller: phoneController,
                       hintText: 'Phone Number',
                       validatorText: 'Please enter your phone number.',
+                      isPhoneNumber: true
                     ),
                   ),
                   const SizedBox(height: 16),
@@ -826,14 +833,18 @@ class _ContactUsPageState extends State<ContactUsPage> {
                         ),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(10),
-                          borderSide: BorderSide(color: Colors.black)
+                          borderSide: BorderSide(color: Colors.black),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10),
+                          borderSide: BorderSide(color: Colors.black),
                         ),
                         contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                       ),
                       items: _companyTypes.map((type) {
                         return DropdownMenuItem<String>(
                           value: type['name'],
-                          child: Text(type['name']),
+                          child: Text(type['name'], style: TextStyle(fontSize: 12),),
                         );
                       }).toList(),
                       onChanged: (value) {
@@ -918,11 +929,12 @@ class _ContactUsPageState extends State<ContactUsPage> {
     );
   }
 
-  // Keep your existing _buildTextField method exactly as is
   Widget _buildTextField({
     required TextEditingController controller,
     required String hintText,
     required String validatorText,
+    bool isPhoneNumber = false,
+    bool isEmail = false,
   }) {
     return TextFormField(
       controller: controller,
@@ -959,7 +971,32 @@ class _ContactUsPageState extends State<ContactUsPage> {
         hintText: hintText,
         hintStyle: const TextStyle(fontSize: 12),
       ),
-      validator: (value) => value!.isEmpty ? validatorText : null,
+      keyboardType: isPhoneNumber
+          ? TextInputType.phone
+          : isEmail
+          ? TextInputType.emailAddress
+          : TextInputType.text,
+      inputFormatters: isPhoneNumber
+          ? [
+        FilteringTextInputFormatter.digitsOnly,
+        LengthLimitingTextInputFormatter(11),
+      ]
+          : null,
+      validator: (value) {
+        if (value!.isEmpty) {
+          return validatorText;
+        }
+        if (isPhoneNumber && value.length != 11) {
+          return 'Phone number must be exactly 11 digits.';
+        }
+        if (isEmail) {
+          final emailRegex = RegExp(r'^[^@]+@[^@]+\.[^@]+');
+          if (!emailRegex.hasMatch(value)) {
+            return 'Please enter a valid email address.';
+          }
+        }
+        return null;
+      },
     );
   }
 }
