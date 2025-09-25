@@ -9,6 +9,7 @@ import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../../../core/provider/emailProvider.dart';
 import '../../../../core/provider/user_provider.dart';
 import '../../shared/admin_widgets/text_form_field_widget.dart';
 import '../../shared/utils/responsive.dart';
@@ -170,7 +171,6 @@ class _LoginScreenState extends State<LoginScreen> {
               );
 
               try {
-                // Directly call the send-otp endpoint, which will validate the email's existence on the server
                 final response = await http.post(
                   Uri.parse('https://dev-api-janus.fortress-asya.com:18043/api/public/v1/auth/send-otp'),
                   headers: {'Content-Type': 'application/json'},
@@ -179,28 +179,26 @@ class _LoginScreenState extends State<LoginScreen> {
                   }),
                 );
 
-                Navigator.pop(context); // Close loading dialog
+                Navigator.pop(context);
 
                 if (response.statusCode == 201) {
-                  // Success case: The email was found and OTP was sent
                   final responseData = jsonDecode(response.body);
-                  final sentOtp = responseData['otp']?.toString();
+                  Provider.of<EmailProvider>(context, listen: false).setEmail(_emailController.text);
 
-                  Navigator.pop(context); // Close email dialog
-                  _showOTPDialog(sentOtp: sentOtp);
-                  _showTopSnackBar(responseData['message'] ?? 'OTP sent successfully');
+                  Navigator.pop(context);
                   _emailController.clear();
+                  _showOTPDialog();
+                  _showTopSnackBar(responseData['message'] ?? 'OTP sent successfully');
+
                 } else if (response.statusCode == 404) {
-                  // Email not found or other client-side error as per API documentation
                   _showTopSnackBar('Email not found in our system', isError: true);
                   _emailController.clear();
                 } else {
-                  // Other server errors
                   final errorData = jsonDecode(response.body);
                   _showTopSnackBar(errorData['message'] ?? 'Failed to send OTP', isError: true);
                 }
               } catch (e) {
-                Navigator.pop(context); // Close loading dialog
+                Navigator.pop(context);
                 _showTopSnackBar('Failed to send OTP: ${e.toString()}', isError: true);
               }
             },
@@ -214,7 +212,11 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  void _showOTPDialog({String? sentOtp}) {
+// Inside _showOTPDialog()
+  void _showOTPDialog() {
+    final emailProvider = Provider.of<EmailProvider>(context, listen: false);
+    final email = emailProvider.email;
+
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
@@ -222,9 +224,7 @@ class _LoginScreenState extends State<LoginScreen> {
         content: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text('OTP sent to ${_emailController.text}'),
-            if (sentOtp != null)
-              Text('Debug: OTP is $sentOtp', style: TextStyle(color: Colors.grey)),
+            Text('OTP sent to ${email ?? ''}'),
             const SizedBox(height: 16),
             TextFormField(
               controller: _otpController,
@@ -238,20 +238,56 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
         actions: [
           TextButton(
-            onPressed: () => Navigator.pop(context),
+            onPressed: () {
+              emailProvider.clearEmail();
+              Navigator.pop(context);
+            },
             child: const Text('Cancel'),
           ),
           ElevatedButton(
             style: ElevatedButton.styleFrom(
               backgroundColor: const Color(0xFF630606),
             ),
-            onPressed: () {
+            onPressed: () async {
               if (_otpController.text.isEmpty) {
                 _showTopSnackBar('Please enter the OTP', isError: true);
                 return;
               }
-              Navigator.pop(context); // Close OTP dialog
-              _showChangePasswordDialog(); // Proceed directly to password change
+              showDialog(
+                context: context,
+                barrierDismissible: false,
+                builder: (context) => const Center(
+                  child: CircularProgressIndicator(),
+                ),
+              );
+
+              try {
+                final response = await http.post(
+                  Uri.parse('https://dev-api-janus.fortress-asya.com:18043/api/public/v1/auth/validate-otp'),
+                  headers: {'Content-Type': 'application/json'},
+                  body: jsonEncode({
+                    'email': email,
+                    'otp': _otpController.text,
+                  }),
+                );
+
+                Navigator.pop(context);
+
+                if (response.statusCode == 200) {
+                  final responseData = jsonDecode(response.body);
+                  _showTopSnackBar(responseData['message'] ?? 'OTP verified successfully!');
+
+                  Navigator.pop(context);
+                  _showChangePasswordDialog();
+
+                } else {
+                  final errorData = jsonDecode(response.body);
+                  _showTopSnackBar(errorData['message'] ?? 'Invalid or expired OTP', isError: true);
+                }
+              } catch (e) {
+                Navigator.pop(context);
+                _showTopSnackBar('Failed to verify OTP: ${e.toString()}', isError: true);
+              }
             },
             child: const Text(
               'Verify',

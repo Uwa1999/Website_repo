@@ -1,3 +1,4 @@
+import 'package:FDS_ASYA_PHILIPPINES/core/provider/emailProvider.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:layout/layout.dart';
@@ -25,6 +26,7 @@ void main() async {
         ChangeNotifierProvider<ArticleProvider>.value(
           value: articleProvider,
         ),
+        ChangeNotifierProvider(create: (_) => EmailProvider())
       ],
       child: const Fdsap(),
     ),
