@@ -201,6 +201,21 @@ class _UpdateInsightFormState extends State<UpdateInsightForm> {
     }
   }
 
+  String? _parseAndFormatForApi(String readableDate) {
+    if (readableDate.isEmpty) {
+      return null;
+    }
+    try {
+      final readableFormat = DateFormat('MMMM d, yyyy');
+      final apiFormat = DateFormat('yyyy-MM-dd');
+
+      final dateTime = readableFormat.parse(readableDate);
+      return apiFormat.format(dateTime);
+    } catch (e) {
+      return null;
+    }
+  }
+
   Future<void> _updateInsight() async {
     if (_titleController.text.isEmpty ||
         _selectedCategory == null ||
@@ -210,6 +225,21 @@ class _UpdateInsightFormState extends State<UpdateInsightForm> {
         builder: (_) => const AlertDialog(
           title: Text('Missing Fields'),
           content: Text('Please fill all required fields'),
+        ),
+      );
+      return;
+    }
+
+    // Use the helper function to get the API-friendly date
+    final apiFormattedDate = _parseAndFormatForApi(_scheduleDateController.text);
+
+    if (apiFormattedDate == null) {
+      // Show an error if the date couldn't be parsed
+      showDialog(
+        context: context,
+        builder: (_) => const AlertDialog(
+          title: Text('Invalid Date'),
+          content: Text('The selected date is in an invalid format. Please re-select.'),
         ),
       );
       return;
@@ -233,7 +263,7 @@ class _UpdateInsightFormState extends State<UpdateInsightForm> {
         ..fields['content'] = htmlContent
         ..fields['remarks'] = _remarksController.text
         ..fields['category'] = _selectedCategory!
-        ..fields['event_date'] = _scheduleDateController.text
+        ..fields['event_date'] = apiFormattedDate // Use the formatted date here
         ..fields['updated_by'] = 'admin123'
         ..fields['is_published'] = 'true'
         ..fields['is_enabled'] = _isEnabled.toString();
@@ -244,7 +274,10 @@ class _UpdateInsightFormState extends State<UpdateInsightForm> {
           _fileBytes!,
           filename: _fileName ?? 'upload.jpg',
         ));
-      } else if (widget.initialData['image_path'] != null) {
+      } else if (widget.initialData['image_path'] != null && widget.initialData['image_path'] is String) {
+        // If the user hasn't selected a new image, keep the old one by sending its URL or identifier
+        // Note: Check with your backend API on whether it expects this field when no new file is uploaded
+        // Some APIs prefer this field to be omitted entirely if no new image is provided
         request.fields['image_path'] = widget.initialData['image_path'];
       }
 
@@ -268,11 +301,13 @@ class _UpdateInsightFormState extends State<UpdateInsightForm> {
           ),
         );
       } else {
+        final errorData = jsonDecode(responseBody.body);
+        final errorMessage = errorData['message'] ?? 'Unknown error';
         showDialog(
           context: context,
           builder: (_) => AlertDialog(
             title: const Text('Error'),
-            content: Text('Status: ${response.statusCode}\n${responseBody.body}'),
+            content: Text('Status: ${response.statusCode}\n$errorMessage'),
             actions: [
               TextButton(
                 onPressed: () => Navigator.pop(context),
