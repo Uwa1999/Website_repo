@@ -76,8 +76,10 @@ class _UpdateInsightFormState extends State<UpdateInsightForm> {
     }
     try {
       final dateTime = DateTime.parse(dateString);
+      final localDateTime = dateTime.toLocal();
+
       final formatter = DateFormat('MMMM d, yyyy');
-      return formatter.format(dateTime);
+      return formatter.format(localDateTime);
     } catch (e) {
       return 'Invalid Date';
     }
