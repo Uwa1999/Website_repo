@@ -611,7 +611,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                         ),
                         style: {
                           "body": Style(
-                            fontSize: FontSize(12.0),
+                            fontSize: FontSize(14.0),
                             color: Colors.grey,
                             margin: Margins.zero,
                             padding: HtmlPaddings.zero,
