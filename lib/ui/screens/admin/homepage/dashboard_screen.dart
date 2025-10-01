@@ -43,6 +43,17 @@ class _DashboardScreenState extends State<DashboardScreen> {
     _futureData = _loadData(page: _currentPage);
   }
 
+  String _stripHtmlTags(String htmlString) {
+    // A simple regex to remove all HTML tags: <...>
+    final RegExp exp = RegExp(
+      r"<[^>]*>",
+      multiLine: true,
+      caseSensitive: false,
+    );
+    return htmlString.replaceAll(exp, '');
+  }
+
+
   List<dynamic> get _filteredData {
     List<dynamic> dataToFilter = _currentPageData;
 
@@ -57,21 +68,29 @@ class _DashboardScreenState extends State<DashboardScreen> {
       final query = widget.searchQuery.toLowerCase();
       dataToFilter = dataToFilter.where((item) {
         if (_currentView == 'Insights' && item is Article) {
-          return item.title.toLowerCase().contains(query) ||
-              item.content.toLowerCase().contains(query) ||
+          final plainContent = _stripHtmlTags(item.content).toLowerCase(); // <--- CHANGE 1
+          final plainTitle = _stripHtmlTags(item.title).toLowerCase();      // <--- CHANGE 2
+
+          return plainTitle.contains(query) ||
+              plainContent.contains(query) ||
               item.category.toLowerCase().contains(query) ||
               item.remarks.toLowerCase().contains(query);
         } else if (_currentView == 'Products' && item is Catalog) {
-          return item.name.toLowerCase().contains(query) ||
-              item.description.toLowerCase().contains(query);
+          final plainDescription = _stripHtmlTags(item.description).toLowerCase(); // <--- CHANGE 3
+          final plainName = _stripHtmlTags(item.name).toLowerCase(); // <--- CHANGE 4
+
+          return plainName.contains(query) ||
+              plainDescription.contains(query);
         } else if (_currentView == 'Services' && item is Service) {
-          return item.name.toLowerCase().contains(query) ||
-              item.description.toLowerCase().contains(query);
+          final plainDescription = _stripHtmlTags(item.description).toLowerCase(); // <--- CHANGE 5
+          final plainName = _stripHtmlTags(item.name).toLowerCase(); // <--- CHANGE 6
+
+          return plainName.contains(query) ||
+              plainDescription.contains(query);
         }
         return false;
       }).toList();
     }
-
     return dataToFilter;
   }
 
@@ -562,31 +581,33 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // Title with HTML support and highlighting
-                      Html(
-                        data: _highlightHtmlContent(article.title, widget.searchQuery),
-                        style: {
-                          "body": Style(
-                            fontWeight: FontWeight.bold,
-                            margin: Margins.zero,
-                            padding: HtmlPaddings.zero,
-                            fontSize: FontSize(16.0),
-                            maxLines: 1,
-                            textOverflow: TextOverflow.ellipsis,
-                          ),
-                          "span": Style(
-                            backgroundColor: const Color.fromARGB(0, 0, 0, 0),
-                          ),
-                        },
-                      ),
+                      // Html(
+                      //   data: _highlightHtmlContent(
+                      //     _stripHtmlTags(article.content).length > 50
+                      //         ? '${_stripHtmlTags(article.content).substring(0, 50)}...'
+                      //         : _stripHtmlTags(article.content),
+                      //     widget.searchQuery,
+                      //   ),
+                      //   style: {
+                      //     "body": Style(
+                      //       fontSize: FontSize(12.0),
+                      //       color: Colors.grey,
+                      //       margin: Margins.zero,
+                      //       padding: HtmlPaddings.zero,
+                      //       maxLines: 2,
+                      //       textOverflow: TextOverflow.ellipsis,
+                      //     ),
+                      //     "span": Style(
+                      //       backgroundColor: const Color.fromARGB(0, 0, 0, 0),
+                      //     ),
+                      //   },
+                      // ),
                       const SizedBox(height: 4),
                       // Content with HTML support and highlighting
                       Html(
                         data: _highlightHtmlContent(
-                          article.content.length > 50
-                              ? '${article.content.substring(0, 50)}...'
-                              : article.content,
-                          widget.searchQuery,
+                            _stripHtmlTags(article.title), // <--- Apply _stripHtmlTags here too
+                            widget.searchQuery
                         ),
                         style: {
                           "body": Style(
