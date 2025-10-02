@@ -819,13 +819,6 @@ class _LoginScreenState extends State<LoginScreen> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             const Text(
-                              "V1.2",
-                              style: TextStyle(
-                                fontSize: 10,
-                                color: Colors.black12,
-                              ),
-                            ),
-                            const Text(
                               "Login",
                               style: TextStyle(
                                 fontSize: 26,
@@ -940,6 +933,14 @@ class _LoginScreenState extends State<LoginScreen> {
                                   textAlign: TextAlign.center,
                                 ),
                               ),
+                            const SizedBox(height: 10),
+                            const Text(
+                              "V1.2",
+                              style: TextStyle(
+                                fontSize: 10,
+                                color: Colors.black45,
+                              ),
+                            ),
                           ],
                         ),
                       ),

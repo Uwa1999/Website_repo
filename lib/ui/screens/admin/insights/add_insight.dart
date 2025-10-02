@@ -42,6 +42,16 @@ class _AddInsightFormState extends State<AddInsightForm> {
     const DropdownMenuItem(value: 'News', child: Text('News')),
   ];
 
+  @override
+  void dispose() {
+    _titleController.dispose();
+    _remarksController.dispose();
+    _eventDateController.dispose();
+    _scheduleDateController.dispose();
+    _timeController.dispose();
+    super.dispose();
+  }
+
   Future<String?> _getAuthToken() async {
     final prefs = await SharedPreferences.getInstance();
     return prefs.getString('jwt_token');
@@ -100,6 +110,23 @@ class _AddInsightFormState extends State<AddInsightForm> {
     }
   }
 
+  // Time Picker: formats output as HH:MM
+  Future<void> _selectTime(BuildContext context) async {
+    final TimeOfDay? pickedTime = await showTimePicker(
+      context: context,
+      initialTime: TimeOfDay.now(),
+    );
+
+    if (pickedTime != null) {
+      setState(() {
+        // Format the time as HH:MM
+        final String formattedTime =
+            '${pickedTime.hour.toString().padLeft(2, '0')}:${pickedTime.minute.toString().padLeft(2, '0')}';
+        _timeController.text = formattedTime;
+      });
+    }
+  }
+
   void _showTopSnackBar(String message, {bool isError = false}) {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
@@ -120,7 +147,7 @@ class _AddInsightFormState extends State<AddInsightForm> {
   }
 
   Future<void> _submitForm(bool publishNow) async {
-    // Validate required fields
+    // Validate required fields (Title, Category, Event Date)
     if (_titleController.text.isEmpty ||
         _selectedCategory == null ||
         _eventDateController.text.isEmpty) {
@@ -130,8 +157,29 @@ class _AddInsightFormState extends State<AddInsightForm> {
 
     // Check if an image is selected
     if (_pickedFile == null || _fileBytes == null) {
-      _showTopSnackBar('Please select an image for the insight', isError: true);
+      _showTopSnackBar('An image file is required for the insight.', isError: true);
       return;
+    }
+
+    // --- SCHEDULED PUBLISH VALIDATION (if not publishing now) ---
+    if (!publishNow) {
+      final scheduleDate = _scheduleDateController.text;
+      final scheduleTime = _timeController.text;
+
+      if (scheduleDate.isEmpty || scheduleTime.isEmpty) {
+        _showTopSnackBar('Both Schedule Date and Time must be set to publish on schedule.', isError: true);
+        return;
+      }
+
+      // Regular Expression to match HH:MM format (e.g., 00:00 to 23:59)
+      // Requires two digits, a colon, and two more digits. This fails '1200'.
+      final RegExp timeRegex = RegExp(r'^([01]\d|2[0-3]):([0-5]\d)$');
+
+      if (!timeRegex.hasMatch(scheduleTime)) {
+        // THIS CATCHES invalid formats like '1200'
+        _showTopSnackBar('Invalid Time Format. Please use HH:MM (e.g., 12:00).', isError: true);
+        return;
+      }
     }
 
     setState(() => _isLoading = true);
@@ -165,8 +213,8 @@ class _AddInsightFormState extends State<AddInsightForm> {
       _titleController.clear();
       _remarksController.clear();
       _eventDateController.clear();
-      _scheduleDateController.clear(); // Add this if not present
-      _timeController.clear();         // Add this if not present
+      _scheduleDateController.clear();
+      _timeController.clear();
       _selectedCategory = null;
       _pickedFile = null;
       _fileBytes = null;
@@ -177,7 +225,10 @@ class _AddInsightFormState extends State<AddInsightForm> {
 
   @override
   Widget build(BuildContext context) {
-    final bool hasScheduledDate = _scheduleDateController.text.isNotEmpty;
+    // Check if both schedule date AND time are set to enable the schedule button
+    final bool canSchedule = _scheduleDateController.text.isNotEmpty && _timeController.text.isNotEmpty;
+    // Check if either schedule date OR time is set to show the close icon
+    final bool hasScheduledFields = _scheduleDateController.text.isNotEmpty || _timeController.text.isNotEmpty;
 
     return SingleChildScrollView(
       padding: const EdgeInsets.all(24),
@@ -322,7 +373,7 @@ class _AddInsightFormState extends State<AddInsightForm> {
                     ),
                     const SizedBox(height: 12),
                     DropdownButtonFormField<String>(
-                      value: 'Main',
+                      value: _remarksController.text.isNotEmpty ? _remarksController.text : 'Sub', // Use controller value
                       decoration: const InputDecoration(
                         border: OutlineInputBorder(),
                         contentPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 16),
@@ -381,21 +432,29 @@ class _AddInsightFormState extends State<AddInsightForm> {
                               border: OutlineInputBorder(),
                               suffixIcon: Icon(Icons.calendar_today),
                             ),
+                            onChanged: (_) => setState(() {}), // Trigger rebuild to update button state
                           ),
                         ),
                       ),
                     ),
                     const SizedBox(width: 12),
                     Expanded(
-                      child: TextField(
-                        controller: _timeController,
-                        decoration: const InputDecoration(
-                          hintText: "Input Time",
-                          border: OutlineInputBorder(),
+                      child: GestureDetector(
+                        onTap: () => _selectTime(context),
+                        child: TextFormField(
+                          controller: _timeController,
+                          keyboardType: TextInputType.datetime,
+                          decoration: const InputDecoration(
+                            hintText: "Input Time (e.g., 12:00)",
+                            border: OutlineInputBorder(),
+                            suffixIcon: Icon(Icons.access_time),
+                          ),
+                          // Manual input allowed, validation done in _submitForm
+                          onChanged: (_) => setState(() {}), // Trigger rebuild to update button state
                         ),
                       ),
                     ),
-                    if (hasScheduledDate) ...[
+                    if (hasScheduledFields) ...[
                       const SizedBox(width: 8),
                       IconButton(
                         icon: const Icon(Icons.close, color: Colors.red),
@@ -405,11 +464,12 @@ class _AddInsightFormState extends State<AddInsightForm> {
                     ],
                     const SizedBox(width: 12),
                     ElevatedButton(
-                      onPressed: hasScheduledDate
+                      // Button enabled only when BOTH date and time are set (canSchedule)
+                      onPressed: canSchedule
                           ? () => _submitForm(false)
                           : null,
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: hasScheduledDate
+                        backgroundColor: canSchedule
                             ? const Color(0xFF630606)
                             : Colors.grey,
                       ),
@@ -432,11 +492,12 @@ class _AddInsightFormState extends State<AddInsightForm> {
                   width: 160,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: !hasScheduledDate
+                      // Publish Now is disabled if a schedule is actively being set
+                      backgroundColor: !hasScheduledFields
                           ? const Color(0xFF630606)
                           : Colors.grey,
                     ),
-                    onPressed: !hasScheduledDate
+                    onPressed: !hasScheduledFields
                         ? () => _submitForm(true)
                         : null,
                     child:  _isLoading
