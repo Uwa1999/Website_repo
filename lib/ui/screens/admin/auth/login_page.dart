@@ -781,7 +781,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   height: isDesktop ? 70 : 50,
                   color: Colors.transparent,
                   child: Image.asset(
-                    ImagePath.FDSAP_LOGO_MAROON,
+                    ImagePath.FDSAP_LOGO_MAROON_NEW,
                     fit: BoxFit.contain,
                   ),
                 ),

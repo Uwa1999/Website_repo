@@ -15,6 +15,7 @@ class ImagePath {
 // FDSAP Logo
 //   static const String FDSAP_LOGO_MAROON = "$imageDir/fdsap_logo_maroon.png";
   static const String FDSAP_LOGO_MAROON = "$imageDir/logo-top-right.png";
+  static const String FDSAP_LOGO_MAROON_NEW = "$imageDir/new_fdsap_logo.png";
   static const String FDSAP_LOGO_MAROON_SMALL = "$imageDir/fds.png";
   static const String FDSAP_LOGO_WHITE = "$imageDir/fdsap_logo_white.png";
 

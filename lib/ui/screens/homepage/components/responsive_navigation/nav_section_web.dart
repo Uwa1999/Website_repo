@@ -77,7 +77,7 @@ class _NavSectionWebState extends State<NavSectionWeb> {
                 Navigator.of(context).pushNamed(HomepageScreen.route);
               },
               child: Image.asset(
-                ImagePath.FDSAP_LOGO_MAROON,
+                ImagePath.FDSAP_LOGO_MAROON_NEW,
                 height: Sizes.HEIGHT_40,
               ),
             ),
